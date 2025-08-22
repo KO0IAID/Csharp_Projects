@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpoilerTracker", "SpoilerTracker.csproj", "{1364C9BE-ECE7-4871-99A6-6F2649A3D450}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslationLibrary", "..\TranslationLibrary\TranslationLibrary.csproj", "{13801CA0-E475-4F77-A333-87C2FAC191A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1364C9BE-ECE7-4871-99A6-6F2649A3D450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1364C9BE-ECE7-4871-99A6-6F2649A3D450}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1364C9BE-ECE7-4871-99A6-6F2649A3D450}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1364C9BE-ECE7-4871-99A6-6F2649A3D450}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13801CA0-E475-4F77-A333-87C2FAC191A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13801CA0-E475-4F77-A333-87C2FAC191A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13801CA0-E475-4F77-A333-87C2FAC191A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13801CA0-E475-4F77-A333-87C2FAC191A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2B03C10-848C-45EA-81E3-8C35E9E7B5EC}
+	EndGlobalSection
+EndGlobal

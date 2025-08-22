@@ -1,0 +1,248 @@
+﻿using Microsoft.Win32;
+using SpoilerTracker;
+using System.Collections.Immutable;
+using System.Collections.ObjectModel;
+using System.Configuration;
+using System.Diagnostics;
+using System.IO;
+using System.Numerics;
+using System.Text;
+using System.Text.Json;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using TranslationLibrary.Emotracker.ItemDatabase;
+using TranslationLibrary.Emotracker.LocationDatabase;
+using TranslationLibrary.SpoilerLog.Controller;
+using TranslationLibrary.SpoilerLog.Models;
+
+namespace SpoilerTracker
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        // Spoiler Log 
+        SpoilerLog spoilerLog = new SpoilerLog();
+
+        
+        public MainWindow()
+        {
+            InitializeComponent();
+            AutoLoadSpoilerLog();
+        }
+
+        private async void SpoilerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.Title = "Select a file";
+            ofd.Filter = "Text files (*.txt)| *.txt|All files (*.*)|*.*";
+            var result = ofd.ShowDialog();
+
+            if (result == true && ofd.FileName.Contains("Spoiler"))   
+            { 
+                await spoilerLog.AddFileContents(ofd.FileName);
+
+                SpoilerLogPrompt.Text = "🗹";
+                CurrentHeader.Visibility = Visibility.Visible;
+                FileNamePrompt.Text = System.IO.Path.GetFileName(ofd.FileName);
+                FileDatePrompt.Text = System.IO.File.GetLastWriteTime(ofd.FileName).ToString("g");
+
+            }
+            else if (result == false)
+            {
+                // Canceled out of OFD
+
+            }
+            else if (!ofd.FileName.Contains("Spoiler"))
+            {
+                SpoilerLogPrompt.Text = "🗙"; 
+                FileNamePrompt.Text = "Not a spoiler log";
+            }
+
+
+                BindCollections();
+                
+
+        }
+        private void TrackerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.Title = "Select a file";
+            ofd.Filter = "Json file (*.json)| *.json|All files (*.*)|*.*";
+
+            if      (ofd.ShowDialog() == true && ofd.FileName.Contains("Tracker"))  { TrackerPrompt.Text = "🗹"; }
+            else if (!ofd.FileName.Contains("Tracker"))                             { TrackerPrompt.Text = "🗙"; }
+        }
+        private void SwapEntranceColumnsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (EntranceColumn.Binding is Binding binding && binding.Path?.Path == "ShortEntrance")
+            {
+                EntranceColumn.Binding = new Binding("LongEntrance");
+                DestinationColumn.Binding = new Binding("LongDestination");
+                spoilerLog.SortCollections("LongEntrances");
+                SwapEntranceStyleBtn.Content = "Swap To Short Names";
+            }
+            else
+            {
+                EntranceColumn.Binding = new Binding("ShortEntrance");
+                DestinationColumn.Binding = new Binding("ShortDestination");
+                spoilerLog.SortCollections("ShortEntrances");
+                SwapEntranceStyleBtn.Content = "Swap To Long Names";
+
+            }
+        }
+
+
+
+        private async void BindCollections()
+        {
+            SeedInfoListbox.ItemsSource = spoilerLog.SeedInfo;
+            GameSettingListbox.ItemsSource = spoilerLog.GameSettings;
+            SpecialConditionsListbox.ItemsSource = spoilerLog.SpecialConditions;
+            JunkLocationsListbox.ItemsSource= spoilerLog.JunkLocations;
+            WorldFlagsDataGrid.ItemsSource = spoilerLog.WorldFlags;
+
+
+            EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
+
+
+
+            UpdateUIColumns();
+        }
+
+        
+
+
+        private async void AutoLoadSpoilerCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if (AutoLoadSpoilerCheckBox.IsChecked == false)
+            {
+                // Clear the saved folder path when unchecked
+                SettingsManager.ClearFolderPath();
+                FolderPathPrompt.Text = "";
+
+                // Reset UI elements
+                if (!spoilerLog.HasValue())
+                {
+                    CurrentHeader.Visibility = Visibility.Hidden;
+                    FileNamePrompt.Text = "";
+                    FileDatePrompt.Text = string.Empty;
+                    SpoilerLogPrompt.Text = string.Empty;
+
+                }
+
+                return;
+            }
+
+            var dialog = new OpenFolderDialog();
+
+            if (dialog.ShowDialog() == true && !string.IsNullOrWhiteSpace(dialog.FolderName))
+            {
+                // Save it
+                SettingsManager.SaveFolderPath(dialog.FolderName);
+
+                // Load most recent file
+                string? recent = SettingsManager.GetMostRecentSpoilerLogFullPath(dialog.FolderName);
+                if (recent != null)
+                {
+                    await spoilerLog.AddFileContents(recent);
+
+                    SpoilerLogPrompt.Text = "🗹";
+                    FolderPathPrompt.Text = SettingsManager.LoadFolderPath();
+
+                    CurrentHeader.Visibility = Visibility.Visible;
+                    FileNamePrompt.Text = System.IO.Path.GetFileName(recent);
+                    FileDatePrompt.Text = System.IO.File.GetLastWriteTime(recent).ToString("g");
+
+                    BindCollections();
+
+                }
+                else
+                {
+                    // Handle the case when no matching file is found
+                    FolderPathPrompt.Text = SettingsManager.LoadFolderPath();
+                    SpoilerLogPrompt.Text = "🗙";
+
+                    CurrentHeader.Visibility = Visibility.Hidden;
+                    FileNamePrompt.Text = "No Spoiler logs found";
+                    FileDatePrompt.Text = string.Empty;
+                }
+            }
+        }
+        private async Task AutoLoadSpoilerLog()
+        {
+            // Load the saved folder path from the settings
+            string? savedFolder = SettingsManager.LoadFolderPath();
+
+            if (!string.IsNullOrEmpty(savedFolder))
+            {
+                // If a folder path is set, keep the checkbox checked
+                AutoLoadSpoilerCheckBox.IsChecked = true;
+
+                // Get the most recent spoiler log file from the folder
+                string? recentFile = SettingsManager.GetMostRecentSpoilerLogFullPath(savedFolder);
+
+                if (!string.IsNullOrEmpty(recentFile))
+                {
+                    // Load the file contents
+                    await spoilerLog.AddFileContents(recentFile);
+
+                    // Update UI elements
+                    FolderPathPrompt.Text = SettingsManager.LoadFolderPath();
+                    SpoilerLogPrompt.Text = "🗹";
+
+                    CurrentHeader.Visibility = Visibility.Visible;
+                    FileNamePrompt.Text = System.IO.Path.GetFileName(recentFile);
+                    FileDatePrompt.Text = System.IO.File.GetLastWriteTime(recentFile).ToString("g");
+
+                    BindCollections();
+                }
+                else
+                {
+                    // No recent file found
+                    FileNamePrompt.Text = "No spoiler log in folder.";
+                }
+            }
+            else
+            {
+                // Folder path not found or invalid
+                AutoLoadSpoilerCheckBox.IsChecked = false; // Uncheck the checkbox if no folder path is set
+                CurrentHeader.Visibility = Visibility.Hidden;
+                FileNamePrompt.Text = "";
+            }
+        }
+
+
+        #region Conditional UI Column Hiding
+        private void UpdateUIColumns()
+        {
+            HideNullColumns();
+        }
+        private void HideNullColumns()
+        {
+            bool anyEntranceWorlds = spoilerLog.Entrances.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            EntranceWorldColumn.Visibility = anyEntranceWorlds ? Visibility.Visible : Visibility.Collapsed;
+
+            bool anyWorldFlagsWorlds = spoilerLog.WorldFlags.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            WorldFlagsWorldColumn.Visibility = anyWorldFlagsWorlds ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+
+
+        #endregion
+
+        
+
+
+    }
+}

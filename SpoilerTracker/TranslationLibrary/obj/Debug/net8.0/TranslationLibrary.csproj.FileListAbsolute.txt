@@ -1,0 +1,11 @@
+C:\Users\Nick\Desktop\New folder\TranslationLibrary\bin\Debug\net8.0\TranslationLibrary.deps.json
+C:\Users\Nick\Desktop\New folder\TranslationLibrary\bin\Debug\net8.0\TranslationLibrary.dll
+C:\Users\Nick\Desktop\New folder\TranslationLibrary\bin\Debug\net8.0\TranslationLibrary.pdb
+C:\Users\Nick\Desktop\New folder\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nick\Desktop\New folder\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.AssemblyInfoInputs.cache
+C:\Users\Nick\Desktop\New folder\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.AssemblyInfo.cs
+C:\Users\Nick\Desktop\New folder\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Nick\Desktop\New folder\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.dll
+C:\Users\Nick\Desktop\New folder\TranslationLibrary\obj\Debug\net8.0\refint\TranslationLibrary.dll
+C:\Users\Nick\Desktop\New folder\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.pdb
+C:\Users\Nick\Desktop\New folder\TranslationLibrary\obj\Debug\net8.0\ref\TranslationLibrary.dll
