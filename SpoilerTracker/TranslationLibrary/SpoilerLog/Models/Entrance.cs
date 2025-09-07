@@ -10,7 +10,6 @@ namespace TranslationLibrary.SpoilerLog.Models
     {
         public string? World { get; set; }
         public string? FromGame {  get; set; }
-
         public string? ToGame { get; set; }
         public string? LongEntrance { get; set; }
         public string? LongDestination { get; set; }

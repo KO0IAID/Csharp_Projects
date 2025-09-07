@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using TranslationLibrary.SpoilerLog.Enumerators;
+using TranslationLibrary.SpoilerLog.Interfaces;
 using TranslationLibrary.SpoilerLog.Models;
 
 namespace TranslationLibrary.SpoilerLog.Controller
@@ -18,6 +20,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
         public ObservableCollection<KeyValuePair<string, string>> SeedInfo { get; set; } = new();
         public ObservableCollection<KeyValuePair<string, string>> GameSettings { get; set; } = new();
         public ObservableCollection<Condition> SpecialConditions { get; set; } = new();
+        public ObservableCollection<Trick> Tricks { get; set; } = new();
         public ObservableCollection<string> JunkLocations { get; set; } = new();
         public ObservableCollection<WorldFlag> WorldFlags { get; set; } = new();
         public ObservableCollection<Entrance> Entrances { get; set; } = new();
@@ -45,6 +48,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 SeedInfo = await Parse_SeedInfo();
                 GameSettings = await Parse_GameSettings();
                 SpecialConditions = await Parse_SpecialConditions();
+                Tricks = await Parse_Tricks();
                 JunkLocations = await Parse_JunkLocations();
                 WorldFlags = await Parse_WorldFlags();
                 Entrances = await Parse_Entrances();
@@ -99,14 +103,15 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 //$"\n:\t{}"
                 );
         }
-        public async Task SortCollections(string category = "")
+        public async Task SortCollections(Sort sort = Sort.Default)
         {
 
-            // Long Entrances (Default)
-            if (category == "ShortEntrances" || category == "")
+            // Entrances - Short - (Default)
+            if (sort == Sort.EntrancesShort || sort == Sort.Default)
             {
                 var sortedShortEntrances = new ObservableCollection<Entrance>(
-                Entrances.OrderByDescending(e => e.FromGame)
+                Entrances.OrderBy(e => e.World)
+                .ThenByDescending(e => e.FromGame)
                 .ThenBy(e => e.ShortEntrance)
                 .ThenBy(e => e.ShortDestination)
             );
@@ -118,11 +123,12 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 }
             }
 
-            // Long Entrances
-            if (category == "LongEntrances")
+            // Entrances - Long
+            if (sort == Sort.EntrancesLong)
             {
                 var sortedLongEntrances = new ObservableCollection<Entrance>(
-                Entrances.OrderByDescending(e => e.FromGame)
+                Entrances.OrderBy(e => e.World)
+                .ThenByDescending(e => e.FromGame)
                 .ThenBy(e => e.LongEntrance)
                 .ThenBy(e => e.LongDestination)
             );
@@ -134,7 +140,40 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     Entrances.Add(entrance);
                 }
             }
-           
+
+            // Tricks - Alphabetic - (Default)
+            if (sort == Sort.TricksAlphabetic || sort == Sort.Default)
+            {
+                var sortedTricks = new ObservableCollection<Trick>(
+                Tricks.OrderBy(e => e.Description)
+                .ThenBy(e => e.Difficulty)
+            );
+
+
+                Tricks.Clear();
+                foreach (var trick in sortedTricks)
+                {
+                    Tricks.Add(trick);
+                }
+            }
+
+            // Tricks - Difficulty
+            if (sort == Sort.TricksDifficulty)
+            {
+                var sortedTricks = new ObservableCollection<Trick>(
+                Tricks.OrderBy(e => e.Difficulty)
+                .ThenBy(e => e.Description)
+            );
+
+
+                Tricks.Clear();
+                foreach (var trick in sortedTricks)
+                {
+                    Tricks.Add(trick);
+                }
+            }
+
+
         }
 
 
@@ -143,6 +182,24 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
 
         #region Data Parsing Helper Methods
+
+        private async Task<ObservableCollection<T>?> AddValues<T>(Tuple<int, int> range, string[] fileContents) where T : ICreateFromLine<T>, new()
+        {
+            if (range.Item1 == -1 || range.Item2 == -1)
+                return null;
+
+            var collection = new ObservableCollection<T>();
+            var parser = new T();
+
+            for (int i = range.Item1; i <= range.Item2; i++)
+            {
+                string line = fileContents[i];
+                T item = parser.CreateFromLine(line);
+                collection.Add(item);
+            }
+            return collection;
+
+        } 
         private async Task<KeyValuePair<string, string>?> Parse_SingleKeyValueAsync(string[] file, string categoryName, string delimiter = ":", int startingPosition = 0)
         {
             return await Task.Run(() =>
@@ -447,6 +504,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
             }
 
             return result;
+        }
+        private async Task<ObservableCollection<Trick>?> Parse_Tricks()
+        {
+            var range = await FindCategoryRangeAsync("Tricks", FileContents);
+
+            var Tricks = await AddValues<Trick>(range, FileContents);
+
+            return Tricks;
         }
         private async Task<ObservableCollection<string>>? Parse_JunkLocations()
         {

@@ -9,3 +9,15 @@ C:\Users\Nick\Desktop\New folder\TranslationLibrary\obj\Debug\net8.0\Translation
 C:\Users\Nick\Desktop\New folder\TranslationLibrary\obj\Debug\net8.0\refint\TranslationLibrary.dll
 C:\Users\Nick\Desktop\New folder\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.pdb
 C:\Users\Nick\Desktop\New folder\TranslationLibrary\obj\Debug\net8.0\ref\TranslationLibrary.dll
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\TranslationLibrary.deps.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\TranslationLibrary.dll
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\TranslationLibrary.pdb
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.GeneratedMSBuildEditorConfig.editorconfig
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.AssemblyInfoInputs.cache
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.AssemblyInfo.cs
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.csproj.CoreCompileInputs.cache
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.sourcelink.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.dll
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\refint\TranslationLibrary.dll
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.pdb
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\ref\TranslationLibrary.dll

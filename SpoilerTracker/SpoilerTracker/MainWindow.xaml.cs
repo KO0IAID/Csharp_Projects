@@ -20,6 +20,7 @@ using System.Windows.Shapes;
 using TranslationLibrary.Emotracker.ItemDatabase;
 using TranslationLibrary.Emotracker.LocationDatabase;
 using TranslationLibrary.SpoilerLog.Controller;
+using TranslationLibrary.SpoilerLog.Enumerators;
 using TranslationLibrary.SpoilerLog.Models;
 
 namespace SpoilerTracker
@@ -89,14 +90,14 @@ namespace SpoilerTracker
             {
                 EntranceColumn.Binding = new Binding("LongEntrance");
                 DestinationColumn.Binding = new Binding("LongDestination");
-                spoilerLog.SortCollections("LongEntrances");
+                spoilerLog.SortCollections(Sort.EntrancesLong);
                 SwapEntranceStyleBtn.Content = "Swap To Short Names";
             }
             else
             {
                 EntranceColumn.Binding = new Binding("ShortEntrance");
                 DestinationColumn.Binding = new Binding("ShortDestination");
-                spoilerLog.SortCollections("ShortEntrances");
+                spoilerLog.SortCollections(Sort.EntrancesShort);
                 SwapEntranceStyleBtn.Content = "Swap To Long Names";
 
             }
@@ -109,6 +110,7 @@ namespace SpoilerTracker
             SeedInfoListbox.ItemsSource = spoilerLog.SeedInfo;
             GameSettingListbox.ItemsSource = spoilerLog.GameSettings;
             SpecialConditionsListbox.ItemsSource = spoilerLog.SpecialConditions;
+            TricksDataGrid.ItemsSource = spoilerLog.Tricks;
             JunkLocationsListbox.ItemsSource= spoilerLog.JunkLocations;
             WorldFlagsDataGrid.ItemsSource = spoilerLog.WorldFlags;
 
@@ -125,6 +127,7 @@ namespace SpoilerTracker
 
         private async void AutoLoadSpoilerCheckBox_Click(object sender, RoutedEventArgs e)
         {
+            // Disabled Logic
             if (AutoLoadSpoilerCheckBox.IsChecked == false)
             {
                 // Clear the saved folder path when unchecked
@@ -138,12 +141,12 @@ namespace SpoilerTracker
                     FileNamePrompt.Text = "";
                     FileDatePrompt.Text = string.Empty;
                     SpoilerLogPrompt.Text = string.Empty;
-
                 }
 
                 return;
             }
 
+            // Enabled Logic
             var dialog = new OpenFolderDialog();
 
             if (dialog.ShowDialog() == true && !string.IsNullOrWhiteSpace(dialog.FolderName))
@@ -165,7 +168,6 @@ namespace SpoilerTracker
                     FileDatePrompt.Text = System.IO.File.GetLastWriteTime(recent).ToString("g");
 
                     BindCollections();
-
                 }
                 else
                 {
@@ -235,6 +237,7 @@ namespace SpoilerTracker
 
             bool anyWorldFlagsWorlds = spoilerLog.WorldFlags.Any(e => !string.IsNullOrWhiteSpace(e.World));
             WorldFlagsWorldColumn.Visibility = anyWorldFlagsWorlds ? Visibility.Visible : Visibility.Collapsed;
+
         }
 
 

@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nick\\Desktop\\New folder\\SpoilerTracker\\SpoilerTracker.csproj",
+      "projectUniqueName": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\SpoilerTracker.csproj",
       "projectName": "SpoilerTracker",
-      "projectPath": "C:\\Users\\Nick\\Desktop\\New folder\\SpoilerTracker\\SpoilerTracker.csproj",
+      "projectPath": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\SpoilerTracker.csproj",
       "packagesPath": "C:\\Users\\Nick\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nick\\Desktop\\New folder\\SpoilerTracker\\obj\\",
+      "outputPath": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -59,8 +59,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\Nick\\Desktop\\New folder\\TranslationLibrary\\TranslationLibrary.csproj": {
-              "projectPath": "C:\\Users\\Nick\\Desktop\\New folder\\TranslationLibrary\\TranslationLibrary.csproj"
+            "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\TranslationLibrary.csproj": {
+              "projectPath": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\TranslationLibrary.csproj"
             }
           }
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nick\\Desktop\\New folder\\TranslationLibrary\\TranslationLibrary.csproj": {}
+    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\TranslationLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nick\\Desktop\\New folder\\TranslationLibrary\\TranslationLibrary.csproj": {
+    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\TranslationLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nick\\Desktop\\New folder\\TranslationLibrary\\TranslationLibrary.csproj",
+        "projectUniqueName": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\TranslationLibrary.csproj",
         "projectName": "TranslationLibrary",
-        "projectPath": "C:\\Users\\Nick\\Desktop\\New folder\\TranslationLibrary\\TranslationLibrary.csproj",
+        "projectPath": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\TranslationLibrary.csproj",
         "packagesPath": "C:\\Users\\Nick\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nick\\Desktop\\New folder\\TranslationLibrary\\obj\\",
+        "outputPath": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
