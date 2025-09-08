@@ -9,6 +9,7 @@ namespace TranslationLibrary.SpoilerLog.Enumerators
     public enum Sort
     {
         Default,
+        GameSettingsAlphabetic,
         EntrancesLong,
         EntrancesShort,
         TricksAlphabetic,

@@ -108,7 +108,7 @@ namespace SpoilerTracker
         private async void BindCollections()
         {
             SeedInfoListbox.ItemsSource = spoilerLog.SeedInfo;
-            GameSettingListbox.ItemsSource = spoilerLog.GameSettings;
+            GameSettingsDataGrid.ItemsSource = spoilerLog.GameSettings;
             SpecialConditionsListbox.ItemsSource = spoilerLog.SpecialConditions;
             TricksDataGrid.ItemsSource = spoilerLog.Tricks;
             JunkLocationsListbox.ItemsSource= spoilerLog.JunkLocations;

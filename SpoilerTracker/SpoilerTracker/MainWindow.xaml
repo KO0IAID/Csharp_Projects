@@ -276,78 +276,87 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <ListView x:Name="GameSettingListbox" 
-                              Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="14"
-                              Background="#FF212121" 
-                              Foreground="White" 
-                              BorderBrush="#FF5E5E5E">
 
-                        <ListView.Resources>
-                            <Style TargetType="GridViewColumnHeader">
-                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                    <DataGrid x:Name="GameSettingsDataGrid"
+      Grid.Row="1" Grid.ColumnSpan="15" Grid.RowSpan="14"
+      Background="#FF212121"
+      Foreground="White"
+      BorderBrush="#FF5E5E5E"
+      HeadersVisibility="Column"
+      AutoGenerateColumns="False"
+      IsReadOnly="True"
+      SelectionMode="Extended"
+      SelectionUnit="FullRow"
+      CanUserResizeColumns="True"
+      CanUserSortColumns="True"
+      GridLinesVisibility="Horizontal"
+      HorizontalGridLinesBrush="#FF5E5E5E"
+      VerticalGridLinesBrush="#FF5E5E5E"
+      AlternationCount="2"
+      >
+
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                <Setter Property="Background" Value="#FF212121"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Style.Triggers>
+                                    <Trigger Property="AlternationIndex" Value="1">
+                                        <Setter Property="Background" Value="#FF2E2E2E"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF6A5ACD"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="DarkGreen"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Trigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsSelected" Value="True"/>
+                                            <Condition Property="IsMouseOver" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="Background" Value="#FF836FFF"/>
+                                    </MultiTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="Background" Value="#FF212121"/>
                                 <Setter Property="Foreground" Value="White"/>
                                 <Setter Property="BorderBrush" Value="#FF5E5E5E"/>
                                 <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
                                 <Setter Property="Padding" Value="4,2"/>
-
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="GridViewColumnHeader">
-                                            <Border 
-                                                Name="headerBorder"
-                                                Background="{TemplateBinding Background}"
-                                                BorderBrush="{TemplateBinding BorderBrush}"
-                                                BorderThickness="{TemplateBinding BorderThickness}">
-                                               <ContentPresenter 
-                                                    Margin="{TemplateBinding Padding}" 
-                                                    VerticalAlignment="Center" 
-                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
-                                            </Border>
-                                            
-                                            
-
-                                            <ControlTemplate.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter TargetName="headerBorder" Property="Background" Value="#FF2E2E2E"/>
-                                                </Trigger>
-                                                <Trigger Property="IsPressed" Value="True">
-                                                    <Setter TargetName="headerBorder" Property="Background" Value="#FF444444"/>
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
+                                <Setter Property="FontWeight" Value="Bold"/>
                             </Style>
-                        </ListView.Resources>
+                        </DataGrid.ColumnHeaderStyle>
 
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+
                                 <Style.Triggers>
-                                    <!-- Hover -->
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#002E2E2E"/>
-                                        <!-- Subtle dark hover -->
-                                    </Trigger>
-
-                                    <!-- Selected -->
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="#002E2E2E"/>
-                                        <!-- Slightly lighter dark for selection -->
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                        <Setter Property="Foreground" 
+    Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=Foreground}"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
-                        </ListView.ItemContainerStyle>
+                        </DataGrid.CellStyle>
 
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Setting" Binding="{Binding Name}" Width="auto" />
+                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" Width="auto" />
+                        </DataGrid.Columns>
+                    </DataGrid>
 
-
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Key" DisplayMemberBinding="{Binding Key}"/>
-                                <GridViewColumn Header="Value" DisplayMemberBinding="{Binding Value}"/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
                 </Grid>
             </TabItem>
             <TabItem Header="SpecialCondtions">

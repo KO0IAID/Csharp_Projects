@@ -18,7 +18,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
         public string[] FileContents;
         public bool DebugMode = true;
         public ObservableCollection<KeyValuePair<string, string>> SeedInfo { get; set; } = new();
-        public ObservableCollection<KeyValuePair<string, string>> GameSettings { get; set; } = new();
+        public ObservableCollection<Setting> GameSettings { get; set; } = new();
         public ObservableCollection<Condition> SpecialConditions { get; set; } = new();
         public ObservableCollection<Trick> Tricks { get; set; } = new();
         public ObservableCollection<string> JunkLocations { get; set; } = new();
@@ -105,6 +105,22 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         public async Task SortCollections(Sort sort = Sort.Default)
         {
+
+            // GameSettings - Alphabetic - (Default)
+            if (sort == Sort.GameSettingsAlphabetic || sort == Sort.Default)
+            {
+                var sortedGameSettings = new ObservableCollection<Setting>(
+                GameSettings.OrderBy(e => e.Name)
+                .ThenBy(e => e.Value)
+            );
+
+                GameSettings.Clear();
+                foreach (var setting in sortedGameSettings)
+                {
+                    GameSettings.Add(setting);
+                }
+            }
+
 
             // Entrances - Short - (Default)
             if (sort == Sort.EntrancesShort || sort == Sort.Default)
@@ -351,7 +367,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             int end = file.Length - 1;
 
             // Search for Category Header
-            while (position < file.Length && !file[position].StartsWith(categoryName))
+            while (position < file.Length && !file[position].Equals(categoryName, StringComparison.Ordinal))
             {
                 position++;
             }
@@ -463,9 +479,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
 
         }
-        private async Task<ObservableCollection<KeyValuePair<string, string>>>? Parse_GameSettings()
+        private async Task<ObservableCollection<Setting>?> Parse_GameSettings()
         {
-            return await Task.FromResult(Parse_FlatKeyValueBlock("Settings", FileContents));
+
+            var range = await FindCategoryRangeAsync("Settings", FileContents);
+
+            var settings = await AddValues<Setting>(range, FileContents);
+
+            return settings;
         }
         private async Task<ObservableCollection<Condition>?> Parse_SpecialConditions()
         {
@@ -509,9 +530,9 @@ namespace TranslationLibrary.SpoilerLog.Controller
         {
             var range = await FindCategoryRangeAsync("Tricks", FileContents);
 
-            var Tricks = await AddValues<Trick>(range, FileContents);
+            var tricks = await AddValues<Trick>(range, FileContents);
 
-            return Tricks;
+            return tricks;
         }
         private async Task<ObservableCollection<string>>? Parse_JunkLocations()
         {
