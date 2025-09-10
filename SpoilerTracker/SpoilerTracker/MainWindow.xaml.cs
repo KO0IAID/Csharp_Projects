@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Microsoft.VisualBasic;
+using Microsoft.Win32;
 using SpoilerTracker;
 using System.Collections.Immutable;
 using System.Collections.ObjectModel;
@@ -84,40 +85,105 @@ namespace SpoilerTracker
             if      (ofd.ShowDialog() == true && ofd.FileName.Contains("Tracker"))  { TrackerPrompt.Text = "🗹"; }
             else if (!ofd.FileName.Contains("Tracker"))                             { TrackerPrompt.Text = "🗙"; }
         }
+        
+
+        #region GameSettings
+        private async void GameSettings_Alphabetic_Click(object sender, RoutedEventArgs e) 
+        { 
+            await spoilerLog.SortCollections(SortBy.GameSettingsAlphabetic);
+            GameSettingsDataGrid.ItemsSource = spoilerLog.GameSettings;
+
+
+        }
+        private async void GameSettings_LogOrder_Click(object sender, RoutedEventArgs e)
+        {
+            await spoilerLog.SortCollections(SortBy.GameSettingsLogOrder);
+            GameSettingsDataGrid.ItemsSource = spoilerLog.GameSettings;
+        }
+        #endregion
+        #region Tricks
+        private async void Tricks_Alphabetic_Click(object sender, RoutedEventArgs e)
+        {
+            await spoilerLog.SortCollections(SortBy.TricksAlphabetic);
+            TricksDataGrid.ItemsSource = spoilerLog.Tricks;
+        }
+        private async void Tricks_Difficulty_Click(object sender, RoutedEventArgs e)
+        {
+            await spoilerLog.SortCollections(SortBy.TricksDifficulty);
+            TricksDataGrid.ItemsSource = spoilerLog.Tricks;
+        }
+        private async void Tricks_LogOrder_Click(object sender, RoutedEventArgs e)
+        {
+            await spoilerLog.SortCollections(SortBy.TricksLogOrder);
+            TricksDataGrid.ItemsSource = spoilerLog.Tricks;
+        }
+        #endregion
+        #region Entrances
         private void SwapEntranceColumnsBtn_Click(object sender, RoutedEventArgs e)
         {
             if (EntranceColumn.Binding is Binding binding && binding.Path?.Path == "ShortEntrance")
             {
                 EntranceColumn.Binding = new Binding("LongEntrance");
                 DestinationColumn.Binding = new Binding("LongDestination");
-                spoilerLog.SortCollections(Sort.EntrancesLong);
+                spoilerLog.SortCollections(SortBy.EntrancesLong);
                 SwapEntranceStyleBtn.Content = "Swap To Short Names";
+                EntrancesSortByDisplay.Text = "Sorted By:\tLong";
             }
             else
             {
                 EntranceColumn.Binding = new Binding("ShortEntrance");
                 DestinationColumn.Binding = new Binding("ShortDestination");
-                spoilerLog.SortCollections(Sort.EntrancesShort);
+                spoilerLog.SortCollections(SortBy.EntrancesShort);
                 SwapEntranceStyleBtn.Content = "Swap To Long Names";
-
+                EntrancesSortByDisplay.Text = "Sorted By:\tShort";
+            }
+        }
+        private async void Entrances_Alphabetic_Click(object sender, RoutedEventArgs e)
+        {
+            // Currently Short
+            if (SwapEntranceStyleBtn.Content == "Swap To Long Names")
+            {
+                await spoilerLog.SortCollections(SortBy.EntrancesShortAlphabetic);
+                EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
+                EntrancesSortByDisplay.Text = "Sorted By:\tShort -> Alphabetic -> Game -> World";
+            }
+            // Currently Long
+            else if (SwapEntranceStyleBtn.Content == "Swap To Short Names")
+            {
+                await spoilerLog.SortCollections(SortBy.EntrancesLongAlphabetic);
+                EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
+                EntrancesSortByDisplay.Text = "Sorted By:\tLong -> Alphabetic -> Game -> World";
+            }
+        }
+        private async void Entrances_Game_Click(object sender, RoutedEventArgs e)
+        {
+            // Currently Short
+            if (SwapEntranceStyleBtn.Content == "Swap To Long Names")
+            {
+                await spoilerLog.SortCollections(SortBy.EntrancesShortGame);
+                EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
+                EntrancesSortByDisplay.Text = "Sorted By:\tShort -> Game -> Alphabetic -> World";
+            }
+            // Currently Long
+            else if (SwapEntranceStyleBtn.Content == "Swap To Short Names")
+            {
+                await spoilerLog.SortCollections(SortBy.EntrancesLongGame);
+                EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
+                EntrancesSortByDisplay.Text = "Sorted By:\tLong -> Game -> Alphabetic -> World";
             }
         }
 
-
+        #endregion
 
         private async void BindCollections()
         {
-            SeedInfoListbox.ItemsSource = spoilerLog.SeedInfo;
+            SeedInfoDataGrid.ItemsSource = spoilerLog.SeedInfo;
             GameSettingsDataGrid.ItemsSource = spoilerLog.GameSettings;
             SpecialConditionsListbox.ItemsSource = spoilerLog.SpecialConditions;
             TricksDataGrid.ItemsSource = spoilerLog.Tricks;
             JunkLocationsListbox.ItemsSource= spoilerLog.JunkLocations;
             WorldFlagsDataGrid.ItemsSource = spoilerLog.WorldFlags;
-
-
             EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
-
-
 
             UpdateUIColumns();
         }

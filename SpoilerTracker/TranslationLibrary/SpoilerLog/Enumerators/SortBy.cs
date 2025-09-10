@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace TranslationLibrary.SpoilerLog.Enumerators
 {
-    public enum Sort
+    public enum SortBy
     {
         Default,
         GameSettingsAlphabetic,
+        GameSettingsLogOrder,
         EntrancesLong,
         EntrancesShort,
+        EntrancesLongAlphabetic,
+        EntrancesShortAlphabetic,
+        EntrancesLongGame,
+        EntrancesShortGame,
         TricksAlphabetic,
         TricksDifficulty,
+        TricksLogOrder,
     }
 }

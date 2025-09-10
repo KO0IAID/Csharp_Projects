@@ -216,26 +216,98 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <ListView x:Name="SeedInfoListbox" 
-                              Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="14" 
-                              Background="#FF212121" 
-                              Foreground="White" 
-                              BorderBrush="#FF5E5E5E">
-                        <ListView.Resources>
-                            <Style TargetType="GridViewColumnHeader">
+                    <DataGrid x:Name="SeedInfoDataGrid"
+  Grid.Row="1" Grid.ColumnSpan="15" Grid.RowSpan="14"
+  Background="#FF212121"
+  Foreground="White"
+  BorderBrush="#FF5E5E5E"
+  HeadersVisibility="Column"
+  AutoGenerateColumns="False"
+  IsReadOnly="True"
+  SelectionMode="Extended"
+  SelectionUnit="FullRow"
+  CanUserResizeColumns="True"
+  CanUserSortColumns="True"
+  GridLinesVisibility="Horizontal"
+  HorizontalGridLinesBrush="#FF5E5E5E"
+  VerticalGridLinesBrush="#FF5E5E5E"
+  AlternationCount="2"
+  >
+
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                <Setter Property="Background" Value="#FF212121"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Style.Triggers>
+                                    <Trigger Property="AlternationIndex" Value="1">
+                                        <Setter Property="Background" Value="#FF2E2E2E"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF6A5ACD"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="DarkGreen"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Trigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsSelected" Value="True"/>
+                                            <Condition Property="IsMouseOver" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="Background" Value="#FF836FFF"/>
+                                    </MultiTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="Background" Value="#FF212121"/>
                                 <Setter Property="Foreground" Value="White"/>
                                 <Setter Property="BorderBrush" Value="#FF5E5E5E"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                <Setter Property="Padding" Value="4,2"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
                             </Style>
-                        </ListView.Resources>
+                        </DataGrid.ColumnHeaderStyle>
 
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Key" DisplayMemberBinding="{Binding Key}"/>
-                                <GridViewColumn Header="Value" DisplayMemberBinding="{Binding Value}"/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                        <Setter Property="Foreground" 
+Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=Foreground}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Seed Info" Binding="{Binding Name}" Width="Auto" />
+
+                            <DataGridTextColumn Header="Value" Binding="{Binding Value}" Width="*">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextWrapping" Value="Wrap" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                                <DataGridTextColumn.EditingElementStyle>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="TextWrapping" Value="Wrap" />
+                                        <Setter Property="AcceptsReturn" Value="True" />
+                                    </Style>
+                                </DataGridTextColumn.EditingElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="Game Settings">
@@ -276,24 +348,25 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-
+                    <Button x:Name="GameSettingsAlphabetic" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="Alphabetic" Margin="0,0,0,0" Click="GameSettings_Alphabetic_Click"></Button>
+                    <Button x:Name="GameSettingsDefault" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" Content="Log Order" Margin="0,0,0,0" Click="GameSettings_LogOrder_Click"></Button>
                     <DataGrid x:Name="GameSettingsDataGrid"
-      Grid.Row="1" Grid.ColumnSpan="15" Grid.RowSpan="14"
-      Background="#FF212121"
-      Foreground="White"
-      BorderBrush="#FF5E5E5E"
-      HeadersVisibility="Column"
-      AutoGenerateColumns="False"
-      IsReadOnly="True"
-      SelectionMode="Extended"
-      SelectionUnit="FullRow"
-      CanUserResizeColumns="True"
-      CanUserSortColumns="True"
-      GridLinesVisibility="Horizontal"
-      HorizontalGridLinesBrush="#FF5E5E5E"
-      VerticalGridLinesBrush="#FF5E5E5E"
-      AlternationCount="2"
-      >
+                              Grid.Row="1" Grid.ColumnSpan="15" Grid.RowSpan="14"
+                              Background="#FF212121"
+                              Foreground="White"
+                              BorderBrush="#FF5E5E5E"
+                              HeadersVisibility="Column"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              SelectionMode="Extended"
+                              SelectionUnit="FullRow"
+                              CanUserResizeColumns="True"
+                              CanUserSortColumns="True"
+                              GridLinesVisibility="Horizontal"
+                              HorizontalGridLinesBrush="#FF5E5E5E"
+                              VerticalGridLinesBrush="#FF5E5E5E"
+                              AlternationCount="2"
+                              >
 
                         <DataGrid.RowStyle>
                             <Style TargetType="DataGridRow">
@@ -458,7 +531,10 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    
+                    <Button x:Name="TricksAlphabetic" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="Alphabetic" Margin="0,0,0,0" Click="Tricks_Alphabetic_Click"/>
+                    <Button x:Name="TricksDifficulty" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" Content="Difficulty" IsEnabled="False" Margin="0,0,0,0" Click="Tricks_Difficulty_Click"/>
+                    <Button x:Name="TricksLogOrder" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="0" Content="Log Order" Margin="0,0,0,0" Click="Tricks_LogOrder_Click"/>
+
                     <DataGrid x:Name="TricksDataGrid"
                   Grid.Row="1" Grid.ColumnSpan="15" Grid.RowSpan="14"
                   Background="#FF212121"
@@ -778,10 +854,13 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <Button x:Name="SwapEntranceStyleBtn" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="Swap To Long Names" Margin="0,0,0,0" Click="SwapEntranceColumnsBtn_Click"></Button>
+                    <Button x:Name="SwapEntranceStyleBtn" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="Swap To Long Names" Margin="0,0,0,0" Click="SwapEntranceColumnsBtn_Click"/>
+                    <Button x:Name="EntrancesSortAlphabeticBtn" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" Content="Alphabetic" Margin="0,0,0,0" Click="Entrances_Alphabetic_Click"/>
+                    <Button x:Name="EntrancesSortGameBtn" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="0" Content="Game" Margin="0,0,0,0" Click="Entrances_Game_Click"/>
+                    <TextBlock x:Name="EntrancesSortByDisplay" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="15" Foreground="White" FontSize="10"/>
 
                     <DataGrid x:Name="EntrancesDataGrid"
-                              Grid.Row="1" Grid.ColumnSpan="15" Grid.RowSpan="14"
+                              Grid.Row="1" Grid.ColumnSpan="12" Grid.RowSpan="14"
                               Background="#FF212121"
                               Foreground="White"
                               BorderBrush="#FF5E5E5E"

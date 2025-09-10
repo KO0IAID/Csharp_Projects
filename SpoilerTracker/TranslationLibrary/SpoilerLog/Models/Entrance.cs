@@ -15,5 +15,6 @@ namespace TranslationLibrary.SpoilerLog.Models
         public string? LongDestination { get; set; }
         public string? ShortEntrance { get; set; }
         public string? ShortDestination { get; set; }
+        public int? LogOrder { get; set; }
     }
 }

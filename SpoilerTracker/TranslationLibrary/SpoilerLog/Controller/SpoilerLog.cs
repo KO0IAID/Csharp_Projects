@@ -1,37 +1,120 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using TranslationLibrary;
 using TranslationLibrary.SpoilerLog.Enumerators;
 using TranslationLibrary.SpoilerLog.Interfaces;
 using TranslationLibrary.SpoilerLog.Models;
+using TranslationLibrary.SpoilerLog.UI_Notify;
 
 namespace TranslationLibrary.SpoilerLog.Controller
 {
-    public class SpoilerLog
+    public class SpoilerLog : INotifyPropertyChanged
     {
         public string[] FileContents;
         public bool DebugMode = true;
-        public ObservableCollection<KeyValuePair<string, string>> SeedInfo { get; set; } = new();
-        public ObservableCollection<Setting> GameSettings { get; set; } = new();
-        public ObservableCollection<Condition> SpecialConditions { get; set; } = new();
-        public ObservableCollection<Trick> Tricks { get; set; } = new();
-        public ObservableCollection<string> JunkLocations { get; set; } = new();
-        public ObservableCollection<WorldFlag> WorldFlags { get; set; } = new();
-        public ObservableCollection<Entrance> Entrances { get; set; } = new();
-        public ObservableCollection<Hint> WayOfTheHeroHints { get; set; } = new();
-        public ObservableCollection<Hint> FoolishHints { get; set; } = new();
-        public ObservableCollection<Hint> SpecificHints { get; set; } = new();
-        public ObservableCollection<Hint> RegionalHints { get; set; } = new();
-        public ObservableCollection<Hint> FoolishRegions { get; set; } = new();
-        public ObservableCollection<Pathway> Paths { get; set; } = new();
-        public ObservableCollection<Sphere> Spheres { get; set; } = new();
-        public ObservableCollection<ItemLocation> LocationList { get; set; } = new();
+        public UINotifier? UINotify { get; set; } = new UINotifier();
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        #region Backer Properties
+        private ObservableCollection<SeedInfo> _seedInfo = new ObservableCollection<SeedInfo>();
+        private ObservableCollection<Setting> _gameSettings = new ObservableCollection<Setting>();
+        private ObservableCollection<Condition> _specialConditions = new ObservableCollection<Condition>();
+        private ObservableCollection<Trick> _tricks = new ObservableCollection<Trick>();
+        private ObservableCollection<string> _junkLocations = new ObservableCollection<string>();
+        private ObservableCollection<WorldFlag> _worldFlags = new ObservableCollection<WorldFlag>();
+        private ObservableCollection<Entrance> _entrances = new ObservableCollection<Entrance>();
+        private ObservableCollection<Hint> _wayOfTheHeroHints = new ObservableCollection<Hint>();
+        private ObservableCollection<Hint> _foolishHints = new ObservableCollection<Hint>();
+        private ObservableCollection<Hint> _specificHints = new ObservableCollection<Hint>();
+        private ObservableCollection<Hint> _regionalHints = new ObservableCollection<Hint>();
+        private ObservableCollection<Hint> _foolishRegions = new ObservableCollection<Hint>();
+        private ObservableCollection<Pathway> _paths = new ObservableCollection<Pathway>();
+        private ObservableCollection<Sphere> _spheres = new ObservableCollection<Sphere>();
+        private ObservableCollection<ItemLocation> _locationList = new ObservableCollection<ItemLocation>();
+        #endregion
+        public ObservableCollection<SeedInfo> SeedInfo
+        {
+            get => _seedInfo;
+            set { if (_seedInfo != value) { _seedInfo = value; OnPropertyChanged(nameof(SeedInfo)); } }
+        }
+        public ObservableCollection<Setting> GameSettings 
+        {
+            get => _gameSettings; 
+            set {if (_gameSettings != value) {_gameSettings = value; OnPropertyChanged(nameof(GameSettings));}}
+        }
+        public ObservableCollection<Condition> SpecialConditions
+        {
+            get => _specialConditions;
+            set { if (_specialConditions != value) { _specialConditions = value; OnPropertyChanged(nameof(SpecialConditions)); } }
+        }
+        public ObservableCollection<Trick> Tricks
+        {
+            get => _tricks;
+            set { if (_tricks != value) { _tricks = value; OnPropertyChanged(nameof(Tricks)); } }
+        }
+        public ObservableCollection<string> JunkLocations
+        {
+            get => _junkLocations;
+            set { if (_junkLocations != value) { _junkLocations = value; OnPropertyChanged(nameof(JunkLocations)); } }
+        }
+        public ObservableCollection<WorldFlag> WorldFlags
+        {
+            get => _worldFlags;
+            set { if (_worldFlags != value) { _worldFlags = value; OnPropertyChanged(nameof(WorldFlags)); } }
+        }
+        public ObservableCollection<Entrance> Entrances
+        {
+            get => _entrances;
+            set { if (_entrances != value) { _entrances = value; OnPropertyChanged(nameof(Entrances)); } }
+        }
+        public ObservableCollection<Hint> WayOfTheHeroHints
+        {
+            get => _wayOfTheHeroHints;
+            set { if (_wayOfTheHeroHints != value) { _wayOfTheHeroHints = value; OnPropertyChanged(nameof(WayOfTheHeroHints)); } }
+        }
+        public ObservableCollection<Hint> FoolishHints
+        {
+            get => _foolishHints;
+            set { if (_foolishHints != value) { _foolishHints = value; OnPropertyChanged(nameof(FoolishHints)); } }
+        }
+        public ObservableCollection<Hint> SpecificHints
+        {
+            get => _specificHints;
+            set { if (_specificHints != value) { _specificHints = value; OnPropertyChanged(nameof(SpecificHints)); } }
+        }
+        public ObservableCollection<Hint> RegionalHints
+        {
+            get => _regionalHints;
+            set { if (_regionalHints != value) { _regionalHints = value; OnPropertyChanged(nameof(RegionalHints)); } }
+        }
+        public ObservableCollection<Hint> FoolishRegions
+        {
+            get => _foolishRegions;
+            set { if (_foolishRegions != value) { _foolishHints = value; OnPropertyChanged(nameof(FoolishRegions)); } }
+        }
+        public ObservableCollection<Pathway> Paths
+        {
+            get => _paths;
+            set { if (_paths != value) { _paths = value; OnPropertyChanged(nameof(Paths)); } }
+        }
+        public ObservableCollection<Sphere> Spheres
+        {
+            get => _spheres;
+            set { if (_spheres != value) { _spheres = value; OnPropertyChanged(nameof(Spheres)); } }
+        }
+        public ObservableCollection<ItemLocation> LocationList
+        {
+            get => _locationList;
+            set { if (_locationList != value) { _locationList = value; OnPropertyChanged(nameof(LocationList)); } }
+        }
 
 
         public async Task AddFileContents(string filePath)
@@ -103,27 +186,31 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 //$"\n:\t{}"
                 );
         }
-        public async Task SortCollections(Sort sort = Sort.Default)
+        public async Task SortCollections(SortBy sort = SortBy.Default)
         {
 
+            #region GameSettings
             // GameSettings - Alphabetic - (Default)
-            if (sort == Sort.GameSettingsAlphabetic || sort == Sort.Default)
+            if (sort == SortBy.GameSettingsAlphabetic || sort == SortBy.Default)
             {
                 var sortedGameSettings = new ObservableCollection<Setting>(
                 GameSettings.OrderBy(e => e.Name)
                 .ThenBy(e => e.Value)
             );
-
-                GameSettings.Clear();
-                foreach (var setting in sortedGameSettings)
-                {
-                    GameSettings.Add(setting);
-                }
+                GameSettings = sortedGameSettings;
             }
-
-
+            // GameSettings - LogOrder
+            if (sort == SortBy.GameSettingsLogOrder)
+            {
+                var sortedGameSettings = new ObservableCollection<Setting>(
+                GameSettings.OrderBy(e => e.LogOrder)
+            );
+                GameSettings = sortedGameSettings;
+            }
+            #endregion
+            #region Entrances
             // Entrances - Short - (Default)
-            if (sort == Sort.EntrancesShort || sort == Sort.Default)
+            if (sort == SortBy.EntrancesShort || sort == SortBy.Default)
             {
                 var sortedShortEntrances = new ObservableCollection<Entrance>(
                 Entrances.OrderBy(e => e.World)
@@ -131,16 +218,10 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 .ThenBy(e => e.ShortEntrance)
                 .ThenBy(e => e.ShortDestination)
             );
-
-                Entrances.Clear();
-                foreach (var entrance in sortedShortEntrances)
-                {
-                    Entrances.Add(entrance);
-                }
+                Entrances = sortedShortEntrances;
             }
-
             // Entrances - Long
-            if (sort == Sort.EntrancesLong)
+            if (sort == SortBy.EntrancesLong)
             {
                 var sortedLongEntrances = new ObservableCollection<Entrance>(
                 Entrances.OrderBy(e => e.World)
@@ -148,48 +229,93 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 .ThenBy(e => e.LongEntrance)
                 .ThenBy(e => e.LongDestination)
             );
-
-
-                Entrances.Clear();
-                foreach (var entrance in sortedLongEntrances)
-                {
-                    Entrances.Add(entrance);
-                }
+                Entrances = sortedLongEntrances;
             }
 
+            // Entrances - Short - Game
+            if (sort == SortBy.EntrancesShortGame)
+            {
+                var sortedLongEntrances = new ObservableCollection<Entrance>(
+                Entrances.OrderByDescending(e => e.FromGame)
+                .ThenBy(e => e.ShortEntrance)
+                .ThenBy(e => e.ShortDestination)
+                .ThenBy(e => e.World)
+            );
+                Entrances = sortedLongEntrances;
+            }
+
+            // Entrances - Long - Game
+            if (sort == SortBy.EntrancesLongGame)
+            {
+                var sortedLongEntrances = new ObservableCollection<Entrance>(
+                Entrances.OrderBy(e => e.World)
+                .ThenByDescending(e => e.FromGame)
+                .ThenBy(e => e.LongEntrance)
+                .ThenBy(e => e.LongDestination)
+            );
+                Entrances = sortedLongEntrances;
+            }
+
+            // Entrances - Short - Alphabetic
+            if (sort == SortBy.EntrancesShortAlphabetic)
+            {
+                var sortedLongEntrances = new ObservableCollection<Entrance>(
+                Entrances.OrderBy(e => e.ShortEntrance)
+                .ThenBy(e => e.ShortDestination)
+                .ThenByDescending(e => e.FromGame)
+                .ThenBy(e => e.World)
+            );
+                Entrances = sortedLongEntrances;
+            }
+
+            // Entrances - Long - Alphabetic
+            if (sort == SortBy.EntrancesLongAlphabetic)
+            {
+                var sortedLongEntrances = new ObservableCollection<Entrance>(
+                Entrances.OrderBy(e => e.LongEntrance)
+                .ThenBy(e => e.LongDestination)
+                .ThenByDescending(e => e.FromGame)
+                .ThenBy(e => e.World)
+            );
+                Entrances = sortedLongEntrances;
+            }
+
+            #endregion
+
             // Tricks - Alphabetic - (Default)
-            if (sort == Sort.TricksAlphabetic || sort == Sort.Default)
+            if (sort == SortBy.TricksAlphabetic || sort == SortBy.Default)
             {
                 var sortedTricks = new ObservableCollection<Trick>(
                 Tricks.OrderBy(e => e.Description)
                 .ThenBy(e => e.Difficulty)
+                .ThenBy(e => e.LogOrder)
             );
-
-
-                Tricks.Clear();
-                foreach (var trick in sortedTricks)
-                {
-                    Tricks.Add(trick);
-                }
+                Tricks = sortedTricks;
             }
 
             // Tricks - Difficulty
-            if (sort == Sort.TricksDifficulty)
+            if (sort == SortBy.TricksDifficulty)
             {
                 var sortedTricks = new ObservableCollection<Trick>(
                 Tricks.OrderBy(e => e.Difficulty)
                 .ThenBy(e => e.Description)
+                .ThenBy(e => e.LogOrder)
             );
-
-
-                Tricks.Clear();
-                foreach (var trick in sortedTricks)
-                {
-                    Tricks.Add(trick);
-                }
+                Tricks = sortedTricks;
             }
 
+            // Tricks - Log Order
+            if (sort == SortBy.TricksLogOrder)
+            {
+                var sortedTricks = new ObservableCollection<Trick>(
+                Tricks.OrderBy(e => e.LogOrder)
+                .ThenBy(e => e.Description)
+                .ThenBy(e => e.Difficulty)
+            );
+                Tricks = sortedTricks;
+            }
 
+            UINotify?.NotifyAll();
         }
 
 
@@ -460,20 +586,17 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
 
         #region Data Parsing
-        private async Task<ObservableCollection<KeyValuePair<string, string>>> Parse_SeedInfo()
+        private async Task<ObservableCollection<SeedInfo>> Parse_SeedInfo()
         {
-            var seedInfo = new ObservableCollection<KeyValuePair<string, string>>();
+            var seedInfo = new ObservableCollection<SeedInfo>();
 
-            var seed = await Parse_SingleKeyValueAsync(FileContents, "Seed");
-            var version = await Parse_SingleKeyValueAsync(FileContents, "Version");
-            var settings = await Parse_SingleKeyValueAsync(FileContents, "SettingsString");
+            SeedInfo seed = new SeedInfo { Pair = await Parse_SingleKeyValueAsync(FileContents, "Seed") };
+            SeedInfo version = new SeedInfo { Pair = await Parse_SingleKeyValueAsync(FileContents, "Version") };
+            SeedInfo settings = new SeedInfo { Pair = await Parse_SingleKeyValueAsync(FileContents, "SettingsString") };
 
-            if (seed.HasValue) seedInfo.Add(seed.Value);
-            if (version.HasValue) seedInfo.Add(version.Value);
-            if (settings.HasValue) seedInfo.Add(settings.Value);
-
-
-            
+            if (seed.Pair.HasValue) seedInfo.Add(seed);
+            if (version.Pair.HasValue) seedInfo.Add(version);
+            if (settings.Pair.HasValue) seedInfo.Add(settings);
 
             return seedInfo;
 
@@ -762,6 +885,11 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
         #endregion
 
-
+        #region UI Notifyer
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
     }
 }

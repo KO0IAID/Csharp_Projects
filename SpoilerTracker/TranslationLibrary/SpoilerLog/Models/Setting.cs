@@ -11,6 +11,7 @@ namespace TranslationLibrary.SpoilerLog.Models
     {
         public string Name { get; set; }
         public string Value { get; set; }
+        public int LogOrder { get; set; } = 0;
 
         public Setting CreateFromLine(string line)
         {
@@ -19,6 +20,7 @@ namespace TranslationLibrary.SpoilerLog.Models
             {
                 Name = parts[0].Trim(),
                 Value = parts[1].Trim(),
+                LogOrder = LogOrder++
             };
         }
     }
