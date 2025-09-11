@@ -40,6 +40,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
         private ObservableCollection<Sphere> _spheres = new ObservableCollection<Sphere>();
         private ObservableCollection<ItemLocation> _locationList = new ObservableCollection<ItemLocation>();
         #endregion
+        #region Collections
         public ObservableCollection<SeedInfo> SeedInfo
         {
             get => _seedInfo;
@@ -115,6 +116,25 @@ namespace TranslationLibrary.SpoilerLog.Controller
             get => _locationList;
             set { if (_locationList != value) { _locationList = value; OnPropertyChanged(nameof(LocationList)); } }
         }
+        #endregion
+        #region Collections SortBy Enums
+        public SortBy SeedInfo_SortBy { get; private set; }
+        public SortBy GameSettings_SortBy { get; private set; }
+        public SortBy SpecialConditions_SortBy { get; private set; }
+        public SortBy Tricks_SortBy { get; private set; }
+        public SortBy JunkLocations_SortBy { get; private set; }
+        public SortBy WorldFlags_SortBy { get; private set; }
+        public SortBy Entrances_SortBy { get; private set; }
+        public SortBy WayOfTheHeroHints_SortBy { get; private set; }
+        public SortBy FoolishHints_SortBy { get; private set; }
+        public SortBy SpecificHints_SortBy { get; private set; }
+        public SortBy RegionalHints_SortBy { get; private set; }
+        public SortBy FoolishRegions_SortBy { get; private set; }
+        public SortBy Paths_SortBy { get; private set; }
+        public SortBy Spheres_SortBy { get; private set; }
+        public SortBy LocationList_SortBy { get; private set; }
+
+        #endregion
 
 
         public async Task AddFileContents(string filePath)
@@ -193,91 +213,186 @@ namespace TranslationLibrary.SpoilerLog.Controller
             // GameSettings - Alphabetic - (Default)
             if (sort == SortBy.GameSettingsAlphabetic || sort == SortBy.Default)
             {
-                var sortedGameSettings = new ObservableCollection<Setting>(
-                GameSettings.OrderBy(e => e.Name)
-                .ThenBy(e => e.Value)
-            );
-                GameSettings = sortedGameSettings;
+                if (GameSettings != null)
+                {
+                    var sortedGameSettings = new ObservableCollection<Setting>(
+                    GameSettings.OrderBy(e => e.Name)
+                    .ThenBy(e => e.Value)
+                    );
+
+                    GameSettings = sortedGameSettings;
+                    GameSettings_SortBy = SortBy.GameSettingsAlphabetic;
+                }
+                
             }
+
+            // GameSettings - Reverse Alphabetic
+            if (sort == SortBy.GameSettingsReverseAlphabetic)
+            {
+                if (GameSettings != null)
+                {
+                    var sortedGameSettings = new ObservableCollection<Setting>(
+                    GameSettings.OrderByDescending(e => e.Name)
+                    .ThenBy(e => e.Value)
+                    );
+
+                    GameSettings = sortedGameSettings;
+                    GameSettings_SortBy = SortBy.GameSettingsReverseAlphabetic;
+                }
+            }
+
             // GameSettings - LogOrder
             if (sort == SortBy.GameSettingsLogOrder)
             {
-                var sortedGameSettings = new ObservableCollection<Setting>(
-                GameSettings.OrderBy(e => e.LogOrder)
-            );
-                GameSettings = sortedGameSettings;
+                if (GameSettings != null)
+                {
+                    var sortedGameSettings = new ObservableCollection<Setting>(
+                    GameSettings.OrderBy(e => e.LogOrder)
+                    );
+
+                    GameSettings = sortedGameSettings;
+                    GameSettings_SortBy = SortBy.GameSettingsLogOrder;
+                }
             }
             #endregion
             #region Entrances
             // Entrances - Short - (Default)
-            if (sort == SortBy.EntrancesShort || sort == SortBy.Default)
+            if (sort == SortBy.EntrancesShort || sort == SortBy.Default && Entrances != null)
             {
-                var sortedShortEntrances = new ObservableCollection<Entrance>(
-                Entrances.OrderBy(e => e.World)
-                .ThenByDescending(e => e.FromGame)
-                .ThenBy(e => e.ShortEntrance)
-                .ThenBy(e => e.ShortDestination)
-            );
-                Entrances = sortedShortEntrances;
+                if (Entrances != null)
+                {
+                    var sortedShortEntrances = new ObservableCollection<Entrance>(
+                    Entrances.OrderBy(e => e.World)
+                   .ThenByDescending(e => e.FromGame)
+                   .ThenBy(e => e.ShortEntrance)
+                   .ThenBy(e => e.ShortDestination)
+                    );
+
+                    Entrances = sortedShortEntrances;
+                    Entrances_SortBy = SortBy.EntrancesShort;
+                }
+               
             }
             // Entrances - Long
-            if (sort == SortBy.EntrancesLong)
+            if (sort == SortBy.EntrancesLong && Entrances != null)
             {
-                var sortedLongEntrances = new ObservableCollection<Entrance>(
-                Entrances.OrderBy(e => e.World)
-                .ThenByDescending(e => e.FromGame)
-                .ThenBy(e => e.LongEntrance)
-                .ThenBy(e => e.LongDestination)
-            );
-                Entrances = sortedLongEntrances;
+                if (Entrances != null)
+                {
+                    var sortedLongEntrances = new ObservableCollection<Entrance>(
+                    Entrances.OrderBy(e => e.World)
+                    .ThenByDescending(e => e.FromGame)
+                    .ThenBy(e => e.LongEntrance)
+                    .ThenBy(e => e.LongDestination)
+                    );
+                    
+                    Entrances = sortedLongEntrances;
+                    Entrances_SortBy = SortBy.EntrancesLong;
+                }
+                
             }
 
             // Entrances - Short - Game
-            if (sort == SortBy.EntrancesShortGame)
+            if (sort == SortBy.EntrancesShortGame && Entrances != null)
             {
-                var sortedLongEntrances = new ObservableCollection<Entrance>(
-                Entrances.OrderByDescending(e => e.FromGame)
-                .ThenBy(e => e.ShortEntrance)
-                .ThenBy(e => e.ShortDestination)
-                .ThenBy(e => e.World)
-            );
-                Entrances = sortedLongEntrances;
+                if (Entrances != null)
+                {
+                    var sortedLongEntrances = new ObservableCollection<Entrance>(
+                    Entrances.OrderByDescending(e => e.FromGame)
+                    .ThenBy(e => e.ShortEntrance)
+                    .ThenBy(e => e.ShortDestination)
+                    .ThenBy(e => e.World)
+                    );
+
+                    Entrances = sortedLongEntrances;
+                    Entrances_SortBy = SortBy.EntrancesShortGame;
+                }
+                
             }
 
             // Entrances - Long - Game
-            if (sort == SortBy.EntrancesLongGame)
+            if (sort == SortBy.EntrancesLongGame && Entrances != null)
             {
-                var sortedLongEntrances = new ObservableCollection<Entrance>(
-                Entrances.OrderBy(e => e.World)
-                .ThenByDescending(e => e.FromGame)
-                .ThenBy(e => e.LongEntrance)
-                .ThenBy(e => e.LongDestination)
-            );
-                Entrances = sortedLongEntrances;
+                if (Entrances != null)
+                {
+                    var sortedLongEntrances = new ObservableCollection<Entrance>(
+                    Entrances.OrderBy(e => e.World)
+                    .ThenByDescending(e => e.FromGame)
+                    .ThenBy(e => e.LongEntrance)
+                    .ThenBy(e => e.LongDestination)
+                    );
+
+                    Entrances = sortedLongEntrances;
+                    Entrances_SortBy = SortBy.EntrancesLongGame;
+                }
             }
 
             // Entrances - Short - Alphabetic
-            if (sort == SortBy.EntrancesShortAlphabetic)
+            if (sort == SortBy.EntrancesShortAlphabetic && Entrances != null)
             {
-                var sortedLongEntrances = new ObservableCollection<Entrance>(
-                Entrances.OrderBy(e => e.ShortEntrance)
-                .ThenBy(e => e.ShortDestination)
-                .ThenByDescending(e => e.FromGame)
-                .ThenBy(e => e.World)
-            );
-                Entrances = sortedLongEntrances;
+                if (Entrances != null) 
+                {
+                    var sortedLongEntrances = new ObservableCollection<Entrance>(
+                    Entrances.OrderBy(e => e.ShortEntrance)
+                    .ThenBy(e => e.ShortDestination)
+                    .ThenByDescending(e => e.FromGame)
+                    .ThenBy(e => e.World)
+                    );
+
+                    Entrances = sortedLongEntrances;
+                    Entrances_SortBy = SortBy.EntrancesShortAlphabetic;
+                }
+            }
+
+            // Entrances - Short - Reverse Alphabetic
+            if (sort == SortBy.EntrancesShortReverseAlphabetic && Entrances != null)
+            {
+                if (Entrances != null)
+                {
+                    var sortedLongEntrances = new ObservableCollection<Entrance>(
+                    Entrances.OrderByDescending(e => e.ShortEntrance)
+                    .ThenByDescending(e => e.ShortDestination)
+                    .ThenByDescending(e => e.FromGame)
+                    .ThenBy(e => e.World)
+                    );
+
+                    Entrances = sortedLongEntrances;
+                    Entrances_SortBy = SortBy.EntrancesShortReverseAlphabetic;
+                }
+
             }
 
             // Entrances - Long - Alphabetic
             if (sort == SortBy.EntrancesLongAlphabetic)
             {
-                var sortedLongEntrances = new ObservableCollection<Entrance>(
-                Entrances.OrderBy(e => e.LongEntrance)
-                .ThenBy(e => e.LongDestination)
-                .ThenByDescending(e => e.FromGame)
-                .ThenBy(e => e.World)
-            );
-                Entrances = sortedLongEntrances;
+                if (Entrances != null)
+                {
+                    var sortedLongEntrances = new ObservableCollection<Entrance>(
+                    Entrances.OrderBy(e => e.LongEntrance)
+                    .ThenBy(e => e.LongDestination)
+                    .ThenByDescending(e => e.FromGame)
+                    .ThenBy(e => e.World)
+                    );
+
+                    Entrances = sortedLongEntrances;
+                    Entrances_SortBy = SortBy.EntrancesLongAlphabetic;
+                }
+            }
+
+            // Entrances - Long - Reverse Alphabetic
+            if (sort == SortBy.EntrancesLongAlphabetic)
+            {
+                if (Entrances != null)
+                {
+                    var sortedLongEntrances = new ObservableCollection<Entrance>(
+                    Entrances.OrderByDescending(e => e.LongEntrance)
+                    .ThenByDescending(e => e.LongDestination)
+                    .ThenByDescending(e => e.FromGame)
+                    .ThenBy(e => e.World)
+                    );
+
+                    Entrances = sortedLongEntrances;
+                    Entrances_SortBy = SortBy.EntrancesLongAlphabetic;
+                }
             }
 
             #endregion
@@ -285,34 +400,65 @@ namespace TranslationLibrary.SpoilerLog.Controller
             // Tricks - Alphabetic - (Default)
             if (sort == SortBy.TricksAlphabetic || sort == SortBy.Default)
             {
-                var sortedTricks = new ObservableCollection<Trick>(
-                Tricks.OrderBy(e => e.Description)
-                .ThenBy(e => e.Difficulty)
-                .ThenBy(e => e.LogOrder)
-            );
-                Tricks = sortedTricks;
+                if (Tricks != null)
+                {
+                    var sortedTricks = new ObservableCollection<Trick>(
+                    Tricks.OrderBy(e => e.Description)
+                    .ThenBy(e => e.Difficulty)
+                    .ThenBy(e => e.LogOrder)
+                    );
+
+                    Tricks = sortedTricks;
+                    Tricks_SortBy = SortBy.TricksAlphabetic;
+                }
+            }
+
+            // Tricks - Reverse Alphabetic 
+            if (sort == SortBy.TricksReverseAlphabetic)
+            {
+                if (Tricks != null)
+                {
+                    var sortedTricks = new ObservableCollection<Trick>(
+                    Tricks.OrderByDescending(e => e.Description)
+                    .ThenBy(e => e.Difficulty)
+                    .ThenBy(e => e.LogOrder)
+                    );
+
+                    Tricks = sortedTricks;
+                    Tricks_SortBy = SortBy.TricksReverseAlphabetic;
+                }
             }
 
             // Tricks - Difficulty
             if (sort == SortBy.TricksDifficulty)
             {
-                var sortedTricks = new ObservableCollection<Trick>(
-                Tricks.OrderBy(e => e.Difficulty)
-                .ThenBy(e => e.Description)
-                .ThenBy(e => e.LogOrder)
-            );
-                Tricks = sortedTricks;
+                if(Tricks != null)
+                {
+                    var sortedTricks = new ObservableCollection<Trick>(
+                    Tricks.OrderBy(e => e.Difficulty)
+                    .ThenBy(e => e.Description)
+                    .ThenBy(e => e.LogOrder)
+                    );
+
+                    Tricks = sortedTricks;
+                    Tricks_SortBy= SortBy.TricksDifficulty;
+                }
             }
 
             // Tricks - Log Order
             if (sort == SortBy.TricksLogOrder)
             {
-                var sortedTricks = new ObservableCollection<Trick>(
-                Tricks.OrderBy(e => e.LogOrder)
-                .ThenBy(e => e.Description)
-                .ThenBy(e => e.Difficulty)
-            );
-                Tricks = sortedTricks;
+                if (Tricks != null)
+                {
+                    var sortedTricks = new ObservableCollection<Trick>(
+                    Tricks.OrderBy(e => e.LogOrder)
+                    .ThenBy(e => e.Description)
+                    .ThenBy(e => e.Difficulty)
+                    );
+
+                    Tricks = sortedTricks;
+                    Tricks_SortBy = SortBy.TricksLogOrder;
+                }
             }
 
             UINotify?.NotifyAll();

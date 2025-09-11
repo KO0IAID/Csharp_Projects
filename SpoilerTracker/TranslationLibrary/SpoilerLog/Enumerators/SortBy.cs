@@ -10,14 +10,18 @@ namespace TranslationLibrary.SpoilerLog.Enumerators
     {
         Default,
         GameSettingsAlphabetic,
+        GameSettingsReverseAlphabetic,
         GameSettingsLogOrder,
         EntrancesLong,
         EntrancesShort,
         EntrancesLongAlphabetic,
+        EntrancesLongReverseAlphabetic,
         EntrancesShortAlphabetic,
+        EntrancesShortReverseAlphabetic,
         EntrancesLongGame,
         EntrancesShortGame,
         TricksAlphabetic,
+        TricksReverseAlphabetic,
         TricksDifficulty,
         TricksLogOrder,
     }

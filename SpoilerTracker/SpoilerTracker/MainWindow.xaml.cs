@@ -24,6 +24,7 @@ using TranslationLibrary.SpoilerLog.Controller;
 using TranslationLibrary.SpoilerLog.Enumerators;
 using TranslationLibrary.SpoilerLog.Models;
 
+
 namespace SpoilerTracker
 {
     /// <summary>
@@ -185,6 +186,7 @@ namespace SpoilerTracker
             WorldFlagsDataGrid.ItemsSource = spoilerLog.WorldFlags;
             EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
 
+            UpdateSortByDisplays();
             UpdateUIColumns();
         }
 
@@ -290,6 +292,11 @@ namespace SpoilerTracker
             }
         }
 
+
+        private void UpdateSortByDisplays()
+        {
+            EntrancesSortByDisplay.Text = spoilerLog.GameSettings_SortBy.CustomToString();
+        }
 
         #region Conditional UI Column Hiding
         private void UpdateUIColumns()
