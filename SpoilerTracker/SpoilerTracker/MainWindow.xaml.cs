@@ -120,58 +120,252 @@ namespace SpoilerTracker
         }
         #endregion
         #region Entrances
-        private void SwapEntranceColumnsBtn_Click(object sender, RoutedEventArgs e)
+        private async void Entrances_LongShort_Click(object sender, RoutedEventArgs e)
         {
+            SortBy sortBy;
+
+            switch (spoilerLog.Entrances_SortBy)
+            {
+                #region Long & Short
+
+                // Long to Short
+                case SortBy.EntrancesLong:
+                    sortBy = SortBy.EntrancesShort;
+                    break;
+
+                // Short to Long
+                case SortBy.EntrancesShort:
+                    sortBy = SortBy.EntrancesLong;
+                    break;
+
+                #endregion
+
+                #region Alphabetic
+
+                // Short Alphabetic to Long Alphabetic
+                case SortBy.EntrancesShortAlphabetic:
+                    sortBy = SortBy.EntrancesLongAlphabetic;
+                    break;
+
+                // Long Alphabetic to Short Alphabetic
+                case SortBy.EntrancesLongAlphabetic:
+                    sortBy = SortBy.EntrancesShortAlphabetic;
+                    break;
+
+                #endregion
+
+                #region Reverse Alphabetic
+
+                // Short Reverse Alphabetic to Long Reverse Alphabetic
+                case SortBy.EntrancesShortReverseAlphabetic:
+                    sortBy = SortBy.EntrancesLongReverseAlphabetic;
+                    break;
+
+                // Long Reverse Alphabetic to Short ReverseAlphabetic
+                case SortBy.EntrancesLongReverseAlphabetic:
+                    sortBy = SortBy.EntrancesShortReverseAlphabetic;
+                    break;
+
+                #endregion
+
+                #region Game
+
+                // Short Game to Long Game
+                case SortBy.EntrancesShortGame:
+                    sortBy = SortBy.EntrancesLongGame;
+                    break;
+
+                // Long Game to Short Game
+                case SortBy.EntrancesLongGame:
+                    sortBy = SortBy.EntrancesShortGame;
+                    break;
+
+                #endregion Game
+
+                #region Reverse Game
+
+                // Short Reverse Game to Long Reverse Game
+                case SortBy.EntrancesShortReverseGame:
+                    sortBy = SortBy.EntrancesLongReverseGame;
+                    break;
+
+                // Long Reverse Game to Short Reverse Game
+                case SortBy.EntrancesLongReverseGame:
+                    sortBy = SortBy.EntrancesShortReverseGame;
+                    break;
+
+                #endregion
+
+                // Fallback - Default
+                default:
+                    sortBy = SortBy.EntrancesShort;
+                    break;
+            }
+
+            await spoilerLog.SortCollections(sortBy);
+            EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
+            UpdateSortByDisplays();
+
             if (EntranceColumn.Binding is Binding binding && binding.Path?.Path == "ShortEntrance")
             {
                 EntranceColumn.Binding = new Binding("LongEntrance");
                 DestinationColumn.Binding = new Binding("LongDestination");
-                spoilerLog.SortCollections(SortBy.EntrancesLong);
-                SwapEntranceStyleBtn.Content = "Swap To Short Names";
-                EntrancesSortByDisplay.Text = "Sorted By:\tLong";
+                SwapEntranceStyleBtn.Content = "Long";
             }
             else
             {
                 EntranceColumn.Binding = new Binding("ShortEntrance");
                 DestinationColumn.Binding = new Binding("ShortDestination");
-                spoilerLog.SortCollections(SortBy.EntrancesShort);
-                SwapEntranceStyleBtn.Content = "Swap To Long Names";
-                EntrancesSortByDisplay.Text = "Sorted By:\tShort";
+                SwapEntranceStyleBtn.Content = "Short";
             }
+            
         }
         private async void Entrances_Alphabetic_Click(object sender, RoutedEventArgs e)
         {
-            // Currently Short
-            if (SwapEntranceStyleBtn.Content == "Swap To Long Names")
+            SortBy newSort;
+
+            switch (spoilerLog.Entrances_SortBy)
             {
-                await spoilerLog.SortCollections(SortBy.EntrancesShortAlphabetic);
-                EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
-                EntrancesSortByDisplay.Text = "Sorted By:\tShort -> Alphabetic -> Game -> World";
+                // Short to ShortAlphabetic
+                case SortBy.EntrancesShort:
+                    newSort = SortBy.EntrancesShortAlphabetic;
+                    break;
+
+                // Long to LongAlphabetic
+                case SortBy.EntrancesLong:
+                    newSort = SortBy.EntrancesLongAlphabetic;
+                    break;
+
+                // Short Alphabetic to Short Reverse Alphabetic
+                case SortBy.EntrancesShortAlphabetic:
+                    newSort = SortBy.EntrancesShortReverseAlphabetic;
+                    break;
+
+                // Short Reverse Alphabetic to Short Alphabetic
+                case SortBy.EntrancesShortReverseAlphabetic:
+                    newSort = SortBy.EntrancesShortAlphabetic;
+                    break;
+
+                // Long Alphabetic to Long Reverse Alphabetic
+                case SortBy.EntrancesLongAlphabetic:
+                    newSort = SortBy.EntrancesLongReverseAlphabetic;
+                    break;
+
+                // Long Reverse Alphabetic to Long Alphabetic
+                case SortBy.EntrancesLongReverseAlphabetic:
+                    newSort = SortBy.EntrancesLongAlphabetic;
+                    break;
+
+                // Fallback to default
+                default:
+                    newSort = SortBy.EntrancesShortAlphabetic; 
+                    break;
             }
-            // Currently Long
-            else if (SwapEntranceStyleBtn.Content == "Swap To Short Names")
-            {
-                await spoilerLog.SortCollections(SortBy.EntrancesLongAlphabetic);
-                EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
-                EntrancesSortByDisplay.Text = "Sorted By:\tLong -> Alphabetic -> Game -> World";
-            }
+
+            await spoilerLog.SortCollections(newSort);
+
+            EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
+
+            UpdateSortByDisplays();
         }
         private async void Entrances_Game_Click(object sender, RoutedEventArgs e)
         {
-            // Currently Short
-            if (SwapEntranceStyleBtn.Content == "Swap To Long Names")
+            SortBy sortBy;
+
+            switch (spoilerLog.Entrances_SortBy)
             {
-                await spoilerLog.SortCollections(SortBy.EntrancesShortGame);
-                EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
-                EntrancesSortByDisplay.Text = "Sorted By:\tShort -> Game -> Alphabetic -> World";
+                #region Short/Long to Game
+
+                // Short to Short Game
+                case SortBy.EntrancesShort:
+                    sortBy = SortBy.EntrancesShortGame;
+                    break;
+
+                // Long to Long Game
+                case SortBy.EntrancesLong:
+                    sortBy = SortBy.EntrancesLongGame;
+                    break;
+                #endregion
+
+                #region Alphabetic Short/Long to Game
+
+                // Short Alphabetic to Short Game
+                case SortBy.EntrancesShortAlphabetic:
+                    sortBy = SortBy.EntrancesShortGame;
+                    break;
+
+                // Long Alphabetic to Long Game
+                case SortBy.EntrancesLongAlphabetic:
+                    sortBy = SortBy.EntrancesLongGame;
+                    break;
+
+                #endregion
+
+                #region Reverse Alphabetic Short/Long to Game
+
+                // Short Reverse Alphabeticto Short Game
+                case SortBy.EntrancesShortReverseAlphabetic:
+                    sortBy = SortBy.EntrancesShortReverseGame;
+                    break;
+
+                // Long Reverse Alphabeticto Short Game
+                case SortBy.EntrancesLongReverseAlphabetic:
+                    sortBy = SortBy.EntrancesLongReverseGame;
+                    break;
+
+                #endregion
+
+                #region Game to Reverse Game
+
+                // Short Game to Reverse Short Game
+                case SortBy.EntrancesShortGame:
+                    sortBy = SortBy.EntrancesShortReverseGame;
+                    break;
+
+                // Long Game to Reverse Long Game
+                case SortBy.EntrancesLongGame:
+                    sortBy = SortBy.EntrancesLongReverseGame;
+                    break;
+
+                #endregion
+
+                #region Reverse Game to Game
+
+                // Short Game to Reverse Short Game
+                case SortBy.EntrancesShortReverseGame:
+                    sortBy = SortBy.EntrancesShortGame;
+                    break;
+
+                // Long Game to Reverse Long Game
+                case SortBy.EntrancesLongReverseGame:
+                    sortBy = SortBy.EntrancesLongGame;
+                    break;
+
+                #endregion
+
+                default:
+                    sortBy = SortBy.EntrancesShortGame;
+                    break;
             }
-            // Currently Long
-            else if (SwapEntranceStyleBtn.Content == "Swap To Short Names")
-            {
-                await spoilerLog.SortCollections(SortBy.EntrancesLongGame);
-                EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
-                EntrancesSortByDisplay.Text = "Sorted By:\tLong -> Game -> Alphabetic -> World";
-            }
+
+            await spoilerLog.SortCollections(sortBy);
+
+            EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
+
+            UpdateSortByDisplays();
+        }
+        private async void Entrances_Reset_Click(object sender, EventArgs e)
+        {
+
+                EntranceColumn.Binding = new Binding("ShortEntrance");
+                DestinationColumn.Binding = new Binding("ShortDestination");
+                SwapEntranceStyleBtn.Content = "Short";
+            
+
+            await spoilerLog.SortCollections(SortBy.EntrancesShort);
+            EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
+
+            UpdateSortByDisplays();
         }
 
         #endregion
@@ -295,7 +489,7 @@ namespace SpoilerTracker
 
         private void UpdateSortByDisplays()
         {
-            EntrancesSortByDisplay.Text = spoilerLog.GameSettings_SortBy.CustomToString();
+            EntrancesSortByDisplay.Text = spoilerLog.Entrances_SortBy.CustomToString();
         }
 
         #region Conditional UI Column Hiding
@@ -315,10 +509,14 @@ namespace SpoilerTracker
 
 
 
+
+
+
         #endregion
 
-        
+        private void EntrancesSortGameBtn_Click(object sender, RoutedEventArgs e)
+        {
 
-
+        }
     }
 }

@@ -20,6 +20,8 @@ namespace TranslationLibrary.SpoilerLog.Enumerators
         EntrancesShortReverseAlphabetic,
         EntrancesLongGame,
         EntrancesShortGame,
+        EntrancesLongReverseGame,
+        EntrancesShortReverseGame,
         TricksAlphabetic,
         TricksReverseAlphabetic,
         TricksDifficulty,

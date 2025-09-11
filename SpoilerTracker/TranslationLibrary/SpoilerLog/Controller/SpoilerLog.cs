@@ -256,147 +256,193 @@ namespace TranslationLibrary.SpoilerLog.Controller
             }
             #endregion
             #region Entrances
-            // Entrances - Short - (Default)
-            if (sort == SortBy.EntrancesShort || sort == SortBy.Default && Entrances != null)
-            {
-                if (Entrances != null)
-                {
-                    var sortedShortEntrances = new ObservableCollection<Entrance>(
-                    Entrances.OrderBy(e => e.World)
-                   .ThenByDescending(e => e.FromGame)
-                   .ThenBy(e => e.ShortEntrance)
-                   .ThenBy(e => e.ShortDestination)
-                    );
+            /* Short & Long Defaults */{ 
 
-                    Entrances = sortedShortEntrances;
-                    Entrances_SortBy = SortBy.EntrancesShort;
+                // Entrances - Short - (Default)
+                if (sort == SortBy.EntrancesShort || sort == SortBy.Default)
+                {
+                    if (Entrances != null)
+                    {
+                        var sortedShortEntrances = new ObservableCollection<Entrance>(
+                        Entrances.OrderBy(e => e.World)
+                       .ThenByDescending(e => e.FromGame)
+                       .ThenBy(e => e.ShortEntrance)
+                       .ThenBy(e => e.ShortDestination)
+                        );
+
+                        Entrances = sortedShortEntrances;
+                        Entrances_SortBy = SortBy.EntrancesShort;
+                    }
+
                 }
-               
-            }
-            // Entrances - Long
-            if (sort == SortBy.EntrancesLong && Entrances != null)
-            {
-                if (Entrances != null)
+                // Entrances - Long
+                if (sort == SortBy.EntrancesLong)
                 {
-                    var sortedLongEntrances = new ObservableCollection<Entrance>(
-                    Entrances.OrderBy(e => e.World)
-                    .ThenByDescending(e => e.FromGame)
-                    .ThenBy(e => e.LongEntrance)
-                    .ThenBy(e => e.LongDestination)
-                    );
-                    
-                    Entrances = sortedLongEntrances;
-                    Entrances_SortBy = SortBy.EntrancesLong;
-                }
-                
-            }
+                    if (Entrances != null)
+                    {
+                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        Entrances.OrderBy(e => e.World)
+                        .ThenByDescending(e => e.FromGame)
+                        .ThenBy(e => e.LongEntrance)
+                        .ThenBy(e => e.LongDestination)
+                        );
 
-            // Entrances - Short - Game
-            if (sort == SortBy.EntrancesShortGame && Entrances != null)
-            {
-                if (Entrances != null)
-                {
-                    var sortedLongEntrances = new ObservableCollection<Entrance>(
-                    Entrances.OrderByDescending(e => e.FromGame)
-                    .ThenBy(e => e.ShortEntrance)
-                    .ThenBy(e => e.ShortDestination)
-                    .ThenBy(e => e.World)
-                    );
+                        Entrances = sortedLongEntrances;
+                        Entrances_SortBy = SortBy.EntrancesLong;
+                    }
 
-                    Entrances = sortedLongEntrances;
-                    Entrances_SortBy = SortBy.EntrancesShortGame;
-                }
-                
-            }
-
-            // Entrances - Long - Game
-            if (sort == SortBy.EntrancesLongGame && Entrances != null)
-            {
-                if (Entrances != null)
-                {
-                    var sortedLongEntrances = new ObservableCollection<Entrance>(
-                    Entrances.OrderBy(e => e.World)
-                    .ThenByDescending(e => e.FromGame)
-                    .ThenBy(e => e.LongEntrance)
-                    .ThenBy(e => e.LongDestination)
-                    );
-
-                    Entrances = sortedLongEntrances;
-                    Entrances_SortBy = SortBy.EntrancesLongGame;
                 }
             }
+            /* Short Alphabetic & Reverse */{
 
-            // Entrances - Short - Alphabetic
-            if (sort == SortBy.EntrancesShortAlphabetic && Entrances != null)
-            {
-                if (Entrances != null) 
+                // Entrances - Short - Alphabetic
+                if (sort == SortBy.EntrancesShortAlphabetic)
                 {
-                    var sortedLongEntrances = new ObservableCollection<Entrance>(
-                    Entrances.OrderBy(e => e.ShortEntrance)
-                    .ThenBy(e => e.ShortDestination)
-                    .ThenByDescending(e => e.FromGame)
-                    .ThenBy(e => e.World)
-                    );
+                    if (Entrances != null)
+                    {
+                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        Entrances.OrderBy(e => e.ShortEntrance)
+                        .ThenBy(e => e.ShortDestination)
+                        .ThenByDescending(e => e.FromGame)
+                        .ThenBy(e => e.World)
+                        );
 
-                    Entrances = sortedLongEntrances;
-                    Entrances_SortBy = SortBy.EntrancesShortAlphabetic;
-                }
-            }
-
-            // Entrances - Short - Reverse Alphabetic
-            if (sort == SortBy.EntrancesShortReverseAlphabetic && Entrances != null)
-            {
-                if (Entrances != null)
-                {
-                    var sortedLongEntrances = new ObservableCollection<Entrance>(
-                    Entrances.OrderByDescending(e => e.ShortEntrance)
-                    .ThenByDescending(e => e.ShortDestination)
-                    .ThenByDescending(e => e.FromGame)
-                    .ThenBy(e => e.World)
-                    );
-
-                    Entrances = sortedLongEntrances;
-                    Entrances_SortBy = SortBy.EntrancesShortReverseAlphabetic;
+                        Entrances = sortedLongEntrances;
+                        Entrances_SortBy = SortBy.EntrancesShortAlphabetic;
+                    }
                 }
 
-            }
-
-            // Entrances - Long - Alphabetic
-            if (sort == SortBy.EntrancesLongAlphabetic)
-            {
-                if (Entrances != null)
+                // Entrances - Short - Reverse Alphabetic
+                if (sort == SortBy.EntrancesShortReverseAlphabetic)
                 {
-                    var sortedLongEntrances = new ObservableCollection<Entrance>(
-                    Entrances.OrderBy(e => e.LongEntrance)
-                    .ThenBy(e => e.LongDestination)
-                    .ThenByDescending(e => e.FromGame)
-                    .ThenBy(e => e.World)
-                    );
+                    if (Entrances != null)
+                    {
+                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        Entrances.OrderByDescending(e => e.ShortEntrance)
+                        .ThenByDescending(e => e.ShortDestination)
+                        .ThenByDescending(e => e.FromGame)
+                        .ThenBy(e => e.World)
+                        );
 
-                    Entrances = sortedLongEntrances;
-                    Entrances_SortBy = SortBy.EntrancesLongAlphabetic;
+                        Entrances = sortedLongEntrances;
+                        Entrances_SortBy = SortBy.EntrancesShortReverseAlphabetic;
+                    }
+
                 }
             }
+            /* Long  Alphabetic & Reverse */{
 
-            // Entrances - Long - Reverse Alphabetic
-            if (sort == SortBy.EntrancesLongAlphabetic)
-            {
-                if (Entrances != null)
+                // Entrances - Long - Alphabetic
+                if (sort == SortBy.EntrancesLongAlphabetic)
                 {
-                    var sortedLongEntrances = new ObservableCollection<Entrance>(
-                    Entrances.OrderByDescending(e => e.LongEntrance)
-                    .ThenByDescending(e => e.LongDestination)
-                    .ThenByDescending(e => e.FromGame)
-                    .ThenBy(e => e.World)
-                    );
+                    if (Entrances != null)
+                    {
+                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        Entrances.OrderBy(e => e.LongEntrance)
+                        .ThenBy(e => e.LongDestination)
+                        .ThenByDescending(e => e.FromGame)
+                        .ThenBy(e => e.World)
+                        );
 
-                    Entrances = sortedLongEntrances;
-                    Entrances_SortBy = SortBy.EntrancesLongAlphabetic;
+                        Entrances = sortedLongEntrances;
+                        Entrances_SortBy = SortBy.EntrancesLongAlphabetic;
+                    }
+                }
+
+                // Entrances - Long - Reverse Alphabetic
+                if (sort == SortBy.EntrancesLongReverseAlphabetic)
+                {
+                    if (Entrances != null)
+                    {
+                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        Entrances.OrderByDescending(e => e.LongEntrance)
+                        .ThenByDescending(e => e.LongDestination)
+                        .ThenByDescending(e => e.FromGame)
+                        .ThenBy(e => e.World)
+                        );
+
+                        Entrances = sortedLongEntrances;
+                        Entrances_SortBy = SortBy.EntrancesLongReverseAlphabetic;
+                    }
                 }
             }
+            /* Short Game & Reverse */{
+
+                // Entrances - Short - Game
+                if (sort == SortBy.EntrancesShortGame)
+                {
+                    if (Entrances != null)
+                    {
+                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        Entrances.OrderByDescending(e => e.FromGame)
+                        .ThenBy(e => e.ShortEntrance)
+                        .ThenBy(e => e.ShortDestination)
+                        .ThenBy(e => e.World)
+                        );
+
+                        Entrances = sortedLongEntrances;
+                        Entrances_SortBy = SortBy.EntrancesShortGame;
+                    }
+                }
+
+                // Entrances - Long - Game
+                if (sort == SortBy.EntrancesLongGame)
+                {
+                    if (Entrances != null)
+                    {
+                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        Entrances.OrderBy(e => e.World)
+                        .ThenByDescending(e => e.FromGame)
+                        .ThenBy(e => e.LongEntrance)
+                        .ThenBy(e => e.LongDestination)
+                        );
+
+                        Entrances = sortedLongEntrances;
+                        Entrances_SortBy = SortBy.EntrancesLongGame;
+                    }
+                }
+
+                // Entrances - Short - Reverse Game
+                if (sort == SortBy.EntrancesShortReverseGame)
+                {
+                    if (Entrances != null)
+                    {
+                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        Entrances.OrderBy(e => e.FromGame)
+                        .ThenBy(e => e.ShortEntrance)
+                        .ThenBy(e => e.ShortDestination)
+                        .ThenBy(e => e.World)
+                        );
+
+                        Entrances = sortedLongEntrances;
+                        Entrances_SortBy = SortBy.EntrancesShortReverseGame;
+                    }
+                }
+
+                // Entrances - Long - Reverse Game
+                if (sort == SortBy.EntrancesLongReverseGame)
+                {
+                    if (Entrances != null)
+                    {
+                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        Entrances.OrderBy(e => e.FromGame)
+                        .ThenBy(e => e.World)
+                        .ThenBy(e => e.LongEntrance)
+                        .ThenBy(e => e.LongDestination)
+                        );
+
+                        Entrances = sortedLongEntrances;
+                        Entrances_SortBy = SortBy.EntrancesLongReverseGame;
+                    }
+                }
+            }
+            
+
+
+           
 
             #endregion
-
+            #region Tricks
             // Tricks - Alphabetic - (Default)
             if (sort == SortBy.TricksAlphabetic || sort == SortBy.Default)
             {
@@ -460,6 +506,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     Tricks_SortBy = SortBy.TricksLogOrder;
                 }
             }
+            #endregion
 
             UINotify?.NotifyAll();
         }
