@@ -31,7 +31,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
         private ObservableCollection<string> _junkLocations = new ObservableCollection<string>();
         private ObservableCollection<WorldFlag> _worldFlags = new ObservableCollection<WorldFlag>();
         private ObservableCollection<Entrance> _entrances = new ObservableCollection<Entrance>();
-        private ObservableCollection<Hint> _wayOfTheHeroHints = new ObservableCollection<Hint>();
+        private ObservableCollection<WayOfTheHero> _wayOfTheHeroHints = new ObservableCollection<WayOfTheHero>();
         private ObservableCollection<Hint> _foolishHints = new ObservableCollection<Hint>();
         private ObservableCollection<Hint> _specificHints = new ObservableCollection<Hint>();
         private ObservableCollection<Hint> _regionalHints = new ObservableCollection<Hint>();
@@ -76,7 +76,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             get => _entrances;
             set { if (_entrances != value) { _entrances = value; OnPropertyChanged(nameof(Entrances)); } }
         }
-        public ObservableCollection<Hint> WayOfTheHeroHints
+        public ObservableCollection<WayOfTheHero> WayOfTheHeroHints
         {
             get => _wayOfTheHeroHints;
             set { if (_wayOfTheHeroHints != value) { _wayOfTheHeroHints = value; OnPropertyChanged(nameof(WayOfTheHeroHints)); } }
@@ -734,16 +734,19 @@ namespace TranslationLibrary.SpoilerLog.Controller
             end = position - 1;
             return Tuple.Create(start, end);
         }
+
         private async Task<BlockInfo?> FindBlock(string header, string[] file, int startingPosition = 0)
         {
             int position = startingPosition;
 
+            // Finds the header
             while (position < file.Length && !file[position].Trim().Equals(header, StringComparison.OrdinalIgnoreCase))
                 position++;
 
             if (position >= file.Length)
                 return null;
 
+            // Header has been found: Get the range
             int startLine = position + 1;
             int endLine = startLine;
             string? subHeader = null;
@@ -770,9 +773,69 @@ namespace TranslationLibrary.SpoilerLog.Controller
             return new BlockInfo
             {
                 Header = header,
+                SubHeader = subHeader,
                 StartLine = startLine,
-                EndLine = endLine - 1,
-                SubHeader = subHeader
+                EndLine = endLine - 1
+
+            };
+        }
+
+        private async Task<BlockInfo?> FindHintBlock(string subHeader, string[] file, int startingPosition = 0, string header = "Hints")
+        {
+            int position = startingPosition;
+
+            // Finds the header
+            while (position < file.Length && !file[position].Trim().Equals(header, StringComparison.OrdinalIgnoreCase))
+                position++;
+
+            if (position >= file.Length)
+                return null;
+
+            // Get world info if it is a multplayer log
+            string? world = null;
+            position++;
+
+            if (file[position].StartsWith("  ") && file[position].Trim().Contains("World", StringComparison.OrdinalIgnoreCase))
+                world = file[position].Trim().Replace(":", "");
+
+
+            // Gets the subheader (Ex. Way of the hero:)
+            string sub = null;
+            while (position < file.Length)
+            {
+                if (file[position].Trim().Contains(subHeader, StringComparison.OrdinalIgnoreCase)) 
+                {
+                    sub = file[position].Trim().Replace(":", "");
+                    position++;
+                    break;
+                }
+                position++;
+            }
+            
+            // Gets the data range
+            int startLine = position + 1;
+            int endLine = startLine;  
+
+            while (endLine < file.Length)
+            {
+                string line = file[endLine];
+
+                // Exit block if we hit a new top-level section
+                if (string.IsNullOrWhiteSpace(line))
+                {
+                    break;
+                }
+
+                endLine++;
+            }
+
+            return new BlockInfo
+            {
+                Header = header,
+                SubHeader = subHeader,
+                StartLine = startLine,
+                EndLine = endLine,
+                World = world
             };
         }
         #endregion
@@ -1000,79 +1063,21 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
             return entrances; 
         }
-        private async Task<ObservableCollection<Hint>> Parse_WayOfTheHeroHints()
+        private async Task<ObservableCollection<WayOfTheHero>> Parse_WayOfTheHeroHints()
         {
-            var hints = new ObservableCollection<Hint>();
+            var blockInfo = await FindHintBlock("Way of the Hero", FileContents);
 
-            var (start, end) = await FindCategoryRangeAsync("Hints", FileContents);
-            if (start == -1) return hints;
+            Tuple<int,int> range = new Tuple<int, int>(blockInfo.StartLine, blockInfo.EndLine);
 
-            string? currentWorld = null;
-            string? currentType = null;
+            var wayOfTheHeroHints = await AddValues<WayOfTheHero>(range, FileContents);
 
-            for (int i = start; i <= end; i++)
+            // Adds world info to each item of collection
+            for (int i = 0; i < wayOfTheHeroHints.Count; i++)
             {
-                string line = FileContents[i];
-
-                // Skip blank lines
-                if (string.IsNullOrWhiteSpace(line)) continue;
-
-                // Detect world header (e.g., "  World 1")
-                if (!line.StartsWith("  ") && line.Trim().StartsWith("World", StringComparison.OrdinalIgnoreCase))
-                {
-                    currentWorld = line.Trim();     // May still include :
-                    continue;
-                }
-
-                // Detect world header (e.g., "  World 1")
-                if (!line.StartsWith("    ") || !line.StartsWith("  ") && line.Trim().StartsWith("Way of the Hero", StringComparison.OrdinalIgnoreCase))
-                {
-                    currentType = line.Trim();     // May still include :
-                    continue;
-                }
-              
-                // Single Player
-                if (line.StartsWith("    ") && currentWorld != null)
-                {
-                    var parts = line.Trim().Split("  ");
-                    if (parts.Length != 3) continue;
-
-                    var gossipStone = parts[0].Trim();
-                    var location = parts[1].Trim();
-                    var item = parts[2].Trim();
-
-                    WayOfTheHeroHints.Add(new Hint
-                    {
-                        World = currentWorld,
-                        Type = currentType,
-                        GossipStone = gossipStone,
-                        Location = location,
-                        Item = item
-                    });
-                }
-
-                // Multi-player
-                if (line.StartsWith("      ") && currentWorld != null)
-                {
-                    var parts = line.Trim().Split("World");
-                    if (parts.Length != 3) continue;
-
-                    var gossipStone = parts[0].Trim();
-                    var location = parts[1].Trim();
-                    var item = parts[2].Trim();
-
-                    WayOfTheHeroHints.Add(new Hint
-                    {
-                        World = currentWorld,
-                        Type = currentType,
-                        GossipStone = gossipStone,
-                        Location = location,
-                        Item = item
-                    });
-                }
+                wayOfTheHeroHints[i].World = blockInfo.World;
             }
 
-            return hints;
+            return wayOfTheHeroHints;
         }
 
 

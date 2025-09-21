@@ -8,24 +8,26 @@ using TranslationLibrary.SpoilerLog.Interfaces;
 
 namespace TranslationLibrary.SpoilerLog.Models
 {
-    public class Hint : ICreateFromLine<Hint>
+    public class WayOfTheHero : ICreateFromLine<WayOfTheHero>
     {
+        
         public string? World { get; set; }
-        public string? Type { get; set; }
         public string? GossipStone { get; set; }
         public string? Location { get; set; }
         public string? Item { get; set; }
-        public int? Count { get; set; }
 
-
-        public Hint CreateFromLine(string line)
+        public WayOfTheHero CreateFromLine(string line)
         {
+            string[] parts = Regex.Split(line, @"\s{2,}");
 
-            return new Hint
+            return new WayOfTheHero
             {
-
+                World = null,
+                GossipStone = parts[0].Trim(),
+                Location = parts[1].Trim(),
+                Item = parts[2].Trim(),
             };
-
         }
     }
 }
+

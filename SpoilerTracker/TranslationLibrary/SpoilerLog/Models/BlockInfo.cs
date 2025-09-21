@@ -10,8 +10,8 @@ namespace TranslationLibrary.SpoilerLog.Models
     {
         public string Header { get; set; }
         public string? SubHeader { get; set; }
-        public string? SubHeadder2 { get; set; }
         public int StartLine { get; set; }
         public int EndLine { get; set; }
+        public string? World {  get; set; }
     }
 }
