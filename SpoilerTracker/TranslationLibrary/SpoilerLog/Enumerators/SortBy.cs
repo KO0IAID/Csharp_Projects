@@ -26,5 +26,11 @@ namespace TranslationLibrary.SpoilerLog.Enumerators
         TricksReverseAlphabetic,
         TricksDifficulty,
         TricksLogOrder,
+        WayOfTheHeroWorld,
+        WayOfTheHeroLocation,
+        WayOfTheHeroItems,
+        FoolishHintsWorld,
+        FoolishHintsGossip,
+        FoolishHintsLocation
     }
 }

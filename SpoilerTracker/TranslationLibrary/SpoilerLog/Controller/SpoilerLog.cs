@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
@@ -17,106 +18,29 @@ using TranslationLibrary.SpoilerLog.UI_Notify;
 
 namespace TranslationLibrary.SpoilerLog.Controller
 {
-    public class SpoilerLog : INotifyPropertyChanged
+    public class SpoilerLog
     {
+         
         public string[] FileContents;
         public bool DebugMode = true;
-        public UINotifier? UINotify { get; set; } = new UINotifier();
-        public event PropertyChangedEventHandler? PropertyChanged;
 
-        #region Backer Properties
-        private ObservableCollection<SeedInfo> _seedInfo = new ObservableCollection<SeedInfo>();
-        private ObservableCollection<Setting> _gameSettings = new ObservableCollection<Setting>();
-        private ObservableCollection<Condition> _specialConditions = new ObservableCollection<Condition>();
-        private ObservableCollection<Trick> _tricks = new ObservableCollection<Trick>();
-        private ObservableCollection<string> _junkLocations = new ObservableCollection<string>();
-        private ObservableCollection<WorldFlag> _worldFlags = new ObservableCollection<WorldFlag>();
-        private ObservableCollection<Entrance> _entrances = new ObservableCollection<Entrance>();
-        private ObservableCollection<WayOfTheHero> _wayOfTheHeroHints = new ObservableCollection<WayOfTheHero>();
-        private ObservableCollection<Hint> _foolishHints = new ObservableCollection<Hint>();
-        private ObservableCollection<Hint> _specificHints = new ObservableCollection<Hint>();
-        private ObservableCollection<Hint> _regionalHints = new ObservableCollection<Hint>();
-        private ObservableCollection<Hint> _foolishRegions = new ObservableCollection<Hint>();
-        private ObservableCollection<Pathway> _paths = new ObservableCollection<Pathway>();
-        private ObservableCollection<Sphere> _spheres = new ObservableCollection<Sphere>();
-        private ObservableCollection<ItemLocation> _locationList = new ObservableCollection<ItemLocation>();
-        #endregion
         #region Collections
-        public ObservableCollection<SeedInfo> SeedInfo
-        {
-            get => _seedInfo;
-            set { if (_seedInfo != value) { _seedInfo = value; OnPropertyChanged(nameof(SeedInfo)); } }
-        }
-        public ObservableCollection<Setting> GameSettings 
-        {
-            get => _gameSettings; 
-            set {if (_gameSettings != value) {_gameSettings = value; OnPropertyChanged(nameof(GameSettings));}}
-        }
-        public ObservableCollection<Condition> SpecialConditions
-        {
-            get => _specialConditions;
-            set { if (_specialConditions != value) { _specialConditions = value; OnPropertyChanged(nameof(SpecialConditions)); } }
-        }
-        public ObservableCollection<Trick> Tricks
-        {
-            get => _tricks;
-            set { if (_tricks != value) { _tricks = value; OnPropertyChanged(nameof(Tricks)); } }
-        }
-        public ObservableCollection<string> JunkLocations
-        {
-            get => _junkLocations;
-            set { if (_junkLocations != value) { _junkLocations = value; OnPropertyChanged(nameof(JunkLocations)); } }
-        }
-        public ObservableCollection<WorldFlag> WorldFlags
-        {
-            get => _worldFlags;
-            set { if (_worldFlags != value) { _worldFlags = value; OnPropertyChanged(nameof(WorldFlags)); } }
-        }
-        public ObservableCollection<Entrance> Entrances
-        {
-            get => _entrances;
-            set { if (_entrances != value) { _entrances = value; OnPropertyChanged(nameof(Entrances)); } }
-        }
-        public ObservableCollection<WayOfTheHero> WayOfTheHeroHints
-        {
-            get => _wayOfTheHeroHints;
-            set { if (_wayOfTheHeroHints != value) { _wayOfTheHeroHints = value; OnPropertyChanged(nameof(WayOfTheHeroHints)); } }
-        }
-        public ObservableCollection<Hint> FoolishHints
-        {
-            get => _foolishHints;
-            set { if (_foolishHints != value) { _foolishHints = value; OnPropertyChanged(nameof(FoolishHints)); } }
-        }
-        public ObservableCollection<Hint> SpecificHints
-        {
-            get => _specificHints;
-            set { if (_specificHints != value) { _specificHints = value; OnPropertyChanged(nameof(SpecificHints)); } }
-        }
-        public ObservableCollection<Hint> RegionalHints
-        {
-            get => _regionalHints;
-            set { if (_regionalHints != value) { _regionalHints = value; OnPropertyChanged(nameof(RegionalHints)); } }
-        }
-        public ObservableCollection<Hint> FoolishRegions
-        {
-            get => _foolishRegions;
-            set { if (_foolishRegions != value) { _foolishHints = value; OnPropertyChanged(nameof(FoolishRegions)); } }
-        }
-        public ObservableCollection<Pathway> Paths
-        {
-            get => _paths;
-            set { if (_paths != value) { _paths = value; OnPropertyChanged(nameof(Paths)); } }
-        }
-        public ObservableCollection<Sphere> Spheres
-        {
-            get => _spheres;
-            set { if (_spheres != value) { _spheres = value; OnPropertyChanged(nameof(Spheres)); } }
-        }
-        public ObservableCollection<ItemLocation> LocationList
-        {
-            get => _locationList;
-            set { if (_locationList != value) { _locationList = value; OnPropertyChanged(nameof(LocationList)); } }
-        }
+        public ObservableCollection<SeedInfo>? SeedInfo { get; set; } = new();
+        public ObservableCollection<Setting>? GameSettings { get; set; } = new();
+        public ObservableCollection<Condition>? SpecialConditions { get; set; } = new();
+        public ObservableCollection<Trick>? Tricks { get; set; } = new();
+        public ObservableCollection<string>? JunkLocations { get; set; } = new();
+        public ObservableCollection<WorldFlag>? WorldFlags { get; set; } = new();
+        public ObservableCollection<Entrance>? Entrances { get; set; } = new();
+        public ObservableCollection<WayOfTheHero>? WayOfTheHeroHints { get; set; } = new();
+        public ObservableCollection<Foolish>? FoolishHints { get; set; } = new();
+        public ObservableCollection<Hint>? SpecificHints { get; set; } = new();
+        public ObservableCollection<Hint>? RegionalHints { get; set; } = new();
+        public ObservableCollection<Hint>? FoolishRegions { get; set; } = new();
+        public ObservableCollection<Pathway>? Paths { get; set; } = new();
+        public ObservableCollection<Sphere>? Spheres { get; set; } = new();
+        public ObservableCollection<ItemLocation>? LocationList { get; set; } = new();
+
         #endregion
         #region Collections SortBy Enums
         public SortBy SeedInfo_SortBy { get; private set; }
@@ -134,7 +58,6 @@ namespace TranslationLibrary.SpoilerLog.Controller
         public SortBy Paths_SortBy { get; private set; }
         public SortBy Spheres_SortBy { get; private set; }
         public SortBy LocationList_SortBy { get; private set; }
-
         #endregion
 
 
@@ -157,12 +80,12 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 WorldFlags = await Parse_WorldFlags();
                 Entrances = await Parse_Entrances();
                 WayOfTheHeroHints = await Parse_WayOfTheHeroHints();
-                
+                FoolishHints = await Parse_FoolishHints();
 
 
-                await SortCollections();
 
-                await DebugStats(sw);
+                SortCollections();
+                DebugStats(sw);
 
 
             }
@@ -175,40 +98,44 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         public void ClearFileContents()
         {
-            SeedInfo.Clear();
-            GameSettings.Clear();
-            SpecialConditions.Clear();
-            JunkLocations.Clear();
-            WorldFlags.Clear();
-            Entrances.Clear();
-            WayOfTheHeroHints.Clear();
-            FoolishHints.Clear();
-            FoolishRegions.Clear();
-            Paths.Clear();
-            Spheres.Clear();
-            LocationList.Clear();
+            SeedInfo?.Clear();
+            GameSettings?.Clear();
+            SpecialConditions?.Clear();
+            JunkLocations?.Clear();
+            WorldFlags?.Clear();
+            Entrances?.Clear();
+            WayOfTheHeroHints?.Clear();
+            FoolishHints?.Clear();
+            FoolishRegions?.Clear();
+            Paths?.Clear();
+            Spheres?.Clear();
+            LocationList?.Clear();
         }
         public bool HasValue()
         {
             // Check if FileContents is not null and contains at least one line
             return FileContents != null && FileContents.Length > 0;
         }
-        public async Task DebugStats(Stopwatch sw)
+        public void DebugStats(Stopwatch sw)
         {
+
             sw.Stop();
             Debug.WriteLineIf(DebugMode,
             $"--- Spoiler Sheet Data Added! Time Taken: {sw.Elapsed} ---" +
-            $"\nSeed Info:\t\t\t{(SeedInfo != null ? SeedInfo.Count.ToString() : "null")}" +
-            $"\nGame Settings:\t\t{(GameSettings != null ? GameSettings.Count.ToString() : "null")}" +
-            $"\nSpecial Conditions:\t{(SpecialConditions != null ? SpecialConditions.Count.ToString() : "null")}" +
-            $"\nTricks:\t\t\t\t{(Tricks != null ? Tricks.Count.ToString() : "null")}" +
-            $"\nJunk Locations:\t\t{(JunkLocations != null ? JunkLocations.Count.ToString() : "null")}" +
-            $"\nWorld Flags:\t\t{(WorldFlags != null ? WorldFlags.Count.ToString() : "null")}" +
-            $"\nEntrances:\t\t\t{(Entrances != null ? Entrances.Count.ToString() : "null")}" +
-            $"\nHints - Way Of The Hero:\t{(WayOfTheHeroHints != null ? WayOfTheHeroHints.Count.ToString() : "null")}"
-);
+            $"\nSeed Info:\t\t\t{(SeedInfo != null ? SeedInfo.Count : 0)}" +
+            $"\nGame Settings:\t\t{(GameSettings != null ? GameSettings.Count : 0)}" +
+            $"\nSpecial Conditions:\t{(SpecialConditions != null ? SpecialConditions.Count : 0)}" +
+            $"\nTricks:\t\t\t\t{(Tricks != null ? Tricks.Count : 0)}" +
+            $"\nJunk Locations:\t\t{(JunkLocations != null ? JunkLocations.Count : 0)}" +
+            $"\nWorld Flags:\t\t{(WorldFlags != null ? WorldFlags.Count : 0)}" +
+            $"\nEntrances:\t\t\t{(Entrances != null ? Entrances.Count : 0)}" +
+            $"\nWay Of The Hero:\t{(WayOfTheHeroHints != null ? WayOfTheHeroHints.Count : 0)}" +
+            $"\nFoolish:\t\t\t{(FoolishHints != null ? FoolishHints.Count : 0)}"
+            );
+            
+
         }
-        public async Task SortCollections(SortBy sort = SortBy.Default)
+        public void SortCollections(SortBy sort = SortBy.Default)
         {
 
             #region GameSettings
@@ -509,8 +436,110 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 }
             }
             #endregion
+            #region WayOfTheHero
 
-            UINotify?.NotifyAll();
+            // WayOfTheHero - World - (Default)
+            if (sort == SortBy.WayOfTheHeroWorld || sort == SortBy.Default)
+            {
+                if (WayOfTheHeroHints != null)
+                {
+                    var sortedTricks = new ObservableCollection<WayOfTheHero>(
+                    WayOfTheHeroHints.OrderBy(e => e.World)
+                    .ThenBy(e => e.GossipStone)
+                    .ThenBy(e => e.Location)
+                    );
+
+                    WayOfTheHeroHints = sortedTricks;
+                    WayOfTheHeroHints_SortBy = SortBy.WayOfTheHeroWorld;
+                }
+            }
+
+            // WayOfTheHero - Location
+            if (sort == SortBy.WayOfTheHeroLocation)
+            {
+                if (WayOfTheHeroHints != null)
+                {
+                    var sortedTricks = new ObservableCollection<WayOfTheHero>(
+                    WayOfTheHeroHints.OrderBy(e => e.Location)
+                    .ThenBy(e => e.World)
+                    .ThenBy(e => e.Item)
+                    );
+
+                    WayOfTheHeroHints = sortedTricks;
+                    WayOfTheHeroHints_SortBy = SortBy.WayOfTheHeroLocation;
+                }
+            }
+
+            // WayOfTheHero - Items
+            if (sort == SortBy.WayOfTheHeroItems)
+            {
+                if (WayOfTheHeroHints != null)
+                {
+                    var sortedTricks = new ObservableCollection<WayOfTheHero>(
+                    WayOfTheHeroHints.OrderBy(e => e.Item)
+                    .ThenBy(e => e.GossipStone)
+                    .ThenBy(e => e.Location)
+                    );
+
+                    WayOfTheHeroHints = sortedTricks;
+                    WayOfTheHeroHints_SortBy = SortBy.WayOfTheHeroItems;
+                }
+            }
+
+
+            #endregion
+            #region Foolish Hints
+            // FoolishHints - World - (Default)
+            if (sort == SortBy.FoolishHintsWorld || sort == SortBy.Default)
+            {
+                if (FoolishHints != null)
+                {
+                    var sortedTricks = new ObservableCollection<Foolish>(
+                    FoolishHints.OrderBy(e => e.World)
+                    .ThenBy(e => e.GossipStone)
+                    .ThenBy(e => e.Location)
+                    );
+
+                    FoolishHints = sortedTricks;
+                    FoolishHints_SortBy = SortBy.FoolishHintsWorld;
+                }
+            }
+
+            // WayOfTheHero - Gossip
+            if (sort == SortBy.FoolishHintsGossip)
+            {
+                if (FoolishHints != null)
+                {
+                    var sortedTricks = new ObservableCollection<Foolish>(
+                    FoolishHints.OrderBy(e => e.GossipStone)
+                    .ThenBy(e => e.World)
+                    .ThenBy(e => e.Location)
+                    );
+
+                    FoolishHints = sortedTricks;
+                    FoolishHints_SortBy = SortBy.FoolishHintsGossip;
+                }
+            }
+
+            // WayOfTheHero - Location
+            if (sort == SortBy.FoolishHintsLocation)
+            {
+                if (FoolishHints != null)
+                {
+                    var sortedTricks = new ObservableCollection<Foolish>(
+                    FoolishHints.OrderBy(e => e.Location)
+                    .ThenBy(e => e.GossipStone)
+                    .ThenBy(e => e.World)
+                    );
+
+                    FoolishHints = sortedTricks;
+                    FoolishHints_SortBy = SortBy.FoolishHintsLocation;
+                }
+            }
+
+
+            #endregion
+
         }
 
 
@@ -522,20 +551,23 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
         private async Task<ObservableCollection<T>?> AddValues<T>(Tuple<int, int> range, string[] fileContents) where T : ICreateFromLine<T>, new()
         {
-            if (range.Item1 == -1 || range.Item2 == -1)
-                return null;
-
-            var collection = new ObservableCollection<T>();
-            var parser = new T();
-
-            for (int i = range.Item1; i < range.Item2; i++)
+            return await Task.Run(() =>
             {
-                string line = fileContents[i];
-                T item = parser.CreateFromLine(line);
-                collection.Add(item);
-                
-            }
-            return collection;
+                if (range.Item1 == -1 || range.Item2 == -1)
+                    return null;
+
+                var collection = new ObservableCollection<T>();
+                var parser = new T();
+
+                for (int i = range.Item1; i < range.Item2; i++)
+                {
+                    string line = fileContents[i];
+                    T item = parser.CreateFromLine(line);
+                    collection.Add(item);
+
+                }
+                return collection;
+            });
 
         } 
         private async Task<KeyValuePair<string, string>?> Parse_SingleKeyValueAsync(string[] file, string categoryName, string delimiter = ":", int startingPosition = 0)
@@ -563,49 +595,52 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<ObservableCollection<string>> Parse_MultipleStringsAsync(string categoryName, string[] file, int startingPosition = 0)
         {
-            int position = startingPosition;
-            ObservableCollection<string> list = new ObservableCollection<string>();
-
-            // Find the category header
-            while (position < file.Length && !file[position].TrimStart().StartsWith(categoryName, StringComparison.OrdinalIgnoreCase))
+            return await Task.Run(() =>
             {
-                position++;
-            }
+                int position = startingPosition;
+                ObservableCollection<string> list = new ObservableCollection<string>();
 
-            // If the category header is not found, return null
-            if (position >= file.Length)
-                return list;
-           
-                
-
-            // Move past the category header to the first data line
-            position++;
-
-            // Parse strings until a blank line or un-indented line is found
-            while (position < file.Length)
-            {
-                string currentLine = file[position];
-
-                // Trim leading and trailing whitespace
-                string trimmedLine = currentLine.Trim();
-
-                // Check for the end of the list:
-                // 1. A completely empty line
-                // 2. A line that is not indented, indicating the start of a new category or a file end
-                if (string.IsNullOrEmpty(trimmedLine) || !currentLine.StartsWith("  "))
+                // Find the category header
+                while (position < file.Length && !file[position].TrimStart().StartsWith(categoryName, StringComparison.OrdinalIgnoreCase))
                 {
-                    // If the current line is not an indented value, the category list has ended.
-                    break;
+                    position++;
                 }
 
-                // Add the trimmed line to the list
-                list.Add(trimmedLine);
+                // If the category header is not found, return null
+                if (position >= file.Length)
+                    return list;
 
-                // Move to the next line
+
+
+                // Move past the category header to the first data line
                 position++;
-            }
 
-            return list;
+                // Parse strings until a blank line or un-indented line is found
+                while (position < file.Length)
+                {
+                    string currentLine = file[position];
+
+                    // Trim leading and trailing whitespace
+                    string trimmedLine = currentLine.Trim();
+
+                    // Check for the end of the list:
+                    // 1. A completely empty line
+                    // 2. A line that is not indented, indicating the start of a new category or a file end
+                    if (string.IsNullOrEmpty(trimmedLine) || !currentLine.StartsWith("  "))
+                    {
+                        // If the current line is not an indented value, the category list has ended.
+                        break;
+                    }
+
+                    // Add the trimmed line to the list
+                    list.Add(trimmedLine);
+
+                    // Move to the next line
+                    position++;
+                }
+
+                return list;
+            });
         }
         private ObservableCollection<KeyValuePair<string, string>> Parse_FlatKeyValueBlock(string categoryName, string[] fileContents)
         {
@@ -684,190 +719,199 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
         private async Task<Tuple<int, int>> FindCategoryRangeAsync(string categoryName, string[] file, int startingPosition = 0)
         {
-            int position = startingPosition;
-            int start = -1;
-            int end = file.Length - 1;
-
-            // Search for Category Header
-            while (position < file.Length && !file[position].Equals(categoryName, StringComparison.Ordinal))
+            return await Task.Run(() =>
             {
-                position++;
-            }
+                int position = startingPosition;
+                int start = -1;
+                int end = file.Length - 1;
 
-            // Category not found
-            if (position >= file.Length)
-            {
-                return Tuple.Create(-1, -1);
-            }
-
-            // Category Found: 
-            // Move past the category header
-            position++;
-            start = position;
-
-            while (position < file.Length)
-            {
-                string line = file[position];
-
-                // Still In Category
-                if (line.StartsWith("  "))
+                // Search for Category Header
+                while (position < file.Length && !file[position].Equals(categoryName, StringComparison.Ordinal))
                 {
                     position++;
                 }
-                // Possible End of Category
-                else if (string.IsNullOrWhiteSpace(line))
+
+                // Category not found
+                if (position >= file.Length)
                 {
-                    // Peek ahead && Still indented
-                    if (position + 1 < file.Length && file[position + 1].StartsWith("  "))
+                    return Tuple.Create(-1, -1);
+                }
+
+                // Category Found: 
+                // Move past the category header
+                position++;
+                start = position;
+
+                while (position < file.Length)
+                {
+                    string line = file[position];
+
+                    // Still In Category
+                    if (line.StartsWith("  "))
                     {
-                        position += 2;
+                        position++;
                     }
-                    // End of Category Reached
+                    // Possible End of Category
+                    else if (string.IsNullOrWhiteSpace(line))
+                    {
+                        // Peek ahead && Still indented
+                        if (position + 1 < file.Length && file[position + 1].StartsWith("  "))
+                        {
+                            position += 2;
+                        }
+                        // End of Category Reached
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    // Safety Net
                     else
                     {
                         break;
                     }
                 }
-                // Safety Net
-                else
-                {
-                    break;
-                }
-            }
-            end = position - 1;
-            return Tuple.Create(start, end);
+                end = position - 1;
+                return Tuple.Create(start, end);
+            });
         }
-
         private async Task<BlockInfo?> FindBlock(string header, string[] file, int startingPosition = 0)
         {
-            int position = startingPosition;
-
-            // Finds the header
-            while (position < file.Length && !file[position].Trim().Equals(header, StringComparison.OrdinalIgnoreCase))
-                position++;
-
-            if (position >= file.Length)
-                return null;
-
-            // Header has been found: Get the range
-            int startLine = position + 1;
-            int endLine = startLine;
-            string? subHeader = null;
-
-            while (endLine < file.Length)
+            return await Task.Run(() =>
             {
-                string line = file[endLine];
+                int position = startingPosition;
 
-                // Detect first subheader (e.g., "  BRIDGE:")
-                if (subHeader == null && line.StartsWith("  ") && line.Trim().EndsWith(":") && !line.Contains(" "))
+                // Finds the header
+                while (position < file.Length && !file[position].Trim().Equals(header, StringComparison.OrdinalIgnoreCase))
+                    position++;
+
+                if (position >= file.Length)
+                    return null;
+
+                // Header has been found: Get the range
+                int startLine = position + 1;
+                int endLine = startLine;
+                string? subHeader = null;
+
+                while (endLine < file.Length)
                 {
-                    subHeader = line.Trim().TrimEnd(':');
+                    string line = file[endLine];
+
+                    // Detect first subheader (e.g., "  BRIDGE:")
+                    if (subHeader == null && line.StartsWith("  ") && line.Trim().EndsWith(":") && !line.Contains(" "))
+                    {
+                        subHeader = line.Trim().TrimEnd(':');
+                    }
+
+                    // Exit block if we hit a new top-level section
+                    if (!line.StartsWith("  ") && !string.IsNullOrWhiteSpace(line))
+                    {
+                        break;
+                    }
+
+                    endLine++;
                 }
 
-                // Exit block if we hit a new top-level section
-                if (!line.StartsWith("  ") && !string.IsNullOrWhiteSpace(line))
+                return new BlockInfo
                 {
-                    break;
-                }
+                    Header = header,
+                    SubHeader = subHeader,
+                    StartLine = startLine,
+                    EndLine = endLine - 1
 
-                endLine++;
-            }
-
-            return new BlockInfo
-            {
-                Header = header,
-                SubHeader = subHeader,
-                StartLine = startLine,
-                EndLine = endLine - 1
-
-            };
+                };
+            });
+            
         }
         private async Task<BlockInfo?> FindHintBlock(string subHeader, string[] file, int worldNum = 1, int startingPosition = 0, string header = "Hints")
         {
-            int position = startingPosition;
-
-            // Finds the header
-            while (position < file.Length && !file[position].Trim().Equals(header, StringComparison.OrdinalIgnoreCase))
-                position++;
-
-            // If we're at the end of file we didn't find the header
-            if (position >= file.Length)
-                return null;
-
-            int headerPosition = position;
-
-            // Get world info if it is a multiplayer log
-            string? world = null;
-            bool multiWorld = false;
-            position++;
-
-           if (file[position].StartsWith("  ") && file[position].Trim().Contains("World 1:", StringComparison.OrdinalIgnoreCase))
+            return await Task.Run(() =>
             {
-                multiWorld = true;
-            }
+                int position = startingPosition;
 
-            // Find the appropriate world if multiplayer log
-            while (multiWorld && position < file.Length)
-            {
-                string line = file[position];
-
-                if (line.StartsWith("  ") && line.Trim().Contains($"World {worldNum}:", StringComparison.OrdinalIgnoreCase))
-                    break;
-
-                position++;
-            }
-
-            // If we couldn't find world header 
-            if (position >= file.Length)
-                return null;
-
-            // Found appropriate world header
-            if (multiWorld)
-                world = file[position].Trim().Replace(":", "");
-
-            // Gets the subheader (Ex. Way of the hero:)
-            string sub = null;
-            while (position < file.Length)
-            {
-                if (file[position].Trim().Contains(subHeader, StringComparison.OrdinalIgnoreCase)) 
-                {
-                    sub = file[position].Trim().Replace(":", "");
+                // Finds the header
+                while (position < file.Length && !file[position].Trim().Equals(header, StringComparison.OrdinalIgnoreCase))
                     position++;
-                    break;
-                }
+
+                // If we're at the end of file we didn't find the header
+                if (position >= file.Length)
+                    return null;
+
+                int headerPosition = position;
+
+                // Get world info if it is a multiplayer log
+                string? world = null;
+                bool multiWorld = false;
                 position++;
-            }
 
-            if (position >= file.Length)
-                return null;
-
-            // Gets the data range
-            int startLine = position + 1;
-            int endLine = startLine;  
-
-            while (endLine < file.Length)
-            {
-                string line = file[endLine];
-
-                // Exit block if we hit a new top-level section
-                if (string.IsNullOrWhiteSpace(line))
+                if (file[position].StartsWith("  ") && file[position].Trim().Contains("World 1:", StringComparison.OrdinalIgnoreCase))
                 {
-                    break;
+                    multiWorld = true;
                 }
 
-                endLine++;
-            }
+                // Find the appropriate world if multiplayer log
+                while (multiWorld && position < file.Length)
+                {
+                    string line = file[position];
 
-            return new BlockInfo
-            {
-                HeaderPosition = headerPosition,
-                Header = header,
-                SubHeader = subHeader,
-                StartLine = startLine,
-                EndLine = endLine,
-                World = world,
-                MultiWorld = multiWorld,
-            };           
+                    if (line.StartsWith("  ") && line.Trim().Contains($"World {worldNum}:", StringComparison.OrdinalIgnoreCase))
+                        break;
+
+                    position++;
+                }
+
+                // If we couldn't find world header 
+                if (position >= file.Length)
+                    return null;
+
+                // Found appropriate world header
+                if (multiWorld)
+                    world = file[position].Trim().Replace(":", "");
+
+                // Gets the subheader (Ex. Way of the hero:)
+                string? sub = null;
+                while (position < file.Length)
+                {
+                    if (file[position].Trim().Contains(subHeader, StringComparison.OrdinalIgnoreCase))
+                    {
+                        sub = file[position].Trim().Replace(":", "");
+                        position++;
+                        break;
+                    }
+                    position++;
+                }
+
+                if (position >= file.Length)
+                    return null;
+
+                // Gets the data range
+                int startLine = position + 1;
+                int endLine = startLine;
+
+                while (endLine < file.Length)
+                {
+                    string line = file[endLine];
+
+                    // Exit block if we hit a new top-level section
+                    if (string.IsNullOrWhiteSpace(line))
+                    {
+                        break;
+                    }
+
+                    endLine++;
+                }
+
+                return new BlockInfo
+                {
+                    HeaderPosition = headerPosition,
+                    Header = header,
+                    SubHeader = subHeader,
+                    StartLine = startLine,
+                    EndLine = endLine,
+                    World = world,
+                    MultiWorld = multiWorld,
+                };
+            });
         }
         #endregion
 
@@ -1098,6 +1142,9 @@ namespace TranslationLibrary.SpoilerLog.Controller
         {
             var blockInfo = await FindHintBlock("Way of the Hero", FileContents);
 
+            if (blockInfo == null)
+                return null;
+
             if (blockInfo.MultiWorld)
             {
                 var block = new BlockInfo();
@@ -1128,6 +1175,9 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     Tuple<int, int> range = new Tuple<int, int>(blocks[i].StartLine, blocks[i].EndLine);
                     var multiWayOfTheHeroHints = await AddValues<WayOfTheHero>(range, FileContents);
 
+                    if (multiWayOfTheHeroHints == null)
+                        continue;
+
                     // Adds world info to each item of collection
                     for (int j = 0; j < multiWayOfTheHeroHints.Count; j++)
                     {
@@ -1148,6 +1198,9 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
                 var wayOfTheHeroHints = await AddValues<WayOfTheHero>(range, FileContents);
 
+                if (wayOfTheHeroHints == null)
+                    return null;
+
                 // Adds world info to each item of collection
                 for (int i = 0; i < wayOfTheHeroHints.Count; i++)
                 {
@@ -1158,15 +1211,84 @@ namespace TranslationLibrary.SpoilerLog.Controller
             }
                 
         }
+        private async Task<ObservableCollection<Foolish>?> Parse_FoolishHints()
+        {
+            var blockInfo = await FindHintBlock("Foolish", FileContents);
 
+            if (blockInfo == null)
+                return null;
+
+            if (blockInfo.MultiWorld)
+            {
+                var block = new BlockInfo();
+                List<BlockInfo> blocks = new List<BlockInfo>();
+
+                // Adds inital block info for World 1
+                blocks.Add(blockInfo);
+
+                int worldNum = 1;
+                do
+                {
+                    //Starts on world 2
+                    worldNum++;
+                    block = await FindHintBlock("Foolish", FileContents, worldNum, blockInfo.HeaderPosition);
+
+                    if (block != null)
+                    {
+                        blocks.Add(block);
+                    }
+
+                } while (block != null);
+
+
+                var completeFoolishHints = new ObservableCollection<Foolish>();
+
+                for (int i = 0; i < blocks.Count; i++)
+                {
+                    Tuple<int, int> range = new Tuple<int, int>(blocks[i].StartLine, blocks[i].EndLine);
+                    var multiFoolishHints = await AddValues<Foolish>(range, FileContents);
+
+                    if (multiFoolishHints == null)
+                        continue;
+
+                    // Adds world info to each item of collection
+                    for (int j = 0; j < multiFoolishHints.Count; j++)
+                    {
+                        multiFoolishHints[j].World = blocks[i].World;
+                    }
+
+                    foreach (var item in multiFoolishHints)
+                    {
+                        completeFoolishHints.Add(item);
+                    }
+                }
+
+                return completeFoolishHints;
+            }
+            else
+            {
+                Tuple<int, int> range = new Tuple<int, int>(blockInfo.StartLine, blockInfo.EndLine);
+
+                var foolishHints = await AddValues<Foolish>(range, FileContents);
+
+                if (foolishHints == null)
+                    return null;
+
+                // Adds world info to each item of collection
+                for (int i = 0; i < foolishHints.Count; i++)
+                {
+                    foolishHints[i].World = blockInfo.World;
+                }
+
+                return foolishHints;
+            }
+
+        }
 
         #endregion
 
         #region UI Notifyer
-        public void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        
         #endregion
     }
 }

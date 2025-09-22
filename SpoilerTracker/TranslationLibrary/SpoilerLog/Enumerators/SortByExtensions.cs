@@ -30,7 +30,13 @@ namespace TranslationLibrary.SpoilerLog.Enumerators
                 SortBy.TricksAlphabetic => "A-Z",
                 SortBy.TricksReverseAlphabetic => "Z-A",
                 SortBy.TricksDifficulty => "Tricks by Difficulty",
-                SortBy.TricksLogOrder => "Tricks Log Order"
+                SortBy.TricksLogOrder => "Tricks Log Order",
+                SortBy.WayOfTheHeroWorld => "World",
+                SortBy.WayOfTheHeroItems => "Item A-Z",
+                SortBy.WayOfTheHeroLocation => "Location A-Z",
+                SortBy.FoolishHintsWorld => "World",
+                SortBy.FoolishHintsGossip => "Gossip A-Z",
+                SortBy.FoolishHintsLocation => "Location A-Z"
             };
         }
     }
