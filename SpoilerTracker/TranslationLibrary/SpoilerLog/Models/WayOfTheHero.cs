@@ -18,15 +18,40 @@ namespace TranslationLibrary.SpoilerLog.Models
 
         public WayOfTheHero CreateFromLine(string line)
         {
-            string[] parts = Regex.Split(line, @"\s{2,}");
+            line = line.Trim();
 
-            return new WayOfTheHero
+            // Multiplayer line (now allows 1+ spaces between Location and Player N)
+            var multiMatch = Regex.Match(line,
+                @"^(.*?)\s{2,}(World \d+ .*?)\s+(Player \d+ .+)$",
+                RegexOptions.IgnoreCase);
+
+            if (multiMatch.Success)
             {
-                World = null,
-                GossipStone = parts[0].Trim(),
-                Location = parts[1].Trim(),
-                Item = parts[2].Trim(),
-            };
+                return new WayOfTheHero
+                {
+                    World = null, // Will be set later
+                    GossipStone = multiMatch.Groups[1].Value.Trim(),
+                    Location = multiMatch.Groups[2].Value.Trim(),
+                    Item = multiMatch.Groups[3].Value.Trim()
+                };
+            }
+
+            // Singleplayer line: 3 parts, split by 2+ spaces
+            var parts = Regex.Split(line, @"\s{2,}");
+
+            if (parts.Length == 3)
+            {
+                return new WayOfTheHero
+                {
+                    World = null,
+                    GossipStone = parts[0].Trim(),
+                    Location = parts[1].Trim(),
+                    Item = parts[2].Trim()
+                };
+            }
+
+            throw new FormatException($"Unrecognized format in line: '{line}'");
+
         }
     }
 }

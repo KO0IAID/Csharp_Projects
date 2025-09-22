@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -196,15 +197,16 @@ namespace TranslationLibrary.SpoilerLog.Controller
         {
             sw.Stop();
             Debug.WriteLineIf(DebugMode,
-                $"--- Spoiler Sheet Data Added! Time Taken: {sw.Elapsed.ToString()}---" +
-                $"\nSeed Info:\t\t\t{SeedInfo.Count}" +
-                $"\nGame Settings:\t\t{GameSettings.Count}" +
-                $"\nSpecial Conditions:\t{SpecialConditions.Count}" +
-                $"\nJunk Locations:\t\t{JunkLocations.Count}" +
-                $"\nWorld Flags:\t\t{WorldFlags.Count}" +
-                $"\nEntrances:\t\t\t{Entrances.Count}"
-                //$"\n:\t{}"
-                );
+            $"--- Spoiler Sheet Data Added! Time Taken: {sw.Elapsed} ---" +
+            $"\nSeed Info:\t\t\t{(SeedInfo != null ? SeedInfo.Count.ToString() : "null")}" +
+            $"\nGame Settings:\t\t{(GameSettings != null ? GameSettings.Count.ToString() : "null")}" +
+            $"\nSpecial Conditions:\t{(SpecialConditions != null ? SpecialConditions.Count.ToString() : "null")}" +
+            $"\nTricks:\t\t\t\t{(Tricks != null ? Tricks.Count.ToString() : "null")}" +
+            $"\nJunk Locations:\t\t{(JunkLocations != null ? JunkLocations.Count.ToString() : "null")}" +
+            $"\nWorld Flags:\t\t{(WorldFlags != null ? WorldFlags.Count.ToString() : "null")}" +
+            $"\nEntrances:\t\t\t{(Entrances != null ? Entrances.Count.ToString() : "null")}" +
+            $"\nHints - Way Of The Hero:\t{(WayOfTheHeroHints != null ? WayOfTheHeroHints.Count.ToString() : "null")}"
+);
         }
         public async Task SortCollections(SortBy sort = SortBy.Default)
         {
@@ -526,11 +528,12 @@ namespace TranslationLibrary.SpoilerLog.Controller
             var collection = new ObservableCollection<T>();
             var parser = new T();
 
-            for (int i = range.Item1; i <= range.Item2; i++)
+            for (int i = range.Item1; i < range.Item2; i++)
             {
                 string line = fileContents[i];
                 T item = parser.CreateFromLine(line);
                 collection.Add(item);
+                
             }
             return collection;
 
@@ -779,8 +782,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
             };
         }
-
-        private async Task<BlockInfo?> FindHintBlock(string subHeader, string[] file, int startingPosition = 0, string header = "Hints")
+        private async Task<BlockInfo?> FindHintBlock(string subHeader, string[] file, int worldNum = 1, int startingPosition = 0, string header = "Hints")
         {
             int position = startingPosition;
 
@@ -788,16 +790,40 @@ namespace TranslationLibrary.SpoilerLog.Controller
             while (position < file.Length && !file[position].Trim().Equals(header, StringComparison.OrdinalIgnoreCase))
                 position++;
 
+            // If we're at the end of file we didn't find the header
             if (position >= file.Length)
                 return null;
 
-            // Get world info if it is a multplayer log
+            int headerPosition = position;
+
+            // Get world info if it is a multiplayer log
             string? world = null;
+            bool multiWorld = false;
             position++;
 
-            if (file[position].StartsWith("  ") && file[position].Trim().Contains("World", StringComparison.OrdinalIgnoreCase))
-                world = file[position].Trim().Replace(":", "");
+           if (file[position].StartsWith("  ") && file[position].Trim().Contains("World 1:", StringComparison.OrdinalIgnoreCase))
+            {
+                multiWorld = true;
+            }
 
+            // Find the appropriate world if multiplayer log
+            while (multiWorld && position < file.Length)
+            {
+                string line = file[position];
+
+                if (line.StartsWith("  ") && line.Trim().Contains($"World {worldNum}:", StringComparison.OrdinalIgnoreCase))
+                    break;
+
+                position++;
+            }
+
+            // If we couldn't find world header 
+            if (position >= file.Length)
+                return null;
+
+            // Found appropriate world header
+            if (multiWorld)
+                world = file[position].Trim().Replace(":", "");
 
             // Gets the subheader (Ex. Way of the hero:)
             string sub = null;
@@ -811,7 +837,10 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 }
                 position++;
             }
-            
+
+            if (position >= file.Length)
+                return null;
+
             // Gets the data range
             int startLine = position + 1;
             int endLine = startLine;  
@@ -831,18 +860,20 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
             return new BlockInfo
             {
+                HeaderPosition = headerPosition,
                 Header = header,
                 SubHeader = subHeader,
                 StartLine = startLine,
                 EndLine = endLine,
-                World = world
-            };
+                World = world,
+                MultiWorld = multiWorld,
+            };           
         }
         #endregion
 
 
         #region Data Parsing
-        private async Task<ObservableCollection<SeedInfo>> Parse_SeedInfo()
+        private async Task<ObservableCollection<SeedInfo>?> Parse_SeedInfo()
         {
             var seedInfo = new ObservableCollection<SeedInfo>();
 
@@ -913,11 +944,11 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
             return tricks;
         }
-        private async Task<ObservableCollection<string>>? Parse_JunkLocations()
+        private async Task<ObservableCollection<string>?> Parse_JunkLocations()
         {
             return await Parse_MultipleStringsAsync("Junk Locations", FileContents);
         }
-        private async Task<ObservableCollection<WorldFlag>> Parse_WorldFlags()
+        private async Task<ObservableCollection<WorldFlag>?> Parse_WorldFlags()
         {
             var worldFlags = new ObservableCollection<WorldFlag>();
 
@@ -984,7 +1015,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
             return worldFlags;
         }
-        private async Task<ObservableCollection<Entrance>> Parse_Entrances()
+        private async Task<ObservableCollection<Entrance>?> Parse_Entrances()
         {
             var entrances = new ObservableCollection<Entrance>();
 
@@ -1063,21 +1094,69 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
             return entrances; 
         }
-        private async Task<ObservableCollection<WayOfTheHero>> Parse_WayOfTheHeroHints()
+        private async Task<ObservableCollection<WayOfTheHero>?> Parse_WayOfTheHeroHints()
         {
             var blockInfo = await FindHintBlock("Way of the Hero", FileContents);
 
-            Tuple<int,int> range = new Tuple<int, int>(blockInfo.StartLine, blockInfo.EndLine);
-
-            var wayOfTheHeroHints = await AddValues<WayOfTheHero>(range, FileContents);
-
-            // Adds world info to each item of collection
-            for (int i = 0; i < wayOfTheHeroHints.Count; i++)
+            if (blockInfo.MultiWorld)
             {
-                wayOfTheHeroHints[i].World = blockInfo.World;
-            }
+                var block = new BlockInfo();
+                List<BlockInfo> blocks = new List<BlockInfo>();
 
-            return wayOfTheHeroHints;
+                // Adds inital block info for World 1
+                blocks.Add(blockInfo);
+
+                int worldNum = 1;
+                do
+                {
+                    //Starts on world 2
+                    worldNum++;
+                    block = await FindHintBlock("Way of the Hero", FileContents, worldNum, blockInfo.HeaderPosition);
+
+                    if (block != null)
+                    {
+                        blocks.Add(block);
+                    }
+
+                } while (block != null);
+
+
+                var completeWayOfTheHeroHints = new ObservableCollection<WayOfTheHero>();
+                
+                for (int i = 0; i < blocks.Count; i++) 
+                {
+                    Tuple<int, int> range = new Tuple<int, int>(blocks[i].StartLine, blocks[i].EndLine);
+                    var multiWayOfTheHeroHints = await AddValues<WayOfTheHero>(range, FileContents);
+
+                    // Adds world info to each item of collection
+                    for (int j = 0; j < multiWayOfTheHeroHints.Count; j++)
+                    {
+                        multiWayOfTheHeroHints[j].World = blocks[i].World;
+                    }
+
+                    foreach (var item in multiWayOfTheHeroHints)
+                    {
+                        completeWayOfTheHeroHints.Add(item);
+                    }
+                }
+
+                return completeWayOfTheHeroHints;
+            }
+            else
+            {
+                Tuple<int, int> range = new Tuple<int, int>(blockInfo.StartLine, blockInfo.EndLine);
+
+                var wayOfTheHeroHints = await AddValues<WayOfTheHero>(range, FileContents);
+
+                // Adds world info to each item of collection
+                for (int i = 0; i < wayOfTheHeroHints.Count; i++)
+                {
+                    wayOfTheHeroHints[i].World = blockInfo.World;
+                }
+
+                return wayOfTheHeroHints;
+            }
+                
         }
 
 

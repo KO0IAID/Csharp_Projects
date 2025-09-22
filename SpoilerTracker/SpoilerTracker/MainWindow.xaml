@@ -1134,10 +1134,10 @@ Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=F
                         </DataGrid.CellStyle>
 
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="World" Binding="{Binding World}" Width="*" />
-                            <DataGridTextColumn Header="Gossip Stone" Binding="{Binding GossipStone}" Width="*" />
-                            <DataGridTextColumn Header="Location" Binding="{Binding Location}" Width="*" />
-                            <DataGridTextColumn Header="Item" Binding="{Binding Item}" Width="*" />
+                            <DataGridTextColumn x:Name="WayOfTheHeroWorldColumn" Header="World" Binding="{Binding World}" Width="auto" />
+                            <DataGridTextColumn Header="Gossip Stone" Binding="{Binding GossipStone}" Width="auto" />
+                            <DataGridTextColumn Header="Location" Binding="{Binding Location}" Width="auto" />
+                            <DataGridTextColumn Header="Item" Binding="{Binding Item}" Width="auto" />
                         </DataGrid.Columns>
                     </DataGrid>
 

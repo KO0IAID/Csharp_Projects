@@ -379,6 +379,7 @@ namespace SpoilerTracker
             JunkLocationsListbox.ItemsSource= spoilerLog.JunkLocations;
             WorldFlagsDataGrid.ItemsSource = spoilerLog.WorldFlags;
             EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
+            WayOfTheHeroDataGrid.ItemsSource = spoilerLog.WayOfTheHeroHints;
 
             UpdateSortByDisplays();
             UpdateUIColumns();
@@ -504,6 +505,9 @@ namespace SpoilerTracker
 
             bool anyWorldFlagsWorlds = spoilerLog.WorldFlags.Any(e => !string.IsNullOrWhiteSpace(e.World));
             WorldFlagsWorldColumn.Visibility = anyWorldFlagsWorlds ? Visibility.Visible : Visibility.Collapsed;
+
+            bool anyWayOfHeroWorlds = spoilerLog.WayOfTheHeroHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            WayOfTheHeroWorldColumn.Visibility = anyWayOfHeroWorlds ? Visibility.Visible : Visibility.Collapsed;
 
         }
 
