@@ -50,7 +50,7 @@ namespace TranslationLibrary.SpoilerLog.Models
                 };
             }
 
-            throw new FormatException($"Unrecognized format in line: '{line}'");
+            throw new FormatException($"WayOfHero Couldn't CreateFromLine due to line format in: '{line}'");
 
         }
     }

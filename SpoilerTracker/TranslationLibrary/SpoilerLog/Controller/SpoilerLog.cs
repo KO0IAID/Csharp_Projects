@@ -14,32 +14,30 @@ using TranslationLibrary;
 using TranslationLibrary.SpoilerLog.Enumerators;
 using TranslationLibrary.SpoilerLog.Interfaces;
 using TranslationLibrary.SpoilerLog.Models;
-using TranslationLibrary.SpoilerLog.UI_Notify;
 
 namespace TranslationLibrary.SpoilerLog.Controller
 {
     public class SpoilerLog
     {
-         
         public string[] FileContents;
         public bool DebugMode = true;
 
         #region Collections
-        public ObservableCollection<SeedInfo>? SeedInfo { get; set; } = new();
-        public ObservableCollection<Setting>? GameSettings { get; set; } = new();
-        public ObservableCollection<Condition>? SpecialConditions { get; set; } = new();
-        public ObservableCollection<Trick>? Tricks { get; set; } = new();
-        public ObservableCollection<string>? JunkLocations { get; set; } = new();
-        public ObservableCollection<WorldFlag>? WorldFlags { get; set; } = new();
-        public ObservableCollection<Entrance>? Entrances { get; set; } = new();
-        public ObservableCollection<WayOfTheHero>? WayOfTheHeroHints { get; set; } = new();
-        public ObservableCollection<Foolish>? FoolishHints { get; set; } = new();
-        public ObservableCollection<Hint>? SpecificHints { get; set; } = new();
-        public ObservableCollection<Hint>? RegionalHints { get; set; } = new();
-        public ObservableCollection<Hint>? FoolishRegions { get; set; } = new();
-        public ObservableCollection<Pathway>? Paths { get; set; } = new();
-        public ObservableCollection<Sphere>? Spheres { get; set; } = new();
-        public ObservableCollection<ItemLocation>? LocationList { get; set; } = new();
+        public List<SeedInfo>? SeedInfo { get; set; } = new();
+        public List<Setting>? GameSettings { get; set; } = new();
+        public List<Conditions>? SpecialConditions { get; set; } = new();
+        public List<Trick>? Tricks { get; set; } = new();
+        public List<string>? JunkLocations { get; set; } = new();
+        public List<WorldFlag>? WorldFlags { get; set; } = new();
+        public List<Entrance>? Entrances { get; set; } = new();
+        public List<WayOfTheHero>? WayOfTheHeroHints { get; set; } = new();
+        public List<Foolish>? FoolishHints { get; set; } = new();
+        public List<SpecificHint>? SpecificHints { get; set; } = new();
+        public List<RegionalHint>? RegionalHints { get; set; } = new();
+        public List<SpecificHint>? FoolishRegions { get; set; } = new();
+        public List<Pathway>? Paths { get; set; } = new();
+        public List<Sphere>? Spheres { get; set; } = new();
+        public List<ItemLocation>? LocationList { get; set; } = new();
 
         #endregion
         #region Collections SortBy Enums
@@ -81,6 +79,8 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 Entrances = await Parse_Entrances();
                 WayOfTheHeroHints = await Parse_WayOfTheHeroHints();
                 FoolishHints = await Parse_FoolishHints();
+                SpecificHints = await Parse_SpecificHints();
+                RegionalHints = await Parse_RegionalHints();
 
 
 
@@ -130,21 +130,22 @@ namespace TranslationLibrary.SpoilerLog.Controller
             $"\nWorld Flags:\t\t{(WorldFlags != null ? WorldFlags.Count : 0)}" +
             $"\nEntrances:\t\t\t{(Entrances != null ? Entrances.Count : 0)}" +
             $"\nWay Of The Hero:\t{(WayOfTheHeroHints != null ? WayOfTheHeroHints.Count : 0)}" +
-            $"\nFoolish:\t\t\t{(FoolishHints != null ? FoolishHints.Count : 0)}"
+            $"\nFoolish Hint:\t\t{(FoolishHints != null ? FoolishHints.Count : 0)}" +
+            $"\nSpecific Hint:\t\t{(SpecificHints != null ? SpecificHints.Count : 0)}" +
+            $"\nRegional Hint:\t\t{(RegionalHints != null ? RegionalHints.Count : 0)}"
             );
             
 
         }
         public void SortCollections(SortBy sort = SortBy.Default)
         {
-
             #region GameSettings
             // GameSettings - Alphabetic - (Default)
             if (sort == SortBy.GameSettingsAlphabetic || sort == SortBy.Default)
             {
                 if (GameSettings != null)
                 {
-                    var sortedGameSettings = new ObservableCollection<Setting>(
+                    var sortedGameSettings = new List<Setting>(
                     GameSettings.OrderBy(e => e.Name)
                     .ThenBy(e => e.Value)
                     );
@@ -160,7 +161,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (GameSettings != null)
                 {
-                    var sortedGameSettings = new ObservableCollection<Setting>(
+                    var sortedGameSettings = new List<Setting>(
                     GameSettings.OrderByDescending(e => e.Name)
                     .ThenBy(e => e.Value)
                     );
@@ -175,7 +176,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (GameSettings != null)
                 {
-                    var sortedGameSettings = new ObservableCollection<Setting>(
+                    var sortedGameSettings = new List<Setting>(
                     GameSettings.OrderBy(e => e.LogOrder)
                     );
 
@@ -192,7 +193,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 {
                     if (Entrances != null)
                     {
-                        var sortedShortEntrances = new ObservableCollection<Entrance>(
+                        var sortedShortEntrances = new List<Entrance>(
                         Entrances.OrderBy(e => e.World)
                        .ThenByDescending(e => e.FromGame)
                        .ThenBy(e => e.ShortEntrance)
@@ -209,7 +210,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 {
                     if (Entrances != null)
                     {
-                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        var sortedLongEntrances = new List<Entrance>(
                         Entrances.OrderBy(e => e.World)
                         .ThenByDescending(e => e.FromGame)
                         .ThenBy(e => e.LongEntrance)
@@ -229,7 +230,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 {
                     if (Entrances != null)
                     {
-                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        var sortedLongEntrances = new List<Entrance>(
                         Entrances.OrderBy(e => e.ShortEntrance)
                         .ThenBy(e => e.ShortDestination)
                         .ThenByDescending(e => e.FromGame)
@@ -246,7 +247,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 {
                     if (Entrances != null)
                     {
-                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        var sortedLongEntrances = new List<Entrance>(
                         Entrances.OrderByDescending(e => e.ShortEntrance)
                         .ThenByDescending(e => e.ShortDestination)
                         .ThenByDescending(e => e.FromGame)
@@ -266,7 +267,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 {
                     if (Entrances != null)
                     {
-                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        var sortedLongEntrances = new List<Entrance>(
                         Entrances.OrderBy(e => e.LongEntrance)
                         .ThenBy(e => e.LongDestination)
                         .ThenByDescending(e => e.FromGame)
@@ -283,7 +284,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 {
                     if (Entrances != null)
                     {
-                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        var sortedLongEntrances = new List<Entrance>(
                         Entrances.OrderByDescending(e => e.LongEntrance)
                         .ThenByDescending(e => e.LongDestination)
                         .ThenByDescending(e => e.FromGame)
@@ -302,7 +303,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 {
                     if (Entrances != null)
                     {
-                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        var sortedLongEntrances = new List<Entrance>(
                         Entrances.OrderByDescending(e => e.FromGame)
                         .ThenBy(e => e.ShortEntrance)
                         .ThenBy(e => e.ShortDestination)
@@ -319,7 +320,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 {
                     if (Entrances != null)
                     {
-                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        var sortedLongEntrances = new List<Entrance>(
                         Entrances.OrderBy(e => e.World)
                         .ThenByDescending(e => e.FromGame)
                         .ThenBy(e => e.LongEntrance)
@@ -336,7 +337,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 {
                     if (Entrances != null)
                     {
-                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        var sortedLongEntrances = new List<Entrance>(
                         Entrances.OrderBy(e => e.FromGame)
                         .ThenBy(e => e.ShortEntrance)
                         .ThenBy(e => e.ShortDestination)
@@ -353,7 +354,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 {
                     if (Entrances != null)
                     {
-                        var sortedLongEntrances = new ObservableCollection<Entrance>(
+                        var sortedLongEntrances = new List<Entrance>(
                         Entrances.OrderBy(e => e.FromGame)
                         .ThenBy(e => e.World)
                         .ThenBy(e => e.LongEntrance)
@@ -377,7 +378,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (Tricks != null)
                 {
-                    var sortedTricks = new ObservableCollection<Trick>(
+                    var sortedTricks = new List<Trick>(
                     Tricks.OrderBy(e => e.Description)
                     .ThenBy(e => e.Difficulty)
                     .ThenBy(e => e.LogOrder)
@@ -393,7 +394,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (Tricks != null)
                 {
-                    var sortedTricks = new ObservableCollection<Trick>(
+                    var sortedTricks = new List<Trick>(
                     Tricks.OrderByDescending(e => e.Description)
                     .ThenBy(e => e.Difficulty)
                     .ThenBy(e => e.LogOrder)
@@ -409,7 +410,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if(Tricks != null)
                 {
-                    var sortedTricks = new ObservableCollection<Trick>(
+                    var sortedTricks = new List<Trick>(
                     Tricks.OrderBy(e => e.Difficulty)
                     .ThenBy(e => e.Description)
                     .ThenBy(e => e.LogOrder)
@@ -425,7 +426,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (Tricks != null)
                 {
-                    var sortedTricks = new ObservableCollection<Trick>(
+                    var sortedTricks = new List<Trick>(
                     Tricks.OrderBy(e => e.LogOrder)
                     .ThenBy(e => e.Description)
                     .ThenBy(e => e.Difficulty)
@@ -443,7 +444,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (WayOfTheHeroHints != null)
                 {
-                    var sortedTricks = new ObservableCollection<WayOfTheHero>(
+                    var sortedTricks = new List<WayOfTheHero>(
                     WayOfTheHeroHints.OrderBy(e => e.World)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.Location)
@@ -459,7 +460,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (WayOfTheHeroHints != null)
                 {
-                    var sortedTricks = new ObservableCollection<WayOfTheHero>(
+                    var sortedTricks = new List<WayOfTheHero>(
                     WayOfTheHeroHints.OrderBy(e => e.Location)
                     .ThenBy(e => e.World)
                     .ThenBy(e => e.Item)
@@ -475,7 +476,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (WayOfTheHeroHints != null)
                 {
-                    var sortedTricks = new ObservableCollection<WayOfTheHero>(
+                    var sortedTricks = new List<WayOfTheHero>(
                     WayOfTheHeroHints.OrderBy(e => e.Item)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.Location)
@@ -494,7 +495,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (FoolishHints != null)
                 {
-                    var sortedTricks = new ObservableCollection<Foolish>(
+                    var sortedTricks = new List<Foolish>(
                     FoolishHints.OrderBy(e => e.World)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.Location)
@@ -510,7 +511,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (FoolishHints != null)
                 {
-                    var sortedTricks = new ObservableCollection<Foolish>(
+                    var sortedTricks = new List<Foolish>(
                     FoolishHints.OrderBy(e => e.GossipStone)
                     .ThenBy(e => e.World)
                     .ThenBy(e => e.Location)
@@ -526,7 +527,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (FoolishHints != null)
                 {
-                    var sortedTricks = new ObservableCollection<Foolish>(
+                    var sortedTricks = new List<Foolish>(
                     FoolishHints.OrderBy(e => e.Location)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.World)
@@ -539,7 +540,146 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
 
             #endregion
+            #region Specific Hints
+            // SpecificHints - World - (Default)
+            if (sort == SortBy.SpecificHintsWorld || sort == SortBy.Default)
+            {
+                if (SpecificHints != null)
+                {
+                    var sortedTricks = new List<SpecificHint>(
+                    SpecificHints.OrderBy(e => e.World)
+                    .ThenBy(e => e.GossipStone)
+                    .ThenBy(e => e.Location)
+                    .ThenBy(e => e.Item)
+                    );
 
+                    SpecificHints = sortedTricks;
+                    FoolishHints_SortBy = SortBy.SpecificHintsWorld;
+                }
+            }
+
+            // SpecificHints - Gossip
+            if (sort == SortBy.SpecificHintsGossip)
+            {
+                if (SpecificHints != null)
+                {
+                    var sortedTricks = new List<SpecificHint>(
+                    SpecificHints.OrderBy(e => e.GossipStone)
+                    .ThenBy(e => e.World)
+                    .ThenBy(e => e.Location)
+                    .ThenBy(e => e.Item)
+                    );
+
+                    SpecificHints = sortedTricks;
+                    SpecificHints_SortBy = SortBy.SpecificHintsGossip;
+                }
+            }
+
+            // SpecificHints - Location
+            if (sort == SortBy.SpecificHintsLocation)
+            {
+                if (SpecificHints != null)
+                {
+                    var sortedTricks = new List<SpecificHint>(
+                    SpecificHints.OrderBy(e => e.Location)
+                    .ThenBy(e => e.GossipStone)
+                    .ThenBy(e => e.World)
+                    .ThenBy(e => e.Item)
+                    );
+
+                    SpecificHints = sortedTricks;
+                    SpecificHints_SortBy = SortBy.SpecificHintsLocation;
+                }
+            }
+
+            // SpecificHints - Item
+            if (sort == SortBy.SpecificHintsItem)
+            {
+                if (SpecificHints != null)
+                {
+                    var sortedTricks = new List<SpecificHint>(
+                    SpecificHints.OrderBy(e => e.Item)
+                    .ThenBy(e => e.GossipStone)
+                    .ThenBy(e => e.World)
+                    .ThenBy(e => e.Location)
+                    );
+
+                    SpecificHints = sortedTricks;
+                    SpecificHints_SortBy = SortBy.SpecificHintsItem;
+                }
+            }
+
+            #endregion
+            #region Regional Hints
+            // RegionalHints - World - (Default)
+            if (sort == SortBy.RegionalHintsWorld || sort == SortBy.Default)
+            {
+                if (RegionalHints != null)
+                {
+                    var sortedTricks = new List<RegionalHint>(
+                    RegionalHints.OrderBy(e => e.World)
+                    .ThenBy(e => e.GossipStone)
+                    .ThenBy(e => e.Region)
+                    .ThenBy(e => e.Item)
+                    );
+
+                    RegionalHints = sortedTricks;
+                    RegionalHints_SortBy = SortBy.RegionalHintsWorld;
+                }
+            }
+
+            // RegionalHints - Gossip
+            if (sort == SortBy.RegionalHintsGossip)
+            {
+                if (RegionalHints != null)
+                {
+                    var sortedTricks = new List<RegionalHint>(
+                    RegionalHints.OrderBy(e => e.GossipStone)
+                    .ThenBy(e => e.World)
+                    .ThenBy(e => e.Region)
+                    .ThenBy(e => e.Item)
+                    );
+
+                    RegionalHints = sortedTricks;
+                    RegionalHints_SortBy = SortBy.RegionalHintsGossip;
+                }
+            }
+
+            // RegionalHints - Region
+            if (sort == SortBy.RegionalHintsRegion)
+            {
+                if (RegionalHints != null)
+                {
+                    var sortedTricks = new List<RegionalHint>(
+                    RegionalHints.OrderBy(e => e.Region)
+                    .ThenBy(e => e.GossipStone)
+                    .ThenBy(e => e.World)
+                    .ThenBy(e => e.Item)
+                    );
+
+                    RegionalHints = sortedTricks;
+                    RegionalHints_SortBy = SortBy.RegionalHintsRegion;
+                }
+            }
+
+            // RegionalHints - Item
+            if (sort == SortBy.RegionalHintsItem)
+            {
+                if (RegionalHints != null)
+                {
+                    var sortedTricks = new List<RegionalHint>(
+                    RegionalHints.OrderBy(e => e.Item)
+                    .ThenBy(e => e.GossipStone)
+                    .ThenBy(e => e.World)
+                    .ThenBy(e => e.Region)
+                    );
+
+                    RegionalHints = sortedTricks;
+                    RegionalHints_SortBy = SortBy.RegionalHintsItem;
+                }
+            }
+
+            #endregion
         }
 
 
@@ -548,15 +688,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
 
         #region Data Parsing Helper Methods
-
-        private async Task<ObservableCollection<T>?> AddValues<T>(Tuple<int, int> range, string[] fileContents) where T : ICreateFromLine<T>, new()
+        private async Task<List<T>?> AddValues<T>(Tuple<int, int> range, string[] fileContents) where T : ICreateFromLine<T>, new()
         {
             return await Task.Run(() =>
             {
                 if (range.Item1 == -1 || range.Item2 == -1)
                     return null;
 
-                var collection = new ObservableCollection<T>();
+                var collection = new List<T>();
                 var parser = new T();
 
                 for (int i = range.Item1; i < range.Item2; i++)
@@ -593,12 +732,12 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 return new KeyValuePair<string, string>(line[0].Trim(), line[1].Trim());
             });
         }
-        private async Task<ObservableCollection<string>> Parse_MultipleStringsAsync(string categoryName, string[] file, int startingPosition = 0)
+        private async Task<List<string>> Parse_MultipleStringsAsync(string categoryName, string[] file, int startingPosition = 0)
         {
             return await Task.Run(() =>
             {
                 int position = startingPosition;
-                ObservableCollection<string> list = new ObservableCollection<string>();
+                List<string> list = new List<string>();
 
                 // Find the category header
                 while (position < file.Length && !file[position].TrimStart().StartsWith(categoryName, StringComparison.OrdinalIgnoreCase))
@@ -642,9 +781,9 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 return list;
             });
         }
-        private ObservableCollection<KeyValuePair<string, string>> Parse_FlatKeyValueBlock(string categoryName, string[] fileContents)
+        private List<KeyValuePair<string, string>> Parse_FlatKeyValueBlock(string categoryName, string[] fileContents)
         {
-            var result = new ObservableCollection<KeyValuePair<string, string>>();
+            var result = new List<KeyValuePair<string, string>>();
 
 
             for (int i = 0; i < fileContents.Length; i++)
@@ -674,9 +813,9 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
             return result;
         }
-        private ObservableCollection<KeyValuePair<string, string>> Parse_SpecificFlatKeyValueBlock(string categoryName, string[] fileContents)
+        private List<KeyValuePair<string, string>> Parse_SpecificFlatKeyValueBlock(string categoryName, string[] fileContents)
         {
-            var result = new ObservableCollection<KeyValuePair<string, string>>();
+            var result = new List<KeyValuePair<string, string>>();
 
             for (int i = 0; i < fileContents.Length; i++)
             {
@@ -716,7 +855,6 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
             return result;
         }
-
         private async Task<Tuple<int, int>> FindCategoryRangeAsync(string categoryName, string[] file, int startingPosition = 0)
         {
             return await Task.Run(() =>
@@ -915,11 +1053,10 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         #endregion
 
-
         #region Data Parsing
-        private async Task<ObservableCollection<SeedInfo>?> Parse_SeedInfo()
+        private async Task<List<SeedInfo>?> Parse_SeedInfo()
         {
-            var seedInfo = new ObservableCollection<SeedInfo>();
+            var seedInfo = new List<SeedInfo>();
 
             SeedInfo seed = new SeedInfo { Pair = await Parse_SingleKeyValueAsync(FileContents, "Seed") };
             SeedInfo version = new SeedInfo { Pair = await Parse_SingleKeyValueAsync(FileContents, "Version") };
@@ -933,7 +1070,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
 
         }
-        private async Task<ObservableCollection<Setting>?> Parse_GameSettings()
+        private async Task<List<Setting>?> Parse_GameSettings()
         {
 
             var range = await FindCategoryRangeAsync("Settings", FileContents);
@@ -942,9 +1079,9 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
             return settings;
         }
-        private async Task<ObservableCollection<Condition>?> Parse_SpecialConditions()
+        private async Task<List<Conditions>?> Parse_SpecialConditions()
         {
-            var result = new ObservableCollection<Condition>();
+            var result = new List<Conditions>();
             var block = await FindBlock("Special Conditions", FileContents);
 
             if (block == null) return result;
@@ -972,15 +1109,15 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     string value = parts[1];
 
                     if (key.Equals("count", StringComparison.OrdinalIgnoreCase) && int.TryParse(value, out int count))
-                        result.Add(new Condition(currentType, key, value, count));
+                        result.Add(new Conditions(currentType, key, value, count));
                     else
-                        result.Add(new Condition(currentType, key, value));
+                        result.Add(new Conditions(currentType, key, value));
                 }
             }
 
             return result;
         }
-        private async Task<ObservableCollection<Trick>?> Parse_Tricks()
+        private async Task<List<Trick>?> Parse_Tricks()
         {
             var range = await FindCategoryRangeAsync("Tricks", FileContents);
 
@@ -988,13 +1125,13 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
             return tricks;
         }
-        private async Task<ObservableCollection<string>?> Parse_JunkLocations()
+        private async Task<List<string>?> Parse_JunkLocations()
         {
             return await Parse_MultipleStringsAsync("Junk Locations", FileContents);
         }
-        private async Task<ObservableCollection<WorldFlag>?> Parse_WorldFlags()
+        private async Task<List<WorldFlag>?> Parse_WorldFlags()
         {
-            var worldFlags = new ObservableCollection<WorldFlag>();
+            var worldFlags = new List<WorldFlag>();
 
             var (start, end) = await FindCategoryRangeAsync("World Flags", FileContents);
             if (start == -1) return worldFlags;
@@ -1059,9 +1196,9 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
             return worldFlags;
         }
-        private async Task<ObservableCollection<Entrance>?> Parse_Entrances()
+        private async Task<List<Entrance>?> Parse_Entrances()
         {
-            var entrances = new ObservableCollection<Entrance>();
+            var entrances = new List<Entrance>();
 
             var (start, end) = await FindCategoryRangeAsync("Entrances", FileContents);
             if (start == -1) return entrances;
@@ -1138,7 +1275,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
             return entrances; 
         }
-        private async Task<ObservableCollection<WayOfTheHero>?> Parse_WayOfTheHeroHints()
+        private async Task<List<WayOfTheHero>?> Parse_WayOfTheHeroHints()
         {
             var blockInfo = await FindHintBlock("Way of the Hero", FileContents);
 
@@ -1168,7 +1305,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 } while (block != null);
 
 
-                var completeWayOfTheHeroHints = new ObservableCollection<WayOfTheHero>();
+                var completeWayOfTheHeroHints = new List<WayOfTheHero>();
                 
                 for (int i = 0; i < blocks.Count; i++) 
                 {
@@ -1211,7 +1348,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             }
                 
         }
-        private async Task<ObservableCollection<Foolish>?> Parse_FoolishHints()
+        private async Task<List<Foolish>?> Parse_FoolishHints()
         {
             var blockInfo = await FindHintBlock("Foolish", FileContents);
 
@@ -1241,7 +1378,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 } while (block != null);
 
 
-                var completeFoolishHints = new ObservableCollection<Foolish>();
+                var completeFoolishHints = new List<Foolish>();
 
                 for (int i = 0; i < blocks.Count; i++)
                 {
@@ -1284,11 +1421,157 @@ namespace TranslationLibrary.SpoilerLog.Controller
             }
 
         }
+        private async Task<List<SpecificHint>?> Parse_SpecificHints()
+        {
+            var blockInfo = await FindHintBlock("Specific Hints", FileContents);
+
+            if (blockInfo == null)
+                return null;
+
+            if (blockInfo.MultiWorld)
+            {
+                var block = new BlockInfo();
+                List<BlockInfo> blocks = new List<BlockInfo>();
+
+                // Adds inital block info for World 1
+                blocks.Add(blockInfo);
+
+                int worldNum = 1;
+                do
+                {
+                    //Starts on world 2
+                    worldNum++;
+                    block = await FindHintBlock("Specific Hints", FileContents, worldNum, blockInfo.HeaderPosition);
+
+                    if (block != null)
+                    {
+                        blocks.Add(block);
+                    }
+
+                } while (block != null);
+
+
+                var completeSpecificHints = new List<SpecificHint>();
+
+                for (int i = 0; i < blocks.Count; i++)
+                {
+                    Tuple<int, int> range = new Tuple<int, int>(blocks[i].StartLine, blocks[i].EndLine);
+                    var multiSpecificHints = await AddValues<SpecificHint>(range, FileContents);
+
+                    if (multiSpecificHints == null)
+                        continue;
+
+                    // Adds world info to each item of collection
+                    for (int j = 0; j < multiSpecificHints.Count; j++)
+                    {
+                        multiSpecificHints[j].World = blocks[i].World;
+                    }
+
+                    foreach (var item in multiSpecificHints)
+                    {
+                        completeSpecificHints.Add(item);
+                    }
+                }
+
+                return completeSpecificHints;
+            }
+            else
+            {
+                Tuple<int, int> range = new Tuple<int, int>(blockInfo.StartLine, blockInfo.EndLine);
+
+                var specificHints = await AddValues<SpecificHint>(range, FileContents);
+
+                if (specificHints == null)
+                    return null;
+
+                // Adds world info to each item of collection
+                for (int i = 0; i < specificHints.Count; i++)
+                {
+                    specificHints[i].World = blockInfo.World;
+                }
+
+                return specificHints;
+            }
+
+        }
+        private async Task<List<RegionalHint>?> Parse_RegionalHints()
+        {
+            var blockInfo = await FindHintBlock("Regional Hints", FileContents);
+
+            if (blockInfo == null)
+                return null;
+
+            if (blockInfo.MultiWorld)
+            {
+                var block = new BlockInfo();
+                List<BlockInfo> blocks = new List<BlockInfo>();
+
+                // Adds inital block info for World 1
+                blocks.Add(blockInfo);
+
+                int worldNum = 1;
+                do
+                {
+                    //Starts on world 2
+                    worldNum++;
+                    block = await FindHintBlock("Regional Hints", FileContents, worldNum, blockInfo.HeaderPosition);
+
+                    if (block != null)
+                    {
+                        blocks.Add(block);
+                    }
+
+                } while (block != null);
+
+
+                var completeRegionalHints = new List<RegionalHint>();
+
+                for (int i = 0; i < blocks.Count; i++)
+                {
+                    Tuple<int, int> range = new Tuple<int, int>(blocks[i].StartLine, blocks[i].EndLine);
+                    var multiRegionalHints = await AddValues<RegionalHint>(range, FileContents);
+
+                    if (multiRegionalHints == null)
+                        continue;
+
+                    // Adds world info to each item of collection
+                    for (int j = 0; j < multiRegionalHints.Count; j++)
+                    {
+                        multiRegionalHints[j].World = blocks[i].World;
+                    }
+
+                    foreach (var item in multiRegionalHints)
+                    {
+                        completeRegionalHints.Add(item);
+                    }
+                }
+
+                return completeRegionalHints;
+            }
+            else
+            {
+                Tuple<int, int> range = new Tuple<int, int>(blockInfo.StartLine, blockInfo.EndLine);
+
+                var regionalHints = await AddValues<RegionalHint>(range, FileContents);
+
+                if (regionalHints == null)
+                    return null;
+
+                // Adds world info to each item of collection
+                for (int i = 0; i < regionalHints.Count; i++)
+                {
+                    regionalHints[i].World = blockInfo.World;
+                }
+
+                return regionalHints;
+            }
+
+        }
 
         #endregion
 
         #region UI Notifyer
-        
+
         #endregion
     }
 }

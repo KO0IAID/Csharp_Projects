@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace TranslationLibrary.SpoilerLog.Models
 {
-    public class Condition
+    // Named to Conditions Instead of Condition to avoid ambiguity of System.Windows.Condition
+    public class Conditions
     {
         public string? Type {  get; set; }
         public string? Name { get; set; }
         public string? Value { get; set; }
         public int? Amount { get; set; }
 
-        public Condition(string? type, string? name, string? value, int? amount = null)
+        public Conditions(string? type, string? name, string? value, int? amount = null)
         {
             Type = type;
             Name = name;

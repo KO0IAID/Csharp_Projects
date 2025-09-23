@@ -36,7 +36,15 @@ namespace TranslationLibrary.SpoilerLog.Enumerators
                 SortBy.WayOfTheHeroLocation => "Location A-Z",
                 SortBy.FoolishHintsWorld => "World",
                 SortBy.FoolishHintsGossip => "Gossip A-Z",
-                SortBy.FoolishHintsLocation => "Location A-Z"
+                SortBy.FoolishHintsLocation => "Location A-Z",
+                SortBy.SpecificHintsWorld => "World",
+                SortBy.SpecificHintsGossip => "Gossip A-Z",
+                SortBy.SpecificHintsLocation => "Location A-Z",
+                SortBy.SpecificHintsItem => "Items A-Z",
+                SortBy.RegionalHintsWorld => "World",
+                SortBy.RegionalHintsGossip => "Gossip A-Z",
+                SortBy.RegionalHintsRegion => "Region A-Z",
+                SortBy.RegionalHintsItem => "Items A-Z",
             };
         }
     }

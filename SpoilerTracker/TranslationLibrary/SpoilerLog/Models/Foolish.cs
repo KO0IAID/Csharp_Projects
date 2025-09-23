@@ -22,7 +22,7 @@ namespace TranslationLibrary.SpoilerLog.Models
 
             if (parts.Length != 2)
             {
-                throw new FormatException($"Unrecognized format in line (expected 2 parts, got {parts.Length}): '{line}'");
+                throw new FormatException($"Foolish couldn't CreateFromLine at line: '{line}'");
             }
 
             return new Foolish

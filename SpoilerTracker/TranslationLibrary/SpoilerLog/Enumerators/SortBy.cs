@@ -31,6 +31,14 @@ namespace TranslationLibrary.SpoilerLog.Enumerators
         WayOfTheHeroItems,
         FoolishHintsWorld,
         FoolishHintsGossip,
-        FoolishHintsLocation
+        FoolishHintsLocation,
+        SpecificHintsWorld,
+        SpecificHintsGossip,
+        SpecificHintsLocation,
+        SpecificHintsItem,
+        RegionalHintsWorld,
+        RegionalHintsGossip,
+        RegionalHintsRegion,
+        RegionalHintsItem
     }
 }
