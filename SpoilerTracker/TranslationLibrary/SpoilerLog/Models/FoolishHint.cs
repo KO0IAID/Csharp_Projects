@@ -8,13 +8,13 @@ using TranslationLibrary.SpoilerLog.Interfaces;
 
 namespace TranslationLibrary.SpoilerLog.Models
 {
-    public class Foolish : ICreateFromLine<Foolish>
+    public class FoolishHint : ICreateFromLine<FoolishHint>
     {
         public string? World {  get; set; }
         public string? GossipStone { get; set; }
         public string? Location { get; set; }
 
-        public Foolish CreateFromLine(string line) 
+        public FoolishHint CreateFromLine(string line) 
         {
             string[] parts = Regex.Split(line.Trim(), @"\s{2,}")
                           .Where(p => !string.IsNullOrWhiteSpace(p))
@@ -25,7 +25,7 @@ namespace TranslationLibrary.SpoilerLog.Models
                 throw new FormatException($"Foolish couldn't CreateFromLine at line: '{line}'");
             }
 
-            return new Foolish
+            return new FoolishHint
             {
                 GossipStone = parts[0],
                 Location = parts[1],

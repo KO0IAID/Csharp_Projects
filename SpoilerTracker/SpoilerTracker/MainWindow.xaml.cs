@@ -41,15 +41,16 @@ namespace SpoilerTracker
         ObservableCollection<Setting>? gameSettings;
         ObservableCollection<Conditions>? specialConditions;
         ObservableCollection<Trick>? tricks;
+        ObservableCollection<Glitch>? glitches;
         ObservableCollection<string>? junkLocations;
         ObservableCollection<WorldFlag>? worldFlags;
         ObservableCollection<Entrance>? entrances;
-        ObservableCollection<WayOfTheHero>? wayOfTheHeroHints;
-        ObservableCollection<Foolish>? foolishHints;
+        ObservableCollection<WayOfTheHeroHint>? wayOfTheHeroHints;
+        ObservableCollection<FoolishHint>? foolishHints;
         ObservableCollection<SpecificHint>? specificHints;
         ObservableCollection<RegionalHint>? regionalHints;
-        ObservableCollection<SpecificHint>? foolishRegions;
-        ObservableCollection<Pathway>? paths;
+        ObservableCollection<FoolishRegion>? foolishRegions;
+        ObservableCollection<WayOfTheHeroPath>? wayOfTheHeroPaths;
         ObservableCollection<Sphere>? spheres;
         ObservableCollection<ItemLocation>? locationList;
         #endregion
@@ -161,7 +162,7 @@ namespace SpoilerTracker
                 }
             }
         }
-        private async Task AutoLoadSpoilerLog()
+        private async void AutoLoadSpoilerLog()
         {
             // Load the saved folder path from the settings
             string? savedFolder = SettingsManager.LoadFolderPath();
@@ -203,25 +204,25 @@ namespace SpoilerTracker
                 FileNamePrompt.Text = "";
             }
         }
-
         private void BindCollections()
         {
             // Binds the Lists from SpoilerLog to ObservableCollections for WPF use
-            seedInfo            = new ObservableCollection<SeedInfo>        (spoilerLog.SeedInfo ?? []);
-            gameSettings        = new ObservableCollection<Setting>         (spoilerLog.GameSettings ?? []);
-            specialConditions   = new ObservableCollection<Conditions>      (spoilerLog.SpecialConditions ?? []);
-            tricks              = new ObservableCollection<Trick>           (spoilerLog.Tricks ?? []);
-            junkLocations       = new ObservableCollection<string>          (spoilerLog.JunkLocations ?? []);
-            worldFlags          = new ObservableCollection<WorldFlag>       (spoilerLog.WorldFlags ?? []);
-            entrances           = new ObservableCollection<Entrance>        (spoilerLog.Entrances ?? []);
-            wayOfTheHeroHints   = new ObservableCollection<WayOfTheHero>    (spoilerLog.WayOfTheHeroHints ?? []);
-            foolishHints        = new ObservableCollection<Foolish>         (spoilerLog.FoolishHints ?? []);
-            specificHints       = new ObservableCollection<SpecificHint>    (spoilerLog.SpecificHints ?? []);
-            regionalHints       = new ObservableCollection<RegionalHint>    (spoilerLog.RegionalHints ?? []);
-            foolishRegions      = new ObservableCollection<SpecificHint>    (spoilerLog.FoolishRegions ?? []);
-            paths               = new ObservableCollection<Pathway>         (spoilerLog.Paths ?? []);
-            spheres             = new ObservableCollection<Sphere>          (spoilerLog.Spheres ?? []);
-            locationList        = new ObservableCollection<ItemLocation>    (spoilerLog.LocationList ?? []);
+            seedInfo            = new ObservableCollection<SeedInfo>            (spoilerLog.SeedInfo ?? []);
+            gameSettings        = new ObservableCollection<Setting>             (spoilerLog.GameSettings ?? []);
+            specialConditions   = new ObservableCollection<Conditions>          (spoilerLog.SpecialConditions ?? []);
+            tricks              = new ObservableCollection<Trick>               (spoilerLog.Tricks ?? []);
+            glitches            = new ObservableCollection<Glitch>              (spoilerLog.Glitches ?? []);
+            junkLocations       = new ObservableCollection<string>              (spoilerLog.JunkLocations ?? []);
+            worldFlags          = new ObservableCollection<WorldFlag>           (spoilerLog.WorldFlags ?? []);
+            entrances           = new ObservableCollection<Entrance>            (spoilerLog.Entrances ?? []);
+            wayOfTheHeroHints   = new ObservableCollection<WayOfTheHeroHint>    (spoilerLog.WayOfTheHeroHints ?? []);
+            foolishHints        = new ObservableCollection<FoolishHint>         (spoilerLog.FoolishHints ?? []);
+            specificHints       = new ObservableCollection<SpecificHint>        (spoilerLog.SpecificHints ?? []);
+            regionalHints       = new ObservableCollection<RegionalHint>        (spoilerLog.RegionalHints ?? []);
+            foolishRegions      = new ObservableCollection<FoolishRegion>       (spoilerLog.FoolishRegions ?? []);
+            wayOfTheHeroPaths   = new ObservableCollection<WayOfTheHeroPath>    (spoilerLog.WayOfTheHeroPaths ?? []);
+            spheres             = new ObservableCollection<Sphere>              (spoilerLog.Spheres ?? []);
+            locationList        = new ObservableCollection<ItemLocation>        (spoilerLog.LocationList ?? []);
 
 
             // Binds to Xaml Elements
@@ -229,6 +230,7 @@ namespace SpoilerTracker
             GameSettingsDataGrid.ItemsSource = gameSettings;
             SpecialConditionsListbox.ItemsSource = specialConditions;
             TricksDataGrid.ItemsSource = tricks;
+            GlitchesDataGrid.ItemsSource = glitches;
             JunkLocationsListbox.ItemsSource = junkLocations;
             WorldFlagsDataGrid.ItemsSource = worldFlags;
             EntrancesDataGrid.ItemsSource = entrances;
@@ -236,6 +238,9 @@ namespace SpoilerTracker
             FoolishHintsDataGrid.ItemsSource = foolishHints;
             SpecificHintsDataGrid.ItemsSource = specificHints;
             RegionalHintsDataGrid.ItemsSource = regionalHints;
+            FoolishRegionsDataGrid.ItemsSource = foolishRegions;
+            WayOfTheHeroPathsDataGrid.ItemsSource = wayOfTheHeroPaths;
+            SpheresDataGrid.ItemsSource= spheres;
 
             UpdateSortByDisplays();
             UpdateUIColumns();
@@ -267,6 +272,23 @@ namespace SpoilerTracker
         private void Tricks_LogOrder_Click(object sender, RoutedEventArgs e)
         {
             spoilerLog.SortCollections(SortBy.TricksLogOrder);
+            BindCollections();
+        }
+        #endregion
+        #region Glitches
+        private void Glitches_Alphabetic_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.GlitchesAlphabetic);
+            BindCollections();
+        }
+        private void Glitches_Difficulty_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.GlitchesDifficulty);
+            BindCollections();
+        }
+        private void Glitches_LogOrder_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.GlitchesLogOrder);
             BindCollections();
         }
         #endregion
@@ -520,22 +542,22 @@ namespace SpoilerTracker
         }
 
         #endregion
-        #region WayOfTheHero
-        private void WayOfTheHero_World_Click(object sender, RoutedEventArgs e)
+        #region WayOfTheHero Hints
+        private void WayOfTheHeroHints_World_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.WayOfTheHeroWorld);
+            spoilerLog.SortCollections(SortBy.WayOfTheHeroHintsWorld);
 
             BindCollections();
         }
-        private void WayOfTheHero_Location_Click(object sender, RoutedEventArgs e)
+        private void WayOfTheHeroHints_Location_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.WayOfTheHeroLocation);
+            spoilerLog.SortCollections(SortBy.WayOfTheHeroHintsLocation);
 
             BindCollections(); ;
         }
-        private void WayOfTheHero_Item_Click(object sender, RoutedEventArgs e)
+        private void WayOfTheHeroHints_Item_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.WayOfTheHeroItems);
+            spoilerLog.SortCollections(SortBy.WayOfTheHeroHintsItems);
 
             BindCollections();
         }
@@ -613,6 +635,90 @@ namespace SpoilerTracker
             BindCollections();
         }
         #endregion
+        #region FoolishRegions
+        private void FoolishRegions_World_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.FoolishRegionsWorld);
+
+            BindCollections();
+        }
+        private void FoolishRegions_Region_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.FoolishRegionsRegion);
+
+            BindCollections();
+        }
+        private void FoolishRegions_Count_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.FoolishRegionsCount);
+
+            BindCollections();
+        }
+        #endregion
+        #region WayOfTheHero Paths
+        private void WayOfTheHeroPaths_World_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.WayOfTheHeroPathsWorld);
+
+            BindCollections();
+        }
+        private void WayOfTheHeroPaths_Description_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.WayOfTheHeroPathsDescription);
+
+            BindCollections();
+        }
+        private void WayOfTheHeroPaths_Player_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.WayOfTheHeroPathsPlayer);
+
+            BindCollections();
+        }
+        private void WayOfTheHeroPaths_Item_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.WayOfTheHeroPathsItem);
+
+            BindCollections();
+        }
+        #endregion
+        #region Spheres
+        private void Spheres_World_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.SpheresWorld);
+
+            BindCollections();
+        }
+        private void Spheres_Number_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.SpheresNumber);
+
+            BindCollections();
+        }
+        private void Spheres_Type_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.SpheresType);
+
+            BindCollections();
+        }
+        private void Spheres_Location_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.SpheresLocation);
+
+            BindCollections();
+        }
+        private void Spheres_Player_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.SpheresPlayer);
+
+            BindCollections();
+        }
+        private void Spheres_Item_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.SpheresItem);
+
+            BindCollections();
+        }
+        #endregion
 
 
         private void UpdateSortByDisplays()
@@ -630,20 +736,47 @@ namespace SpoilerTracker
         }
         private void HideNullColumns()
         {
+            // Entrances
             bool anyEntranceWorlds = spoilerLog.Entrances != null && spoilerLog.Entrances.Any(e => !string.IsNullOrWhiteSpace(e.World));
             EntranceWorldColumn.Visibility = anyEntranceWorlds ? Visibility.Visible : Visibility.Collapsed;
 
+            // World Flags
             bool anyWorldFlagsWorlds = spoilerLog.WorldFlags != null && spoilerLog.WorldFlags.Any(e => !string.IsNullOrWhiteSpace(e.World));
             WorldFlagsWorldColumn.Visibility = anyWorldFlagsWorlds ? Visibility.Visible : Visibility.Collapsed;
 
+            // WayOfTheHero Hints
             bool anyWayOfHeroWorlds = spoilerLog.WayOfTheHeroHints != null && spoilerLog.WayOfTheHeroHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
             WayOfTheHeroWorldColumn.Visibility = anyWayOfHeroWorlds ? Visibility.Visible : Visibility.Collapsed;
 
+            // Foolish Hints
             bool anyFoolishWorlds = spoilerLog.FoolishHints != null && spoilerLog.FoolishHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
-            FoolishHintsWorldColumn.Visibility = anyWayOfHeroWorlds ? Visibility.Visible : Visibility.Collapsed;
+            FoolishHintsWorldColumn.Visibility = anyFoolishWorlds ? Visibility.Visible : Visibility.Collapsed;
 
+            // Specific Hints
             bool anySpecificHintsWorlds = spoilerLog.SpecificHints != null && spoilerLog.SpecificHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
-            SpecificHintsWorldColumn.Visibility = anyWayOfHeroWorlds ? Visibility.Visible : Visibility.Collapsed;
+            SpecificHintsWorldColumn.Visibility = anySpecificHintsWorlds ? Visibility.Visible : Visibility.Collapsed;
+
+            // Regional Hints
+            bool anyRegionalHintsWorlds = spoilerLog.RegionalHints != null && spoilerLog.RegionalHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            RegionalHintsWorldColumn.Visibility = anyRegionalHintsWorlds ? Visibility.Visible : Visibility.Collapsed;
+
+            // Foolish Regions
+            bool anyFoolishRegionsWorlds = spoilerLog.FoolishHints != null && spoilerLog.FoolishHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            FoolishRegionsWorldColumn.Visibility = anyFoolishRegionsWorlds ? Visibility.Visible : Visibility.Collapsed;
+
+            // WayOfTheHero Paths
+            bool anyWayOfTheHeroPathsWorlds = spoilerLog.WayOfTheHeroPaths != null && spoilerLog.WayOfTheHeroPaths.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            WayOfTheHeroPathsWorldColumn.Visibility = anyWayOfTheHeroPathsWorlds ? Visibility.Visible : Visibility.Collapsed;
+
+            bool anyWayOfTheHeroPathsPlayers = spoilerLog.WayOfTheHeroPaths != null && spoilerLog.WayOfTheHeroPaths.Any(e => !string.IsNullOrWhiteSpace(e.Player));
+            WayOfTheHeroPathsPlayerColumn.Visibility = anyWayOfTheHeroPathsPlayers ? Visibility.Visible : Visibility.Collapsed;
+
+            // Spheres
+            bool anySpheresWorlds = spoilerLog.Spheres != null && spoilerLog.Spheres.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            SpheresWorldColumn.Visibility = anyWayOfTheHeroPathsPlayers ? Visibility.Visible : Visibility.Collapsed;
+
+            bool anySpheresPlayers= spoilerLog.Spheres != null && spoilerLog.Spheres.Any(e => !string.IsNullOrWhiteSpace(e.Player));
+            SpheresPlayerColumn.Visibility = anySpheresPlayers ? Visibility.Visible : Visibility.Collapsed;
         }
         #endregion
     }

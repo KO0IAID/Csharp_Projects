@@ -617,6 +617,130 @@ Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=F
 
                 </Grid>
             </TabItem>
+            <TabItem Header="Glitches">
+                <Grid Background="#FF212121" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Button x:Name="GlitchesAlphabetic" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="Alphabetic" Margin="0,0,0,0" Click="Glitches_Alphabetic_Click"/>
+                    <Button x:Name="GlitchesDifficulty" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" Content="Difficulty" IsEnabled="False" Margin="0,0,0,0" Click="Glitches_Difficulty_Click"/>
+                    <Button x:Name="GlitchesLogOrder" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="0" Content="Log Order" Margin="0,0,0,0" Click="Glitches_LogOrder_Click"/>
+
+                    <DataGrid x:Name="GlitchesDataGrid"
+      Grid.Row="1" Grid.ColumnSpan="15" Grid.RowSpan="14"
+      Background="#FF212121"
+      Foreground="White"
+      BorderBrush="#FF5E5E5E"
+      HeadersVisibility="Column"
+      AutoGenerateColumns="False"
+      IsReadOnly="True"
+      SelectionMode="Extended"
+      SelectionUnit="FullRow"
+      CanUserResizeColumns="True"
+      CanUserSortColumns="True"
+      GridLinesVisibility="Horizontal"
+      HorizontalGridLinesBrush="#FF5E5E5E"
+      VerticalGridLinesBrush="#FF5E5E5E"
+      AlternationCount="2"
+      >
+
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                <Setter Property="Background" Value="#FF212121"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Style.Triggers>
+                                    <Trigger Property="AlternationIndex" Value="1">
+                                        <Setter Property="Background" Value="#FF2E2E2E"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF6A5ACD"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="DarkGreen"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Trigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsSelected" Value="True"/>
+                                            <Condition Property="IsMouseOver" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="Background" Value="#FF836FFF"/>
+                                    </MultiTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#FF212121"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="#FF5E5E5E"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                <Setter Property="Padding" Value="4,2"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                        <Setter Property="Foreground" 
+    Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=Foreground}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
+                            <DataGridTextColumn Header="Difficulty" Binding="{Binding Difficulty}" Width="*" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
             <TabItem Header="Junk Locations">
                 <Grid Background="#FF212121" Margin="10">
                     <Grid.ColumnDefinitions>
@@ -1059,9 +1183,9 @@ Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=F
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <Button x:Name="WayOfHeroSortByWorldBtn" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="World" Margin="0,0,0,0" Click="WayOfTheHero_World_Click"/>
-                    <Button x:Name="WayOfHeroSortByLocationBtn" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" Content="Location" Margin="0,0,0,0" Click="WayOfTheHero_Location_Click"/>
-                    <Button x:Name="WayOfHeroSortByItemBtn" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="0" Content="Items" Margin="0,0,0,0" Click="WayOfTheHero_Item_Click"/>
+                    <Button x:Name="WayOfHeroSortByWorldBtn" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="World" Margin="0,0,0,0" Click="WayOfTheHeroHints_World_Click"/>
+                    <Button x:Name="WayOfHeroSortByLocationBtn" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" Content="Location" Margin="0,0,0,0" Click="WayOfTheHeroHints_Location_Click"/>
+                    <Button x:Name="WayOfHeroSortByItemBtn" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="0" Content="Items" Margin="0,0,0,0" Click="WayOfTheHeroHints_Item_Click"/>
                     
                     <DataGrid x:Name="WayOfTheHeroDataGrid"
                               Grid.Row="1" Grid.ColumnSpan="15" Grid.RowSpan="14"
@@ -1534,6 +1658,396 @@ Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=F
 
                 </Grid>
             </TabItem>
+            <TabItem Header="Foolish Regions">
+                <Grid Background="#FF212121" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Button x:Name="FoolishRegionsSortByWorldBtn" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="World" Margin="0,0,0,0" Click="FoolishRegions_World_Click"/>
+                    <Button x:Name="FoolishRegionsSortByRegionBtn" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" Content="Region" Margin="0,0,0,0" Click="FoolishRegions_Region_Click"/>
+                    <Button x:Name="FoolishRegionsSortByCountBtn" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="0" Content="Count" Margin="0,0,0,0" Click="FoolishRegions_Count_Click"/>
+                    
+                    <DataGrid x:Name="FoolishRegionsDataGrid"
+                          Grid.Row="1" Grid.ColumnSpan="15" Grid.RowSpan="14"
+                          Background="#FF212121"
+                          Foreground="White"
+                          BorderBrush="#FF5E5E5E"
+                          HeadersVisibility="Column"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          SelectionMode="Extended"
+                          SelectionUnit="FullRow"
+                          CanUserResizeColumns="True"
+                          CanUserSortColumns="True"
+                          GridLinesVisibility="Horizontal"
+                          HorizontalGridLinesBrush="#FF5E5E5E"
+                          VerticalGridLinesBrush="#FF5E5E5E"
+                          AlternationCount="2"
+                          >
+
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                <Setter Property="Background" Value="#FF212121"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Style.Triggers>
+                                    <Trigger Property="AlternationIndex" Value="1">
+                                        <Setter Property="Background" Value="#FF2E2E2E"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF6A5ACD"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="DarkGreen"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Trigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsSelected" Value="True"/>
+                                            <Condition Property="IsMouseOver" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="Background" Value="#FF836FFF"/>
+                                    </MultiTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#FF212121"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="#FF5E5E5E"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                <Setter Property="Padding" Value="4,2"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                        <Setter Property="Foreground" 
+Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=Foreground}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="FoolishRegionsWorldColumn" Header="World" Binding="{Binding World}" Width="auto" />
+                            <DataGridTextColumn Header="Region" Binding="{Binding Region}" Width="auto" />
+                            <DataGridTextColumn Header="Count" Binding="{Binding Count}" Width="auto" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <TextBlock x:Name="FoolishRegionsSortByDisplay" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="15" Foreground="White" FontSize="10"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="WayOfTheHero Paths">
+                <Grid Background="#FF212121" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Button x:Name="WayOfTheHeroPathsSortByWorldBtn" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="World" Margin="0,0,0,0" Click="WayOfTheHeroPaths_World_Click"/>
+                    <Button x:Name="WayOfTheHeroPathsSortByDescriptionBtn" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" Content="Description" Margin="0,0,0,0" Click="WayOfTheHeroPaths_Description_Click"/>
+                    <Button x:Name="WayOfTheHeroPathsSortByPlayerBtn" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="0" Content="Player" Margin="0,0,0,0" Click="WayOfTheHeroPaths_Player_Click"/>
+                    <Button x:Name="WayOfTheHeroPathsSortByItemBtn" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="0" Content="Item" Margin="0,0,0,0" Click="WayOfTheHeroPaths_Item_Click"/>
+                    
+                    <DataGrid x:Name="WayOfTheHeroPathsDataGrid"
+                          Grid.Row="1" Grid.ColumnSpan="15" Grid.RowSpan="14"
+                          Background="#FF212121"
+                          Foreground="White"
+                          BorderBrush="#FF5E5E5E"
+                          HeadersVisibility="Column"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          SelectionMode="Extended"
+                          SelectionUnit="FullRow"
+                          CanUserResizeColumns="True"
+                          CanUserSortColumns="True"
+                          GridLinesVisibility="Horizontal"
+                          HorizontalGridLinesBrush="#FF5E5E5E"
+                          VerticalGridLinesBrush="#FF5E5E5E"
+                          AlternationCount="2"
+                          >
+
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                <Setter Property="Background" Value="#FF212121"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Style.Triggers>
+                                    <Trigger Property="AlternationIndex" Value="1">
+                                        <Setter Property="Background" Value="#FF2E2E2E"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF6A5ACD"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="DarkGreen"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Trigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsSelected" Value="True"/>
+                                            <Condition Property="IsMouseOver" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="Background" Value="#FF836FFF"/>
+                                    </MultiTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#FF212121"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="#FF5E5E5E"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                <Setter Property="Padding" Value="4,2"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                        <Setter Property="Foreground" 
+Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=Foreground}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="WayOfTheHeroPathsWorldColumn" Header="World" Binding="{Binding World}" Width="auto" />
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="auto" />
+                            <DataGridTextColumn x:Name="WayOfTheHeroPathsPlayerColumn" Header="World" Binding="{Binding Player}" Width="auto" />
+                            <DataGridTextColumn Header="Item" Binding="{Binding Item}" Width="auto" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <TextBlock x:Name="WayOfTheHeroPathsSortByDisplay" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="15" Foreground="White" FontSize="10"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Spheres">
+                <Grid Background="#FF212121" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Button x:Name="SpheresSortByWorldBtn" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Content="World" Margin="0,0,0,0" Click="Spheres_World_Click"/>
+                    <Button x:Name="SpheresSortByNumberBtn" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" Content="Sphere" Margin="0,0,0,0" Click="Spheres_Number_Click"/>
+                    <Button x:Name="SpheresSortByTypeBtn" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="0" Content="Type" Margin="0,0,0,0" Click="Spheres_Type_Click"/>
+                    <Button x:Name="SpheresSortByLocationBtn" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="0" Content="Location" Margin="0,0,0,0" Click="Spheres_Location_Click"/>
+                    <Button x:Name="SpheresSortByPlayerBtn" Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="0" Content="Player" Margin="0,0,0,0" Click="Spheres_Player_Click"/>
+                    <Button x:Name="SpheresSortByItemBtn" Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="0" Content="Item" Margin="0,0,0,0" Click="Spheres_Item_Click"/>
+
+                    <DataGrid x:Name="SpheresDataGrid"
+                          Grid.Row="1" Grid.ColumnSpan="15" Grid.RowSpan="14"
+                          Background="#FF212121"
+                          Foreground="White"
+                          BorderBrush="#FF5E5E5E"
+                          HeadersVisibility="Column"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          SelectionMode="Extended"
+                          SelectionUnit="FullRow"
+                          CanUserResizeColumns="True"
+                          CanUserSortColumns="True"
+                          GridLinesVisibility="Horizontal"
+                          HorizontalGridLinesBrush="#FF5E5E5E"
+                          VerticalGridLinesBrush="#FF5E5E5E"
+                          AlternationCount="2"
+                          >
+
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                <Setter Property="Background" Value="#FF212121"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Style.Triggers>
+                                    <Trigger Property="AlternationIndex" Value="1">
+                                        <Setter Property="Background" Value="#FF2E2E2E"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF6A5ACD"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="DarkGreen"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Trigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsSelected" Value="True"/>
+                                            <Condition Property="IsMouseOver" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="Background" Value="#FF836FFF"/>
+                                    </MultiTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#FF212121"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="#FF5E5E5E"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                <Setter Property="Padding" Value="4,2"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                        <Setter Property="Foreground" 
+Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=Foreground}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="SpheresWorldColumn" Header="World" Binding="{Binding World}" Width="auto" />
+                            <DataGridTextColumn Header="Sphere" Binding="{Binding Number}" Width="auto" />
+                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="auto" />
+                            <DataGridTextColumn Header="Location" Binding="{Binding Location}" Width="auto" />
+                            <DataGridTextColumn x:Name="SpheresPlayerColumn" Header="Player" Binding="{Binding Player}" Width="auto" />
+                            <DataGridTextColumn Header="Item" Binding="{Binding Item}" Width="auto" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <TextBlock x:Name="SpheresSortByDisplay" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="15" Foreground="White" FontSize="10"/>
+
+                </Grid>
+            </TabItem>
+
 
 
         </TabControl>

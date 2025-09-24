@@ -16,5 +16,6 @@ namespace TranslationLibrary.SpoilerLog.Models
         public int EndLine { get; set; }
         public string? World {  get; set; }
         public bool MultiWorld { get; set; }
+        public bool HasValue { get; set; }
     }
 }

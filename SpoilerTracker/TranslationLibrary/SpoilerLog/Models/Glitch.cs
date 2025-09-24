@@ -7,18 +7,18 @@ using TranslationLibrary.SpoilerLog.Interfaces;
 
 namespace TranslationLibrary.SpoilerLog.Models
 {
-    public class Trick : ICreateFromLine<Trick>
+    public class Glitch : ICreateFromLine<Glitch>
     {
         public string? Description { get; set; }
         public string? Difficulty { get; set; }
         public int? LogOrder { get; set; } = 0;
 
-        public Trick CreateFromLine(string line)
+        public Glitch CreateFromLine(string line)
         {
-            return new Trick
+            return new Glitch
             {
                 Description = line,
-                Difficulty = null,           //Temporarily Null until  a difficulty ranking system for each trick is established
+                Difficulty = null,           //Temporarily Null until a difficulty ranking system for each glitch is established
                 LogOrder = LogOrder++
             };
         }

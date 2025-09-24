@@ -8,7 +8,7 @@ using TranslationLibrary.SpoilerLog.Interfaces;
 
 namespace TranslationLibrary.SpoilerLog.Models
 {
-    public class WayOfTheHero : ICreateFromLine<WayOfTheHero>
+    public class WayOfTheHeroHint : ICreateFromLine<WayOfTheHeroHint>
     {
         
         public string? World { get; set; }
@@ -16,7 +16,7 @@ namespace TranslationLibrary.SpoilerLog.Models
         public string? Location { get; set; }
         public string? Item { get; set; }
 
-        public WayOfTheHero CreateFromLine(string line)
+        public WayOfTheHeroHint CreateFromLine(string line)
         {
             line = line.Trim();
 
@@ -27,7 +27,7 @@ namespace TranslationLibrary.SpoilerLog.Models
 
             if (multiMatch.Success)
             {
-                return new WayOfTheHero
+                return new WayOfTheHeroHint
                 {
                     World = null, // Will be set later
                     GossipStone = multiMatch.Groups[1].Value.Trim(),
@@ -41,7 +41,7 @@ namespace TranslationLibrary.SpoilerLog.Models
 
             if (parts.Length == 3)
             {
-                return new WayOfTheHero
+                return new WayOfTheHeroHint
                 {
                     World = null,
                     GossipStone = parts[0].Trim(),
