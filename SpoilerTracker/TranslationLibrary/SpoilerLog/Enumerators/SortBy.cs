@@ -57,6 +57,14 @@ namespace TranslationLibrary.SpoilerLog.Enumerators
         SpheresLocation,
         SpheresPlayer,
         SpheresItem,
+        LocationsListWorld,
+        LocationsListGame,
+        LocationsListRegion,
+        LocationsListNumber,
+        LocationsListCount,
+        LocationsListDescription,
+        LocationsListPlayer,
+        LocationsListItem
 
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
@@ -88,7 +89,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 FoolishRegions = await Parse_FoolishRegions();
                 WayOfTheHeroPaths = await Parse_WayOfTheHeroPaths();
                 Spheres = await Parse_Spheres();
-
+                LocationList = await Parse_LocationsList();
 
 
                 SortCollections();
@@ -127,7 +128,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
         {
             sw.Stop();
             Debug.WriteLine(
-            $"--- Spoiler Sheet Data Added! Time Taken: {sw.Elapsed} ---" +
+            $"--- Spoiler Sheet Data Added! ---"  +
             $"\nSeed Info:\t\t\t{(SeedInfo != null ? SeedInfo.Count : 0)}" +
             $"\nGame Settings:\t\t{(GameSettings != null ? GameSettings.Count : 0)}" +
             $"\nSpecial Conditions:\t{(SpecialConditions != null ? SpecialConditions.Count : 0)}" +
@@ -142,7 +143,9 @@ namespace TranslationLibrary.SpoilerLog.Controller
             $"\nRegional Hint:\t\t{(RegionalHints != null ? RegionalHints.Count : 0)}" +
             $"\nFoolish Regions:\t{(FoolishRegions != null ? FoolishRegions.Count : 0)}" +
             $"\nWayOfTheHero Paths:\t{(WayOfTheHeroPaths != null ? WayOfTheHeroPaths.Count : 0)}" +
-            $"\nSpheres:\t\t\t{(Spheres != null ? Spheres.Count : 0)}"
+            $"\nSpheres:\t\t\t{(Spheres != null ? Spheres.Count : 0)}" +
+            $"\nLocations List:\t\t{(LocationList != null ? LocationList.Count : 0)}"+
+            $"\nTime Taken:\t\t\t{ sw.Elapsed}"
             );
             
 
@@ -519,13 +522,13 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (WayOfTheHeroHints != null)
                 {
-                    var sortedTricks = new List<WayOfTheHeroHint>(
+                    var sortedWayOfTheHeroHints = new List<WayOfTheHeroHint>(
                     WayOfTheHeroHints.OrderBy(e => e.World)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.Location)
                     );
 
-                    WayOfTheHeroHints = sortedTricks;
+                    WayOfTheHeroHints = sortedWayOfTheHeroHints;
                     WayOfTheHeroHints_SortBy = SortBy.WayOfTheHeroHintsWorld;
                 }
             }
@@ -535,13 +538,13 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (WayOfTheHeroHints != null)
                 {
-                    var sortedTricks = new List<WayOfTheHeroHint>(
+                    var sortedWayOfTheHeroHints = new List<WayOfTheHeroHint>(
                     WayOfTheHeroHints.OrderBy(e => e.Location)
                     .ThenBy(e => e.World)
                     .ThenBy(e => e.Item)
                     );
 
-                    WayOfTheHeroHints = sortedTricks;
+                    WayOfTheHeroHints = sortedWayOfTheHeroHints;
                     WayOfTheHeroHints_SortBy = SortBy.WayOfTheHeroHintsLocation;
                 }
             }
@@ -551,13 +554,13 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (WayOfTheHeroHints != null)
                 {
-                    var sortedTricks = new List<WayOfTheHeroHint>(
+                    var sortedWayOfTheHeroHints = new List<WayOfTheHeroHint>(
                     WayOfTheHeroHints.OrderBy(e => e.Item)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.Location)
                     );
 
-                    WayOfTheHeroHints = sortedTricks;
+                    WayOfTheHeroHints = sortedWayOfTheHeroHints;
                     WayOfTheHeroHints_SortBy = SortBy.WayOfTheHeroHintsItems;
                 }
             }
@@ -570,13 +573,13 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (FoolishHints != null)
                 {
-                    var sortedTricks = new List<FoolishHint>(
+                    var sortedFoolishHints = new List<FoolishHint>(
                     FoolishHints.OrderBy(e => e.World)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.Location)
                     );
 
-                    FoolishHints = sortedTricks;
+                    FoolishHints = sortedFoolishHints;
                     FoolishHints_SortBy = SortBy.FoolishHintsWorld;
                 }
             }
@@ -586,13 +589,13 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (FoolishHints != null)
                 {
-                    var sortedTricks = new List<FoolishHint>(
+                    var sortedFoolishHints = new List<FoolishHint>(
                     FoolishHints.OrderBy(e => e.GossipStone)
                     .ThenBy(e => e.World)
                     .ThenBy(e => e.Location)
                     );
 
-                    FoolishHints = sortedTricks;
+                    FoolishHints = sortedFoolishHints;
                     FoolishHints_SortBy = SortBy.FoolishHintsGossip;
                 }
             }
@@ -602,13 +605,13 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (FoolishHints != null)
                 {
-                    var sortedTricks = new List<FoolishHint>(
+                    var sortedFoolishHints = new List<FoolishHint>(
                     FoolishHints.OrderBy(e => e.Location)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.World)
                     );
 
-                    FoolishHints = sortedTricks;
+                    FoolishHints = sortedFoolishHints;
                     FoolishHints_SortBy = SortBy.FoolishHintsLocation;
                 }
             }
@@ -621,14 +624,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (SpecificHints != null)
                 {
-                    var sortedTricks = new List<SpecificHint>(
+                    var sortedSpecificHints = new List<SpecificHint>(
                     SpecificHints.OrderBy(e => e.World)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.Location)
                     .ThenBy(e => e.Item)
                     );
 
-                    SpecificHints = sortedTricks;
+                    SpecificHints = sortedSpecificHints;
                     FoolishHints_SortBy = SortBy.SpecificHintsWorld;
                 }
             }
@@ -638,14 +641,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (SpecificHints != null)
                 {
-                    var sortedTricks = new List<SpecificHint>(
+                    var sortedSpecificHints = new List<SpecificHint>(
                     SpecificHints.OrderBy(e => e.GossipStone)
                     .ThenBy(e => e.World)
                     .ThenBy(e => e.Location)
                     .ThenBy(e => e.Item)
                     );
 
-                    SpecificHints = sortedTricks;
+                    SpecificHints = sortedSpecificHints;
                     SpecificHints_SortBy = SortBy.SpecificHintsGossip;
                 }
             }
@@ -655,14 +658,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (SpecificHints != null)
                 {
-                    var sortedTricks = new List<SpecificHint>(
+                    var sortedSpecificHints = new List<SpecificHint>(
                     SpecificHints.OrderBy(e => e.Location)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.World)
                     .ThenBy(e => e.Item)
                     );
 
-                    SpecificHints = sortedTricks;
+                    SpecificHints = sortedSpecificHints;
                     SpecificHints_SortBy = SortBy.SpecificHintsLocation;
                 }
             }
@@ -672,14 +675,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (SpecificHints != null)
                 {
-                    var sortedTricks = new List<SpecificHint>(
+                    var sortedSpecificHints = new List<SpecificHint>(
                     SpecificHints.OrderBy(e => e.Item)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.World)
                     .ThenBy(e => e.Location)
                     );
 
-                    SpecificHints = sortedTricks;
+                    SpecificHints = sortedSpecificHints;
                     SpecificHints_SortBy = SortBy.SpecificHintsItem;
                 }
             }
@@ -691,14 +694,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (RegionalHints != null)
                 {
-                    var sortedTricks = new List<RegionalHint>(
+                    var sortedRegionalHints = new List<RegionalHint>(
                     RegionalHints.OrderBy(e => e.World)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.Region)
                     .ThenBy(e => e.Item)
                     );
 
-                    RegionalHints = sortedTricks;
+                    RegionalHints = sortedRegionalHints;
                     RegionalHints_SortBy = SortBy.RegionalHintsWorld;
                 }
             }
@@ -708,14 +711,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (RegionalHints != null)
                 {
-                    var sortedTricks = new List<RegionalHint>(
+                    var sortedRegionalHints = new List<RegionalHint>(
                     RegionalHints.OrderBy(e => e.GossipStone)
                     .ThenBy(e => e.World)
                     .ThenBy(e => e.Region)
                     .ThenBy(e => e.Item)
                     );
 
-                    RegionalHints = sortedTricks;
+                    RegionalHints = sortedRegionalHints;
                     RegionalHints_SortBy = SortBy.RegionalHintsGossip;
                 }
             }
@@ -725,14 +728,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (RegionalHints != null)
                 {
-                    var sortedTricks = new List<RegionalHint>(
+                    var sortedRegionalHints = new List<RegionalHint>(
                     RegionalHints.OrderBy(e => e.Region)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.World)
                     .ThenBy(e => e.Item)
                     );
 
-                    RegionalHints = sortedTricks;
+                    RegionalHints = sortedRegionalHints;
                     RegionalHints_SortBy = SortBy.RegionalHintsRegion;
                 }
             }
@@ -742,14 +745,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (RegionalHints != null)
                 {
-                    var sortedTricks = new List<RegionalHint>(
+                    var sortedRegionalHints = new List<RegionalHint>(
                     RegionalHints.OrderBy(e => e.Item)
                     .ThenBy(e => e.GossipStone)
                     .ThenBy(e => e.World)
                     .ThenBy(e => e.Region)
                     );
 
-                    RegionalHints = sortedTricks;
+                    RegionalHints = sortedRegionalHints;
                     RegionalHints_SortBy = SortBy.RegionalHintsItem;
                 }
             }
@@ -761,13 +764,13 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (FoolishRegions != null)
                 {
-                    var sortedTricks = new List<FoolishRegion>(
+                    var sortedFoolishRegions = new List<FoolishRegion>(
                     FoolishRegions.OrderBy(e => e.World)
                     .ThenBy(e => e.Count)
                     .ThenBy(e => e.Region)
                     );
 
-                    FoolishRegions = sortedTricks;
+                    FoolishRegions = sortedFoolishRegions;
                     FoolishRegions_SortBy = SortBy.FoolishRegionsWorld;
                 }
             }
@@ -777,13 +780,13 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (FoolishRegions != null)
                 {
-                    var sortedTricks = new List<FoolishRegion>(
+                    var sortedFoolishRegions = new List<FoolishRegion>(
                     FoolishRegions.OrderBy(e => e.Region)
                     .ThenBy(e => e.World)
                     .ThenBy(e => e.Count)
                     );
 
-                    FoolishRegions = sortedTricks;
+                    FoolishRegions = sortedFoolishRegions;
                     FoolishRegions_SortBy = SortBy.FoolishRegionsRegion;
                 }
             }
@@ -793,13 +796,13 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (FoolishRegions != null)
                 {
-                    var sortedTricks = new List<FoolishRegion>(
+                    var sortedFoolishRegions = new List<FoolishRegion>(
                     FoolishRegions.OrderBy(e => e.Count)
                     .ThenBy(e => e.Region)
                     .ThenBy(e => e.World)
                     );
 
-                    FoolishRegions = sortedTricks;
+                    FoolishRegions = sortedFoolishRegions;
                     FoolishRegions_SortBy = SortBy.FoolishRegionsCount;
                 }
             }
@@ -810,14 +813,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (WayOfTheHeroPaths != null)
                 {
-                    var sortedTricks = new List<WayOfTheHeroPath>(
+                    var sortedWayOfTheHeroPaths = new List<WayOfTheHeroPath>(
                     WayOfTheHeroPaths.OrderBy(e => e.World)
                     .ThenBy(e => e.Description)
                     .ThenBy(e => e.Player)
                     .ThenBy(e => e.Item)
                     );
 
-                    WayOfTheHeroPaths = sortedTricks;
+                    WayOfTheHeroPaths = sortedWayOfTheHeroPaths;
                     WayOfTheHeroPaths_SortBy = SortBy.WayOfTheHeroPathsWorld;
                 }
             }
@@ -827,14 +830,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (WayOfTheHeroPaths != null)
                 {
-                    var sortedTricks = new List<WayOfTheHeroPath>(
+                    var sortedWayOfTheHeroPaths = new List<WayOfTheHeroPath>(
                     WayOfTheHeroPaths.OrderBy(e => e.Description)
                     .ThenBy(e => e.World)
                     .ThenBy(e => e.Player)
                     .ThenBy(e => e.Item)
                     );
 
-                    WayOfTheHeroPaths = sortedTricks;
+                    WayOfTheHeroPaths = sortedWayOfTheHeroPaths;
                     WayOfTheHeroPaths_SortBy = SortBy.WayOfTheHeroPathsDescription;
                 }
             }
@@ -844,14 +847,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (WayOfTheHeroPaths != null)
                 {
-                    var sortedTricks = new List<WayOfTheHeroPath>(
+                    var sortedWayOfTheHeroPaths = new List<WayOfTheHeroPath>(
                     WayOfTheHeroPaths.OrderBy(e => e.Player)
                     .ThenBy(e => e.Item)
                     .ThenBy(e => e.Description)
                     .ThenBy(e => e.World)
                     );
 
-                    WayOfTheHeroPaths = sortedTricks;
+                    WayOfTheHeroPaths = sortedWayOfTheHeroPaths;
                     WayOfTheHeroPaths_SortBy = SortBy.WayOfTheHeroPathsPlayer;
                 }
             }
@@ -860,14 +863,14 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (WayOfTheHeroPaths != null)
                 {
-                    var sortedTricks = new List<WayOfTheHeroPath>(
+                    var sortedWayOfTheHeroPaths = new List<WayOfTheHeroPath>(
                     WayOfTheHeroPaths.OrderBy(e => e.Item)
                     .ThenBy(e => e.Player)
                     .ThenBy(e => e.Description)
                     .ThenBy(e => e.World)
                     );
 
-                    WayOfTheHeroPaths = sortedTricks;
+                    WayOfTheHeroPaths = sortedWayOfTheHeroPaths;
                     WayOfTheHeroPaths_SortBy = SortBy.WayOfTheHeroPathsItem;
                 }
             }
@@ -878,7 +881,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (Spheres != null)
                 {
-                    var sortedTricks = new List<Sphere>(
+                    var sortedSpheres = new List<Sphere>(
                     Spheres.OrderBy(e => e.World)
                     .ThenBy(e => e.Number)
                     .ThenBy(e => e.Type)
@@ -887,7 +890,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     .ThenBy(e => e.Item)
                     );
 
-                    Spheres = sortedTricks;
+                    Spheres = sortedSpheres;
                     Spheres_SortBy = SortBy.SpheresWorld;
                 }
             }
@@ -897,7 +900,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (Spheres != null)
                 {
-                    var sortedTricks = new List<Sphere>(
+                    var sortedSpheres = new List<Sphere>(
                     Spheres.OrderBy(e => e.Type)
                     .ThenBy(e => e.Location)
                     .ThenBy(e => e.Player)
@@ -906,7 +909,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     .ThenBy(e => e.Item)
                     );
 
-                    Spheres = sortedTricks;
+                    Spheres = sortedSpheres;
                     Spheres_SortBy = SortBy.SpheresType;
                 }
             }
@@ -916,7 +919,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (Spheres != null)
                 {
-                    var sortedTricks = new List<Sphere>(
+                    var sortedSpheres = new List<Sphere>(
                     Spheres.OrderBy(e => e.Number)
                     .ThenBy(e => e.Type)
                     .ThenBy(e => e.Location)
@@ -925,7 +928,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     .ThenBy(e => e.Item)
                     );
 
-                    Spheres = sortedTricks;
+                    Spheres = sortedSpheres;
                     Spheres_SortBy = SortBy.SpheresNumber;
                 }
             }
@@ -934,7 +937,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (Spheres != null)
                 {
-                    var sortedTricks = new List<Sphere>(
+                    var sortedSpheres = new List<Sphere>(
                     Spheres.OrderBy(e => e.Location)
                     .ThenBy(e => e.Type)
                     .ThenBy(e => e.Player)
@@ -943,7 +946,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     .ThenBy(e => e.Item)
                     );
 
-                    Spheres = sortedTricks;
+                    Spheres = sortedSpheres;
                     Spheres_SortBy = SortBy.SpheresLocation;
                 }
             }
@@ -952,7 +955,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (Spheres != null)
                 {
-                    var sortedTricks = new List<Sphere>(
+                    var sortedSpheres = new List<Sphere>(
                     Spheres.OrderBy(e => e.Player)
                     .ThenBy(e => e.Number)
                     .ThenBy(e => e.World)
@@ -961,7 +964,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     .ThenBy(e => e.Item)
                     );
 
-                    Spheres = sortedTricks;
+                    Spheres = sortedSpheres;
                     Spheres_SortBy = SortBy.SpheresPlayer;
                 }
             }
@@ -970,7 +973,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             {
                 if (Spheres != null)
                 {
-                    var sortedTricks = new List<Sphere>(
+                    var sortedSpheres = new List<Sphere>(
                     Spheres.OrderBy(e => e.Item)
                     .ThenBy(e => e.Player)
                     .ThenBy(e => e.Type)
@@ -979,8 +982,170 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     .ThenBy(e => e.Location)
                     );
 
-                    Spheres = sortedTricks;
+                    Spheres = sortedSpheres;
                     Spheres_SortBy = SortBy.SpheresItem;
+                }
+            }
+            #endregion
+            #region Locations List
+            // Locations List - World - (Default)
+            if (sort == SortBy.LocationsListWorld || sort == SortBy.Default)
+            {
+                if (LocationList != null)
+                {
+                    var sortedLocationsList = new List<ItemLocation>(
+                    LocationList.OrderBy(e => e.World)
+                    .ThenByDescending(e => e.Game)
+                    .ThenBy(e => e.Count)
+                    .ThenBy(e => e.Region)
+                    .ThenBy(e => e.Number)
+                    .ThenBy(e => e.Player)
+                    .ThenBy(e => e.Description)
+                    .ThenBy(e => e.Item)
+                    );
+
+                    LocationList = sortedLocationsList;
+                    LocationList_SortBy = SortBy.LocationsListWorld;
+                }
+            }
+
+            // Locations List - Game
+            if (sort == SortBy.LocationsListGame)
+            {
+                if (LocationList != null)
+                {
+                    var sortedLocationsList = new List<ItemLocation>(
+                    LocationList.OrderByDescending(e => e.Game)
+                    .ThenBy(e => e.World)
+                    .ThenBy(e => e.Count)
+                    .ThenBy(e => e.Region)
+                    .ThenBy(e => e.Number)
+                    .ThenBy(e => e.Description)
+                    .ThenBy(e => e.Player)
+                    .ThenBy(e => e.Item)
+                    );
+
+                    LocationList = sortedLocationsList;
+                    LocationList_SortBy = SortBy.LocationsListGame;
+                }
+            }
+
+            // Locations List - Region
+            if (sort == SortBy.LocationsListRegion)
+            {
+                if (LocationList != null)
+                {
+                    var sortedLocationsList = new List<ItemLocation>(
+                    LocationList.OrderBy(e => e.Region)
+                    .ThenBy(e => e.Number)
+                    .ThenBy(e => e.Description)
+                    .ThenBy(e => e.Count)
+                    .ThenBy(e => e.World)
+                    .ThenByDescending(e => e.Game)
+                    .ThenBy(e => e.Player)
+                    .ThenBy(e => e.Item)
+                    );
+
+                    LocationList = sortedLocationsList;
+                    LocationList_SortBy = SortBy.LocationsListRegion;
+                }
+            }
+            // Locations List - Number
+            if (sort == SortBy.LocationsListNumber)
+            {
+                if (LocationList != null)
+                {
+                    var sortedLocationsList = new List<ItemLocation>(
+                    LocationList.OrderBy(e => e.Number)
+                    .ThenBy(e => e.Count)
+                    .ThenBy(e => e.Description)
+                    .ThenBy(e => e.World)
+                    .ThenByDescending(e => e.Game)
+                    .ThenBy(e => e.Player)
+                    .ThenBy(e => e.Item)
+                    );
+
+                    LocationList = sortedLocationsList;
+                    LocationList_SortBy = SortBy.LocationsListNumber;
+                }
+            }
+            // Locations List - Count
+            if (sort == SortBy.LocationsListCount)
+            {
+                if (LocationList != null)
+                {
+                    var sortedLocationsList = new List<ItemLocation>(
+                    LocationList.OrderBy(e => e.Count)
+                    .ThenBy(e => e.Number)
+                    .ThenBy(e => e.Description)
+                    .ThenBy(e => e.World)
+                    .ThenByDescending(e => e.Game)
+                    .ThenBy(e => e.Player)
+                    .ThenBy(e => e.Item)
+                    );
+
+                    LocationList = sortedLocationsList;
+                    LocationList_SortBy = SortBy.LocationsListCount;
+                }
+            }
+            // Locations List - Description
+            if (sort == SortBy.LocationsListDescription)
+            {
+                if (LocationList != null)
+                {
+                    var sortedLocationsList = new List<ItemLocation>(
+                    LocationList.OrderBy(e => e.Description)
+                    .ThenBy(e => e.Region)
+                    .ThenBy(e => e.Count)
+                    .ThenBy(e => e.Number)
+                    .ThenBy(e => e.World)
+                    .ThenByDescending(e => e.Game)
+                    .ThenBy(e => e.Player)
+                    .ThenBy(e => e.Item)
+                    );
+
+                    LocationList = sortedLocationsList;
+                    LocationList_SortBy = SortBy.LocationsListDescription;
+                }
+            }
+            // Locations List - Player
+            if (sort == SortBy.LocationsListPlayer)
+            {
+                if (LocationList != null)
+                {
+                    var sortedLocationsList = new List<ItemLocation>(
+                    LocationList.OrderBy(e => e.Player)
+                    .ThenByDescending(e => e.Game)
+                    .ThenBy(e => e.World)
+                    .ThenBy(e => e.Count)
+                    .ThenBy(e => e.Number)
+                    .ThenBy(e => e.Region)
+                    .ThenBy(e => e.Description)
+                    .ThenBy(e => e.Item)
+                    );
+
+                    LocationList = sortedLocationsList;
+                    LocationList_SortBy = SortBy.LocationsListPlayer;
+                }
+            }
+            // Locations List - Item
+            if (sort == SortBy.LocationsListItem)
+            {
+                if (LocationList != null)
+                {
+                    var sortedLocationsList = new List<ItemLocation>(
+                    LocationList.OrderBy(e => e.Item)
+                    .ThenBy(e => e.Player)
+                    .ThenBy(e => e.Count)
+                    .ThenBy(e => e.Number)
+                    .ThenBy(e => e.Region)
+                    .ThenByDescending(e => e.Game)
+                    .ThenBy(e => e.World)
+                    .ThenBy(e => e.Description)
+                    );
+
+                    LocationList = sortedLocationsList;
+                    LocationList_SortBy = SortBy.LocationsListItem;
                 }
             }
             #endregion
@@ -1012,7 +1177,6 @@ namespace TranslationLibrary.SpoilerLog.Controller
             
 
         } 
-
         private async Task<KeyValuePair<string, string>?> Parse_SingleKeyValue(string[] file, string categoryName, string delimiter = ":", int startingPosition = 0)
         {
             return await Task.Run(() =>
@@ -1347,11 +1511,11 @@ namespace TranslationLibrary.SpoilerLog.Controller
             });
             
         }
-        private async Task<BlockInfo?> FindBlock_Hint(string subHeader, string[] file, int worldNum = 1, int startingPosition = 0, string header = "Hints")
+        private async Task<BlockInfo?> FindBlock_Hint(string subHeader, string[] file, int worldNum = 1, int? startingPosition = 0, string header = "Hints")
         {
             return await Task.Run(() =>
             {
-                int position = startingPosition;
+                int position = Convert.ToInt16(startingPosition);
 
                 // Finds the header
                 while (position < file.Length && !file[position].Trim().Equals(header, StringComparison.OrdinalIgnoreCase))
@@ -1436,6 +1600,98 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     MultiWorld = multiWorld,
                 };
             });
+        }
+        private async Task<BlockInfo?> FindBlock_LocationsList(string[] file, string? header = null, int startingPosition = 0, bool multiWorld = false, string world = null, int? headerPosition = null)
+        {
+            int position = startingPosition;
+
+            // Step 1: Find the main header (if provided)
+            if (header != null)
+            {
+                while (position < file.Length &&
+                       !file[position].Trim().Contains(header, StringComparison.OrdinalIgnoreCase))
+                {
+                    position++;
+                }
+
+                // Header not found
+                if (position >= file.Length)
+                    return null;
+            }
+
+            // If not already set, set the header position
+            if (headerPosition == null)
+                headerPosition = position;
+
+            int startLine = position;
+            int endLine = startLine + 1;
+
+            string? subHeader = null;
+            bool subHeaderFound = false;
+            bool worldHeaderFound = false;
+
+            Regex worldRegex = new Regex(@"^  World\s\d");
+            string? count;
+
+            string indent = "  "; // base indent after header (2 spaces)
+
+            // Step 2: Start parsing lines under the header
+            while (endLine < file.Length)
+            {
+                string line = file[endLine];
+
+                // Match multiworld "  World x" header
+                if (multiWorld && !worldHeaderFound && worldRegex.IsMatch(line))
+                {
+                    string[] parts = Regex.Split(line, @"\s*\((\d+)\)\s*$");
+                    if (parts.Length >= 1) 
+                    {
+                        world = parts[0].Trim();
+                        worldHeaderFound = true;
+                        startLine = endLine + 1;
+                        indent += "  ";
+                    }
+                }
+
+                // Find subheader
+                if (!subHeaderFound && line.StartsWith(indent) && line.Trim().EndsWith(':'))
+                {
+                    subHeader = line.Trim();
+                    subHeaderFound = true;
+                    startLine = endLine + 1;
+                    indent += "  ";
+                }
+
+                // Exit block if we hit a blank line (end of this block)
+                if (string.IsNullOrWhiteSpace(line))
+                {
+                    endLine++;
+                    break;
+                }
+
+                endLine++;
+            }
+
+            // If a subheader was expected but not found, return null
+            if (subHeader != null && !subHeaderFound)
+                return null;
+
+            if (startLine >= endLine || startLine >= file.Length - 1)
+                return null;
+
+            return new BlockInfo
+            {
+                Header = header,
+                HeaderPosition = headerPosition,
+                SubHeader = subHeader,
+                StartLine = startLine,
+                EndLine = endLine - 1,
+                World = world,
+                MultiWorld = worldHeaderFound,
+                HasValue = true,
+                FileLength = file.Length,
+            };
+
         }
         #endregion
 
@@ -2079,27 +2335,85 @@ namespace TranslationLibrary.SpoilerLog.Controller
             for (int i = 0; i < blocks.Count; i++)
             {
                 Tuple<int, int> range = new Tuple<int, int>(blocks[i].StartLine, blocks[i].EndLine);
-
-                if (i == 8) 
-                { 
-                    string test2 = "test"; 
-                }
-
                 var Sphere = await AddValues<Sphere>(range, FileContents);
 
                 if (Sphere != null)
                 {
                     foreach (Sphere item in Sphere) 
                     {
-                        
                             item.Number = i;
                             sphereList.Add(item);
-                        
                     }
                 }
             }
-            string test = "test";
             return sphereList;
+        }
+        private async Task<List<ItemLocation>?> Parse_LocationsList()
+        {
+            BlockInfo? block = new BlockInfo();
+            List<BlockInfo> blocks = new List<BlockInfo>();
+            int sphereNumber = 0;
+            bool firstBlockFound = false;
+
+
+            block = await FindBlock_LocationsList(FileContents, "Location List", 0, true);
+            int fileLength = block.FileLength;
+
+            // Multiplayer Log
+            if (block.MultiWorld)
+            {
+                int num = 1;
+                do
+                {
+                    blocks.Add(block);
+                    block = await FindBlock_LocationsList(FileContents, null , block.EndLine, true, block.World);
+
+                    Debug.WriteLineIf(block != null, $"Block #{num}: SubHeader= {block.SubHeader}, StartLine={block.StartLine}, EndLine={block.EndLine}");
+                    num++;
+
+                } while (block != null && block.StartLine < fileLength - 1);
+            }
+            // Single Player Log
+            else 
+            {
+                do
+                {
+                    blocks.Add(block);
+                    block = await FindBlock_LocationsList(FileContents, null, block.EndLine, false, block.World ,block.HeaderPosition);
+
+                } while (block != null && block.StartLine < fileLength - 1);
+            }           
+
+            // Start adding items
+            List<ItemLocation> locationItemsList = new List<ItemLocation>();
+
+            for (int i = 0; i < blocks.Count; i++)
+            {
+                Tuple<int, int> range = new Tuple<int, int>(blocks[i].StartLine, blocks[i].EndLine);
+
+                var region = await AddValues<ItemLocation>(range, FileContents);
+
+                if (region != null)
+                {
+                    int itemCount = 1;
+                    foreach (ItemLocation item in region)
+                    {
+                        if (item.Description != null) 
+                        {
+                            string[] parts = Regex.Split(blocks[i].SubHeader.Trim(), @"\s*\((\d+)\):?\s*$");
+                            if (parts.Length >= 1) 
+                            {
+                                item.Region = parts[0];
+                                item.Count = parts[1];
+                                item.Number = itemCount++;
+                                item.World = blocks[i].World;
+                                locationItemsList.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            return locationItemsList;
         }
     }
 

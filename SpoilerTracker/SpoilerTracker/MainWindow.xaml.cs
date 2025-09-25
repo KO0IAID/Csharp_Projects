@@ -61,7 +61,6 @@ namespace SpoilerTracker
             InitializeComponent();
             AutoLoadSpoilerLog();
         }
-
         private async void SpoilerBtn_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -241,6 +240,7 @@ namespace SpoilerTracker
             FoolishRegionsDataGrid.ItemsSource = foolishRegions;
             WayOfTheHeroPathsDataGrid.ItemsSource = wayOfTheHeroPaths;
             SpheresDataGrid.ItemsSource= spheres;
+            LocationsListDataGrid.ItemsSource = locationList;
 
             UpdateSortByDisplays();
             UpdateUIColumns();
@@ -719,6 +719,56 @@ namespace SpoilerTracker
             BindCollections();
         }
         #endregion
+        #region LocationsList
+        private void LocationsList_World_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.LocationsListWorld);
+
+            BindCollections();
+        }
+        private void LocationsList_Game_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.LocationsListGame);
+
+            BindCollections();
+        }
+        private void LocationsList_Region_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.LocationsListRegion);
+
+            BindCollections();
+        }
+        private void LocationsList_Number_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.LocationsListNumber);
+
+            BindCollections();
+        }
+        private void LocationsList_Count_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.LocationsListRegion);
+
+            BindCollections();
+        }
+        private void LocationsList_Description_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.LocationsListDescription);
+
+            BindCollections();
+        }
+        private void LocationsList_Player_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.LocationsListPlayer);
+
+            BindCollections();
+        }
+        private void LocationsList_Item_Click(object sender, RoutedEventArgs e)
+        {
+            spoilerLog.SortCollections(SortBy.LocationsListItem);
+
+            BindCollections();
+        }
+        #endregion
 
 
         private void UpdateSortByDisplays()
@@ -727,6 +777,11 @@ namespace SpoilerTracker
             WayOfTheHeroSortByDisplay.Text = spoilerLog.WayOfTheHeroHints_SortBy.CustomToString();
             FoolishHintsSortByDisplay.Text = spoilerLog.FoolishHints_SortBy.CustomToString();
             SpecificHintsSortByDisplay.Text = spoilerLog.SpecificHints_SortBy.CustomToString();
+            RegionalHintsSortByDisplay.Text = spoilerLog.RegionalHints_SortBy.CustomToString();
+            FoolishRegionsSortByDisplay.Text = spoilerLog.FoolishRegions_SortBy.CustomToString();
+            WayOfTheHeroPathsSortByDisplay.Text = spoilerLog.WayOfTheHeroPaths_SortBy.CustomToString();
+            SpheresSortByDisplay.Text = spoilerLog.WayOfTheHeroPaths_SortBy.CustomToString();
+            LocationsListSortByDisplay.Text = spoilerLog.WayOfTheHeroPaths_SortBy.CustomToString() ;
         }
 
         #region Conditional UI Column Hiding
@@ -777,6 +832,13 @@ namespace SpoilerTracker
 
             bool anySpheresPlayers= spoilerLog.Spheres != null && spoilerLog.Spheres.Any(e => !string.IsNullOrWhiteSpace(e.Player));
             SpheresPlayerColumn.Visibility = anySpheresPlayers ? Visibility.Visible : Visibility.Collapsed;
+
+            // Locations List
+            bool anyLocationsListWorlds = spoilerLog.LocationList != null && spoilerLog.LocationList.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            LocationsListWorldColumn.Visibility = anyWayOfTheHeroPathsPlayers ? Visibility.Visible : Visibility.Collapsed;
+
+            bool anyLocationsListPlayers = spoilerLog.LocationList != null && spoilerLog.LocationList.Any(e => !string.IsNullOrWhiteSpace(e.Player));
+            LocationsListPlayerColumn.Visibility = anySpheresPlayers ? Visibility.Visible : Visibility.Collapsed;
         }
         #endregion
     }

@@ -61,6 +61,14 @@ namespace TranslationLibrary.SpoilerLog.Enumerators
                 SortBy.SpheresNumber => "Number",
                 SortBy.SpheresLocation => "Location",
                 SortBy.SpheresItem => "Items",
+                SortBy.LocationsListWorld => "World",
+                SortBy.LocationsListGame => "Game A-Z",
+                SortBy.LocationsListRegion => "Region A-Z",
+                SortBy.LocationsListCount => "Count",
+                SortBy.LocationsListNumber => "Number",
+                SortBy.LocationsListDescription => "Description A-Z",
+                SortBy.LocationsListPlayer => "Player",
+                SortBy.LocationsListItem => "Item A-Z",
 
                 // Catch-all for any undefined or unexpected enum values
                 _ => "Unknown"
