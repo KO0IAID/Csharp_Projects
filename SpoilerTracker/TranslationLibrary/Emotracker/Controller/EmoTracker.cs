@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TranslationLibrary.Emotracker.Controller
 {
-    public static class Tracker
+    public class EmoTracker
     {
     }
 }

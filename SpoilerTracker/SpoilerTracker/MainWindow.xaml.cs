@@ -20,12 +20,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TranslationLibrary.Emotracker.Controller;
 using TranslationLibrary.Emotracker.ItemDatabase;
 using TranslationLibrary.Emotracker.LocationDatabase;
 using TranslationLibrary.SpoilerLog.Controller;
 using TranslationLibrary.SpoilerLog.Enumerators;
 using TranslationLibrary.SpoilerLog.Models;
-
 
 namespace SpoilerTracker
 {
@@ -35,6 +35,7 @@ namespace SpoilerTracker
     public partial class MainWindow : Window
     {
         SpoilerLog spoilerLog = new SpoilerLog();
+        EmoTracker emoTracker = new EmoTracker();
 
         #region Collections
         ObservableCollection<SeedInfo>? seedInfo;
@@ -222,7 +223,6 @@ namespace SpoilerTracker
             wayOfTheHeroPaths   = new ObservableCollection<WayOfTheHeroPath>    (spoilerLog.WayOfTheHeroPaths ?? []);
             spheres             = new ObservableCollection<Sphere>              (spoilerLog.Spheres ?? []);
             locationList        = new ObservableCollection<ItemLocation>        (spoilerLog.LocationList ?? []);
-
 
             // Binds to Xaml Elements
             SeedInfoDataGrid.ItemsSource = seedInfo;
@@ -746,7 +746,7 @@ namespace SpoilerTracker
         }
         private void LocationsList_Count_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.LocationsListRegion);
+            spoilerLog.SortCollections(SortBy.LocationsListCount);
 
             BindCollections();
         }

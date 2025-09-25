@@ -21,8 +21,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
 {
     public class SpoilerLog
     {
-        public string[] FileContents;
-        
+        public string[]? FileContents;
 
         #region Collections
         public List<SeedInfo>? SeedInfo { get; set; } = new();
@@ -61,8 +60,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
         public SortBy Spheres_SortBy { get; private set; }
         public SortBy LocationList_SortBy { get; private set; }
         #endregion
-
-
+        #region Core Functions
         public async Task AddFileContents(string filePath)
         {
             
@@ -104,7 +102,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             }
 
         }
-        public void ClearFileContents()
+        public void ClearContents()
         {
             SeedInfo?.Clear();
             GameSettings?.Clear();
@@ -1150,16 +1148,12 @@ namespace TranslationLibrary.SpoilerLog.Controller
             }
             #endregion
         }
-
-
-
-
-
-
+        #endregion
         #region Data Parsing Helper Methods
         private async Task<List<T>?> AddValues<T>(Tuple<int, int> range, string[] fileContents) where T : ICreateFromLine<T>, new()
         {
-           
+            return await Task.Run(() =>
+            {
                 if (range.Item1 == -1 || range.Item2 == -1)
                     return null;
 
@@ -1174,6 +1168,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
                 }
                 return collection;
+            });
             
 
         } 
@@ -1249,80 +1244,6 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 return list;
             });
         }
-        private List<KeyValuePair<string, string>> Parse_FlatKeyValueBlock(string categoryName, string[] fileContents)
-        {
-            var result = new List<KeyValuePair<string, string>>();
-
-
-            for (int i = 0; i < fileContents.Length; i++)
-            {
-                var line = fileContents[i];
-
-                if (fileContents[i].Equals(categoryName, StringComparison.OrdinalIgnoreCase))
-                {
-                    i++; // Move to line after header
-
-                    while (i < fileContents.Length && !string.IsNullOrWhiteSpace(fileContents[i]))
-                    {
-                        string value = fileContents[i];
-                        string[] parts = fileContents[i].Trim().Split(':', 2);
-
-                        if (parts.Length == 2)
-                        {
-                            result.Add(new KeyValuePair<string, string>(parts[0].Trim(), parts[1].Trim()));
-                        }
-
-                        i++;
-                    }
-
-                    break; // done with this block
-                }
-            }
-
-            return result;
-        }
-        private List<KeyValuePair<string, string>> Parse_SpecificFlatKeyValueBlock(string categoryName, string[] fileContents)
-        {
-            var result = new List<KeyValuePair<string, string>>();
-
-            for (int i = 0; i < fileContents.Length; i++)
-            {
-                var line = fileContents[i];
-
-                if (line.Trim().Equals(categoryName, StringComparison.OrdinalIgnoreCase))
-                {
-                    i++; // Move to line after header
-
-                    while (i < fileContents.Length)
-                    {
-                        string currentLine = fileContents[i];
-
-                        // Stop if we hit a new category or sub-category
-                        int indent = currentLine.TakeWhile(char.IsWhiteSpace).Count();
-                        if (currentLine.TrimEnd().EndsWith(":") && indent <= 4)
-                        {
-                            break;
-                        }
-
-                        // Process non-empty lines
-                        if (!string.IsNullOrWhiteSpace(currentLine))
-                        {
-                            string[] parts = currentLine.Trim().Split(':', 2);
-                            if (parts.Length == 2)
-                            {
-                                result.Add(new KeyValuePair<string, string>(parts[0].Trim(), parts[1].Trim()));
-                            }
-                        }
-
-                        i++;
-                    }
-
-                    break; // Only one block to parse
-                }
-            }
-
-            return result;
-        }
         private async Task<Tuple<int, int>> FindCategoryRange(string categoryName, string[] file, int startingPosition = 0)
         {
             return await Task.Run(() =>
@@ -1383,84 +1304,87 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<BlockInfo?> FindBlock_Generic(string[] file, string? header = null, string? subHeader = null, int startingPosition = 0, bool multiWorld = false)
         {
-            int position = startingPosition;
-
-            // Step 1: Find the main header
-            while (header!= null && position < file.Length &&
-                   !file[position].Trim().Equals(header, StringComparison.OrdinalIgnoreCase))
+            return await Task.Run(() =>
             {
-                position++;
-            }
+                int position = startingPosition;
 
-            // Header not found
-            if (position >= file.Length)
-                return null;
-
-            // Header found
-            int headerPosition = position;
-            int startLine = headerPosition + 1;
-            int endLine = startLine;
-
-            bool subHeaderFound = false;
-            bool worldHeaderFound = false;
-
-            string? world = null;
-            Regex worldRegex = new Regex(@"^  World \d+:?$");
-
-            string indent = "  "; // base indent after header (2 spaces)
-
-            // Step 2: Start parsing lines under the header
-            while (endLine < file.Length)
-            {
-                string line = file[endLine];
-
-                // Match multiworld "  World x:" header
-                if (multiWorld && !worldHeaderFound && worldRegex.IsMatch(line))
+                // Step 1: Find the main header
+                while (header != null && position < file.Length &&
+                       !file[position].Trim().Equals(header, StringComparison.OrdinalIgnoreCase))
                 {
-                    world = line.Trim().TrimEnd(':');
-                    worldHeaderFound = true;
-                    startLine = endLine + 1;
-                    indent += "  ";
+                    position++;
                 }
 
-                // Match subheader
-                if (subHeader != null && !subHeaderFound && line.StartsWith(indent) &&
-                    line.IndexOf(subHeader, StringComparison.OrdinalIgnoreCase) >= 0)
-                {
-                    subHeader = line.Trim();
-                    subHeaderFound = true;
-                    startLine = endLine + 1;
-                    indent += "  ";
-                }
+                // Header not found
+                if (position >= file.Length)
+                    return null;
 
-                // Exit block if we hit a line that is blank
-                if (string.IsNullOrWhiteSpace(line))
+                // Header found
+                int headerPosition = position;
+                int startLine = headerPosition + 1;
+                int endLine = startLine;
+
+                bool subHeaderFound = false;
+                bool worldHeaderFound = false;
+
+                string? world = null;
+                Regex worldRegex = new Regex(@"^  World \d+:?$");
+
+                string indent = "  "; // base indent after header (2 spaces)
+
+                // Step 2: Start parsing lines under the header
+                while (endLine < file.Length)
                 {
+                    string line = file[endLine];
+
+                    // Match multiworld "  World x:" header
+                    if (multiWorld && !worldHeaderFound && worldRegex.IsMatch(line))
+                    {
+                        world = line.Trim().TrimEnd(':');
+                        worldHeaderFound = true;
+                        startLine = endLine + 1;
+                        indent += "  ";
+                    }
+
+                    // Match subheader
+                    if (subHeader != null && !subHeaderFound && line.StartsWith(indent) &&
+                        line.IndexOf(subHeader, StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        subHeader = line.Trim();
+                        subHeaderFound = true;
+                        startLine = endLine + 1;
+                        indent += "  ";
+                    }
+
+                    // Exit block if we hit a line that is blank
+                    if (string.IsNullOrWhiteSpace(line))
+                    {
+                        endLine++;
+                        break;
+                    }
+
                     endLine++;
-                    break;
                 }
 
-                endLine++;
-            }
+                // If subheader was requested but not found, return null
+                if (subHeader != null && !subHeaderFound)
+                    return null;
 
-            // If subheader was requested but not found, return null
-            if (subHeader != null && !subHeaderFound)
-                return null;
+                // No actual content in block
+                if (startLine > endLine - 1)
+                    return null;
 
-            // No actual content in block
-            if (startLine > endLine - 1)
-                return null;
-
-            return new BlockInfo
-            {
-                Header = header,
-                SubHeader = subHeader,
-                StartLine = startLine,
-                EndLine = endLine - 1,
-                World = world,
-                MultiWorld = worldHeaderFound,
-                HasValue = true
-            };
+                return new BlockInfo
+                {
+                    Header = header,
+                    SubHeader = subHeader,
+                    StartLine = startLine,
+                    EndLine = endLine - 1,
+                    World = world,
+                    MultiWorld = worldHeaderFound,
+                    HasValue = true
+                };
+            });
 
         }
         private async Task<BlockInfo?> FindBlock_SpecialConditions(string header, string[] file, int startingPosition = 0)
@@ -1601,103 +1525,111 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 };
             });
         }
-        private async Task<BlockInfo?> FindBlock_LocationsList(string[] file, string? header = null, int startingPosition = 0, bool multiWorld = false, string world = null, int? headerPosition = null)
+        private async Task<BlockInfo?> FindBlock_LocationsList(string[] file, string? header = null, int startingPosition = 0, bool multiWorld = false, string? world = null, int? headerPosition = null)
         {
-            int position = startingPosition;
-
-            // Step 1: Find the main header (if provided)
-            if (header != null)
+            return await Task.Run(() =>
             {
-                while (position < file.Length &&
-                       !file[position].Trim().Contains(header, StringComparison.OrdinalIgnoreCase))
+                int position = startingPosition;
+
+                // Step 1: Find the main header (if provided)
+                if (header != null)
                 {
-                    position++;
+                    while (position < file.Length &&
+                           !file[position].Trim().Contains(header, StringComparison.OrdinalIgnoreCase))
+                    {
+                        position++;
+                    }
+
+                    // Header not found
+                    if (position >= file.Length)
+                        return null;
                 }
 
-                // Header not found
-                if (position >= file.Length)
-                    return null;
-            }
+                // If not already set, set the header position
+                if (headerPosition == null)
+                    headerPosition = position;
 
-            // If not already set, set the header position
-            if (headerPosition == null)
-                headerPosition = position;
+                int startLine = position;
+                int endLine = startLine + 1;
 
-            int startLine = position;
-            int endLine = startLine + 1;
+                string? subHeader = null;
+                bool subHeaderFound = false;
+                bool worldHeaderFound = false;
 
-            string? subHeader = null;
-            bool subHeaderFound = false;
-            bool worldHeaderFound = false;
+                Regex worldRegex = new Regex(@"^  World\s\d");
 
-            Regex worldRegex = new Regex(@"^  World\s\d");
-            string? count;
+                string indent = "  "; // base indent after header (2 spaces)
 
-            string indent = "  "; // base indent after header (2 spaces)
-
-            // Step 2: Start parsing lines under the header
-            while (endLine < file.Length)
-            {
-                string line = file[endLine];
-
-                // Match multiworld "  World x" header
-                if (multiWorld && !worldHeaderFound && worldRegex.IsMatch(line))
+                // Step 2: Start parsing lines under the header
+                while (endLine < file.Length)
                 {
-                    string[] parts = Regex.Split(line, @"\s*\((\d+)\)\s*$");
-                    if (parts.Length >= 1) 
+                    string line = file[endLine];
+
+                    // Match multiworld "  World x" header
+                    if (multiWorld && !worldHeaderFound && worldRegex.IsMatch(line))
                     {
-                        world = parts[0].Trim();
-                        worldHeaderFound = true;
+                        string[] parts = Regex.Split(line, @"\s*\((\d+)\)\s*$");
+                        if (parts.Length >= 1)
+                        {
+                            world = parts[0].Trim();
+                            worldHeaderFound = true;
+                            startLine = endLine + 1;
+                            indent += "  ";
+                        }
+                    }
+
+                    // Find subheader
+                    if (!subHeaderFound && line.StartsWith(indent) && line.Trim().EndsWith(':'))
+                    {
+                        subHeader = line.Trim();
+                        subHeaderFound = true;
                         startLine = endLine + 1;
                         indent += "  ";
                     }
-                }
 
-                // Find subheader
-                if (!subHeaderFound && line.StartsWith(indent) && line.Trim().EndsWith(':'))
-                {
-                    subHeader = line.Trim();
-                    subHeaderFound = true;
-                    startLine = endLine + 1;
-                    indent += "  ";
-                }
+                    // Exit block if we hit a blank line (end of this block)
+                    if (string.IsNullOrWhiteSpace(line))
+                    {
+                        endLine++;
+                        break;
+                    }
 
-                // Exit block if we hit a blank line (end of this block)
-                if (string.IsNullOrWhiteSpace(line))
-                {
                     endLine++;
-                    break;
                 }
 
-                endLine++;
-            }
+                // If a subheader was expected but not found, return null
+                if (subHeader != null && !subHeaderFound)
+                    return null;
 
-            // If a subheader was expected but not found, return null
-            if (subHeader != null && !subHeaderFound)
-                return null;
+                if (startLine >= endLine || startLine >= file.Length - 1)
+                    return null;
 
-            if (startLine >= endLine || startLine >= file.Length - 1)
-                return null;
-
-            return new BlockInfo
-            {
-                Header = header,
-                HeaderPosition = headerPosition,
-                SubHeader = subHeader,
-                StartLine = startLine,
-                EndLine = endLine - 1,
-                World = world,
-                MultiWorld = worldHeaderFound,
-                HasValue = true,
-                FileLength = file.Length,
-            };
+                return new BlockInfo
+                {
+                    Header = header,
+                    HeaderPosition = headerPosition,
+                    SubHeader = subHeader,
+                    StartLine = startLine,
+                    EndLine = endLine - 1,
+                    World = world,
+                    MultiWorld = worldHeaderFound,
+                    HasValue = true,
+                    FileLength = file.Length,
+                };
+            });
 
         }
         #endregion
-
         #region Data Parsing
         private async Task<List<SeedInfo>?> Parse_SeedInfo()
         {
+
+            if (FileContents == null)
+            {
+                return null;
+            }
+
+
             var seedInfo = new List<SeedInfo>();
 
             SeedInfo seed = new SeedInfo { Pair = await Parse_SingleKeyValue(FileContents, "Seed") };
@@ -1715,6 +1647,11 @@ namespace TranslationLibrary.SpoilerLog.Controller
         private async Task<List<Setting>?> Parse_GameSettings()
         {
 
+            if (FileContents == null)
+            {
+                return null;
+            }
+
             var range = await FindCategoryRange("Settings", FileContents);
 
             var settings = await AddValues<Setting>(range, FileContents);
@@ -1723,6 +1660,12 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<List<Conditions>?> Parse_SpecialConditions()
         {
+
+            if (FileContents == null)
+            {
+                return null;
+            }
+
             var result = new List<Conditions>();
             var block = await FindBlock_SpecialConditions("Special Conditions", FileContents);
 
@@ -1761,6 +1704,11 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<List<Trick>?> Parse_Tricks()
         {
+            if (FileContents == null)
+            {
+                return null;
+            }
+
             var range = await FindCategoryRange("Tricks", FileContents);
 
             var tricks = await AddValues<Trick>(range, FileContents);
@@ -1769,6 +1717,12 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<List<Glitch>?> Parse_Glitches()
         {
+
+            if (FileContents == null)
+            {
+                return null;
+            }
+
             var range = await FindCategoryRange("Glitches", FileContents);
 
             var glitches = await AddValues<Glitch>(range, FileContents);
@@ -1777,10 +1731,21 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<List<string>?> Parse_JunkLocations()
         {
+            if (FileContents == null)
+            {
+                return null;
+            }
+
             return await Parse_MultipleStrings("Junk Locations", FileContents);
         }
         private async Task<List<WorldFlag>?> Parse_WorldFlags()
         {
+
+            if (FileContents == null)
+            {
+                return null;
+            }
+
             var worldFlags = new List<WorldFlag>();
 
             var (start, end) = await FindCategoryRange("World Flags", FileContents);
@@ -1848,6 +1813,13 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<List<Entrance>?> Parse_Entrances()
         {
+
+            if (FileContents == null)
+            {
+                return null;
+            }
+
+
             var entrances = new List<Entrance>();
 
             var (start, end) = await FindCategoryRange("Entrances", FileContents);
@@ -1927,6 +1899,11 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<List<WayOfTheHeroHint>?> Parse_WayOfTheHeroHints()
         {
+            if (FileContents == null)
+            {
+                return null;
+            }
+
             var blockInfo = await FindBlock_Hint("Way of the Hero", FileContents);
 
             if (blockInfo == null)
@@ -2000,6 +1977,12 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<List<FoolishHint>?> Parse_FoolishHints()
         {
+
+            if (FileContents == null)
+            {
+                return null;
+            }
+
             var blockInfo = await FindBlock_Hint("Foolish", FileContents);
 
             if (blockInfo == null)
@@ -2073,6 +2056,12 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<List<SpecificHint>?> Parse_SpecificHints()
         {
+
+            if (FileContents == null)
+            {
+                return null;
+            }
+
             var blockInfo = await FindBlock_Hint("Specific Hints", FileContents);
 
             if (blockInfo == null)
@@ -2146,6 +2135,12 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<List<RegionalHint>?> Parse_RegionalHints()
         {
+
+            if (FileContents == null)
+            {
+                return null;
+            }
+
             var blockInfo = await FindBlock_Hint("Regional Hints", FileContents);
 
             if (blockInfo == null)
@@ -2219,6 +2214,12 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<List<FoolishRegion>?> Parse_FoolishRegions()
         {
+
+            if (FileContents == null)
+            {
+                return null;
+            }
+
             var blockInfo = await FindBlock_Hint("Foolish Regions", FileContents);
 
             if (blockInfo == null)
@@ -2292,16 +2293,31 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<List<WayOfTheHeroPath>?> Parse_WayOfTheHeroPaths() 
         {
+            if (FileContents == null) 
+            {
+                return null;
+            }
             var block = await FindBlock_Generic(FileContents, "Paths", "Way Of The Hero");
 
-            Tuple<int, int> range = new Tuple<int, int>(block.StartLine, block.EndLine);
-
-            var wayOfTheHeroPaths = await AddValues<WayOfTheHeroPath>(range, FileContents);
-
-            return wayOfTheHeroPaths;
+            if (block != null) 
+            {
+                Tuple<int, int> range = new Tuple<int, int>(block.StartLine, block.EndLine);
+                var wayOfTheHeroPaths = await AddValues<WayOfTheHeroPath>(range, FileContents);
+                return wayOfTheHeroPaths;
+            }
+            else 
+            {
+                return null;
+            }
+                
         }
         private async Task<List<Sphere>?> Parse_Spheres()
         {
+            if (FileContents == null)
+            {
+                return null;
+            }
+
             BlockInfo? block = new BlockInfo();
             List<BlockInfo> blocks = new List<BlockInfo>();
             int sphereNumber = 0;
@@ -2350,70 +2366,79 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         private async Task<List<ItemLocation>?> Parse_LocationsList()
         {
+            if (FileContents == null)
+            {
+                return null;
+            }
+
             BlockInfo? block = new BlockInfo();
             List<BlockInfo> blocks = new List<BlockInfo>();
-            int sphereNumber = 0;
-            bool firstBlockFound = false;
-
 
             block = await FindBlock_LocationsList(FileContents, "Location List", 0, true);
-            int fileLength = block.FileLength;
-
-            // Multiplayer Log
-            if (block.MultiWorld)
+            if (block != null)
             {
-                int num = 1;
-                do
+                int fileLength = block.FileLength;
+
+                // Multiplayer Log
+                if (block.MultiWorld)
                 {
-                    blocks.Add(block);
-                    block = await FindBlock_LocationsList(FileContents, null , block.EndLine, true, block.World);
-
-                    Debug.WriteLineIf(block != null, $"Block #{num}: SubHeader= {block.SubHeader}, StartLine={block.StartLine}, EndLine={block.EndLine}");
-                    num++;
-
-                } while (block != null && block.StartLine < fileLength - 1);
-            }
-            // Single Player Log
-            else 
-            {
-                do
-                {
-                    blocks.Add(block);
-                    block = await FindBlock_LocationsList(FileContents, null, block.EndLine, false, block.World ,block.HeaderPosition);
-
-                } while (block != null && block.StartLine < fileLength - 1);
-            }           
-
-            // Start adding items
-            List<ItemLocation> locationItemsList = new List<ItemLocation>();
-
-            for (int i = 0; i < blocks.Count; i++)
-            {
-                Tuple<int, int> range = new Tuple<int, int>(blocks[i].StartLine, blocks[i].EndLine);
-
-                var region = await AddValues<ItemLocation>(range, FileContents);
-
-                if (region != null)
-                {
-                    int itemCount = 1;
-                    foreach (ItemLocation item in region)
+                    int num = 1;
+                    do
                     {
-                        if (item.Description != null) 
+                        blocks.Add(block);
+                        block = await FindBlock_LocationsList(FileContents, null, block.EndLine, true, block.World);
+
+                        num++;
+
+                    } while (block != null && block.StartLine < fileLength - 1);
+                }
+                // Single Player Log
+                else
+                {
+                    do
+                    {
+                        blocks.Add(block);
+                        block = await FindBlock_LocationsList(FileContents, null, block.EndLine, false, block.World, block.HeaderPosition);
+
+                    } while (block != null && block.StartLine < fileLength - 1);
+                }
+
+                // Start adding items
+                List<ItemLocation> locationItemsList = new List<ItemLocation>();
+
+                for (int i = 0; i < blocks.Count; i++)
+                {
+                    Tuple<int, int> range = new Tuple<int, int>(blocks[i].StartLine, blocks[i].EndLine);
+
+                    var region = await AddValues<ItemLocation>(range, FileContents);
+
+                    if (region != null)
+                    {
+                        int itemCount = 1;
+                        foreach (ItemLocation item in region)
                         {
-                            string[] parts = Regex.Split(blocks[i].SubHeader.Trim(), @"\s*\((\d+)\):?\s*$");
-                            if (parts.Length >= 1) 
+                            if (item.Description != null)
                             {
-                                item.Region = parts[0];
-                                item.Count = parts[1];
-                                item.Number = itemCount++;
-                                item.World = blocks[i].World;
-                                locationItemsList.Add(item);
+                                if (!string.IsNullOrEmpty(blocks[i].SubHeader)) 
+                                {
+                                    string[] parts = Regex.Split(blocks[i].SubHeader!, @"\s*\((\d+)\):?\s*$");
+                                    if (parts.Length >= 1)
+                                    {
+                                        item.Region = parts[0];
+                                        item.Count = int.Parse(parts[1]);
+                                        item.Number = itemCount++;
+                                        item.World = blocks[i].World;
+                                        locationItemsList.Add(item);
+                                    }
+                                }
+                               
                             }
                         }
                     }
                 }
+                return locationItemsList;
             }
-            return locationItemsList;
+            else return null;
         }
     }
 

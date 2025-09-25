@@ -49,8 +49,8 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Grid.Row="1" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="2" >
-                        <Button x:Name="SpoilerLogBtn" Content="Spoiler Log" Click="SpoilerBtn_Click" Margin="0,0,0,0"/>
-                        <Button x:Name="TrackerBtn" Content="Tracker" Height="20" Click="TrackerBtn_Click" Margin="0,3,0,0"/>
+                        <Button x:Name="SpoilerLogBtn" Content="Import Spoiler Log" Click="SpoilerBtn_Click" Margin="0,0,0,0"/>
+                        <Button x:Name="TrackerBtn" Content="Create EmoTracker" Height="20" Click="TrackerBtn_Click" Margin="0,3,0,0"/>
                         <Button x:Name="ExportGameSettingsBtn" Content="Export Game Settings" Grid.ColumnSpan="2" Height="20" FontSize="10" IsEnabled="False" Margin="0,3,0,0"/>
                     </StackPanel>
                     
@@ -2088,7 +2088,7 @@ Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=F
                     <Button x:Name="LocationsListSortByWorldBtn" Grid.Column="0"  Grid.Row="0" Content="World" Margin="0,0,0,0" Click="LocationsList_World_Click"/>
                     <Button x:Name="LocationsListSortByGameBtn" Grid.Column="1"  Grid.Row="0" Content="Game" Margin="0,0,0,0" Click="LocationsList_Game_Click"/>
                     <Button x:Name="LocationsListSortByRegionBtn" Grid.Column="2"  Grid.Row="0" Content="Region" Margin="0,0,0,0" Click="LocationsList_Region_Click"/>
-                    <Button x:Name="LocationsListSortByNumberBtn" Grid.Column="3"  Grid.Row="0" Content="Count" Margin="0,0,0,0" Click="LocationsList_Number_Click"/>
+                    <Button x:Name="LocationsListSortByNumberBtn" Grid.Column="3"  Grid.Row="0" Content="Number" Margin="0,0,0,0" Click="LocationsList_Number_Click"/>
                     <Button x:Name="LocationsListSortByCountBtn" Grid.Column="4"  Grid.Row="0" Content="Count" Margin="0,0,0,0" Click="LocationsList_Count_Click"/>
                     <Button x:Name="LocationsListSortByDescriptionBtn" Grid.Column="5" Grid.Row="0" Content="Description" Margin="0,0,0,0" Click="LocationsList_Description_Click"/>
                     <Button x:Name="LocationsListSortByPlayerBtn" Grid.Column="6"  Grid.Row="0" Content="Player" Margin="0,0,0,0" Click="LocationsList_Player_Click"/>

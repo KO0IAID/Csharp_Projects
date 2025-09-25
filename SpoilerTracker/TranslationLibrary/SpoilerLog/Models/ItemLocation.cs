@@ -13,7 +13,7 @@ namespace TranslationLibrary.SpoilerLog.Models
         public string? World { get; set; }
         public string? Game { get; set; }
         public string? Region { get; set; }
-        public string? Count { get; set; }
+        public int? Count { get; set; }
         public int? Number { get; set; }
         public string? Player { get; set; }
         public string? Description { get; set; }
@@ -24,7 +24,7 @@ namespace TranslationLibrary.SpoilerLog.Models
             string? world = null;
             string? game = null;
             string? region = null;
-            string? count = null;
+            int? count = null;
             string? player = null;
             string? description = null;
             string? item = null;

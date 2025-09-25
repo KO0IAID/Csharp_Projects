@@ -10,7 +10,6 @@ public static class SettingsManager
     {
         File.WriteAllText(SettingsFilePath, folderPath);
     }
-
     public static string? LoadFolderPath()
     {
         if (!File.Exists(SettingsFilePath))

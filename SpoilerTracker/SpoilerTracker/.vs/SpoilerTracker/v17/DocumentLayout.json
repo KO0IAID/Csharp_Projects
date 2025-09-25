@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1364C9BE-ECE7-4871-99A6-6F2649A3D450}|SpoilerTracker.csproj|j:\\personal projects\\c#\\spoilertracker\\spoilertracker\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1364C9BE-ECE7-4871-99A6-6F2649A3D450}|SpoilerTracker.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\spoilerlog\\controller\\spoilerlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -14,22 +10,11 @@
       "RelativeMoniker": "D:0:0:{1364C9BE-ECE7-4871-99A6-6F2649A3D450}|SpoilerTracker.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\spoilerlog\\enumerators\\sortby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1364C9BE-ECE7-4871-99A6-6F2649A3D450}|SpoilerTracker.csproj|j:\\personal projects\\c#\\spoilertracker\\spoilertracker\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1364C9BE-ECE7-4871-99A6-6F2649A3D450}|SpoilerTracker.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\spoilerlog\\enumerators\\sortbyextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\spoilerlog\\models\\itemlocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\spoilers \u0026 trackers\\ootmm-spoiler-single.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\spoilerlog\\models\\blockinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\spoilers \u0026 trackers\\ootmm-spoiler-multi.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\controller\\emotracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1364C9BE-ECE7-4871-99A6-6F2649A3D450}|SpoilerTracker.csproj|j:\\personal projects\\c#\\spoilertracker\\spoilertracker\\models\\settingsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,11 +28,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -84,93 +69,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "EmoTracker.cs",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Controller\\EmoTracker.cs",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Controller\\EmoTracker.cs",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Controller\\EmoTracker.cs",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Controller\\EmoTracker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T18:37:00.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAADMDAAAAAAAAAAASwNECAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAwwGICAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-14T23:29:47.291Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "SpoilerLog.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Controller\\SpoilerLog.cs",
               "RelativeDocumentMoniker": "..\\TranslationLibrary\\SpoilerLog\\Controller\\SpoilerLog.cs",
               "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Controller\\SpoilerLog.cs",
               "RelativeToolTip": "..\\TranslationLibrary\\SpoilerLog\\Controller\\SpoilerLog.cs",
-              "ViewState": "AgIAAAoEAAAAAAAAAAAqwB0EAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-07T16:12:49.061Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ItemLocation.cs",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Models\\ItemLocation.cs",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\SpoilerLog\\Models\\ItemLocation.cs",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Models\\ItemLocation.cs",
-              "RelativeToolTip": "..\\TranslationLibrary\\SpoilerLog\\Models\\ItemLocation.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAqwFEAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T18:40:23.854Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SortBy.cs",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Enumerators\\SortBy.cs",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\SpoilerLog\\Enumerators\\SortBy.cs",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Enumerators\\SortBy.cs",
-              "RelativeToolTip": "..\\TranslationLibrary\\SpoilerLog\\Enumerators\\SortBy.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAAwD4AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T21:23:47.569Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "SortByExtensions.cs",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Enumerators\\SortByExtensions.cs",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\SpoilerLog\\Enumerators\\SortByExtensions.cs",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Enumerators\\SortByExtensions.cs",
-              "RelativeToolTip": "..\\TranslationLibrary\\SpoilerLog\\Enumerators\\SortByExtensions.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAqwEMAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T05:42:30.345Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "BlockInfo.cs",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Models\\BlockInfo.cs",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\SpoilerLog\\Models\\BlockInfo.cs",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Models\\BlockInfo.cs",
-              "RelativeToolTip": "..\\TranslationLibrary\\SpoilerLog\\Models\\BlockInfo.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T03:36:43.704Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "SettingsManager.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\Models\\SettingsManager.cs",
               "RelativeDocumentMoniker": "Models\\SettingsManager.cs",
               "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\Models\\SettingsManager.cs",
               "RelativeToolTip": "Models\\SettingsManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T00:23:17.547Z"
+              "WhenOpened": "2025-08-15T00:23:17.547Z",
+              "EditorCaption": ""
             }
           ]
         },
@@ -191,59 +138,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "2f7218c3-62b0-42e7-871d-3c325dfa43f3",
-        "Display": 0,
-        "X": 1862,
-        "Y": 40,
-        "Width": 1200,
-        "Height": 838,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OoTMM-Spoiler-Single.txt",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Spoilers \u0026 Trackers\\OoTMM-Spoiler-Single.txt",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Spoilers \u0026 Trackers\\OoTMM-Spoiler-Single.txt",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Spoilers \u0026 Trackers\\OoTMM-Spoiler-Single.txt",
-              "RelativeToolTip": "..\\TranslationLibrary\\Spoilers \u0026 Trackers\\OoTMM-Spoiler-Single.txt",
-              "ViewState": "AgIAAFUEAAAAAAAAAAAAALMEAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-09-24T02:40:08.496Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "OoTMM-Spoiler-Multi.txt",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Spoilers \u0026 Trackers\\OoTMM-Spoiler-Multi.txt",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Spoilers \u0026 Trackers\\OoTMM-Spoiler-Multi.txt",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Spoilers \u0026 Trackers\\OoTMM-Spoiler-Multi.txt",
-              "RelativeToolTip": "..\\TranslationLibrary\\Spoilers \u0026 Trackers\\OoTMM-Spoiler-Multi.txt",
-              "ViewState": "AgIAAJIEAAAAAAAAAAAAAKoEAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-09-24T02:40:07.187Z",
-              "EditorCaption": ""
             }
           ]
         }
