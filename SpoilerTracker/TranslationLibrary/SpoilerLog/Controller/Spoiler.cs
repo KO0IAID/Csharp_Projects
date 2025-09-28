@@ -19,7 +19,7 @@ using TranslationLibrary.SpoilerLog.Models;
 
 namespace TranslationLibrary.SpoilerLog.Controller
 {
-    public class SpoilerLog
+    public class Spoiler
     {
         public string[]? FileContents;
 
@@ -61,7 +61,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
         public SortBy LocationList_SortBy { get; private set; }
         #endregion
         #region Core Functions
-        public async Task AddFileContents(string filePath)
+        public async Task AddFileContents(string filePath, bool showDebugStats = false)
         {
             
             Stopwatch sw = new Stopwatch();
@@ -91,8 +91,11 @@ namespace TranslationLibrary.SpoilerLog.Controller
 
 
                 SortCollections();
-                DebugStats(sw);
 
+                if (showDebugStats)
+                {
+                    DebugStats(sw);
+                }
 
             }
             catch (Exception ex)
@@ -102,7 +105,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             }
 
         }
-        public void ClearContents()
+        public void Clear()
         {
             SeedInfo?.Clear();
             GameSettings?.Clear();
@@ -119,12 +122,12 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         public bool HasValue()
         {
-            // Check if FileContents is not null and contains at least one line
+            // Check if EmoTracker is not null and contains at least one line
             return FileContents != null && FileContents.Length > 0;
         }
-        public void DebugStats(Stopwatch sw)
+        private void DebugStats(Stopwatch stopWatch)
         {
-            sw.Stop();
+            stopWatch.Stop();
             Debug.WriteLine(
             $"--- Spoiler Sheet Data Added! ---"  +
             $"\nSeed Info:\t\t\t{(SeedInfo != null ? SeedInfo.Count : 0)}" +
@@ -143,7 +146,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             $"\nWayOfTheHero Paths:\t{(WayOfTheHeroPaths != null ? WayOfTheHeroPaths.Count : 0)}" +
             $"\nSpheres:\t\t\t{(Spheres != null ? Spheres.Count : 0)}" +
             $"\nLocations List:\t\t{(LocationList != null ? LocationList.Count : 0)}"+
-            $"\nTime Taken:\t\t\t{ sw.Elapsed}"
+            $"\nTime Taken:\t\t\t{ stopWatch.Elapsed}"
             );
             
 
@@ -1148,6 +1151,17 @@ namespace TranslationLibrary.SpoilerLog.Controller
             }
             #endregion
         }
+        public Dictionary<string, string>? ToSettingsDictionary() 
+        {
+            var dictionary = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+            AddCollection(dictionary, GameSettings);
+            AddCollection(dictionary, SpecialConditions);
+            AddCollection(dictionary, Tricks);
+            AddCollection(dictionary, Glitches);
+
+            return dictionary;
+        }
         #endregion
         #region Data Parsing Helper Methods
         private async Task<List<T>?> AddValues<T>(Tuple<int, int> range, string[] fileContents) where T : ICreateFromLine<T>, new()
@@ -1171,7 +1185,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             });
             
 
-        } 
+        }
         private async Task<KeyValuePair<string, string>?> Parse_SingleKeyValue(string[] file, string categoryName, string delimiter = ":", int startingPosition = 0)
         {
             return await Task.Run(() =>
@@ -1618,6 +1632,21 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 };
             });
 
+        }
+        private void AddCollection(Dictionary<string, string> dictionary, IEnumerable<INameValue>? collection)
+        {
+            if (collection == null) return;
+
+            foreach (var entry in collection)
+            {
+                if (string.IsNullOrWhiteSpace(entry?.Name))
+                    continue;
+
+                var key = entry.Name.Trim();
+                var val = entry.Value?.Trim() ?? string.Empty;
+
+                dictionary[key] = val; // overwrites if already present
+            }
         }
         #endregion
         #region Data Parsing

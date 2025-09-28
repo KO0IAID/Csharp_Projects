@@ -5,14 +5,14 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace TranslationLibrary.Emotracker.LocationDatabase
+namespace TranslationLibrary.Emotracker.Models.Json
 {
     public class Section
     {
         [JsonPropertyName("section_reference")]
-        public string SectionReference { get; set; }
+        public string? SectionReference { get; set; }
 
         [JsonPropertyName("available_chest_count")]
-        public int AvailableChestCount { get; set; }
+        public int? AvailableChestCount { get; set; }
     }
 }

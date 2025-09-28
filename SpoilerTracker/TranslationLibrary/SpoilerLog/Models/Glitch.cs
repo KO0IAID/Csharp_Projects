@@ -7,8 +7,10 @@ using TranslationLibrary.SpoilerLog.Interfaces;
 
 namespace TranslationLibrary.SpoilerLog.Models
 {
-    public class Glitch : ICreateFromLine<Glitch>
+    public class Glitch : ICreateFromLine<Glitch> , INameValue
     {
+        public string? Name { get; set; }
+        public string? Value { get; set; }
         public string? Description { get; set; }
         public string? Difficulty { get; set; }
         public int? LogOrder { get; set; } = 0;
@@ -17,6 +19,8 @@ namespace TranslationLibrary.SpoilerLog.Models
         {
             return new Glitch
             {
+                Name = line,
+                Value = "True",
                 Description = line,
                 Difficulty = null,           //Temporarily Null until a difficulty ranking system for each glitch is established
                 LogOrder = LogOrder++

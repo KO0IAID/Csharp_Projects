@@ -6,4 +6,20 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Emotracker\Maps\TrackerToSpoilerMap.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Emotracker\Maps\TrackerToSpoilerMap.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Emotracker\Resources\TemplateTracker - Simplified.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Emotracker\Resources\TemplateTracker.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

@@ -21,8 +21,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TranslationLibrary.Emotracker.Controller;
-using TranslationLibrary.Emotracker.ItemDatabase;
-using TranslationLibrary.Emotracker.LocationDatabase;
 using TranslationLibrary.SpoilerLog.Controller;
 using TranslationLibrary.SpoilerLog.Enumerators;
 using TranslationLibrary.SpoilerLog.Models;
@@ -34,8 +32,8 @@ namespace SpoilerTracker
     /// </summary>
     public partial class MainWindow : Window
     {
-        SpoilerLog spoilerLog = new SpoilerLog();
-        EmoTracker emoTracker = new EmoTracker();
+        Spoiler spoiler = new Spoiler();
+        Tracker emoTracker = new Tracker();
 
         #region Collections
         ObservableCollection<SeedInfo>? seedInfo;
@@ -61,6 +59,7 @@ namespace SpoilerTracker
         {
             InitializeComponent();
             AutoLoadSpoilerLog();
+            //ExportToEmotracker();
         }
         private async void SpoilerBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -72,7 +71,7 @@ namespace SpoilerTracker
 
             if (result == true && ofd.FileName.Contains("Spoiler"))   
             { 
-                await spoilerLog.AddFileContents(ofd.FileName);
+                await spoiler.AddFileContents(ofd.FileName);
 
                 SpoilerLogPrompt.Text = "🗹";
                 CurrentHeader.Visibility = Visibility.Visible;
@@ -101,10 +100,10 @@ namespace SpoilerTracker
             OpenFileDialog ofd = new OpenFileDialog();
 
             ofd.Title = "Select a file";
-            ofd.Filter = "Json file (*.json)| *.json|All files (*.*)|*.*";
+            ofd.Filter = "EmoTracker file (*.json)| *.json|All files (*.*)|*.*";
 
-            if      (ofd.ShowDialog() == true && ofd.FileName.Contains("Tracker"))  { TrackerPrompt.Text = "🗹"; }
-            else if (!ofd.FileName.Contains("Tracker"))                             { TrackerPrompt.Text = "🗙"; }
+            if      (ofd.ShowDialog() == true && ofd.FileName.Contains("EmoTracker"))  { TrackerPrompt.Text = "🗹"; }
+            else if (!ofd.FileName.Contains("EmoTracker"))                             { TrackerPrompt.Text = "🗙"; }
         }
         private async void AutoLoadSpoilerCheckBox_Click(object sender, RoutedEventArgs e)
         {
@@ -116,7 +115,7 @@ namespace SpoilerTracker
                 FolderPathPrompt.Text = "";
 
                 // Reset UI elements
-                if (!spoilerLog.HasValue())
+                if (!spoiler.HasValue())
                 {
                     CurrentHeader.Visibility = Visibility.Hidden;
                     FileNamePrompt.Text = "";
@@ -139,7 +138,7 @@ namespace SpoilerTracker
                 string? recent = SettingsManager.GetMostRecentSpoilerLogFullPath(dialog.FolderName);
                 if (recent != null)
                 {
-                    await spoilerLog.AddFileContents(recent);
+                    await spoiler.AddFileContents(recent,true);
 
                     SpoilerLogPrompt.Text = "🗹";
                     FolderPathPrompt.Text = SettingsManager.LoadFolderPath();
@@ -178,7 +177,7 @@ namespace SpoilerTracker
                 if (!string.IsNullOrEmpty(recentFile))
                 {
                     // Load the file contents
-                    await spoilerLog.AddFileContents(recentFile);
+                    await spoiler.AddFileContents(recentFile, true);
 
                     // Update UI elements
                     FolderPathPrompt.Text = SettingsManager.LoadFolderPath();
@@ -207,22 +206,23 @@ namespace SpoilerTracker
         private void BindCollections()
         {
             // Binds the Lists from SpoilerLog to ObservableCollections for WPF use
-            seedInfo            = new ObservableCollection<SeedInfo>            (spoilerLog.SeedInfo ?? []);
-            gameSettings        = new ObservableCollection<Setting>             (spoilerLog.GameSettings ?? []);
-            specialConditions   = new ObservableCollection<Conditions>          (spoilerLog.SpecialConditions ?? []);
-            tricks              = new ObservableCollection<Trick>               (spoilerLog.Tricks ?? []);
-            glitches            = new ObservableCollection<Glitch>              (spoilerLog.Glitches ?? []);
-            junkLocations       = new ObservableCollection<string>              (spoilerLog.JunkLocations ?? []);
-            worldFlags          = new ObservableCollection<WorldFlag>           (spoilerLog.WorldFlags ?? []);
-            entrances           = new ObservableCollection<Entrance>            (spoilerLog.Entrances ?? []);
-            wayOfTheHeroHints   = new ObservableCollection<WayOfTheHeroHint>    (spoilerLog.WayOfTheHeroHints ?? []);
-            foolishHints        = new ObservableCollection<FoolishHint>         (spoilerLog.FoolishHints ?? []);
-            specificHints       = new ObservableCollection<SpecificHint>        (spoilerLog.SpecificHints ?? []);
-            regionalHints       = new ObservableCollection<RegionalHint>        (spoilerLog.RegionalHints ?? []);
-            foolishRegions      = new ObservableCollection<FoolishRegion>       (spoilerLog.FoolishRegions ?? []);
-            wayOfTheHeroPaths   = new ObservableCollection<WayOfTheHeroPath>    (spoilerLog.WayOfTheHeroPaths ?? []);
-            spheres             = new ObservableCollection<Sphere>              (spoilerLog.Spheres ?? []);
-            locationList        = new ObservableCollection<ItemLocation>        (spoilerLog.LocationList ?? []);
+            seedInfo            = new ObservableCollection<SeedInfo>            (spoiler.SeedInfo ?? []);
+            gameSettings        = new ObservableCollection<Setting>             (spoiler.GameSettings ?? []);
+            specialConditions   = new ObservableCollection<Conditions>          (spoiler.SpecialConditions ?? []);
+            tricks              = new ObservableCollection<Trick>               (spoiler.Tricks ?? []);
+            glitches            = new ObservableCollection<Glitch>              (spoiler.Glitches ?? []);
+            junkLocations       = new ObservableCollection<string>              (spoiler.JunkLocations ?? []);
+            worldFlags          = new ObservableCollection<WorldFlag>           (spoiler.WorldFlags ?? []);
+            entrances           = new ObservableCollection<Entrance>            (spoiler.Entrances ?? []);
+            wayOfTheHeroHints   = new ObservableCollection<WayOfTheHeroHint>    (spoiler.WayOfTheHeroHints ?? []);
+            foolishHints        = new ObservableCollection<FoolishHint>         (spoiler.FoolishHints ?? []);
+            specificHints       = new ObservableCollection<SpecificHint>        (spoiler.SpecificHints ?? []);
+            regionalHints       = new ObservableCollection<RegionalHint>        (spoiler.RegionalHints ?? []);
+            foolishRegions      = new ObservableCollection<FoolishRegion>       (spoiler.FoolishRegions ?? []);
+            wayOfTheHeroPaths   = new ObservableCollection<WayOfTheHeroPath>    (spoiler.WayOfTheHeroPaths ?? []);
+            spheres             = new ObservableCollection<Sphere>              (spoiler.Spheres ?? []);
+            locationList        = new ObservableCollection<ItemLocation>        (spoiler.LocationList ?? []);
+
 
             // Binds to Xaml Elements
             SeedInfoDataGrid.ItemsSource = seedInfo;
@@ -245,50 +245,55 @@ namespace SpoilerTracker
             UpdateSortByDisplays();
             UpdateUIColumns();
         }
+        private async void ExportToEmotracker()
+        {
+            await emoTracker.ImportTracker(null,true);
+            await emoTracker.UpdateTracker(spoiler);
+        }
 
         #region GameSettings
         private void GameSettings_Alphabetic_Click(object sender, RoutedEventArgs e) 
         {
-            spoilerLog.SortCollections(SortBy.GameSettingsAlphabetic);
+            spoiler.SortCollections(SortBy.GameSettingsAlphabetic);
             BindCollections();
         }
         private void GameSettings_LogOrder_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.GameSettingsLogOrder);
+            spoiler.SortCollections(SortBy.GameSettingsLogOrder);
             BindCollections();
         }
         #endregion
         #region Tricks
         private void Tricks_Alphabetic_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.TricksAlphabetic);
+            spoiler.SortCollections(SortBy.TricksAlphabetic);
             BindCollections();
         }
         private void Tricks_Difficulty_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.TricksDifficulty);
+            spoiler.SortCollections(SortBy.TricksDifficulty);
             BindCollections();
         }
         private void Tricks_LogOrder_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.TricksLogOrder);
+            spoiler.SortCollections(SortBy.TricksLogOrder);
             BindCollections();
         }
         #endregion
         #region Glitches
         private void Glitches_Alphabetic_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.GlitchesAlphabetic);
+            spoiler.SortCollections(SortBy.GlitchesAlphabetic);
             BindCollections();
         }
         private void Glitches_Difficulty_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.GlitchesDifficulty);
+            spoiler.SortCollections(SortBy.GlitchesDifficulty);
             BindCollections();
         }
         private void Glitches_LogOrder_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.GlitchesLogOrder);
+            spoiler.SortCollections(SortBy.GlitchesLogOrder);
             BindCollections();
         }
         #endregion
@@ -297,7 +302,7 @@ namespace SpoilerTracker
         {
             SortBy sortBy;
 
-            switch (spoilerLog.Entrances_SortBy)
+            switch (spoiler.Entrances_SortBy)
             {
                 #region Long & Short
 
@@ -375,8 +380,8 @@ namespace SpoilerTracker
                     break;
             }
 
-            spoilerLog.SortCollections(sortBy);
-            EntrancesDataGrid.ItemsSource = spoilerLog.Entrances;
+            spoiler.SortCollections(sortBy);
+            EntrancesDataGrid.ItemsSource = spoiler.Entrances;
             UpdateSortByDisplays();
 
             if (EntranceColumn.Binding is Binding binding && binding.Path?.Path == "ShortEntrance")
@@ -397,7 +402,7 @@ namespace SpoilerTracker
         {
             SortBy newSort;
 
-            switch (spoilerLog.Entrances_SortBy)
+            switch (spoiler.Entrances_SortBy)
             {
                 // Short to ShortAlphabetic
                 case SortBy.EntrancesShort:
@@ -435,7 +440,7 @@ namespace SpoilerTracker
                     break;
             }
 
-            spoilerLog.SortCollections(newSort);
+            spoiler.SortCollections(newSort);
 
             BindCollections();
 
@@ -445,7 +450,7 @@ namespace SpoilerTracker
         {
             SortBy sortBy;
 
-            switch (spoilerLog.Entrances_SortBy)
+            switch (spoiler.Entrances_SortBy)
             {
                 #region Short/Long to Game
 
@@ -521,7 +526,7 @@ namespace SpoilerTracker
                     break;
             }
 
-            spoilerLog.SortCollections(sortBy);
+            spoiler.SortCollections(sortBy);
 
             BindCollections();
 
@@ -535,7 +540,7 @@ namespace SpoilerTracker
             SwapEntranceStyleBtn.Content = "Short";
             
 
-            spoilerLog.SortCollections(SortBy.EntrancesShort);
+            spoiler.SortCollections(SortBy.EntrancesShort);
             BindCollections();
 
             
@@ -545,19 +550,19 @@ namespace SpoilerTracker
         #region WayOfTheHero Hints
         private void WayOfTheHeroHints_World_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.WayOfTheHeroHintsWorld);
+            spoiler.SortCollections(SortBy.WayOfTheHeroHintsWorld);
 
             BindCollections();
         }
         private void WayOfTheHeroHints_Location_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.WayOfTheHeroHintsLocation);
+            spoiler.SortCollections(SortBy.WayOfTheHeroHintsLocation);
 
             BindCollections(); ;
         }
         private void WayOfTheHeroHints_Item_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.WayOfTheHeroHintsItems);
+            spoiler.SortCollections(SortBy.WayOfTheHeroHintsItems);
 
             BindCollections();
         }
@@ -566,19 +571,19 @@ namespace SpoilerTracker
         #region FoolishHints
         private void FoolishHints_World_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.FoolishHintsWorld);
+            spoiler.SortCollections(SortBy.FoolishHintsWorld);
 
             BindCollections();
         }
         private void FoolishHints_Gossip_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.FoolishHintsGossip);
+            spoiler.SortCollections(SortBy.FoolishHintsGossip);
 
             BindCollections();
         }
         private void FoolishHints_Location_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.FoolishHintsLocation);
+            spoiler.SortCollections(SortBy.FoolishHintsLocation);
 
             BindCollections();
         }
@@ -586,25 +591,25 @@ namespace SpoilerTracker
         #region SpecificHints
         private void SpecificHints_World_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.SpecificHintsWorld);
+            spoiler.SortCollections(SortBy.SpecificHintsWorld);
 
             BindCollections();
         }
         private void SpecificHints_Gossip_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.SpecificHintsGossip);
+            spoiler.SortCollections(SortBy.SpecificHintsGossip);
 
             BindCollections();
         }
         private void SpecificHints_Location_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.SpecificHintsLocation);
+            spoiler.SortCollections(SortBy.SpecificHintsLocation);
 
             BindCollections();
         }
         private void SpecificHints_Item_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.SpecificHintsItem);
+            spoiler.SortCollections(SortBy.SpecificHintsItem);
 
             BindCollections();
         }
@@ -612,25 +617,25 @@ namespace SpoilerTracker
         #region RegionalHints
         private void RegionalHints_World_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.RegionalHintsWorld);
+            spoiler.SortCollections(SortBy.RegionalHintsWorld);
 
             BindCollections();
         }
         private void RegionalHints_Gossip_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.RegionalHintsGossip);
+            spoiler.SortCollections(SortBy.RegionalHintsGossip);
 
             BindCollections();
         }
         private void RegionalHints_Region_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.RegionalHintsRegion);
+            spoiler.SortCollections(SortBy.RegionalHintsRegion);
 
             BindCollections();
         }
         private void RegionalHints_Item_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.RegionalHintsItem);
+            spoiler.SortCollections(SortBy.RegionalHintsItem);
 
             BindCollections();
         }
@@ -638,19 +643,19 @@ namespace SpoilerTracker
         #region FoolishRegions
         private void FoolishRegions_World_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.FoolishRegionsWorld);
+            spoiler.SortCollections(SortBy.FoolishRegionsWorld);
 
             BindCollections();
         }
         private void FoolishRegions_Region_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.FoolishRegionsRegion);
+            spoiler.SortCollections(SortBy.FoolishRegionsRegion);
 
             BindCollections();
         }
         private void FoolishRegions_Count_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.FoolishRegionsCount);
+            spoiler.SortCollections(SortBy.FoolishRegionsCount);
 
             BindCollections();
         }
@@ -658,25 +663,25 @@ namespace SpoilerTracker
         #region WayOfTheHero Paths
         private void WayOfTheHeroPaths_World_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.WayOfTheHeroPathsWorld);
+            spoiler.SortCollections(SortBy.WayOfTheHeroPathsWorld);
 
             BindCollections();
         }
         private void WayOfTheHeroPaths_Description_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.WayOfTheHeroPathsDescription);
+            spoiler.SortCollections(SortBy.WayOfTheHeroPathsDescription);
 
             BindCollections();
         }
         private void WayOfTheHeroPaths_Player_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.WayOfTheHeroPathsPlayer);
+            spoiler.SortCollections(SortBy.WayOfTheHeroPathsPlayer);
 
             BindCollections();
         }
         private void WayOfTheHeroPaths_Item_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.WayOfTheHeroPathsItem);
+            spoiler.SortCollections(SortBy.WayOfTheHeroPathsItem);
 
             BindCollections();
         }
@@ -684,37 +689,37 @@ namespace SpoilerTracker
         #region Spheres
         private void Spheres_World_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.SpheresWorld);
+            spoiler.SortCollections(SortBy.SpheresWorld);
 
             BindCollections();
         }
         private void Spheres_Number_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.SpheresNumber);
+            spoiler.SortCollections(SortBy.SpheresNumber);
 
             BindCollections();
         }
         private void Spheres_Type_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.SpheresType);
+            spoiler.SortCollections(SortBy.SpheresType);
 
             BindCollections();
         }
         private void Spheres_Location_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.SpheresLocation);
+            spoiler.SortCollections(SortBy.SpheresLocation);
 
             BindCollections();
         }
         private void Spheres_Player_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.SpheresPlayer);
+            spoiler.SortCollections(SortBy.SpheresPlayer);
 
             BindCollections();
         }
         private void Spheres_Item_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.SpheresItem);
+            spoiler.SortCollections(SortBy.SpheresItem);
 
             BindCollections();
         }
@@ -722,49 +727,49 @@ namespace SpoilerTracker
         #region LocationsList
         private void LocationsList_World_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.LocationsListWorld);
+            spoiler.SortCollections(SortBy.LocationsListWorld);
 
             BindCollections();
         }
         private void LocationsList_Game_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.LocationsListGame);
+            spoiler.SortCollections(SortBy.LocationsListGame);
 
             BindCollections();
         }
         private void LocationsList_Region_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.LocationsListRegion);
+            spoiler.SortCollections(SortBy.LocationsListRegion);
 
             BindCollections();
         }
         private void LocationsList_Number_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.LocationsListNumber);
+            spoiler.SortCollections(SortBy.LocationsListNumber);
 
             BindCollections();
         }
         private void LocationsList_Count_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.LocationsListCount);
+            spoiler.SortCollections(SortBy.LocationsListCount);
 
             BindCollections();
         }
         private void LocationsList_Description_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.LocationsListDescription);
+            spoiler.SortCollections(SortBy.LocationsListDescription);
 
             BindCollections();
         }
         private void LocationsList_Player_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.LocationsListPlayer);
+            spoiler.SortCollections(SortBy.LocationsListPlayer);
 
             BindCollections();
         }
         private void LocationsList_Item_Click(object sender, RoutedEventArgs e)
         {
-            spoilerLog.SortCollections(SortBy.LocationsListItem);
+            spoiler.SortCollections(SortBy.LocationsListItem);
 
             BindCollections();
         }
@@ -773,15 +778,15 @@ namespace SpoilerTracker
 
         private void UpdateSortByDisplays()
         {
-            EntrancesSortByDisplay.Text = spoilerLog.Entrances_SortBy.CustomToString();
-            WayOfTheHeroSortByDisplay.Text = spoilerLog.WayOfTheHeroHints_SortBy.CustomToString();
-            FoolishHintsSortByDisplay.Text = spoilerLog.FoolishHints_SortBy.CustomToString();
-            SpecificHintsSortByDisplay.Text = spoilerLog.SpecificHints_SortBy.CustomToString();
-            RegionalHintsSortByDisplay.Text = spoilerLog.RegionalHints_SortBy.CustomToString();
-            FoolishRegionsSortByDisplay.Text = spoilerLog.FoolishRegions_SortBy.CustomToString();
-            WayOfTheHeroPathsSortByDisplay.Text = spoilerLog.WayOfTheHeroPaths_SortBy.CustomToString();
-            SpheresSortByDisplay.Text = spoilerLog.WayOfTheHeroPaths_SortBy.CustomToString();
-            LocationsListSortByDisplay.Text = spoilerLog.WayOfTheHeroPaths_SortBy.CustomToString() ;
+            EntrancesSortByDisplay.Text = spoiler.Entrances_SortBy.CustomToString();
+            WayOfTheHeroSortByDisplay.Text = spoiler.WayOfTheHeroHints_SortBy.CustomToString();
+            FoolishHintsSortByDisplay.Text = spoiler.FoolishHints_SortBy.CustomToString();
+            SpecificHintsSortByDisplay.Text = spoiler.SpecificHints_SortBy.CustomToString();
+            RegionalHintsSortByDisplay.Text = spoiler.RegionalHints_SortBy.CustomToString();
+            FoolishRegionsSortByDisplay.Text = spoiler.FoolishRegions_SortBy.CustomToString();
+            WayOfTheHeroPathsSortByDisplay.Text = spoiler.WayOfTheHeroPaths_SortBy.CustomToString();
+            SpheresSortByDisplay.Text = spoiler.WayOfTheHeroPaths_SortBy.CustomToString();
+            LocationsListSortByDisplay.Text = spoiler.WayOfTheHeroPaths_SortBy.CustomToString() ;
         }
 
         #region Conditional UI Column Hiding
@@ -792,52 +797,52 @@ namespace SpoilerTracker
         private void HideNullColumns()
         {
             // Entrances
-            bool anyEntranceWorlds = spoilerLog.Entrances != null && spoilerLog.Entrances.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            bool anyEntranceWorlds = spoiler.Entrances != null && spoiler.Entrances.Any(e => !string.IsNullOrWhiteSpace(e.World));
             EntranceWorldColumn.Visibility = anyEntranceWorlds ? Visibility.Visible : Visibility.Collapsed;
 
             // World Flags
-            bool anyWorldFlagsWorlds = spoilerLog.WorldFlags != null && spoilerLog.WorldFlags.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            bool anyWorldFlagsWorlds = spoiler.WorldFlags != null && spoiler.WorldFlags.Any(e => !string.IsNullOrWhiteSpace(e.World));
             WorldFlagsWorldColumn.Visibility = anyWorldFlagsWorlds ? Visibility.Visible : Visibility.Collapsed;
 
             // WayOfTheHero Hints
-            bool anyWayOfHeroWorlds = spoilerLog.WayOfTheHeroHints != null && spoilerLog.WayOfTheHeroHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            bool anyWayOfHeroWorlds = spoiler.WayOfTheHeroHints != null && spoiler.WayOfTheHeroHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
             WayOfTheHeroWorldColumn.Visibility = anyWayOfHeroWorlds ? Visibility.Visible : Visibility.Collapsed;
 
             // Foolish Hints
-            bool anyFoolishWorlds = spoilerLog.FoolishHints != null && spoilerLog.FoolishHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            bool anyFoolishWorlds = spoiler.FoolishHints != null && spoiler.FoolishHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
             FoolishHintsWorldColumn.Visibility = anyFoolishWorlds ? Visibility.Visible : Visibility.Collapsed;
 
             // Specific Hints
-            bool anySpecificHintsWorlds = spoilerLog.SpecificHints != null && spoilerLog.SpecificHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            bool anySpecificHintsWorlds = spoiler.SpecificHints != null && spoiler.SpecificHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
             SpecificHintsWorldColumn.Visibility = anySpecificHintsWorlds ? Visibility.Visible : Visibility.Collapsed;
 
             // Regional Hints
-            bool anyRegionalHintsWorlds = spoilerLog.RegionalHints != null && spoilerLog.RegionalHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            bool anyRegionalHintsWorlds = spoiler.RegionalHints != null && spoiler.RegionalHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
             RegionalHintsWorldColumn.Visibility = anyRegionalHintsWorlds ? Visibility.Visible : Visibility.Collapsed;
 
             // Foolish Regions
-            bool anyFoolishRegionsWorlds = spoilerLog.FoolishHints != null && spoilerLog.FoolishHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            bool anyFoolishRegionsWorlds = spoiler.FoolishHints != null && spoiler.FoolishHints.Any(e => !string.IsNullOrWhiteSpace(e.World));
             FoolishRegionsWorldColumn.Visibility = anyFoolishRegionsWorlds ? Visibility.Visible : Visibility.Collapsed;
 
             // WayOfTheHero Paths
-            bool anyWayOfTheHeroPathsWorlds = spoilerLog.WayOfTheHeroPaths != null && spoilerLog.WayOfTheHeroPaths.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            bool anyWayOfTheHeroPathsWorlds = spoiler.WayOfTheHeroPaths != null && spoiler.WayOfTheHeroPaths.Any(e => !string.IsNullOrWhiteSpace(e.World));
             WayOfTheHeroPathsWorldColumn.Visibility = anyWayOfTheHeroPathsWorlds ? Visibility.Visible : Visibility.Collapsed;
 
-            bool anyWayOfTheHeroPathsPlayers = spoilerLog.WayOfTheHeroPaths != null && spoilerLog.WayOfTheHeroPaths.Any(e => !string.IsNullOrWhiteSpace(e.Player));
+            bool anyWayOfTheHeroPathsPlayers = spoiler.WayOfTheHeroPaths != null && spoiler.WayOfTheHeroPaths.Any(e => !string.IsNullOrWhiteSpace(e.Player));
             WayOfTheHeroPathsPlayerColumn.Visibility = anyWayOfTheHeroPathsPlayers ? Visibility.Visible : Visibility.Collapsed;
 
             // Spheres
-            bool anySpheresWorlds = spoilerLog.Spheres != null && spoilerLog.Spheres.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            bool anySpheresWorlds = spoiler.Spheres != null && spoiler.Spheres.Any(e => !string.IsNullOrWhiteSpace(e.World));
             SpheresWorldColumn.Visibility = anyWayOfTheHeroPathsPlayers ? Visibility.Visible : Visibility.Collapsed;
 
-            bool anySpheresPlayers= spoilerLog.Spheres != null && spoilerLog.Spheres.Any(e => !string.IsNullOrWhiteSpace(e.Player));
+            bool anySpheresPlayers= spoiler.Spheres != null && spoiler.Spheres.Any(e => !string.IsNullOrWhiteSpace(e.Player));
             SpheresPlayerColumn.Visibility = anySpheresPlayers ? Visibility.Visible : Visibility.Collapsed;
 
             // Locations List
-            bool anyLocationsListWorlds = spoilerLog.LocationList != null && spoilerLog.LocationList.Any(e => !string.IsNullOrWhiteSpace(e.World));
+            bool anyLocationsListWorlds = spoiler.LocationList != null && spoiler.LocationList.Any(e => !string.IsNullOrWhiteSpace(e.World));
             LocationsListWorldColumn.Visibility = anyWayOfTheHeroPathsPlayers ? Visibility.Visible : Visibility.Collapsed;
 
-            bool anyLocationsListPlayers = spoilerLog.LocationList != null && spoilerLog.LocationList.Any(e => !string.IsNullOrWhiteSpace(e.Player));
+            bool anyLocationsListPlayers = spoiler.LocationList != null && spoiler.LocationList.Any(e => !string.IsNullOrWhiteSpace(e.Player));
             LocationsListPlayerColumn.Visibility = anySpheresPlayers ? Visibility.Visible : Visibility.Collapsed;
         }
         #endregion

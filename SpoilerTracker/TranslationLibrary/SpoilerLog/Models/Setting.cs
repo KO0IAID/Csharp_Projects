@@ -7,10 +7,10 @@ using TranslationLibrary.SpoilerLog.Interfaces;
 
 namespace TranslationLibrary.SpoilerLog.Models
 {
-    public class Setting : ICreateFromLine<Setting>
+    public class Setting : ICreateFromLine<Setting>, INameValue
     {
-        public string Name { get; set; }
-        public string Value { get; set; }
+        public string? Name { get; set; }
+        public string? Value { get; set; }
         public int LogOrder { get; set; } = 0;
 
         public Setting CreateFromLine(string line)

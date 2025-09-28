@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SpoilerTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1e66a52453fa5ec988e13655ad19dbfd888deb4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f39fe8d46c923ce38e81ede1b1ca60a1b6ee33d")]
 [assembly: System.Reflection.AssemblyProductAttribute("SpoilerTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpoilerTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

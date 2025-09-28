@@ -5,11 +5,11 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace TranslationLibrary.Emotracker.LocationDatabase
+namespace TranslationLibrary.Emotracker.Models.Json
 {
     public class LocationDatabase
     {
-        [JsonPropertyName("location_database")]
-        public List<Location> Locations { get; set; } = new();
+        [JsonPropertyName("locations")]
+        public List<Location>? Locations { get; set; }
     }
 }

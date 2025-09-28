@@ -1,13 +1,19 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
-namespace TranslationLibrary.Emotracker.ItemDatabase
+namespace TranslationLibrary.Emotracker.Models.Json
 {
     public class Item
     {
         [JsonPropertyName("item_reference")]
         public string ItemReference { get; set; }
 
-        // These properties are optional and depend on the 'type' of item
+        // Optional Properties
+
         [JsonPropertyName("active")]
         public bool? Active { get; set; }
 
@@ -27,10 +33,9 @@ namespace TranslationLibrary.Emotracker.ItemDatabase
         public int? MinCount { get; set; }
 
         [JsonPropertyName("stage")]
-        public double? Stage { get; set; } // For "lua" type items
+        public double? Stage { get; set; }
 
         [JsonPropertyName("presetNum")]
-        public double? PresetNum { get; set; } // For "lua" type "Presets"
-
+        public double? PresetNum { get; set; }
     }
 }
