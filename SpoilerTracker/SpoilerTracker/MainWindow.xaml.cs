@@ -33,7 +33,7 @@ namespace SpoilerTracker
     public partial class MainWindow : Window
     {
         Spoiler spoiler = new Spoiler();
-        Tracker emoTracker = new Tracker();
+        EmoTracker emoTracker = new EmoTracker();
 
         #region Collections
         ObservableCollection<SeedInfo>? seedInfo;
@@ -59,7 +59,7 @@ namespace SpoilerTracker
         {
             InitializeComponent();
             AutoLoadSpoilerLog();
-            //ExportToEmotracker();
+            ExportToEmotracker();
         }
         private async void SpoilerBtn_Click(object sender, RoutedEventArgs e)
         {

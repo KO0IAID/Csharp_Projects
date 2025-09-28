@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using TranslationLibrary.Emotracker.Models.Items;
+using TranslationLibrary.Emotracker.Models.Locations;
 
-namespace TranslationLibrary.Emotracker.Models.Json
+namespace TranslationLibrary.Emotracker.Models
 {
-    public class Root
+    public class Tracker
     {
         [JsonPropertyName("package_uid")]
-        public string? PackageUid { get; set; }
+        public string? PackageUID { get; set; }
 
         [JsonPropertyName("package_variant_uid")]
-        public string? PackageVariantUid { get; set; }
+        public string? PackageVariantUID { get; set; }
 
         [JsonPropertyName("package_version")]
         public string? PackageVersion { get; set; }
@@ -47,5 +49,7 @@ namespace TranslationLibrary.Emotracker.Models.Json
 
         [JsonPropertyName("main_window_height")]
         public double? MainWindowHeight { get; set; }
-    }
+
+    }   
 }
+

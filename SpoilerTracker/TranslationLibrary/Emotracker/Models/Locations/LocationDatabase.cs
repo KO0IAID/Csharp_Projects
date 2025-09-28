@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace TranslationLibrary.Emotracker.Models.Json
+namespace TranslationLibrary.Emotracker.Models.Locations
 {
     public class LocationDatabase
     {

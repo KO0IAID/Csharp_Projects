@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Emotracker\Resources\Item.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Emotracker\Maps\TrackerToSpoilerMap.json" />
   </ItemGroup>
 

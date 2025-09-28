@@ -4,11 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using TranslationLibrary.Emotracker.Models.Items;
 
-namespace TranslationLibrary.Emotracker.Models.Json
+namespace TranslationLibrary.Emotracker.Models.Locations
 {
     public class Location
     {
+        [JsonIgnore]
+        public int? Id { get; set; }
+
+        [JsonIgnore]
+        public string? Acronym { get; set; }
+
         [JsonPropertyName("location_reference")]
         public string? LocationReference { get; set; }
 
@@ -19,4 +26,3 @@ namespace TranslationLibrary.Emotracker.Models.Json
         public List<Section>? Sections { get; set; }
     }
 }
-
