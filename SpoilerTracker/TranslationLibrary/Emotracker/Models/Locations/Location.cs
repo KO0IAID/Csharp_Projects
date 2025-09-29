@@ -16,6 +16,9 @@ namespace TranslationLibrary.Emotracker.Models.Locations
         [JsonIgnore]
         public string? Acronym { get; set; }
 
+        [JsonIgnore]
+        public string? CleanItemReference { get; set; }
+
         [JsonPropertyName("location_reference")]
         public string? LocationReference { get; set; }
 
@@ -24,5 +27,31 @@ namespace TranslationLibrary.Emotracker.Models.Locations
 
         [JsonPropertyName("sections")]
         public List<Section>? Sections { get; set; }
+    
+        public void Initialize()
+        {
+            if (string.IsNullOrWhiteSpace(LocationReference))
+                return;
+
+            string[] parts = LocationReference.Split(':');
+            if (parts.Length >= 2)
+            {
+                if (int.TryParse(parts[0], out int id))
+                    Id = id;
+
+                Acronym = Uri.UnescapeDataString(parts[1]).Replace(" ", "").Substring(0,2);
+                CleanItemReference = Uri.UnescapeDataString(parts[1]);
+                CleanItemReference = CleanItemReference.Replace(" ", "");
+            }
+
+            if (Sections != null)
+            {
+                foreach (var section in Sections)
+                {
+                    section.Initialize();
+                }
+            }
+        }
+
     }
 }

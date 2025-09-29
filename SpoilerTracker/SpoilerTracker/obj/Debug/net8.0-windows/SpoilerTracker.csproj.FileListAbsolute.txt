@@ -49,4 +49,11 @@ J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\obj\Debug\net8.0-windows\S
 J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\obj\Debug\net8.0-windows\ref\SpoilerTracker.dll
 J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Resources\TemplateTracker - Simplified.json
 J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Resources\TemplateTracker.json
-J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\TrackerToSpoilerMap.json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\S2T Map - Full - Comments.json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\S2T Map - Full.json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\S2T Map - OOT Tricks.json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\S2T Map - Special.json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\S2T Map - Shared Items.json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\S2T Map - MM Tricks.json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\S2T Map - OOT Settings.json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\S2T Map - MM Settings.json

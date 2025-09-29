@@ -1,6 +1,4 @@
-﻿{ //-----------------------------------Spoiler Log Labels, EmoTracker Values------------------------------
-  //-------------------------------------------- OOT Settings --------------------------------------------
-
+﻿{ 
   "goldSkulltulaTokens": {
     "item_reference": "progressive:Gold%20Skulltula%20Tokens%20Shuffle",
     "values": {
@@ -114,7 +112,7 @@
       "open": 1
     }
   },
-  "ageChange?": {
+  "ageChange": {
     "item_reference": "progressive:Age%20Change%20upon%20Song%20of%20Time",
     "values": {
       "none": 0,
@@ -363,7 +361,6 @@
       "false": 1
     }
   },
-  //-------------------------------------------- MM Settings --------------------------------------------
   "housesSkulltulaTokens": {
     "item_reference": "progressive:Houses%20Skulltula%20Tokens%20Shuffle",
     "values": {
@@ -621,7 +618,6 @@
       "anywhere": 3
     }
   },
-  //-------------------------------------------- Shared Items --------------------------------------------
   "sharedBows": {
     "item_reference": "progressive:Shared%20Bows",
     "values": {
@@ -867,7 +863,6 @@
       "false": 1
     }
   },
-  //-------------------------------------------- OOT Tricks --------------------------------------------
   "fewerLensRequirementsOot": {
     "item_reference": "toggle:Fewer%20Lens%20Requirements%20%28OoT%29",
     "values": {
@@ -1190,7 +1185,6 @@
       "Off": 1
     }
   },
-  //-------------------------------------------- MM Tricks --------------------------------------------
   "fewerLensRequirementsMm": {
     "item_reference": "toggle:Fewer%20Lens%20Requirements%20%28MM%29",
     "values": {
@@ -1499,7 +1493,6 @@
       "Off": 1
     }
   },
-  //-------------------------------------------- Special Bridge/LACS/Majora --------------------------------------------
   "stones": {
     "On": 0,
     "Off": 1
@@ -1580,6 +1573,5 @@
     "On": 0,
     "Off": 1
   }
-
 }
 

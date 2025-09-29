@@ -9,8 +9,37 @@ namespace TranslationLibrary.Emotracker.Models.Items
 {
     public class Item
     {
+        [JsonIgnore]
+        public int? Id { get; set; }
+
+        [JsonIgnore]
+        public string? Type { get; set; }
+
+        [JsonIgnore]
+        public string? CleanItemReference { get; set; }
+
+
         [JsonPropertyName("item_reference")]
         public string? ItemReference { get; set; }
+
+        
+        public void Initialize() 
+        {
+            if (string.IsNullOrWhiteSpace(ItemReference))
+                return;
+
+            string[] parts = ItemReference.Split(':');
+
+            if (parts.Length >= 3)
+            {
+                if (int.TryParse(parts[0], out int id))
+                    Id = id;
+
+                this.Type = parts[1];
+
+                CleanItemReference = Uri.UnescapeDataString(parts[2]).Replace(" ", "");
+            }
+        }
 
         /*
 

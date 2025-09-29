@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TranslationLibrary.Emotracker.Models.Locations
 {
+
     public class LocationDatabase
     {
         [JsonPropertyName("locations")]

@@ -60,6 +60,7 @@ namespace SpoilerTracker
             InitializeComponent();
             AutoLoadSpoilerLog();
             ExportToEmotracker();
+
         }
         private async void SpoilerBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -247,8 +248,11 @@ namespace SpoilerTracker
         }
         private async void ExportToEmotracker()
         {
+            emoTracker.SetTemplatePath();
+            await emoTracker.ImportMap("J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - Full.json");
             await emoTracker.ImportTracker(null,true);
             await emoTracker.UpdateTracker(spoiler);
+            
         }
 
         #region GameSettings

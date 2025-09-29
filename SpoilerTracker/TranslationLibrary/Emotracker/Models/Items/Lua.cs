@@ -9,9 +9,6 @@ namespace TranslationLibrary.Emotracker.Models.Items
 {
     public class Lua : Item
     {
-        [JsonIgnore]
-        public int? Id { get; set; }
-
         [JsonPropertyName("active")]
         public bool? Active { get; set; }
 

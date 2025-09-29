@@ -9,9 +9,6 @@ namespace TranslationLibrary.Emotracker.Models.Items
 {
     public class Progressive : Item
     {
-        [JsonIgnore]
-        public int? Id { get; set; }
-
         [JsonPropertyName("stage_index")]
         public int? StageIndex { get; set; }
 

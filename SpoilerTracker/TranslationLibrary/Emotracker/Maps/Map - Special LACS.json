@@ -1,0 +1,154 @@
+﻿[
+  {
+    "spoiler_label": "lacsSpiritualStones",
+    "item_reference": "progressive:LACS%20Spiritual%20Stones",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsMedallions",
+    "item_reference": "progressive:LACS%20Medallions",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsBossRemains",
+    "item_reference": "progressive:LACS%20Boss%20Remains",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsGoldSkulltulaTokens",
+    "item_reference": "progressive:LACS%20Gold%20Skulltula%20Tokens",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsSwampSkulltulaTokens",
+    "item_reference": "progressive:LACS%20Swamp%20Skulltula%20Tokens",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsOceanSkulltulaTokens",
+    "item_reference": "progressive:LACS%20Ocean%20Skulltula%20Tokens",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsStrayFairyClockTown",
+    "item_reference": "progressive:LACS%20Stray%20Fairy%20Clock%20Town",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsStrayFairiesWoodfall",
+    "item_reference": "progressive:LACS%20Stray%20Fairies%20Woodfall",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsStrayFairiesSnowhead",
+    "item_reference": "progressive:LACS%20Stray%20Fairies%20Snowhead",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsStrayFairiesGreatBay",
+    "item_reference": "progressive:LACS%20Stray%20Fairies%20Great%20Bay",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsStrayFairiesStoneTower",
+    "item_reference": "progressive:LACS%20Stray%20Fairies%20Stone%20Tower",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsRegularMasksMM",
+    "item_reference": "progressive:LACS%20Regular%20Masks%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsTransformationMasksMM",
+    "item_reference": "progressive:LACS%20Transformation%20Masks%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsMasksOOT",
+    "item_reference": "progressive:LACS%20Masks%20%28OOT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsRedCoins",
+    "item_reference": "progressive:LACS%20Red%20Coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsGreenCoins",
+    "item_reference": "progressive:LACS%20Green%20Coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsBlueCoins",
+    "item_reference": "progressive:LACS%20Blue%20Coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsYellowCoins",
+    "item_reference": "progressive:LACS%20Yellow%20Coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lacsAmount",
+    "item_reference": "consumable:LACS%20Amount",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  }
+]

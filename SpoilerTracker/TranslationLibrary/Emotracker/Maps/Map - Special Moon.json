@@ -1,0 +1,154 @@
+﻿[
+  {
+    "spoiler_label": "moonSpiritualStones",
+    "item_reference": "progressive:Moon%20Spiritual%20Stones",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonMedallions",
+    "item_reference": "progressive:Moon%20Medallions",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonBossRemains",
+    "item_reference": "progressive:Moon%20Boss%20Remains",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonGoldSkulltulaTokens",
+    "item_reference": "progressive:Moon%20Gold%20Skulltula%20Tokens",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonSwampSkulltulaTokens",
+    "item_reference": "progressive:Moon%20Swamp%20Skulltula%20Tokens",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonOceanSkulltulaTokens",
+    "item_reference": "progressive:Moon%20Ocean%20Skulltula%20Tokens",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonStrayFairyClockTown",
+    "item_reference": "progressive:Moon%20Stray%20Fairy%20Clock%20Town",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonStrayFairiesWoodfall",
+    "item_reference": "progressive:Moon%20Stray%20Fairies%20Woodfall",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonStrayFairiesSnowhead",
+    "item_reference": "progressive:Moon%20Stray%20Fairies%20Snowhead",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonStrayFairiesGreatBay",
+    "item_reference": "progressive:Moon%20Stray%20Fairies%20Great%20Bay",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonStrayFairiesStoneTower",
+    "item_reference": "progressive:Moon%20Stray%20Fairies%20Stone%20Tower",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonRegularMasksMM",
+    "item_reference": "progressive:Moon%20Regular%20Masks%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonTransformationMasksMM",
+    "item_reference": "progressive:Moon%20Transformation%20Masks%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonMasksOOT",
+    "item_reference": "progressive:Moon%20Masks%20%28OOT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonRedCoins",
+    "item_reference": "progressive:Moon%20Red%20Coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonGreenCoins",
+    "item_reference": "progressive:Moon%20Green%20Coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonBlueCoins",
+    "item_reference": "progressive:Moon%20Blue%20Coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonYellowCoins",
+    "item_reference": "progressive:Moon%20Yellow%20Coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "moonAmount",
+    "item_reference": "consumable:Moon%20Amount",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  }
+]

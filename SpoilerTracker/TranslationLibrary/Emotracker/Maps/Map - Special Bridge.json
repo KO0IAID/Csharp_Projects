@@ -1,0 +1,154 @@
+﻿[
+  {
+    "spoiler_label": "rainbowBridgeSpiritualStones",
+    "item_reference": "progressive:Rainbow%20Bridge%20Spiritual%20Stones",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeMedallions",
+    "item_reference": "progressive:Rainbow%20Bridge%20Medallions",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeBossRemains",
+    "item_reference": "progressive:Rainbow%20Bridge%20Boss%20Remains",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeGoldSkulltulaTokens",
+    "item_reference": "progressive:Rainbow%20Bridge%20Gold%20Skulltula%20Tokens",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeSwampSkulltulaTokens",
+    "item_reference": "progressive:Rainbow%20Bridge%20Swamp%20Skulltula%20Tokens",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeOceanSkulltulaTokens",
+    "item_reference": "progressive:Rainbow%20Bridge%20Ocean%20Skulltula%20Tokens",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeStrayFairyClockTown",
+    "item_reference": "progressive:Rainbow%20Bridge%20Stray%20Fairy%20Clock%20Town",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeStrayFairiesWoodfall",
+    "item_reference": "progressive:Rainbow%20Bridge%20Stray%20Fairies%20Woodfall",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeStrayFairiesSnowhead",
+    "item_reference": "progressive:Rainbow%20Bridge%20Stray%20Fairies%20Snowhead",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeStrayFairiesGreatBay",
+    "item_reference": "progressive:Rainbow%20Bridge%20Stray%20Fairies%20Great%20Bay",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeStrayFairiesStoneTower",
+    "item_reference": "progressive:Rainbow%20Bridge%20Stray%20Fairies%20Stone%20Tower",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeRegularMasksMM",
+    "item_reference": "progressive:Rainbow%20Bridge%20Regular%20Masks%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeTransformationMasksMM",
+    "item_reference": "progressive:Rainbow%20Bridge%20Transformation%20Masks%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeMasksOOT",
+    "item_reference": "progressive:Rainbow%20Bridge%20Masks%20%28OOT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeRedCoins",
+    "item_reference": "progressive:Rainbow%20Bridge%20Red%20Coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeGreenCoins",
+    "item_reference": "progressive:Rainbow%20Bridge%20Green%20Coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeBlueCoins",
+    "item_reference": "progressive:Rainbow%20Bridge%20Blue%20Coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeYellowCoins",
+    "item_reference": "progressive:Rainbow%20Bridge%20Yellow%20Coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "rainbowBridgeAmount",
+    "item_reference": "consumable:Rainbow%20Bridge%20Amount",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  }
+]

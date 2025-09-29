@@ -21,25 +21,25 @@ namespace TranslationLibrary.SpoilerLog.Controller
 {
     public class Spoiler
     {
-        public string[]? FileContents;
+        public string[]? FileContents { get; private set; }
 
         #region Collections
-        public List<SeedInfo>? SeedInfo { get; set; } = new();
-        public List<Setting>? GameSettings { get; set; } = new();
-        public List<Conditions>? SpecialConditions { get; set; } = new();
-        public List<Trick>? Tricks { get; set; } = new();
-        public List<Glitch>? Glitches { get; set; } = new();
-        public List<string>? JunkLocations { get; set; } = new();
-        public List<WorldFlag>? WorldFlags { get; set; } = new();
-        public List<Entrance>? Entrances { get; set; } = new();
-        public List<WayOfTheHeroHint>? WayOfTheHeroHints { get; set; } = new();
-        public List<FoolishHint>? FoolishHints { get; set; } = new();
-        public List<SpecificHint>? SpecificHints { get; set; } = new();
-        public List<RegionalHint>? RegionalHints { get; set; } = new();
-        public List<FoolishRegion>? FoolishRegions { get; set; } = new();
-        public List<WayOfTheHeroPath>? WayOfTheHeroPaths { get; set; } = new();
-        public List<Sphere>? Spheres { get; set; } = new();
-        public List<ItemLocation>? LocationList { get; set; } = new();
+        public List<SeedInfo>? SeedInfo { get; private set; } = new();
+        public List<Setting>? GameSettings { get; private set; } = new();
+        public List<Conditions>? SpecialConditions { get; private set; } = new();
+        public List<Trick>? Tricks { get; private set; } = new();
+        public List<Glitch>? Glitches { get; private set; } = new();
+        public List<string>? JunkLocations { get; private set; } = new();
+        public List<WorldFlag>? WorldFlags { get; private set; } = new();
+        public List<Entrance>? Entrances { get; private set; } = new();
+        public List<WayOfTheHeroHint>? WayOfTheHeroHints { get; private set; } = new();
+        public List<FoolishHint>? FoolishHints { get; private set; } = new();
+        public List<SpecificHint>? SpecificHints { get; private set; } = new();
+        public List<RegionalHint>? RegionalHints { get; private set; } = new();
+        public List<FoolishRegion>? FoolishRegions { get; private set; } = new();
+        public List<WayOfTheHeroPath>? WayOfTheHeroPaths { get; private set; } = new();
+        public List<Sphere>? Spheres { get; private set; } = new();
+        public List<ItemLocation>? LocationList { get; private  set; } = new();
 
         #endregion
         #region Collections SortBy Enums
@@ -150,6 +150,17 @@ namespace TranslationLibrary.SpoilerLog.Controller
             );
             
 
+        }
+        public Dictionary<string, string>? ToSettingsDictionary()
+        {
+            var dictionary = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+            AddCollection(dictionary, GameSettings);
+            AddCollection(dictionary, SpecialConditions);
+            AddCollection(dictionary, Tricks);
+            AddCollection(dictionary, Glitches);
+
+            return dictionary;
         }
         public void SortCollections(SortBy sort = SortBy.Default)
         {
@@ -1151,17 +1162,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             }
             #endregion
         }
-        public Dictionary<string, string>? ToSettingsDictionary() 
-        {
-            var dictionary = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-
-            AddCollection(dictionary, GameSettings);
-            AddCollection(dictionary, SpecialConditions);
-            AddCollection(dictionary, Tricks);
-            AddCollection(dictionary, Glitches);
-
-            return dictionary;
-        }
+        
         #endregion
         #region Data Parsing Helper Methods
         private async Task<List<T>?> AddValues<T>(Tuple<int, int> range, string[] fileContents) where T : ICreateFromLine<T>, new()
