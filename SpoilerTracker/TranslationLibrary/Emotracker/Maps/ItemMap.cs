@@ -10,9 +10,13 @@ namespace TranslationLibrary.Emotracker.Maps
 {
     public class ItemMap
     {
-        [JsonPropertyName("spoilerloglabel")]
-        public string? SpoilerName { get; set; }
+        [JsonPropertyName("spoiler_label")]
+        public string? SpoilerLabel { get; set; }
+
+        [JsonPropertyName("item_reference")]
         public string? ItemReference { get; set; }
+
+        [JsonPropertyName("values")]
         public Dictionary<string, int>? Values { get; set; }
 
         [JsonIgnore]

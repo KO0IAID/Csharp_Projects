@@ -23,11 +23,14 @@ J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\Trans
 J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\ref\TranslationLibrary.dll
 J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Resources\TemplateTracker - Simplified.json
 J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Resources\TemplateTracker.json
-J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\S2T Map - Full - Comments.json
-J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\S2T Map - Full.json
-J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\S2T Map - OOT Tricks.json
-J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\S2T Map - Special.json
-J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\S2T Map - Shared Items.json
-J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\S2T Map - MM Tricks.json
-J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\S2T Map - OOT Settings.json
-J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\S2T Map - MM Settings.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - Full.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - OOT Tricks.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - Special LACS.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - Special Majora.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - Special Moon.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - Special Bridge.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - Shared Items.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - MM Tricks.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - OOT Settings.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - MM Settings.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - Misc.json

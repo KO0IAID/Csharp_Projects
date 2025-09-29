@@ -150,5 +150,13 @@
       "true": 0,
       "false": 1
     }
+  },
+  {
+    "spoiler_label": "coins",
+    "item_reference": "progressive:coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
   }
 ]

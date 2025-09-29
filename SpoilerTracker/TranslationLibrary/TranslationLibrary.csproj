@@ -23,6 +23,9 @@
     <Content Include="Emotracker\Maps\Map - Special Majora.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Emotracker\Maps\Map - Misc.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Emotracker\Maps\Map - Special Moon.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

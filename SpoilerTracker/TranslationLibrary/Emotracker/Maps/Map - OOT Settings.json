@@ -403,7 +403,7 @@
   },
   {
     "spoiler_label": "shuffleCratesOot",
-    "item_reference": "progressive:Ageless%20Shuffle%20Crates%20Oot%29",
+    "item_reference": "progressive:Ageless%20Shuffle%20Crates%20OoT%29",
     "values": {
       "none": 0,
       "all": 1,
@@ -413,7 +413,7 @@
   },
   {
     "spoiler_label": "shuffleHivesOot",
-    "item_reference": "progressive:Ageless%20Shuffle%Hives%20Oot%29",
+    "item_reference": "progressive:Ageless%20Shuffle%Hives%20OoT%29",
     "values": {
       "true": 0,
       "false": 1

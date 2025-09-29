@@ -1,0 +1,736 @@
+﻿[
+  {
+    "spoiler_label": "bootsHoverMm",
+    "item_reference": "progressive:Boots%20Hover%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "bootsIronMm",
+    "item_reference": "progressive:Boots%20Iron%20%28OMM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "clearStateDungeonsMm",
+    "item_reference": "progressive:Clear%20State%20%Dungeons%2028MM%29",
+    "values": {
+      "none": 0,
+      "WF": 1,
+      "GB": 0,
+      "both": 0
+    }
+  },
+  {
+    "spoiler_label": "climbMostSurfacesMm",
+    "item_reference": "progressive:climbMost%20Surfaces%20%28MM%29",
+    "values": {
+      "off": 0,
+      "enabled": 1,
+      "logical": 2
+    }
+  },
+  {
+    "spoiler_label": "alterLostWoodsExit",
+    "item_reference": "progressive:Alter%20Lost%20Woods%20Exit",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "blastMaskOot",
+    "item_reference": "progressive:Blast%20Mask%20&28OoT",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "bottleContentShuffle",
+    "item_reference": "progressive:Bottle%20Content%20Shuffle",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "childWallets",
+    "item_reference": "progressive:Child%20Wallets",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "climbMostSurfacesOot",
+    "item_reference": "progressive:climbMost%20Surfaces%20%28OoT%29",
+    "values": {
+      "off": 0,
+      "enabled": 1,
+      "logical": 2
+    }
+  },
+  {
+    "spoiler_label": "climbMostSurfacesMm",
+    "item_reference": "progressive:climbMost%20Surfaces%20%28MM%29",
+    "values": {
+      "off": 0,
+      "enabled": 1,
+      "logical": 2
+    }
+  },
+  {
+    "spoiler_label": "cloakTraps",
+    "item_reference": "progressive:Cloak%20Traps",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "clockSpeed",
+    "item_reference": "progressive:Clock%20Speed",
+    "values": {
+      "veryslow": 0,
+      "slow": 1,
+      "default": 2,
+      "fast": 3,
+      "veryfast": 4,
+      "superfast": 5
+    }
+  },
+  {
+    "spoiler_label": "coins",
+    "item_reference": "progressive:coins",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "colossalWallets",
+    "item_reference": "progressive:Colossal%20Wallets",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "critWiggleDisable",
+    "item_reference": "progressive:Colossal%20Wallets",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "csmc",
+    "item_reference": "progressive:csmc",
+    "values": {
+      "never": 0,
+      "agony": 1,
+      "always": 2
+    }
+  },
+  {
+    "spoiler_label": "csmcCow",
+    "item_reference": "progressive:csmc%20Cow",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "csmcHearts",
+    "item_reference": "progressive:csmc%20Hearts",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "csmcMapCompass",
+    "item_reference": "progressive:csmc%20MapCompass",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "csmcSkulltula",
+    "item_reference": "progressive:csmc%20Skulltula",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "dekuShieldMm",
+    "item_reference": "progressive:Deku%20Shield%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "dungeonRewardShuffle",
+    "item_reference": "progressive:Dungeon%20Reward%20Shuffle",
+    "values": {
+      "dungeonBlueWarps": 0,
+      "dungeonsLimited": 1,
+      "dungeons": 2,
+      "anywhere": 3
+    }
+  },
+  {
+    "spoiler_label": "eggShuffle",
+    "item_reference": "progressive:Egg%20Shuffle",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "elegyOot",
+    "item_reference": "progressive:Elegy%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erBoss",
+    "item_reference": "progressive:er%20Boss",
+    "values": {
+      "none": 0,
+      "own": 1,
+      "full": 2
+    }
+  },
+  {
+    "spoiler_label": "erDecoupled",
+    "item_reference": "progressive:er%20Boss",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erDungeons",
+    "item_reference": "progressive:er%20Dungeons",
+    "values": {
+      "none": 0,
+      "own": 1,
+      "full": 2
+    }
+  },
+  {
+    "spoiler_label": "erGrottos",
+    "item_reference": "progressive:er%20Grottos",
+    "values": {
+      "none": 0,
+      "own": 1,
+      "full": 2
+    }
+  },
+  {
+    "spoiler_label": "erIndoors",
+    "item_reference": "progressive:er%20Indoors",
+    "values": {
+      "none": 0,
+      "own": 1,
+      "full": 2
+    }
+  },
+  {
+    "spoiler_label": "erIndoorsExtra",
+    "item_reference": "progressive:er%20%Indoors%20Extra",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erIndoorsExtra",
+    "item_reference": "progressive:er%20%Indoors%20Extra",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erIndoorsGameLinks",
+    "item_reference": "progressive:er%20%Indoors%20Game%20Links",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erIndoorsMajor",
+    "item_reference": "progressive:er%20%Indoors%20Major",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erMixed",
+    "item_reference": "progressive:er%20Mixed",
+    "values": {
+      "none": 0,
+      "own": 1,
+      "full": 2
+    }
+  },
+  {
+    "spoiler_label": "erMixedIndoors",
+    "item_reference": "progressive:er%20%Mixed%20Indoors",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erMixedOverworld",
+    "item_reference": "progressive:er%20%Mixed%20Overworld",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erNoPolarity",
+    "item_reference": "progressive:er%20%No%20Polarity",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erOneWays",
+    "item_reference": "progressive:er%20OneWays",
+    "values": {
+      "none": 0,
+      "own": 1,
+      "full": 2
+    }
+  },
+  {
+    "spoiler_label": "erOneWaysAnywhere",
+    "item_reference": "progressive:er%20%OneWays%20Anywhere",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erOneWaysIkana",
+    "item_reference": "progressive:er%20%OneWays%20Ikana",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erOneWaysMajor",
+    "item_reference": "progressive:er%20%OneWays%20Major",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erOneWaysOwls",
+    "item_reference": "progressive:er%20%OneWays%20Owls",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erOneWaysWaterVoids",
+    "item_reference": "progressive:er%20%OneWays%20Water%20Voids",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erOverworld",
+    "item_reference": "progressive:er%20Overworld",
+    "values": {
+      "none": 0,
+      "own": 1,
+      "full": 2
+    }
+  },
+  {
+    "spoiler_label": "erPiratesWorld",
+    "item_reference": "progressive:er%20%Pirates%20World",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erSelfLoops",
+    "item_reference": "progressive:er%20%Self%20Loops",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erSpawns",
+    "item_reference": "progressive:er%20%Spawns",
+    "values": {
+      "none": 0,
+      "own": 1,
+      "full": 2
+    }
+  },
+  {
+    "spoiler_label": "erWallmasters",
+    "item_reference": "progressive:er%20%Wallmasters",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "erWarps",
+    "item_reference": "progressive:er%20%Warps",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "extraChildSwordsOot",
+    "item_reference": "progressive:Extra%20%Child%20Swords%20%28Oot%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "extraHintRegions",
+    "item_reference": "progressive:Extra%20%Hint%20Regions",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "fairySpotShuffleOot",
+    "item_reference": "progressive:fairy%20%Spot%20Shuffle%20Oot",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "fastBunnyHood",
+    "item_reference": "progressive:Fast%20Bunny%20Hood",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "fastMasks",
+    "item_reference": "progressive:Fast%20%Masks%20",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "fierceDeityAnywhere",
+    "item_reference": "progressive:Fierce%20%Deity%20Anywhere",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "fillWallets",
+    "item_reference": "progressive:Fill%20%Wallets",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "freeScarecrowMm",
+    "item_reference": "progressive:Free%20Scarecrow%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "games",
+    "item_reference": "progressive:Games",
+    "values": {
+      "ootmm": 0,
+      "oot": 1,
+      "mm": 2
+    }
+  },
+  {
+    "spoiler_label": "ganonBossKey",
+    "item_reference": "progressive:Ganon%20Boss%20Key",
+    "values": {
+      "removed": 0,
+      "vanilla": 1,
+      "ganon": 2,
+      "anywhere": 3,
+      "custom": 4
+    }
+  },
+  {
+    "spoiler_label": "generateSpoilerLog",
+    "item_reference": "progressive:Generate%20Spoiler%20Log",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "gerudoFortress",
+    "item_reference": "progressive:Gerudo%20Fortress",
+    "values": {
+      "vanilla": 0,
+      "single": 1,
+      "open": 2
+    }
+  },
+  {
+    "spoiler_label": "goal",
+    "item_reference": "progressive:Goal",
+    "values": {
+      "any": 0,
+      "ganon": 1,
+      "majora": 2,
+      "both": 3,
+      "triforce": 4,
+      "triforce3": 5
+    }
+  },
+  {
+    "spoiler_label": "hammerMm",
+    "item_reference": "progressive:Hammer%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "hintImportance",
+    "item_reference": "progressive:Hint%20%Importance",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "hintPathBoss",
+    "item_reference": "progressive:Hint%20Path%20Boss",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "hintPathDungeons",
+    "item_reference": "progressive:Hint%20Path%20Dungeons",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "hintPathEndBoss",
+    "item_reference": "progressive:Hint%20Path%20End%20Boss",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "hintPathEvents",
+    "item_reference": "progressive:Hint%20Path%20Events",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "itemPool",
+    "item_reference": "progressive:Item%20Pool",
+    "values": {
+      "plentiful": 0,
+      "normal": 1,
+      "scarce": 2,
+      "minimal": 3,
+      "barren": 4
+    }
+  },
+  {
+    "spoiler_label": "keepItemsReset",
+    "item_reference": "progressive:Keep%20Items%20Reset",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "lenientSpikes",
+    "item_reference": "progressive:Lenient%20Spikes",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "logic",
+    "item_reference": "progressive:Logic",
+    "values": {
+      "allLocations": 0,
+      "beatable": 1,
+      "none": 2
+    }
+  },
+  {
+    "spoiler_label": "mapCompassShuffle",
+    "item_reference": "progressive:Map%20Compass%20Shuffle",
+    "values": {
+      "ownDungeon": 0,
+      "anywhere": 1,
+      "starting": 2,
+      "removed": 2
+    }
+  },
+  {
+    "spoiler_label": "menuNotebook",
+    "item_reference": "progressive:Menu%20Notebook",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "mmEasierLightBlock",
+    "item_reference": "progressive:%28MM%29%20Easier%20Light%20Block",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "mode",
+    "item_reference": "progressive:Mode",
+    "values": {
+      "single": 0,
+      "coop": 1,
+      "multi": 2
+    }
+  },
+  {
+    "spoiler_label": "noPlandoHints",
+    "item_reference": "progressive:No%20Plando%20Hints",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "openMaskShop",
+    "item_reference": "progressive:Open%20Mask%20Shop",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "pondFishShuffle",
+    "item_reference": "progressive:Pond%20Fish%20Shuffle",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "preCompletedDungeons",
+    "item_reference": "progressive:Pre-Completed%20Dungeons",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "probabilisticFoolish",
+    "item_reference": "progressive:Probabilistic%20Foolish",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "progressiveGFS",
+    "item_reference": "progressive:Progressive%20GFS",
+    "values": {
+      "seperate": 0,
+      "progressive": 1
+    }
+  },
+  {
+    "spoiler_label": "progressiveShieldsMm",
+    "item_reference": "progressive:Progressive%20Shields%20%28MM%29",
+    "values": {
+      "seperate": 0,
+      "progressive": 1
+    }
+  },
+  {
+    "spoiler_label": "progressiveShieldsOot",
+    "item_reference": "progressive:Progressive%20Shields%20%28Oot%29",
+    "values": {
+      "seperate": 0,
+      "progressive": 1
+    }
+  },
+  {
+    "spoiler_label": "scalesMm",
+    "item_reference": "progressive:Scales%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shadowFastBoat",
+    "item_reference": "progressive:Shadow%20Fast%20Boat",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+]

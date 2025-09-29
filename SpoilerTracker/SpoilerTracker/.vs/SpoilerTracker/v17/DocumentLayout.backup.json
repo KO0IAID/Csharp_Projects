@@ -3,30 +3,57 @@
   "WorkspaceRootPath": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\controller\\emotracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\map - mm settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\map - oot settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\map - misc.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1364C9BE-ECE7-4871-99A6-6F2649A3D450}|SpoilerTracker.csproj|j:\\personal projects\\c#\\spoilertracker\\spoilertracker\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{1364C9BE-ECE7-4871-99A6-6F2649A3D450}|SpoilerTracker.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\resources\\templatetracker - simplified.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\map - special moon.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\s2t map - mm settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\resources\\templatetracker - soulshuffle.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\s2t map - oot settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\map - mm tricks.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1364C9BE-ECE7-4871-99A6-6F2649A3D450}|SpoilerTracker.csproj|j:\\personal projects\\c#\\spoilertracker\\spoilertracker\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1364C9BE-ECE7-4871-99A6-6F2649A3D450}|SpoilerTracker.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\spoilerlog\\example spoilers\\ootmm-spoiler-single example.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\controller\\emotracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\itemmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\settingdefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\models\\items\\consumable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1364C9BE-ECE7-4871-99A6-6F2649A3D450}|SpoilerTracker.csproj|j:\\personal projects\\c#\\spoilertracker\\spoilertracker\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1364C9BE-ECE7-4871-99A6-6F2649A3D450}|SpoilerTracker.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\map - special majora.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\map - special lacs.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\map - special bridge.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\map - shared items.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\map - full.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\spoilerlog\\controller\\spoiler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -47,9 +74,6 @@
       "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\models\\itemjsonconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\models\\items\\consumable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\models\\items\\lua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -57,12 +81,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\models\\items\\toggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\resources\\templatetracker - soulshuffle.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\maps\\s2t map - full.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\models\\tracker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -74,9 +92,6 @@
       "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\spoilerlog\\models\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\resources\\templatetracker.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\translationlibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
@@ -85,9 +100,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\emotracker\\resources\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\spoilerlog\\example spoilers\\ootmm-spoiler-single example.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{13801CA0-E475-4F77-A333-87C2FAC191A4}|..\\TranslationLibrary\\TranslationLibrary.csproj|j:\\personal projects\\c#\\spoilertracker\\translationlibrary\\spoilerlog\\models\\glitch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -110,11 +122,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -133,7 +145,7 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAO0AAAAAAAAAAAAiwP0AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAO4AAAAAAAAAAAAswPsAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-14T23:29:47.291Z",
               "IsPinned": true,
@@ -141,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "Spoiler.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Controller\\Spoiler.cs",
               "RelativeDocumentMoniker": "..\\TranslationLibrary\\SpoilerLog\\Controller\\Spoiler.cs",
@@ -150,18 +162,17 @@
               "ViewState": "AgIAAEsAAAAAAAAAAAAQwBUAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-07T16:12:49.061Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "EmoTracker.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Controller\\EmoTracker.cs",
               "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Controller\\EmoTracker.cs",
               "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Controller\\EmoTracker.cs",
               "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Controller\\EmoTracker.cs",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAiwJYAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAA4wDIAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-25T18:37:00.689Z",
               "IsPinned": true,
@@ -194,162 +205,71 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "S2T Map - OOT Settings.json",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - OOT Settings.json",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - OOT Settings.json",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - OOT Settings.json",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - OOT Settings.json",
-              "ViewState": "AgIAAMUAAAAAAAAAAAAvwNIAAAAPAAAAAAAAAA==",
+              "Title": "Map - Special Moon.json",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Moon.json",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Moon.json",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Moon.json",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Moon.json",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAAKAAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-29T04:39:08.828Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "S2T Map - MM Settings.json",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - MM Settings.json",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - MM Settings.json",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - MM Settings.json",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - MM Settings.json",
-              "ViewState": "AgIAAO0AAAAAAAAAAAAAABgBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-29T03:21:41.301Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Location.cs",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Locations\\Location.cs",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Locations\\Location.cs",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Locations\\Location.cs",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Locations\\Location.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAqwCYAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T03:50:11.802Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ItemJsonConverter.cs",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\ItemJsonConverter.cs",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\ItemJsonConverter.cs",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\ItemJsonConverter.cs",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\ItemJsonConverter.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAwwCkAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T04:54:42.132Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Section.cs",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Locations\\Section.cs",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Locations\\Section.cs",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Locations\\Section.cs",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Locations\\Section.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAwBsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T03:48:41.967Z",
+              "WhenOpened": "2025-09-29T05:10:53.479Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "TemplateTracker - SoulShuffle.json",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - SoulShuffle.json",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - SoulShuffle.json",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - SoulShuffle.json",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - SoulShuffle.json",
+              "ViewState": "AgIAAJsdAAAAAAAAAAAhwKkdAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-28T21:18:39.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Map - MM Tricks.json",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Tricks.json",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Tricks.json",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Tricks.json",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Tricks.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-29T17:41:36.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OoTMM-Spoiler-Single Example.txt",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Example Spoilers\\OoTMM-Spoiler-Single Example.txt",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\SpoilerLog\\Example Spoilers\\OoTMM-Spoiler-Single Example.txt",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Example Spoilers\\OoTMM-Spoiler-Single Example.txt",
+              "RelativeToolTip": "..\\TranslationLibrary\\SpoilerLog\\Example Spoilers\\OoTMM-Spoiler-Single Example.txt",
+              "ViewState": "AgIAAFkBAAAAAAAAAAAMwG0BAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-09-27T22:24:12.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "ItemMap.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\ItemMap.cs",
               "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\ItemMap.cs",
               "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\ItemMap.cs",
               "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\ItemMap.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAYwBYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAADwvy4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-28T17:06:33.726Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SettingDefinition.cs",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\SettingDefinition.cs",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\SettingDefinition.cs",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\SettingDefinition.cs",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\SettingDefinition.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-26T19:54:50.984Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "LocationDatabase.cs",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Locations\\LocationDatabase.cs",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Locations\\LocationDatabase.cs",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Locations\\LocationDatabase.cs",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Locations\\LocationDatabase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-26T16:26:04.667Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Item.cs",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Item.cs",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Item.cs",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Item.cs",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Item.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAArwA8AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T04:45:09.841Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Toggle.cs",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Toggle.cs",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Toggle.cs",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Toggle.cs",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Toggle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T03:35:22.074Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Progressive.cs",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Progressive.cs",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Progressive.cs",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Progressive.cs",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Progressive.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T03:35:43.339Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Lua.cs",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Lua.cs",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Lua.cs",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Lua.cs",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Lua.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T03:36:40.437Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 11,
               "Title": "Consumable.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Consumable.cs",
               "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Consumable.cs",
@@ -357,24 +277,167 @@
               "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Consumable.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAqwAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T03:36:15.88Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T03:36:15.88Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "TemplateTracker - SoulShuffle.json",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - SoulShuffle.json",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - SoulShuffle.json",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - SoulShuffle.json",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - SoulShuffle.json",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "Map - Special Majora.json",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Majora.json",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Majora.json",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Majora.json",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Majora.json",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAswIQAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-28T21:18:39.106Z"
+              "WhenOpened": "2025-09-29T05:14:43.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Map - Special LACS.json",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special LACS.json",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Special LACS.json",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special LACS.json",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Special LACS.json",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAswJoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-29T05:12:18.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Map - Special Bridge.json",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Bridge.json",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Bridge.json",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Bridge.json",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Bridge.json",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAswJoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-29T05:09:38.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Map - Shared Items.json",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Shared Items.json",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Shared Items.json",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Shared Items.json",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Shared Items.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-29T04:52:19.207Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Map - Full.json",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Full.json",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Full.json",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Full.json",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Full.json",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAvwG4AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-28T17:52:40.072Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
+              "Title": "Location.cs",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Locations\\Location.cs",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Locations\\Location.cs",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Locations\\Location.cs",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Locations\\Location.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAqwCYAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T03:50:11.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ItemJsonConverter.cs",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\ItemJsonConverter.cs",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\ItemJsonConverter.cs",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\ItemJsonConverter.cs",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\ItemJsonConverter.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAwwCkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T04:54:42.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Section.cs",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Locations\\Section.cs",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Locations\\Section.cs",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Locations\\Section.cs",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Locations\\Section.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T03:48:41.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "LocationDatabase.cs",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Locations\\LocationDatabase.cs",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Locations\\LocationDatabase.cs",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Locations\\LocationDatabase.cs",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Locations\\LocationDatabase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-26T16:26:04.667Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Item.cs",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Item.cs",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Item.cs",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Item.cs",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Item.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAArwA8AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T04:45:09.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Toggle.cs",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Toggle.cs",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Toggle.cs",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Toggle.cs",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Toggle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T03:35:22.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Progressive.cs",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Progressive.cs",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Progressive.cs",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Progressive.cs",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Progressive.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T03:35:43.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Lua.cs",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Lua.cs",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Lua.cs",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Items\\Lua.cs",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Models\\Items\\Lua.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T03:36:40.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
               "Title": "Tracker.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Models\\Tracker.cs",
               "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Models\\Tracker.cs",
@@ -386,19 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "S2T Map - Full.json",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - Full.json",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - Full.json",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - Full.json",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - Full.json",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAvwG4AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-28T17:52:40.072Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 27,
               "Title": "INameValue.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Interfaces\\INameValue.cs",
               "RelativeDocumentMoniker": "..\\TranslationLibrary\\SpoilerLog\\Interfaces\\INameValue.cs",
@@ -410,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "Setting.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Models\\Setting.cs",
               "RelativeDocumentMoniker": "..\\TranslationLibrary\\SpoilerLog\\Models\\Setting.cs",
@@ -422,7 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "TranslationLibrary.csproj",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\TranslationLibrary.csproj",
               "RelativeDocumentMoniker": "..\\TranslationLibrary\\TranslationLibrary.csproj",
@@ -434,7 +485,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "SpoilerTracker.csproj",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\SpoilerTracker.csproj",
               "RelativeDocumentMoniker": "SpoilerTracker.csproj",
@@ -446,7 +497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "Item.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\Item.cs",
               "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Resources\\Item.cs",
@@ -458,19 +509,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "OoTMM-Spoiler-Single Example.txt",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Example Spoilers\\OoTMM-Spoiler-Single Example.txt",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\SpoilerLog\\Example Spoilers\\OoTMM-Spoiler-Single Example.txt",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Example Spoilers\\OoTMM-Spoiler-Single Example.txt",
-              "RelativeToolTip": "..\\TranslationLibrary\\SpoilerLog\\Example Spoilers\\OoTMM-Spoiler-Single Example.txt",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAABsAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-09-27T22:24:12.642Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 32,
               "Title": "Glitch.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Models\\Glitch.cs",
               "RelativeDocumentMoniker": "..\\TranslationLibrary\\SpoilerLog\\Models\\Glitch.cs",
@@ -482,7 +521,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "Conditions.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Models\\Conditions.cs",
               "RelativeDocumentMoniker": "..\\TranslationLibrary\\SpoilerLog\\Models\\Conditions.cs",
@@ -494,7 +533,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 33,
               "Title": "Trick.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\SpoilerLog\\Models\\Trick.cs",
               "RelativeDocumentMoniker": "..\\TranslationLibrary\\SpoilerLog\\Models\\Trick.cs",
@@ -506,7 +545,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "SettingsManager.cs",
               "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\SpoilerTracker\\Models\\SettingsManager.cs",
               "RelativeDocumentMoniker": "Models\\SettingsManager.cs",
@@ -544,43 +583,57 @@
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "FloatingWindowState": {
-        "Id": "e1d67f61-0f38-4a36-8aa6-3783efcb3679",
+        "Id": "cfcd6b7e-a337-40c2-a961-4104c81a5663",
         "Display": 0,
-        "X": 1750,
-        "Y": 60,
-        "Width": 1200,
-        "Height": 838,
+        "X": 1706,
+        "Y": 0,
+        "Width": 1357,
+        "Height": 903,
         "WindowState": 0
       },
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TemplateTracker - Simplified.json",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - Simplified.json",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - Simplified.json",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - Simplified.json",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - Simplified.json",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAEAAAAAiAAAAAAAAAA==",
+              "Title": "Map - Misc.json",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Misc.json",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Misc.json",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Misc.json*",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - Misc.json*",
+              "ViewState": "AgIAAKMBAAAAAAAAAAAgwM8BAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-28T04:10:51.799Z",
+              "WhenOpened": "2025-09-29T18:59:07.013Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "TemplateTracker.json",
-              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker.json",
-              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker.json",
-              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker.json",
-              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker.json",
-              "ViewState": "AgIAAJAGAAAAAAAAAAAvwJ4GAAAVAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Map - OOT Settings.json",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - OOT Settings.json",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - OOT Settings.json",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - OOT Settings.json",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - OOT Settings.json",
+              "ViewState": "AgIAAMUAAAAAAAAAAAApwOAAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-26T19:09:06.871Z"
+              "WhenOpened": "2025-09-29T04:39:08.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Map - MM Settings.json",
+              "DocumentMoniker": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Settings.json",
+              "RelativeDocumentMoniker": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Settings.json",
+              "ToolTip": "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Settings.json*",
+              "RelativeToolTip": "..\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Settings.json*",
+              "ViewState": "AgIAACEAAAAAAAAAAAApwCgAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-29T03:21:41.301Z",
+              "EditorCaption": ""
             }
           ]
         }

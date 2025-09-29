@@ -96,7 +96,7 @@
     }
   },
   {
-    "spoiler_label": "owlShuffle?",
+    "spoiler_label": "owlShuffle",
     "item_reference": "progressive:Owl%20Statue%20Shuffle",
     "values": {
       "none": 0,
@@ -109,6 +109,18 @@
     "values": {
       "true": 0,
       "false": 1
+    }
+  },
+  {
+    "spoiler_label": "blastMaskCoolDown",
+    "item_reference": "progressive:blast%20Mask%20Cooldown",
+    "values": {
+      "instant": 0,
+      "veryshort": 1,
+      "short": 2,
+      "default": 3,
+      "long": 4,
+      "verylong": 5
     }
   },
   {
@@ -194,7 +206,7 @@
     "values": {}
   },
   {
-    "spoiler_label": "openMoon?",
+    "spoiler_label": "openMoon",
     "item_reference": "progressive:Skip%20Oath%20to%20Order",
     "values": {
       "true": 0,
@@ -202,7 +214,7 @@
     }
   },
   {
-    "spoiler_label": "crossWarpMM?",
+    "spoiler_label": "crossWarpMM",
     "item_reference": "progressive:Cross-Games%20MM%20Song%20of%20Soaring",
     "values": {
       "none": 0,
@@ -275,6 +287,16 @@
     "values": {
       "true": 0,
       "false": 1
+    }
+  },
+  {
+    "spoiler_label": "regionState",
+    "item_reference": "progressive:Region%20State",
+    "values": {
+      "dungeonBeaten": 0,
+      "bossBeaten": 1,
+      "reward": 0,
+      "free": 1
     }
   }
 ]
