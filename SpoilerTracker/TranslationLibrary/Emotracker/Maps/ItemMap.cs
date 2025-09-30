@@ -20,9 +20,6 @@ namespace TranslationLibrary.Emotracker.Maps
         public Dictionary<string, int>? Values { get; set; }
 
         [JsonIgnore]
-        public int? Id { get; set; }
-
-        [JsonIgnore]
         public string? Type { get; set; }
 
         public void Initialize()
@@ -32,14 +29,11 @@ namespace TranslationLibrary.Emotracker.Maps
 
             string[] parts = ItemReference.Split(':');
 
-            if (parts.Length >= 3)
+            if (parts.Length > 1)
             {
-                if (int.TryParse(parts[0], out int id))
-                    Id = id;
+                Type = parts[0];
+                ItemReference = parts[1].Trim();
 
-                Type = parts[1];
-                ItemReference = Uri.UnescapeDataString(parts[2]);
-                ItemReference = ItemReference.Replace(" ","");
 
             }
         }

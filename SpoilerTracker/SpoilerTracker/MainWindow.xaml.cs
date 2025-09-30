@@ -248,8 +248,18 @@ namespace SpoilerTracker
         }
         private async void ExportToEmotracker()
         {
+            string[] mapFiles = 
+                {
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Settings.json",
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Tricks.json",
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - OOT Settings.json",
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - OOT Tricks.json",
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Shared Items.json",
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Misc.json",
+                };
+
             emoTracker.SetTemplatePath();
-            //await emoTracker.ImportMap("J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\S2T Map - Full.json");
+            await emoTracker.ImportMaps(mapFiles);
             await emoTracker.ImportTracker(null,true);
             await emoTracker.UpdateTracker(spoiler);
             

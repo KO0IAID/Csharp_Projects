@@ -47,7 +47,7 @@
     }
   },
   {
-    "spoiler_label": "strayFairyChestShuffle?",
+    "spoiler_label": "strayFairyChestShuffle",
     "item_reference": "progressive:Dungeon%20Chest%20Fairy%20Shuffle",
     "values": {
       "vanilla": 0,
@@ -57,7 +57,7 @@
     }
   },
   {
-    "spoiler_label": "strayFairyOtherShuffle?",
+    "spoiler_label": "strayFairyOtherShuffle",
     "item_reference": "progressive:Dungeon%20Freestanding%20Fairy%20Shuffle",
     "values": {
       "removed": 0,

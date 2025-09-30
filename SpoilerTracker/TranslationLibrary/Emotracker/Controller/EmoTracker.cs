@@ -48,31 +48,52 @@ namespace TranslationLibrary.Emotracker.Controller
                 TemplatePath = filePath;
             }
         }
-        public async Task ImportMap(string filePath) 
+        public async Task ImportMaps(string[] filePaths)
         {
-            if (!File.Exists(filePath))
-                throw new FileNotFoundException("Mapping JSON not found.", filePath);
+            MapItems = new List<ItemMap>(); // Reset master list
 
-            using FileStream mapStream = File.OpenRead(filePath);
-
-            var mapOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            var mappingDictionary = await JsonSerializer.DeserializeAsync<Dictionary<string, ItemMap>>(mapStream, mapOptions);
-
-            if (mappingDictionary == null)
+            var mapOptions = new JsonSerializerOptions
             {
-                Debug.WriteLine("Failed to deserialize JSON mapping file.");
-                return;
-            }
+                PropertyNameCaseInsensitive = true
+            };
 
-            foreach ((string spoilerSetting, ItemMap item) in mappingDictionary)
+            foreach (string filePath in filePaths)
             {
-                item.ItemReference = spoilerSetting;
-                item.Initialize();
-                MapItems.Add(item);
-            }
+                if (!File.Exists(filePath))
+                {
+                    Debug.WriteLine($"File not found: {filePath}");
+                    continue;
+                }
 
-            Map = mappingDictionary;
+                try
+                {
+                    using FileStream mapStream = File.OpenRead(filePath);
+                    var items = await JsonSerializer.DeserializeAsync<List<ItemMap>>(mapStream, mapOptions);
+
+                    if (items == null)
+                    {
+                        Debug.WriteLine($"Failed to deserialize JSON file: {filePath}");
+                        continue;
+                    }
+
+                    foreach (var item in items)
+                    {
+                        item.Initialize();
+                        MapItems.Add(item);
+                    }
+                }
+                catch (JsonException ex)
+                {
+                    Debug.WriteLine($"JSON error in file '{filePath}': {ex.Message}");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error processing file '{filePath}': {ex.Message}");
+                }
+            }
         }
+
+
         public async Task ImportTracker(string? filePath = null, bool showDebugStats = false)
         {
             Stopwatch stopWatch = Stopwatch.StartNew();

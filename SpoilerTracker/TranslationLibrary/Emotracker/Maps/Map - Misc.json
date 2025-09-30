@@ -413,7 +413,7 @@
   },
   {
     "spoiler_label": "extraChildSwordsOot",
-    "item_reference": "progressive:Extra%20%Child%20Swords%20%28Oot%29",
+    "item_reference": "progressive:Extra%20%Child%20Swords%20%28OoT%29",
     "values": {
       "true": 0,
       "false": 1
@@ -429,7 +429,7 @@
   },
   {
     "spoiler_label": "fairySpotShuffleOot",
-    "item_reference": "progressive:fairy%20%Spot%20Shuffle%20Oot",
+    "item_reference": "progressive:fairy%20%Spot%20Shuffle%20%28OoT%29",
     "values": {
       "true": 0,
       "false": 1
@@ -701,7 +701,7 @@
   },
   {
     "spoiler_label": "progressiveShieldsOot",
-    "item_reference": "progressive:Progressive%20Shields%20%28Oot%29",
+    "item_reference": "progressive:Progressive%20Shields%20%28OoT%29",
     "values": {
       "seperate": 0,
       "progressive": 1
@@ -722,10 +722,537 @@
       "true": 0,
       "false": 1
     }
+  },
+  {
+    "spoiler_label": "sharedHealth",
+    "item_reference": "progressive:Shared%20Health",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleBarrelsMm",
+    "item_reference": "progressive:Shuffle%20Barrels%20%28MM%29",
+    "values": {
+      "none": 0,
+      "all": 1,
+      "overworld": 2,
+      "dungeons": 3
+    }
+  },
+  {
+    "spoiler_label": "shuffleButterfliesMm",
+    "item_reference": "progressive:Shuffle%20Butterflies%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleButterfliesOot",
+    "item_reference": "progressive:Shuffle%20Butterflies%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleButterfliesOot",
+    "item_reference": "progressive:Shuffle%20Butterflies%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleFreeHeartsMm",
+    "item_reference": "progressive:Shuffle%20Free%20Hearts%20MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleFreeHeartsOot",
+    "item_reference": "progressive:Shuffle%20Free%20Hearts%20%28OoT%29",
+    "values": {
+      "none": 0,
+      "all": 1,
+      "overworld": 2,
+      "dungeons": 3
+    }
+  },
+  {
+    "spoiler_label": "shuffleFreeRupeesMm",
+    "item_reference": "progressive:Shuffle%20Free%20Rupees%20%28MM%29",
+    "values": {
+      "none": 0,
+      "all": 1,
+      "overworld": 2,
+      "dungeons": 3
+    }
+  },
+  {
+    "spoiler_label": "shuffleFreeRupeesOot",
+    "item_reference": "progressive:Shuffle%20Free%20Rupees%20%28OoT%29",
+    "values": {
+      "none": 0,
+      "all": 1,
+      "overworld": 2,
+      "dungeons": 3
+    }
+  },
+  {
+    "spoiler_label": "shuffleFrogsRupeesOot",
+    "item_reference": "progressive:Shuffle%20Frogs%20Rupees%20OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleGerudoCard",
+    "item_reference": "progressive:Shuffle%20Gerudo%20Card",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleGrassMm",
+    "item_reference": "progressive:Shuffle%20Grass%20%28MM%29",
+    "values": {
+      "none": 0,
+      "all": 1,
+      "overworld": 2,
+      "dungeons": 3
+    }
+  },
+  {
+    "spoiler_label": "shuffleGrassOot",
+    "item_reference": "progressive:Shuffle%20Grass%20%28OoT%29",
+    "values": {
+      "none": 0,
+      "all": 1,
+      "overworld": 2,
+      "dungeons": 3
+    }
+  },
+  {
+    "spoiler_label": "shuffleHivesMm",
+    "item_reference": "progressive:Ageless%20Shuffle%Hives%20MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleIciclesMm",
+    "item_reference": "progressive:Shuffle%20Icicles%20MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleIciclesOot",
+    "item_reference": "progressive:Shuffle%20Icicles%20OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleMaskTrades",
+    "item_reference": "progressive:Shuffle%20Mask%20Trades",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleMasterSword",
+    "item_reference": "progressive:Shuffle%20Master%20Sword",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleMerchantsMm",
+    "item_reference": "progressive:Shuffle%20Merchants%20%28Mm%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleMerchantsOot",
+    "item_reference": "progressive:Shuffle%20Merchants%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleOcarinasOot",
+    "item_reference": "progressive:Shuffle%20Ocarinas%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleRedBouldersMm",
+    "item_reference": "progressive:Shuffle%20Red%20Boulders%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleRedBouldersOot",
+    "item_reference": "progressive:Shuffle%20Red%20Boulders%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleRedIceOoT",
+    "item_reference": "progressive:Shuffle%20Red%20Ice%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleSnowballsMm",
+    "item_reference": "progressive:Shuffle%20Snowballs%20%28MM%29",
+    "values": {
+      "none": 0,
+      "all": 1,
+      "overworld": 2,
+      "dungeons": 3
+    }
+  },
+  {
+    "spoiler_label": "shuffleTFGrassMm",
+    "item_reference": "progressive:Shuffle%20TF%20Grass%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleWonderItemsMm",
+    "item_reference": "progressive:Shuffle%20Wonder%20Items%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "shuffleWonderItemsOot",
+    "item_reference": "progressive:Shuffle%20Wonder%20Items%20%28Oot%29",
+    "values": {
+      "none": 0,
+      "all": 1,
+      "overworld": 2,
+      "dungeons": 3
+    }
+  },
+  {
+    "spoiler_label": "silverRupeeShuffle",
+    "item_reference": "progressive:Silver%20Rupee%20Shuffle",
+    "values": {
+      "vanilla": 0,
+      "ownDungeon": 1,
+      "anywhere": 2
+    }
+  },
+  {
+    "spoiler_label": "skeletonKeyMm",
+    "item_reference": "progressive:Skeleton%20Key%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "skeletonKeyOoT",
+    "item_reference": "progressive:Skeleton%20Key%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "smallKeyShuffleChestGame",
+    "item_reference": "progressive:small%20Key%20Shuffle%20Chest%20Game",
+    "values": {
+      "vanilla": 0,
+      "ownDungeon": 1,
+      "anywhere": 2
+    }
+  },
+  {
+    "spoiler_label": "smallKeyShuffleHideout",
+    "item_reference": "progressive:small%20Key%20Shuffle%20Hideout",
+    "values": {
+      "vanilla": 0,
+      "ownDungeon": 1,
+      "anywhere": 2
+    }
+  },
+  {
+    "spoiler_label": "songOfDoubletimeOot",
+    "item_reference": "progressive:Song%20Of%20Double%20Time%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "songs",
+    "item_reference": "progressive:Songs",
+    "values": {
+      "vanilla": 0,
+      "ownDungeon": 1,
+      "anywhere": 2
+    }
+  },
+  {
+    "spoiler_label": "soulsBossMm",
+    "item_reference": "progressive:Souls%20Boss%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "soulsBossOot",
+    "item_reference": "progressive:Souls%20Boss%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "soulsEnemyMm",
+    "item_reference": "progressive:Souls%20Enemy%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "soulsEnemyOot",
+    "item_reference": "progressive:Souls%20Enemy%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "soulsMiscMm",
+    "item_reference": "progressive:Souls%20Misc%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "soulsMiscOot",
+    "item_reference": "progressive:Souls%20Misc%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "soulsNPCMm",
+    "item_reference": "progressive:Souls%20NPC%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "soulsMiscOot",
+    "item_reference": "progressive:Souls%20NPC%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "spellFireMm",
+    "item_reference": "progressive:Spell%20Fire%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "spellLoveeMm",
+    "item_reference": "progressive:Spell%20Love%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "spellWindMm",
+    "item_reference": "progressive:Spell%20Wind%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "spinUpgradeOot",
+    "item_reference": "progressive:Spin%20Upgrade%20%28Oot%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "sticksNutsUpgradesMm",
+    "item_reference": "progressive:Sticks%20Nuts%20Upgrade%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "stoneAgonyMm",
+    "item_reference": "progressive:Stone%20Agony%20%%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "stoneMaskOot",
+    "item_reference": "progressive:Stone%20Mask%20%%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "strengthMm",
+    "item_reference": "progressive:Strength20%%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "sunSongMm",
+    "item_reference": "progressive:Sun20%Song%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "trapAntiMagic",
+    "item_reference": "progressive:Trap20%Anti%20Magic",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "trapDrain",
+    "item_reference": "progressive:Trap20%Drain",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "trapFire",
+    "item_reference": "progressive:Trap20%Fire",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "trapIce",
+    "item_reference": "progressive:Trap20%Ice",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "trapKnockback",
+    "item_reference": "progressive:Trap20%Knockback",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "trapRupoor",
+    "item_reference": "progressive:Trap20%Rupoor",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "trapShock",
+    "item_reference": "progressive:Trap20%Shock",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "trapsQuantity",
+    "item_reference": "progressive:Traps20%Quantity",
+    "values": {
+      "small": 0,
+      "medium": 1,
+      "large": 2,
+      "verylarge": 3,
+      "extreme": 4,
+      "insane": 5,
+      "obnoxious": 6,
+      "absurd": 7
+    }
+  },
+  {
+    "spoiler_label": "tunicGoronMm",
+    "item_reference": "progressive:Tunic20%Goron%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "tunicZoraMm",
+    "item_reference": "progressive:Tunic20%Zora%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "voidWarpMM",
+    "item_reference": "progressive:Tunic20%Zora%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
   }
-
-
-
 
 
 
