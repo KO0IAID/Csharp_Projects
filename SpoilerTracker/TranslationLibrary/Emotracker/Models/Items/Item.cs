@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -53,6 +54,11 @@ namespace TranslationLibrary.Emotracker.Models.Items
         #endregion
         #region JsonIgnores
         [JsonIgnore]
+        public string? OldValue { get; set; }
+        [JsonIgnore]
+        public string? NewValue { get; set; }
+
+        [JsonIgnore]
         public int? Id { get; set; }
 
         [JsonIgnore]
@@ -63,16 +69,13 @@ namespace TranslationLibrary.Emotracker.Models.Items
 
         [JsonIgnore]
         public string? ParsedItemReference { get; set; }
-
-        [JsonIgnore]
-        public string? Change { get; set; }
         #endregion
 
 
 
-        
 
 
+        [OnDeserialized]
         public void Initialize() 
         {
             if (string.IsNullOrWhiteSpace(ItemReference))
@@ -90,50 +93,22 @@ namespace TranslationLibrary.Emotracker.Models.Items
 
                 CleanItemReference = Uri.UnescapeDataString(parts[2]).Replace(" ", "");
             }
+
+            switch (Type)
+            {
+                case "progressive":
+                    OldValue = StageIndex.ToString(); 
+                    break;
+                case "toggle":
+                    OldValue = Active.ToString();
+                    break;
+                case "consumable":
+                    OldValue = $"{AcquiredCount.ToString()}, {ConsumedCount.ToString()}, {MaxCount.ToString()}, {MinCount.ToString()}";
+                    break;
+                case "lua":
+                    OldValue = $"{Active.ToString()}, {PresetNum.ToString()}";
+                    break;
+            }
         }
-
-        /*
-
-        Itempoly Types:
-
-           Toggle:
-               ID                      int
-               Item_Reference:         string
-               Active:                 bool
-
-           Progressive:
-               ID                      int
-               Item_Reference:         string
-               Stage_Index:            int
-
-           Consumable:
-               ID                      int
-               Item_Reference:         string
-               Acquired_count:         int
-               Consumed_coutn:         int
-               Max_count:              int
-               Min_count:              int
-
-           Lua:
-               ID                      int
-               Item_Reference:         string
-               Active:                 bool
-               Stage:                  double
-               PresetNum               double
-
-           Location:
-               ID                      int
-               Acronym                 string
-               Location_Reference      string
-               Modified_by_user        bool
-               Sections                Section[]
-
-           Section:
-               Acronym                 string
-               Section_Reference       string
-               Available_Chest_Count   int
-
-       */
     }
-
 }

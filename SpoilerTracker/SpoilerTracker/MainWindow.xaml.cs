@@ -264,22 +264,22 @@ namespace SpoilerTracker
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Shared Items.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Misc.json",
                 };
-                string trackerFile = "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - SoulShuffle.json";
+                string trackerFile = "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker.json";
+                DateTime dateTime = DateTime.Today;
 
                 SaveFileDialog sfd = new SaveFileDialog
                 {
                     Title = "Save Emotracker",
                     Filter = "JSON files (*.json)|*.json",
                     DefaultExt = "json",
+                    FileName = $"Emotracker - Export - {DateTime.Now:d}",
                     AddExtension = true
                 };
 
                 if (sfd.ShowDialog() == true)
                 {
-                    await emoTracker.ImportMaps(mapFiles, true);
-                    await emoTracker.ImportTracker(trackerFile, true);
-                    await emoTracker.UpdateTracker(spoiler, true);
-                    await emoTracker.ExportTracker(sfd.FileName);
+                   await emoTracker.ConvertSpoilerToEmotracker(spoiler, trackerFile, mapFiles, sfd.FileName, true);
+                    string changes = emoTracker.ChangeLog;
                     TrackerPrompt.Text = "🗹";
                 }
                 else 

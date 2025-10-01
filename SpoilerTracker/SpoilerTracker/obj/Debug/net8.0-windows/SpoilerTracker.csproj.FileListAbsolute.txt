@@ -47,9 +47,6 @@ J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\obj\Debug\net8.0-windows\r
 J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\obj\Debug\net8.0-windows\SpoilerTracker.pdb
 J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\obj\Debug\net8.0-windows\SpoilerTracker.genruntimeconfig.cache
 J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\obj\Debug\net8.0-windows\ref\SpoilerTracker.dll
-J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Resources\TemplateTracker - Simplified.json
-J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Resources\TemplateTracker.json
-J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\Map - Full.json
 J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\Map - OOT Tricks.json
 J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\Map - Special LACS.json
 J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\Map - Special Majora.json

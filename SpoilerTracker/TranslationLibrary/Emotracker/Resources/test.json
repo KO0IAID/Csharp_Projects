@@ -3442,72 +3442,72 @@
     {
       "item_reference": "841:lua:Free%20Reward",
       "active": false,
-      "stage": 1.0
+      "stage": 1
     },
     {
       "item_reference": "842:lua:Deku%20Tree%20Reward",
       "active": false,
-      "stage": 1.0
+      "stage": 1
     },
     {
       "item_reference": "843:lua:Dodongos%20Cavern%20Reward",
       "active": false,
-      "stage": 1.0
+      "stage": 1
     },
     {
       "item_reference": "844:lua:Jabu%20Jabu%20Reward",
       "active": false,
-      "stage": 1.0
+      "stage": 1
     },
     {
       "item_reference": "845:lua:Forest%20Temple%20Reward",
       "active": false,
-      "stage": 1.0
+      "stage": 1
     },
     {
       "item_reference": "846:lua:Fire%20Temple%20Reward",
       "active": false,
-      "stage": 1.0
+      "stage": 1
     },
     {
       "item_reference": "847:lua:Water%20Temple%20Reward",
       "active": false,
-      "stage": 1.0
+      "stage": 1
     },
     {
       "item_reference": "848:lua:Spirit%20Temple%20Reward",
       "active": false,
-      "stage": 1.0
+      "stage": 1
     },
     {
       "item_reference": "849:lua:Shadow%20Temple%20Reward",
       "active": false,
-      "stage": 1.0
+      "stage": 1
     },
     {
       "item_reference": "850:lua:MM%20Woodfall%20Temple%20Reward",
       "active": false,
-      "stage": 1.0
+      "stage": 1
     },
     {
       "item_reference": "851:lua:MM%20Snowhead%20Temple%20Reward",
       "active": false,
-      "stage": 1.0
+      "stage": 1
     },
     {
       "item_reference": "852:lua:MM%20Great%20Bay%20Temple%20Reward",
       "active": false,
-      "stage": 1.0
+      "stage": 1
     },
     {
       "item_reference": "853:lua:MM%20Stone%20Tower%20Temple%20Reward",
       "active": false,
-      "stage": 1.0
+      "stage": 1
     },
     {
       "item_reference": "854:lua:Presets",
       "active": true,
-      "presetNum": 0.0
+      "presetNum": 0
     }
   ],
   "location_database": {
@@ -11926,6 +11926,6 @@
       }
     ]
   },
-  "main_window_width": 1280.0,
-  "main_window_height": 960.0
+  "main_window_width": 1280,
+  "main_window_height": 960
 }

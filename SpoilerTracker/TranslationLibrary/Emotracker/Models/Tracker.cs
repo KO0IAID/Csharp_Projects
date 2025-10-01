@@ -39,7 +39,7 @@ namespace TranslationLibrary.Emotracker.Models
         public bool? PinLocationsOnItemCapture { get; set; }
 
         [JsonPropertyName("item_database")]
-        public List<Itempoly>? ItemDatabase { get; set; }
+        public List<Item>? ItemDatabase { get; set; }
 
         [JsonPropertyName("location_database")]
         public LocationDatabase? LocationDatabase { get; set; }

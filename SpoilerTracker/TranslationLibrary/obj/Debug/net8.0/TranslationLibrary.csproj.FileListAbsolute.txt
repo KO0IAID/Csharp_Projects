@@ -21,9 +21,6 @@ J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\Trans
 J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\refint\TranslationLibrary.dll
 J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\TranslationLibrary.pdb
 J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\obj\Debug\net8.0\ref\TranslationLibrary.dll
-J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Resources\TemplateTracker - Simplified.json
-J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Resources\TemplateTracker.json
-J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - Full.json
 J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - OOT Tricks.json
 J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - Special LACS.json
 J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - Special Majora.json

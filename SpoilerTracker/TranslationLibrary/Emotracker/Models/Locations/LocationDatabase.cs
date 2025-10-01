@@ -12,5 +12,8 @@ namespace TranslationLibrary.Emotracker.Models.Locations
     {
         [JsonPropertyName("locations")]
         public List<Location>? Locations { get; set; }
+
+        [JsonIgnore]
+        public int Count => Locations?.Count ?? 0;
     }
 }
