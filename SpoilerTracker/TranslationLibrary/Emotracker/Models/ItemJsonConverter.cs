@@ -9,9 +9,9 @@ using TranslationLibrary.Emotracker.Models.Items;
 
 namespace TranslationLibrary.Emotracker.Models
 {
-    public class ItemJsonConverter : JsonConverter<Item>
+    public class ItemJsonConverter : JsonConverter<Itempoly>
     {
-        public override Item? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override Itempoly? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             using var doc = JsonDocument.ParseValue(ref reader);
             var root = doc.RootElement;
@@ -41,7 +41,7 @@ namespace TranslationLibrary.Emotracker.Models
                 _ => throw new JsonException($"Unknown item type '{type}' in item_reference")
             };
         }
-        public override void Write(Utf8JsonWriter writer, Item value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, Itempoly value, JsonSerializerOptions options)
         {
             JsonSerializer.Serialize(writer, (object)value, value.GetType(), options);
         }

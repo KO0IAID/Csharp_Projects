@@ -21,6 +21,11 @@ namespace TranslationLibrary.Emotracker.Maps
 
         [JsonIgnore]
         public string? Type { get; set; }
+        [JsonIgnore]
+        public string? File { get; set; }
+
+        [JsonIgnore]
+        public string? FullItemReference { get; set; }
 
         public void Initialize()
         {
@@ -32,9 +37,8 @@ namespace TranslationLibrary.Emotracker.Maps
             if (parts.Length > 1)
             {
                 Type = parts[0];
+                FullItemReference = ItemReference;
                 ItemReference = parts[1].Trim();
-
-
             }
         }
     }

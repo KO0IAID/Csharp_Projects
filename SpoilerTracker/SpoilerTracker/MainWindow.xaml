@@ -50,8 +50,7 @@
 
                     <StackPanel Grid.Row="1" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="2" >
                         <Button x:Name="SpoilerLogBtn" Content="Import Spoiler Log" Click="SpoilerBtn_Click" Margin="0,0,0,0"/>
-                        <Button x:Name="TrackerBtn" Content="Create EmoTracker" Height="20" Click="TrackerBtn_Click" Margin="0,3,0,0"/>
-                        <Button x:Name="ExportGameSettingsBtn" Content="Export Game Settings" Grid.ColumnSpan="2" Height="20" FontSize="10" IsEnabled="False" Margin="0,3,0,0"/>
+                        <Button x:Name="ExportToEmotrackerBtn" Content="Export to Emotracker" Grid.ColumnSpan="2" Height="20" FontSize="10" IsEnabled="True" Margin="0,3,0,0" Click="ExportToEmotracker"/>
                     </StackPanel>
                     
                     <StackPanel Grid.Row="1" Grid.RowSpan="5" Grid.Column="2">

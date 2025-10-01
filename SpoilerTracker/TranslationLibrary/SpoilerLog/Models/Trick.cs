@@ -19,9 +19,9 @@ namespace TranslationLibrary.SpoilerLog.Models
         {
             return new Trick
             {
-                Name = line,
-                Value = "True",
-                Description = line,
+                Name = line.Trim(),
+                Value = "true",
+                Description = line.Trim(),
                 Difficulty = null,           //Temporarily Null until  a difficulty ranking system for each trick is established
                 LogOrder = LogOrder++
             };

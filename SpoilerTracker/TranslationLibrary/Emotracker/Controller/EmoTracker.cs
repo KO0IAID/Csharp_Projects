@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -11,19 +13,18 @@ using TranslationLibrary.Emotracker.Models;
 using TranslationLibrary.Emotracker.Models.Items;
 using TranslationLibrary.Emotracker.Models.Locations;
 using TranslationLibrary.SpoilerLog.Controller;
-using Item = TranslationLibrary.Emotracker.Models.Items.Item;
+using TranslationLibrary.SpoilerLog.Models;
+using Itempoly = TranslationLibrary.Emotracker.Models.Items.Itempoly;
 
 
 namespace TranslationLibrary.Emotracker.Controller
 {
     public class EmoTracker
     {
-        public string? TemplatePath {  get; private set; }
-        public Tracker? OriginalTracker { get; private set; }
-        public Tracker? UpdatedTracker { get; private set; }
+        public Tracker? Tracker { get; private set; }
 
         #region Collections
-        public List<Item> AllItems { get; private set; } = new();
+        public List<Itempoly> AllItems { get; private set; } = new();
         public List<Toggle> Toggles { get; private set; } = new();
         public List<Progressive> Progressives { get; private set; } = new();
         public List<Consumable> Consumables { get; private set; } = new();
@@ -32,30 +33,18 @@ namespace TranslationLibrary.Emotracker.Controller
         #endregion
 
         #region Maps
-        public Dictionary<string, ItemMap>? Map { get; private set; }
-        public List<ItemMap> MapItems { get; private set; } = new();
+        public List<ItemMap> Maps { get; private set; } = new();
 
         #endregion
 
-        public void SetTemplatePath(string filePath = null) 
-        {
-            if (filePath == null)
-            {
-                TemplatePath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\..\..\TranslationLibrary\Emotracker\Resources\TemplateTracker - SoulShuffle.json"));
-            }
-            else
-            { 
-                TemplatePath = filePath;
-            }
-        }
-        public async Task ImportMaps(string[] filePaths)
-        {
-            MapItems = new List<ItemMap>(); // Reset master list
 
-            var mapOptions = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            };
+        public async Task ImportMaps(string[] filePaths, bool showDebugStats = false)
+        {
+            Stopwatch sw = Stopwatch.StartNew();
+
+            Maps = new List<ItemMap>(); // Reset master list
+
+            var mapOptions = new JsonSerializerOptions  {   PropertyNameCaseInsensitive = true  };
 
             foreach (string filePath in filePaths)
             {
@@ -67,8 +56,8 @@ namespace TranslationLibrary.Emotracker.Controller
 
                 try
                 {
-                    using FileStream mapStream = File.OpenRead(filePath);
-                    var items = await JsonSerializer.DeserializeAsync<List<ItemMap>>(mapStream, mapOptions);
+                    using FileStream stream = File.OpenRead(filePath);
+                    var items = await JsonSerializer.DeserializeAsync<List<ItemMap>>(stream, mapOptions);
 
                     if (items == null)
                     {
@@ -79,7 +68,8 @@ namespace TranslationLibrary.Emotracker.Controller
                     foreach (var item in items)
                     {
                         item.Initialize();
-                        MapItems.Add(item);
+                        item.File = filePath;
+                        Maps.Add(item);
                     }
                 }
                 catch (JsonException ex)
@@ -91,31 +81,34 @@ namespace TranslationLibrary.Emotracker.Controller
                     Debug.WriteLine($"Error processing file '{filePath}': {ex.Message}");
                 }
             }
+            if (showDebugStats) 
+            {
+                DebugStats(sw,"Maps");
+            }
+                
         }
-
-
-        public async Task ImportTracker(string? filePath = null, bool showDebugStats = false)
+        public async Task ImportTracker(string filePath, bool showDebugStats = false)
         {
             Stopwatch stopWatch = Stopwatch.StartNew();
-            string pathToUse = filePath ?? TemplatePath;
+            string pathToUse = filePath;
 
             if (!File.Exists(pathToUse))
-                throw new FileNotFoundException("Template file not found.", pathToUse);
+                throw new FileNotFoundException("Tracker file not found.", pathToUse);
 
             // Open the JSON file for reading
             using var stream = File.OpenRead(pathToUse);
 
-            // Register custom converter for Item
+            // Register custom converter for Itempoly
             var options = new JsonSerializerOptions
             {
                 Converters = { new ItemJsonConverter() },
                 PropertyNameCaseInsensitive = true
             };
 
-            // Deserialize the tracker JSON using your OriginalTracker class
-            OriginalTracker = await JsonSerializer.DeserializeAsync<Tracker>(stream, options);
+            // Deserialize the tracker JSON using your Tracker class
+            Tracker = await JsonSerializer.DeserializeAsync<Tracker>(stream, options);
 
-            if (OriginalTracker == null)
+            if (Tracker == null)
                 return;
 
             // Clear existing collections before repopulating (optional safety)
@@ -126,11 +119,12 @@ namespace TranslationLibrary.Emotracker.Controller
             Locations?.Clear();
 
             // Process item_database
-            if (OriginalTracker.ItemDatabase != null)
+            if (Tracker.ItemDatabase != null)
             {
-                foreach (Item item in OriginalTracker.ItemDatabase)
+                foreach (Itempoly item in Tracker.ItemDatabase)
                 {
                     item.Initialize();
+
                     AllItems.Add(item);
 
                     switch (item)
@@ -155,148 +149,337 @@ namespace TranslationLibrary.Emotracker.Controller
             }
 
             // Process location_database
-            if (OriginalTracker.LocationDatabase?.Locations != null)
+            if (Tracker.LocationDatabase?.Locations != null)
             {
-                foreach (var location in OriginalTracker.LocationDatabase.Locations)
+                foreach (var location in Tracker.LocationDatabase.Locations)
                 {
                     location.Initialize(); // Will also initialize its sections
                 }
 
-                Locations = OriginalTracker.LocationDatabase.Locations;
+                Locations = Tracker.LocationDatabase.Locations;
             }
 
             if (showDebugStats)
             {
-                DebugStats(stopWatch);
+                DebugStats(stopWatch,"Tracker");
             }
         }
-        public async Task<bool> UpdateTracker(Spoiler log)
+        public async Task<bool> UpdateTracker(Spoiler? spoilerLog, bool debugStats = false)
         {
-
-            //  Map.Key         =   goldSkulltulaTokens     (Spoiler log name)
-            //  Map.Value       =   ItemMap
-            //  ItemMap.key     =   ItemReference           GoldSkulltulaTokensShuffle (emotracker name)
-            //  ItemMap.Value   =   dictionary of [string, int]
-
-            if (OriginalTracker == null || log == null)
+            if (spoilerLog == null || Maps == null || Tracker == null)
             {
-                Debug.WriteLine("Tracker or spoiler log is null.");
+                Debug.WriteLine("\n--------- Tracker FAILED to Update! ---------");
+                Debug.WriteLineIf(IsNullOrEmpty(spoilerLog), "Spoilerlog is null/empty");
+                Debug.WriteLineIf(IsNullOrEmpty(Maps), "Maps is null/empty");
+                Debug.WriteLineIf(IsNullOrEmpty(Tracker), "Tracker is null/empty");
                 return false;
             }
 
-            if (Map == null)
-            {
-                Debug.WriteLine("Mapping dictionary (Map) is null.");
-                return false;
-            }
+            Stopwatch stopWatch = Stopwatch.StartNew();
+            int settingMatchesMap = 0;
+            int mapMatchesItem = 0;
+            int actualChanges = 0;
 
-            int changeCount = 0;
+            // Get the setting
+            foreach (Setting setting in spoilerLog.GameSettings) 
+            { 
+                string? settingName = setting.Name;
+                string? settingValue = setting.Value;
 
-            foreach (var setting in log.GameSettings)
-            {
-                if (string.IsNullOrWhiteSpace(setting?.Name) || string.IsNullOrWhiteSpace(setting?.Value))
-                    continue;
-
-                string settingName = setting.Name.Trim();
-                string settingValue = setting.Value.Trim();
-
-                if (!Map.TryGetValue(settingName, out var mapEntry))
-                    continue;
-
-                if (!mapEntry.Values.TryGetValue(settingValue, out int mappedValue))
-                    continue;
-
-                var item = OriginalTracker.ItemDatabase?.FirstOrDefault(i =>
-                    !string.IsNullOrWhiteSpace(i.ItemReference) &&
-                    i.ItemReference.Equals(mapEntry.ItemReference, StringComparison.OrdinalIgnoreCase));
-
-                if (item == null)
-                    continue;
-
-                string cleanName = GetCleanName(item); // Gets final part of item reference, e.g. "Hookshot"
-
-                switch (item)
+                // Get the itemMap
+                foreach (ItemMap itemMap in Maps) 
                 {
-                    case Toggle toggle:
-                        bool newToggle = mappedValue > 0;
-                        if (toggle.Active != newToggle)
-                        {
-                            toggle.Active = newToggle;
-                            LogSimpleChange(settingName, settingValue, cleanName, newToggle.ToString());
-                            changeCount++;
-                        }
-                        break;
+                    string? mapName = itemMap.FullItemReference;
+                    string? mapSpoilerLabel = itemMap.SpoilerLabel;
+                    string? mapType = itemMap.Type;
 
-                    case Progressive progressive:
-                        if (progressive.StageIndex != mappedValue)
-                        {
-                            progressive.StageIndex = mappedValue;
-                            LogSimpleChange(settingName, settingValue, cleanName, mappedValue.ToString());
-                            changeCount++;
-                        }
-                        break;
+                    // compare setting to item
+                    if (settingName == mapSpoilerLabel) 
+                    { 
+                        settingMatchesMap++;
 
-                    case Consumable consumable:
-                        if (consumable.AcquiredCount != mappedValue)
+                        // get the Itempoly
+                        foreach (Itempoly item in Tracker.ItemDatabase) 
                         {
-                            consumable.AcquiredCount = mappedValue;
-                            LogSimpleChange(settingName, settingValue, cleanName, mappedValue.ToString());
-                            changeCount++;
-                        }
-                        break;
+                            string? itemName = item.ParsedItemReference;
+                            string? cleanItemName = item.CleanItemReference;
+                            string? itemType = item.Type;
 
-                    case Lua lua:
-                        if (lua.Stage != mappedValue)
-                        {
-                            lua.Stage = mappedValue;
-                            LogSimpleChange(settingName, settingValue, cleanName, mappedValue.ToString());
-                            changeCount++;
+                            // compare map to item
+                            if (mapName == itemName && mapType == itemType)
+                            {
+                                mapMatchesItem++;
+                                // Attempt to get setting Value from item map
+                                if (itemMap.Values.TryGetValue(settingValue, out int mappedValue))
+                                {
+                                    
+                                    // Convert the item, to get access its proper properties, so we can modify the value.
+                                    switch (item)
+                                    {
+                                        case Toggle toggle:
+                                            // For some reason, they decided 0 = true, 1 = false OKAY...
+                                            bool oldToggle = !toggle.Active ?? false;
+                                            bool newToggle = mappedValue > 0;
+
+                                            // Changes the Value of Itempoly
+                                            if (oldToggle != newToggle)
+                                            {
+                                                toggle.Active = newToggle;
+                                                toggle.Changes = $"{!oldToggle} is now {!newToggle}";
+                                                Debug.WriteLineIf(debugStats, $"{cleanItemName}\n\t{!oldToggle} is now {!newToggle}");
+                                                actualChanges++;
+                                            }
+                                            break;
+
+                                        case Progressive progressive:
+                                            int oldProgressiveStage = progressive.StageIndex ?? 0;
+
+                                            // Changes the Value of Itempoly
+                                            if (oldProgressiveStage != mappedValue)
+                                            {
+                                                progressive.StageIndex = mappedValue;
+                                                progressive.Changes = $"{oldProgressiveStage} is now {mappedValue}";
+                                                Debug.WriteLineIf(debugStats, $"{cleanItemName}\n\t{oldProgressiveStage} is now {mappedValue}");
+                                                actualChanges++;
+                                            }
+                                            break;
+
+                                        case Consumable consumable:
+                                            int oldCount = consumable.AcquiredCount ?? 0;
+
+                                            // Changes the Value of Itempoly
+                                            if (oldCount != mappedValue)
+                                            {
+                                                consumable.AcquiredCount = mappedValue;
+                                                consumable.Changes = $"{oldCount} is now {mappedValue}";
+                                                Debug.WriteLineIf(debugStats, $"{cleanItemName}\n\t{oldCount} is now {mappedValue}");
+                                                actualChanges++;
+                                            }
+                                            break;
+
+                                        case Lua lua:
+                                            double? oldLuaStage = lua.Stage;
+
+                                            // Changes the Value of Itempoly
+                                            if (oldLuaStage != mappedValue)
+                                            {
+                                                lua.Stage = mappedValue;
+                                                lua.Changes = $"{oldLuaStage} is now {mappedValue}";
+                                                Debug.WriteLineIf(debugStats, $"{cleanItemName}\n\t{oldLuaStage} is now {mappedValue}");
+                                                actualChanges++;
+                                            }
+                                            break;
+                                    }
+                                }
+                                else
+                                {
+                                    Debug.WriteLineIf(debugStats,
+                                    $"*** BAD/DUPLICATE MAP VALUES***\n" +
+                                    $"Itempoly:\t\t{cleanItemName}\t= {itemType}\n" +
+                                    $"Map:\t\t{mapName}\t= {mapType}\n" +
+                                    $"Setting:\t{settingName} = {settingValue}\n");
+                                }
+                                
+                            }
+
                         }
-                        break;
+
+                    }
                 }
             }
 
-            Debug.WriteLine($"--- Tracker updated from spoiler log ---");
-            Debug.WriteLine($"Total changes applied: {changeCount}");
+            foreach (Trick trick in spoilerLog.Tricks)
+            {
+                string? trickName = trick.Name;
+                string? trickValue = trick.Value;
 
-            return changeCount > 0;
+                // Get the itemMap
+                foreach (ItemMap itemMap in Maps)
+                {
+                    string? mapName = itemMap.FullItemReference;
+                    string? mapSpoilerLabel = itemMap.SpoilerLabel;
+                    string? mapType = itemMap.Type;
+
+
+                    if (mapSpoilerLabel == "Access Adult Spirit as Child using Hover Boots")
+                    { 
+                        int test = 1; 
+                    }
+                    // compare setting to item
+                    if (string.Equals(trickName, mapSpoilerLabel,StringComparison.OrdinalIgnoreCase))
+                    {
+                        settingMatchesMap++;
+
+                        // get the Itempoly
+                        foreach (Itempoly item in Tracker.ItemDatabase)
+                        {
+                            string? itemName = item.ParsedItemReference;
+                            string? cleanItemName = item.CleanItemReference;
+                            string? itemType = item.Type;
+
+                            // compare map to item
+                            if (mapName == itemName && mapType == itemType)
+                            {
+                                mapMatchesItem++;
+                                // Attempt to get setting Value from item map
+                                if (itemMap.Values.TryGetValue(trickValue, out int mappedValue))
+                                {
+
+                                    // Convert the item, to get access its proper properties, so we can modify the value.
+                                    switch (item)
+                                    {
+                                        case Toggle toggle:
+                                            // For some reason, they decided 0 = true, 1 = false OKAY...
+                                            bool oldToggle = !toggle.Active ?? false;
+                                            bool newToggle = mappedValue > 0;
+
+                                            // Changes the Value of Itempoly
+                                            if (oldToggle != newToggle)
+                                            {
+                                                toggle.Active = newToggle;
+                                                toggle.Changes = $"{!oldToggle} is now {!newToggle}";
+                                                Debug.WriteLineIf(debugStats, $"{cleanItemName}\n\t{!oldToggle} is now {!newToggle}");
+                                                actualChanges++;
+                                            }
+                                            break;
+
+                                        case Progressive progressive:
+                                            int oldProgressiveStage = progressive.StageIndex ?? 0;
+
+                                            // Changes the Value of Itempoly
+                                            if (oldProgressiveStage != mappedValue)
+                                            {
+                                                progressive.StageIndex = mappedValue;
+                                                progressive.Changes = $"{oldProgressiveStage} is now {mappedValue}";
+                                                Debug.WriteLineIf(debugStats, $"{cleanItemName}\n\t{oldProgressiveStage} is now {mappedValue}");
+                                                actualChanges++;
+                                            }
+                                            break;
+
+                                        case Consumable consumable:
+                                            int oldCount = consumable.AcquiredCount ?? 0;
+
+                                            // Changes the Value of Itempoly
+                                            if (oldCount != mappedValue)
+                                            {
+                                                consumable.AcquiredCount = mappedValue;
+                                                consumable.Changes = $"{oldCount} is now {mappedValue}";
+                                                Debug.WriteLineIf(debugStats, $"{cleanItemName}\n\t{oldCount} is now {mappedValue}");
+                                                actualChanges++;
+                                            }
+                                            break;
+
+                                        case Lua lua:
+                                            double? oldLuaStage = lua.Stage;
+
+                                            // Changes the Value of Itempoly
+                                            if (oldLuaStage != mappedValue)
+                                            {
+                                                lua.Stage = mappedValue;
+                                                lua.Changes = $"{oldLuaStage} is now {mappedValue}";
+                                                Debug.WriteLineIf(debugStats, $"{cleanItemName}\n\t{oldLuaStage} is now {mappedValue}");
+                                                actualChanges++;
+                                            }
+                                            break;
+                                    }
+                                }
+                                else
+                                {
+                                    Debug.WriteLineIf(debugStats,
+                                    $"*** DUPLICATE MAP NAME***\n" +
+                                    $"Itempoly:\t\t{cleanItemName}\t= {itemType}\n" +
+                                    $"Map:\t\t{mapName}\t= {mapType}\n" +
+                                    $"Setting:\t{trickName} = {trickValue}\n");
+                                    
+                                }
+
+                            }
+
+                        }
+
+                    }
+                }
+            }
+
+            stopWatch.Stop();
+
+            Debug.WriteLineIf(debugStats,
+                $"----------- Tracker Updates ------------" +
+                $"\nSet Matches Map:\t{settingMatchesMap}" +
+                $"\nMap Matches Itempoly:\t{mapMatchesItem}" +
+                $"\nChanges Made:\t\t{actualChanges}" +
+                $"\nTime:\t\t\t\t{stopWatch.Elapsed}");
+
+            return true;
         }
-
-
-
-        private Item? FindItemByReference(string? itemReference)
+        public async Task ExportTracker(string filePath)
         {
-            if (string.IsNullOrWhiteSpace(itemReference))
-                return null;
+            if (Tracker == null)
+            {
+                Debug.WriteLine("Tracker is null, cannot save.");
+                return;
+            }
 
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,  // Makes the JSON nicely formatted
+                Converters = { new ItemJsonConverter() }, // Add your custom converter if needed
+            };
 
-            return OriginalTracker?.ItemDatabase?.FirstOrDefault(i =>
-                !string.IsNullOrEmpty(i.ItemReference) &&
-                i.ItemReference.Replace(" ", "").EndsWith(itemReference, StringComparison.OrdinalIgnoreCase));
+            try
+            {
+                using FileStream stream = File.Create(filePath);
+                await JsonSerializer.SerializeAsync(stream, Tracker, options);
+                Debug.WriteLine($"Tracker saved successfully to: {filePath}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Failed to save Tracker to {filePath}: {ex.Message}");
+            }
         }
-        private string GetCleanName(Item item)
+
+        public static bool IsNullOrEmpty(object obj)
         {
-            // Return the final part of the item reference, e.g., "Hookshot" from "837:progressive:Hookshot"
-            return item.ItemReference?.Split(':').Last() ?? "Unknown";
-        }
-        private void LogSimpleChange(string settingName, string settingValue, string itemName, string newValue)
-        {
-            Debug.WriteLine($"[Change] {settingName}, {settingValue} → {itemName}, {newValue}");
+            if (obj == null)
+                return true;
+
+            if (obj is string str)
+                return string.IsNullOrWhiteSpace(str);
+
+            if (obj is ICollection collection)
+                return collection.Count == 0;
+
+            if (obj is IEnumerable enumerable)
+                return !enumerable.Cast<object>().Any();
+
+            return false;
         }
 
-
-        private void DebugStats(Stopwatch stopWatch)
+        private void DebugStats(Stopwatch stopWatch, string sender)
         {
             stopWatch.Stop();
-            Debug.WriteLine(
-            $"--- EmoTracker Template Imported! ---" +
-            $"\nToggles:\t\t\t{Toggles.Count}" +
-            $"\nProgressives:\t\t{Progressives.Count}" +
-            $"\nConsumables:\t\t{Consumables.Count}" +
-            $"\nLuas:\t\t\t\t{Luas.Count}" +
-            $"\nLocations:\t\t\t{Locations.Count}" +
-            $"\nTime Taken:\t\t\t{stopWatch.Elapsed}"
+            if (sender == "Maps")
+            {
+                Debug.WriteLine(
+                $"--- {sender} Imported! ---" +
+                $"\nMaps:\t\t\t\t{Maps.Count}" +
+                $"\nTime Taken:\t\t\t{stopWatch.Elapsed}"
             );
+            }
+            else if (sender == "Tracker")
+            {
+                Debug.WriteLine(
+                $"--- {sender} Imported! ---" +
+                $"\nToggles:\t\t\t{Toggles.Count}" +
+                $"\nProgressives:\t\t{Progressives.Count}" +
+                $"\nConsumables:\t\t{Consumables.Count}" +
+                $"\nLuas:\t\t\t\t{Luas.Count}" +
+                $"\nLocations:\t\t\t{Locations.Count}" +
+                $"\nAllItems:\t\t\t{AllItems.Count}" +
+                $"\nTime Taken:\t\t\t{stopWatch.Elapsed}\n"
+                );
+            }
+            
         }
     }
 }

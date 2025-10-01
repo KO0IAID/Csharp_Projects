@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Numerics;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Windows;
@@ -59,7 +60,7 @@ namespace SpoilerTracker
         {
             InitializeComponent();
             AutoLoadSpoilerLog();
-            ExportToEmotracker();
+            
 
         }
         private async void SpoilerBtn_Click(object sender, RoutedEventArgs e)
@@ -246,9 +247,15 @@ namespace SpoilerTracker
             UpdateSortByDisplays();
             UpdateUIColumns();
         }
-        private async void ExportToEmotracker()
+        private async void ExportToEmotracker(object sender, RoutedEventArgs e)
         {
-            string[] mapFiles = 
+
+            ExportToEmotrackerBtn.IsEnabled = false;          
+            TrackerPrompt.Text = "⏳";               
+
+            try 
+            {
+                string[] mapFiles =
                 {
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Settings.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Tricks.json",
@@ -257,12 +264,38 @@ namespace SpoilerTracker
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Shared Items.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Misc.json",
                 };
+                string trackerFile = "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker - SoulShuffle.json";
 
-            emoTracker.SetTemplatePath();
-            await emoTracker.ImportMaps(mapFiles);
-            await emoTracker.ImportTracker(null,true);
-            await emoTracker.UpdateTracker(spoiler);
-            
+                SaveFileDialog sfd = new SaveFileDialog
+                {
+                    Title = "Save Emotracker",
+                    Filter = "JSON files (*.json)|*.json",
+                    DefaultExt = "json",
+                    AddExtension = true
+                };
+
+                if (sfd.ShowDialog() == true)
+                {
+                    await emoTracker.ImportMaps(mapFiles, true);
+                    await emoTracker.ImportTracker(trackerFile, true);
+                    await emoTracker.UpdateTracker(spoiler, true);
+                    await emoTracker.ExportTracker(sfd.FileName);
+                    TrackerPrompt.Text = "🗹";
+                }
+                else 
+                {
+                    TrackerPrompt.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                TrackerPrompt.Text = "❌";
+                Debug.WriteLine($"Export failed: {ex.Message}");
+            }
+            finally
+            {
+                ExportToEmotrackerBtn.IsEnabled = true;  
+            }
         }
 
         #region GameSettings
@@ -860,5 +893,7 @@ namespace SpoilerTracker
             LocationsListPlayerColumn.Visibility = anySpheresPlayers ? Visibility.Visible : Visibility.Collapsed;
         }
         #endregion
+
+
     }
 }

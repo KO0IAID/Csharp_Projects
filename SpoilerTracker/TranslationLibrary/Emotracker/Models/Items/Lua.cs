@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TranslationLibrary.Emotracker.Models.Items
 {
-    public class Lua : Item
+    public class Lua : Itempoly
     {
         [JsonPropertyName("active")]
         public bool? Active { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TranslationLibrary.Emotracker.Models.Items
 {
-    public class Consumable : Item
+    public class Consumable : Itempoly
     {
 
         [JsonPropertyName("acquired_count")]

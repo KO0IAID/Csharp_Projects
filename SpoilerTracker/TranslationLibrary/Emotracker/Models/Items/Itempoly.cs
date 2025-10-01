@@ -9,49 +9,8 @@ using TranslationLibrary.Emotracker.Models.Locations;
 
 namespace TranslationLibrary.Emotracker.Models.Items
 {
-    public class Item
+    public class Itempoly
     {
-        #region JsonPropertyNames
-        //General
-        [JsonPropertyOrder(-1)][JsonPropertyName("item_reference")]
-        public string? ItemReference { get; set; }
-
-
-        // Progressive
-        [JsonPropertyName("stage_index")]
-        public int? StageIndex { get; set; }
-
-
-        // Toggle & Lua
-        [JsonPropertyName("active")]
-        public bool? Active { get; set; }
-
-
-        // Consumable
-        [JsonPropertyName("acquired_count")]
-        public int? AcquiredCount { get; set; }
-
-        [JsonPropertyName("consumed_count")]
-        public int? ConsumedCount { get; set; }
-
-        [JsonPropertyName("max_count")]
-        public int? MaxCount { get; set; }
-
-        [JsonPropertyName("min_count")]
-        public int? MinCount { get; set; }
-
-
-        // Lua
-        [JsonPropertyName("stage")]
-        public double? Stage { get; set; }
-
-        [JsonPropertyName("presetNum")]
-        public double? PresetNum { get; set; }
-
-
-
-        #endregion
-        #region JsonIgnores
         [JsonIgnore]
         public int? Id { get; set; }
 
@@ -65,12 +24,11 @@ namespace TranslationLibrary.Emotracker.Models.Items
         public string? ParsedItemReference { get; set; }
 
         [JsonIgnore]
-        public string? Change { get; set; }
-        #endregion
+        public string? Changes { get; set; }
 
-
-
-        
+        [JsonPropertyOrder(-1)]
+        [JsonPropertyName("item_reference")]
+        public string? ItemReference { get; set; }
 
 
         public void Initialize() 
@@ -97,17 +55,17 @@ namespace TranslationLibrary.Emotracker.Models.Items
         Itempoly Types:
 
            Toggle:
-               ID                      int
+               Number                  int
                Item_Reference:         string
                Active:                 bool
 
            Progressive:
-               ID                      int
+               Number                  int
                Item_Reference:         string
                Stage_Index:            int
 
            Consumable:
-               ID                      int
+               Number                  int
                Item_Reference:         string
                Acquired_count:         int
                Consumed_coutn:         int
@@ -115,14 +73,14 @@ namespace TranslationLibrary.Emotracker.Models.Items
                Min_count:              int
 
            Lua:
-               ID                      int
+               Number                  int
                Item_Reference:         string
                Active:                 bool
                Stage:                  double
                PresetNum               double
 
            Location:
-               ID                      int
+               Number                  int
                Acronym                 string
                Location_Reference      string
                Modified_by_user        bool

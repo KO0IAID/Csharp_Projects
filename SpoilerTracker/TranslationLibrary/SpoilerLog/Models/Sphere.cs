@@ -75,14 +75,14 @@ namespace TranslationLibrary.SpoilerLog.Models
                 } 
             }
 
-            // Location & Item
+            // Location & Itempoly
             if (line.Contains(':'))
             {
                 string[] parts = line.Split(':');
 
                 if (parts.Length >= 1)
                 { 
-                    // Assigns Location & Item
+                    // Assigns Location & Itempoly
                     location = parts[0].Trim();
                     item = parts[1].Trim();
                 }

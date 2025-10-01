@@ -36,7 +36,7 @@ namespace TranslationLibrary.SpoilerLog.Enumerators
                 SortBy.GlitchesDifficulty => "Glitches by Difficulty",
                 SortBy.GlitchesLogOrder => "Glitches by Log Order",
                 SortBy.WayOfTheHeroHintsWorld => "Worlds",
-                SortBy.WayOfTheHeroHintsItems => "Item A-Z",
+                SortBy.WayOfTheHeroHintsItems => "Itempoly A-Z",
                 SortBy.WayOfTheHeroHintsLocation => "Location A-Z",
                 SortBy.FoolishHintsWorld => "Worlds",
                 SortBy.FoolishHintsGossip => "Gossip A-Z",
@@ -55,7 +55,7 @@ namespace TranslationLibrary.SpoilerLog.Enumerators
                 SortBy.WayOfTheHeroPathsWorld => "Worlds",
                 SortBy.WayOfTheHeroPathsDescription => "Description A-Z",
                 SortBy.WayOfTheHeroPathsPlayer => "Player A-Z",
-                SortBy.WayOfTheHeroPathsItem => "Item A-Z",
+                SortBy.WayOfTheHeroPathsItem => "Itempoly A-Z",
                 SortBy.SpheresWorld => "Worlds",
                 SortBy.SpheresType => "Type A-Z",
                 SortBy.SpheresNumber => "Number",
@@ -68,7 +68,7 @@ namespace TranslationLibrary.SpoilerLog.Enumerators
                 SortBy.LocationsListNumber => "Number",
                 SortBy.LocationsListDescription => "Description A-Z",
                 SortBy.LocationsListPlayer => "Player",
-                SortBy.LocationsListItem => "Item A-Z",
+                SortBy.LocationsListItem => "Itempoly A-Z",
 
                 // Catch-all for any undefined or unexpected enum values
                 _ => "Unknown"

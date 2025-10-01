@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace TranslationLibrary.Emotracker.Models.Items
 {
-    public class Toggle : Item
+    public class Toggle : Itempoly
     {
         [JsonPropertyName("active")]
         public bool? Active { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TranslationLibrary.Emotracker.Models.Items
 {
-    public class Progressive : Item
+    public class Progressive : Itempoly
     {
         [JsonPropertyName("stage_index")]
         public int? StageIndex { get; set; }

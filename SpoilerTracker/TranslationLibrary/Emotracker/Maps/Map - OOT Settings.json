@@ -172,6 +172,14 @@
     }
   },
   {
+    "spoiler_label": "gerudoFortress",
+    "item_reference": "toggle:Gerudo%20Fortress",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
     "spoiler_label": "lacs",
     "item_reference": "progressive:Light%20Arrow%20Cutscene",
     "values": {

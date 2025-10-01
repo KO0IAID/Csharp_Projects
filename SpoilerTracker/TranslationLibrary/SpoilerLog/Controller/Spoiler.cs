@@ -122,7 +122,6 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         public bool HasValue()
         {
-            // Check if EmoTracker is not null and contains at least one line
             return FileContents != null && FileContents.Length > 0;
         }
         private void DebugStats(Stopwatch stopWatch)
@@ -150,17 +149,6 @@ namespace TranslationLibrary.SpoilerLog.Controller
             );
             
 
-        }
-        public Dictionary<string, string>? ToSettingsDictionary()
-        {
-            var dictionary = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-
-            AddCollection(dictionary, GameSettings);
-            AddCollection(dictionary, SpecialConditions);
-            AddCollection(dictionary, Tricks);
-            AddCollection(dictionary, Glitches);
-
-            return dictionary;
         }
         public void SortCollections(SortBy sort = SortBy.Default)
         {
@@ -682,7 +670,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 }
             }
 
-            // SpecificHints - Item
+            // SpecificHints - Itempoly
             if (sort == SortBy.SpecificHintsItem)
             {
                 if (SpecificHints != null)
@@ -752,7 +740,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 }
             }
 
-            // RegionalHints - Item
+            // RegionalHints - Itempoly
             if (sort == SortBy.RegionalHintsItem)
             {
                 if (RegionalHints != null)
@@ -870,7 +858,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     WayOfTheHeroPaths_SortBy = SortBy.WayOfTheHeroPathsPlayer;
                 }
             }
-            // WayOfTheHero Paths - Item
+            // WayOfTheHero Paths - Itempoly
             if (sort == SortBy.WayOfTheHeroPathsItem)
             {
                 if (WayOfTheHeroPaths != null)
@@ -980,7 +968,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     Spheres_SortBy = SortBy.SpheresPlayer;
                 }
             }
-            // Spheres - Item
+            // Spheres - Itempoly
             if (sort == SortBy.SpheresItem)
             {
                 if (Spheres != null)
@@ -1140,7 +1128,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                     LocationList_SortBy = SortBy.LocationsListPlayer;
                 }
             }
-            // Locations List - Item
+            // Locations List - Itempoly
             if (sort == SortBy.LocationsListItem)
             {
                 if (LocationList != null)
@@ -1633,21 +1621,6 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 };
             });
 
-        }
-        private void AddCollection(Dictionary<string, string> dictionary, IEnumerable<INameValue>? collection)
-        {
-            if (collection == null) return;
-
-            foreach (var entry in collection)
-            {
-                if (string.IsNullOrWhiteSpace(entry?.Name))
-                    continue;
-
-                var key = entry.Name.Trim();
-                var val = entry.Value?.Trim() ?? string.Empty;
-
-                dictionary[key] = val; // overwrites if already present
-            }
         }
         #endregion
         #region Data Parsing
