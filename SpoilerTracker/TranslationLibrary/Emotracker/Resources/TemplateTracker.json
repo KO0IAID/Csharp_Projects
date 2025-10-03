@@ -2,7 +2,7 @@
   "package_uid": "ootmmrando_overworldmap_jupiterfire",
   "package_variant_uid": "standard",
   "package_version": "29.0.1",
-  "creation_time": "9/26/2025 2:14:39 PM",
+  "creation_time": "10/2/2025 9:17:12 AM",
   "ignore_all_logic": false,
   "display_all_locations": false,
   "always_allow_chest_manipulation": false,
@@ -1541,7 +1541,7 @@
       "item_reference": "379:consumable:Majora%20Child%20Amount",
       "acquired_count": 0,
       "consumed_count": 0,
-      "max_count": 266,
+      "max_count": 999,
       "min_count": 0
     },
     {
@@ -3319,7 +3319,7 @@
       "item_reference": "815:consumable:Fire%20Temple%20Small%20Keys",
       "acquired_count": 0,
       "consumed_count": 0,
-      "max_count": 7,
+      "max_count": 8,
       "min_count": 0
     },
     {

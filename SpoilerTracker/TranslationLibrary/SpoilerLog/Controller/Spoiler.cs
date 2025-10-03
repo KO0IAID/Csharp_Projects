@@ -29,6 +29,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
         public List<Conditions>? SpecialConditions { get; private set; } = new();
         public List<Trick>? Tricks { get; private set; } = new();
         public List<Glitch>? Glitches { get; private set; } = new();
+        public List<StartingItem>? StartingItems { get; private set; } = new();
         public List<string>? JunkLocations { get; private set; } = new();
         public List<WorldFlag>? WorldFlags { get; private set; } = new();
         public List<Entrance>? Entrances { get; private set; } = new();
@@ -48,6 +49,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
         public SortBy SpecialConditions_SortBy { get; private set; }
         public SortBy Tricks_SortBy { get; private set; }
         public SortBy Glitches_SortBy { get; private set; }
+        public SortBy StartingItems_SortBy { get; private set; }
         public SortBy JunkLocations_SortBy { get; private set; }
         public SortBy WorldFlags_SortBy { get; private set; }
         public SortBy Entrances_SortBy { get; private set; }
@@ -76,6 +78,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 GameSettings = await Parse_GameSettings();
                 SpecialConditions = await Parse_SpecialConditions();
                 Tricks = await Parse_Tricks();
+                StartingItems = await Parse_StartingItems();
                 Glitches = await Parse_Glitches();
                 JunkLocations = await Parse_JunkLocations();
                 WorldFlags = await Parse_WorldFlags();
@@ -107,18 +110,23 @@ namespace TranslationLibrary.SpoilerLog.Controller
         }
         public void Clear()
         {
-            SeedInfo?.Clear();
-            GameSettings?.Clear();
-            SpecialConditions?.Clear();
-            JunkLocations?.Clear();
-            WorldFlags?.Clear();
-            Entrances?.Clear();
-            WayOfTheHeroHints?.Clear();
-            FoolishHints?.Clear();
-            FoolishRegions?.Clear();
-            WayOfTheHeroPaths?.Clear();
-            Spheres?.Clear();
-            LocationList?.Clear();
+            SeedInfo = new();
+            GameSettings = new();
+            SpecialConditions = new();
+            Tricks = new();
+            Glitches = new();
+            JunkLocations = new();
+            WorldFlags = new();
+            Entrances = new();
+            WayOfTheHeroHints = new();
+            FoolishHints = new();
+            SpecificHints = new();
+            RegionalHints = new();
+            FoolishRegions = new();
+            WayOfTheHeroPaths = new();
+            Spheres = new();
+            LocationList = new();
+            FileContents = null;
         }
         public bool HasValue()
         {
@@ -515,6 +523,58 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 }
             }
             #endregion
+            #region Starting Items
+            // Starting Items - Name - (Default)
+            if (sort == SortBy.StartingItemsName || sort == SortBy.Default)
+            {
+                if (StartingItems != null)
+                {
+                    var sortedStartingItems = new List<StartingItem>(
+                    StartingItems.OrderBy(e => e.Name)
+                    .ThenBy(e => e.Count)
+                    .ThenBy(e => e.Value)
+                    );
+
+                    StartingItems = sortedStartingItems;
+                    StartingItems_SortBy = SortBy.FoolishRegionsWorld;
+                }
+            }
+
+            // Starting Items - Value
+            if (sort == SortBy.StartingItemsValue)
+            {
+                if (StartingItems != null)
+                {
+                    var sortedStartingItems = new List<StartingItem>(
+                    StartingItems.OrderBy(e => e.Value)
+                    .ThenBy(e => e.Name)
+                    .ThenBy(e => e.Count)
+                    );
+
+                    StartingItems = sortedStartingItems;
+                    StartingItems_SortBy = SortBy.FoolishRegionsRegion;
+                }
+            }
+
+            // Starting Items - Count
+            if (sort == SortBy.StartingItemsCount)
+            {
+                if (StartingItems != null)
+                {
+                    var sortedStartingItems = new List<StartingItem>(
+                    StartingItems.OrderBy(e => e.Count)
+                    .ThenBy(e => e.Name)
+                    .ThenBy(e => e.Value)
+                    );
+
+                    StartingItems = sortedStartingItems;
+                    StartingItems_SortBy = SortBy.FoolishRegionsCount;
+                }
+            }
+            #endregion
+            // Junk Locations Missing
+            // World Flags Missing
+            // Entrances Missing
             #region WayOfTheHero Hints
 
             // WayOfTheHero Hints- World - (Default)
@@ -1150,30 +1210,45 @@ namespace TranslationLibrary.SpoilerLog.Controller
             }
             #endregion
         }
-        
+
         #endregion
         #region Data Parsing Helper Methods
+        // Replace your current AddValues<T> with this
         private async Task<List<T>?> AddValues<T>(Tuple<int, int> range, string[] fileContents) where T : ICreateFromLine<T>, new()
         {
             return await Task.Run(() =>
             {
-                if (range.Item1 == -1 || range.Item2 == -1)
-                    return null;
+                // Validate
+                if (range == null || fileContents == null) return null;
+                if (range.Item1 < 0 || range.Item2 < 0) return null;
+
+                int start = Math.Max(0, range.Item1);
+                int end = Math.Min(range.Item2, fileContents.Length - 1);
+
+                // If start > end => nothing to add, return empty list (not null)
+                if (start > end) return new List<T>();
 
                 var collection = new List<T>();
                 var parser = new T();
 
-                for (int i = range.Item1; i < range.Item2; i++)
+                // IMPORTANT: iterate INCLUSIVE of 'end'
+                for (int i = start; i <= end; i++)
                 {
                     string line = fileContents[i];
-                    T item = parser.CreateFromLine(line);
-                    collection.Add(item);
 
+                    // skip blank lines (optional, but safer)
+                    if (string.IsNullOrWhiteSpace(line))
+                        continue;
+
+                    // If your CreateFromLine expects un-indented lines, trim leading spaces:
+                    string parsedLine = line.TrimStart();
+
+                    T item = parser.CreateFromLine(parsedLine);
+                    collection.Add(item);
                 }
+
                 return collection;
             });
-            
-
         }
         private async Task<KeyValuePair<string, string>?> Parse_SingleKeyValue(string[] file, string categoryName, string delimiter = ":", int startingPosition = 0)
         {
@@ -1256,10 +1331,8 @@ namespace TranslationLibrary.SpoilerLog.Controller
                 int end = file.Length - 1;
 
                 // Search for Category Header
-                while (position < file.Length && !file[position].Equals(categoryName, StringComparison.Ordinal))
-                {
+                while (position < file.Length && !file[position].Trim().Equals(categoryName, StringComparison.OrdinalIgnoreCase))
                     position++;
-                }
 
                 // Category not found
                 if (position >= file.Length)
@@ -1708,9 +1781,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
         private async Task<List<Trick>?> Parse_Tricks()
         {
             if (FileContents == null)
-            {
                 return null;
-            }
 
             var range = await FindCategoryRange("Tricks", FileContents);
 
@@ -1731,6 +1802,18 @@ namespace TranslationLibrary.SpoilerLog.Controller
             var glitches = await AddValues<Glitch>(range, FileContents);
 
             return glitches;
+        }
+        private async Task<List<StartingItem>?> Parse_StartingItems() 
+        {
+            if (FileContents == null)
+                return null;
+
+            var range = await FindCategoryRange("Starting Items", FileContents);
+
+            var startingItems = await AddValues<StartingItem>(range, FileContents);
+
+            return startingItems;
+
         }
         private async Task<List<string>?> Parse_JunkLocations()
         {
@@ -2444,7 +2527,6 @@ namespace TranslationLibrary.SpoilerLog.Controller
             else return null;
         }
     }
-
         #endregion
     
 }

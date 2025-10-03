@@ -65,6 +65,9 @@ namespace TranslationLibrary.Emotracker.Models.Items
         public string? Type { get; set; }
 
         [JsonIgnore]
+        public string? SpecialType { get; set; }
+
+        [JsonIgnore]
         public string? CleanItemReference { get; set; }
 
         [JsonIgnore]
@@ -109,6 +112,20 @@ namespace TranslationLibrary.Emotracker.Models.Items
                     OldValue = $"{Active.ToString()}, {PresetNum.ToString()}";
                     break;
             }
+
+            if (!string.IsNullOrEmpty(CleanItemReference))
+            {
+                SpecialType = CleanItemReference switch
+                {
+                    var s when s.StartsWith("Rainbow") => "BRIDGE",
+                    var s when s.StartsWith("Moon") => "MOON",
+                    var s when s.StartsWith("LACS") => "LACS",
+                    var s when s.StartsWith("Majora") => "MAJORA",
+                    var s when s.StartsWith("Triforce") => "TRIFORCE",
+                    _ => SpecialType // keep old value if no match
+                };
+            }
+
         }
     }
 }

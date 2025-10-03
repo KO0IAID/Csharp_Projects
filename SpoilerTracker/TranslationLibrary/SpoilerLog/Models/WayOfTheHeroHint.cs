@@ -52,6 +52,7 @@ namespace TranslationLibrary.SpoilerLog.Models
 
             throw new FormatException($"WayOfHero Couldn't CreateFromLine due to line format in: '{line}'");
 
+
         }
     }
 }

@@ -41,20 +41,28 @@
     "spoiler_label": "shufflePotsOot",
     "item_reference": "progressive:Pots%20Shuffle%20%28OoT%29",
     "values": {
-      "none": 0,
-      "all": 1,
-      "overworld": 2,
-      "dungeons": 3
+      "none": 1,
+      "all": 0,
+      "overworld": 0,
+      "dungeons": 0
     }
   },
   {
     "spoiler_label": "shuffleGrassOot",
     "item_reference": "progressive:Grass%20Shuffle%20%28OoT%29",
     "values": {
-      "none": 0,
-      "all": 1,
-      "overworld": 2,
-      "dungeons": 3
+      "none": 1,
+      "all": 0,
+      "overworld": 0,
+      "dungeons": 0
+    }
+  },
+  {
+    "spoiler_label": "shuffleMaskTrades",
+    "item_reference": "progressive:Mask%20Trade%20Shuffle",
+    "values": {
+      "true": 0,
+      "false": 1
     }
   },
   {
@@ -297,7 +305,7 @@
   },
   {
     "spoiler_label": "bombchuBehaviorOot",
-    "item_reference": "progressive:Bombchu%20Bag%20%28OoT%29",
+    "item_reference": "progressive:Bombchu%20Behavior%20%28OoT%29",
     "values": {
       "free": 0,
       "bombBag": 1,
@@ -308,6 +316,38 @@
   {
     "spoiler_label": "ocarinaButtonsShuffleOot",
     "item_reference": "progressive:Ocarina%20Buttons%20Shuffle%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "soulsEnemyOot",
+    "item_reference": "progressive:Enemy%20Souls%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "soulsBossOot",
+    "item_reference": "progressive:Boss%20Souls%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "soulsNpcOot",
+    "item_reference": "progressive:NPC%20Souls%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "soulsMiscOot",
+    "item_reference": "progressive:Misc.%20Souls%20%28OoT%29",
     "values": {
       "true": 0,
       "false": 1
@@ -377,6 +417,7 @@
       "false": 1
     }
   },
+
   {
     "spoiler_label": "agelessBow",
     "item_reference": "progressive:Ageless%20Bow",
@@ -404,24 +445,6 @@
   {
     "spoiler_label": "agelessChildTrade",
     "item_reference": "progressive:Ageless%20Child%20Trade",
-    "values": {
-      "true": 0,
-      "false": 1
-    }
-  },
-  {
-    "spoiler_label": "shuffleCratesOot",
-    "item_reference": "progressive:Ageless%20Shuffle%20Crates%20OoT%29",
-    "values": {
-      "none": 0,
-      "all": 1,
-      "overworld": 2,
-      "dungeons": 3
-    }
-  },
-  {
-    "spoiler_label": "shuffleHivesOot",
-    "item_reference": "progressive:Ageless%20Shuffle%Hives%20OoT%29",
     "values": {
       "true": 0,
       "false": 1

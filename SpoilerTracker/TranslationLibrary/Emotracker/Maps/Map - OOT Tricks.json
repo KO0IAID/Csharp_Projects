@@ -56,15 +56,7 @@
     }
   },
   {
-    "spoiler_label": "Roll Under Deku Tree MQ Water Room's Roating Spike",
-    "item_reference": "toggle:Roll%20Under%20Deku%20Tree%20MQ%20Water%20Room%27s%20Rotating%20Spike",
-    "values": {
-      "true": 0,
-      "false": 1
-    }
-  },
-  {
-    "spoiler_label": "Dodongo's Cavern Upper Adult Jump'",
+    "spoiler_label": "Dodongo's Cavern Upper Adult Jump",
     "item_reference": "toggle:Dodongo%27s%20Cavern%20Upper%20Adult%20Jump",
     "values": {
       "true": 0,
@@ -79,14 +71,7 @@
       "false": 1
     }
   },
-  {
-    "spoiler_label": "Backflip/Sidehop Over Gap to Reach BotW MQ's Main Room's Center",
-    "item_reference": "toggle:unknown",
-    "values": {
-      "true": 0,
-      "false": 1
-    }
-  },
+
   {
     "spoiler_label": "Hammer Through Walls",
     "item_reference": "toggle:Hammer%20Through%20Walls",
@@ -104,7 +89,7 @@
     }
   },
   {
-    "spoiler_label": "Nighttime Gold Skulltulas without Sun's Song'",
+    "spoiler_label": "Nighttime Gold Skulltulas without Sun's Song",
     "item_reference": "toggle:Nighttime%20Gold%20Skulltulas%20without%20Sun%27s%20Song",
     "values": {
       "true": 0,
@@ -112,7 +97,7 @@
     }
   },
   {
-    "spoiler_label": "Enter Child Zora's Domain with Cucco'",
+    "spoiler_label": "Enter Child Zora's Domain with Cucco",
     "item_reference": "toggle:Enter%20Child%20Zora%27s%20Domain%20with%20Cucco",
     "values": {
       "true": 0,
@@ -120,7 +105,7 @@
     }
   },
   {
-    "spoiler_label": "Enter Zora's Domain using Hover Boots'",
+    "spoiler_label": "Enter Zora's Domain using Hover Boots",
     "item_reference": "toggle:Enter%20Zora%27s%20Domain%20using%20Hover%20Boots",
     "values": {
       "true": 0,
@@ -208,7 +193,7 @@
     }
   },
   {
-    "spoiler_label": "Child Dead Hand without Kokiri Sowrd",
+    "spoiler_label": "Child Dead Hand without Kokiri Sword",
     "item_reference": "toggle:Child%20Dead%20Hand%20without%20Kokiri%20Sword",
     "values": {
       "true": 0,
@@ -328,14 +313,6 @@
     }
   },
   {
-    "spoiler_label": "Destroy Beehives using Bombchu (Oot)",
-    "item_reference": "toggle:Destroy%20Beehives%20using%20Bombchu%20%28Oot%29",
-    "values": {
-      "true": 0,
-      "false": 1
-    }
-  },
-  {
     "spoiler_label": "Reach Twinrova using Climb Anywhere and Hover Boots",
     "item_reference": "toggle:Reach%20Twinrova%20using%20Climb%20Anywhere%20and%20Hover%20Boots",
     "values": {
@@ -344,7 +321,7 @@
     }
   },
   {
-    "spoiler_label": "Use Hookshot Anywhere to get past the Zora's River Waterfall'",
+    "spoiler_label": "Use Hookshot Anywhere to get past the Zora's River Waterfall",
     "item_reference": "toggle:Use%20Hookshot%20Anywhere%20to%20get%20past%20the%20Zora%27s%20River%20Waterfall",
     "values": {
       "true": 0,
@@ -352,7 +329,7 @@
     }
   },
   {
-    "spoiler_label": "Skip Dodongo Cavern's Boulder using Ageless Hookshot Anywhere'",
+    "spoiler_label": "Skip Dodongo Cavern's Boulder using Ageless Hookshot Anywhere",
     "item_reference": "toggle:Skip%20Dodongo%20Cavern%27s%20Boulder%20using%20Ageless%20Hookshot%20Anywhere",
     "values": {
       "true": 0,
@@ -408,7 +385,7 @@
     }
   },
   {
-    "spoiler_label": "Navigate Dampé's Grave in Reverse'",
+    "spoiler_label": "Navigate Dampé's Grave in Reverse",
     "item_reference": "toggle:Navigate%20Dampe%27s%20Grave%20in%20Reverse",
     "values": {
       "true": 0,
@@ -416,7 +393,7 @@
     }
   },
   {
-    "spoiler_label": "Ganon's Great Fairy with Age Swap and without Gold Gauntlets'",
+    "spoiler_label": "Ganon's Great Fairy with Age Swap and without Gold Gauntlets",
     "item_reference": "toggle:Ganon%27s%20Great%20Fairy%20with%20Age%20Swap%20and%20without%20Gold%20Gauntlets",
     "values": {
       "true": 0,
@@ -424,16 +401,8 @@
     }
   },
   {
-    "spoiler_label": "Enter Ganon's Castle with Longshot Anywhere'",
+    "spoiler_label": "Enter Ganon's Castle with Longshot Anywhere",
     "item_reference": "toggle:Enter%20Ganon%27s%20Castle%20with%20Longshot%20Anywhere",
-    "values": {
-      "true": 0,
-      "false": 1
-    }
-  },
-  {
-    "spoiler_label": "Enter Zelda's Courtyard using Age Swap in Ganon's Castle",
-    "item_reference": "toggle:Enter%20Zelda%27s%20Courtyard%20using%20Age%20Swap%20in%20Ganon%27s%20Castle",
     "values": {
       "true": 0,
       "false": 1
@@ -450,6 +419,38 @@
   {
     "spoiler_label": "Enter Water Temple with Golden Scale and Longshot",
     "item_reference": "toggle:Enter%20Water%20Temple%20with%20Gold%20Scale%20and%20Longshot",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "Enter Zelda's Courtyard using Age Swap in Ganon's Castle",
+    "item_reference": "toggle:Enter%20Zelda%27s%20Courtyard%20using%20Age%20Swap%20in%20Ganon%27s%20Castle",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "Destroy Beehives using Bombchu (OoT)",
+    "item_reference": "toggle:Destroy%20Beehives%20using%20Bombchu%20%28OoT%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "Roll Under Deku Tree MQ Water Room's Rotating Spike.",
+    "item_reference": "toggle:Roll%20Under%20Deku%20Tree%20MQ%20Water%20Room%27s%20Rotating%20Spike",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "Backflip/Sidehop Over Gap to Reach BotW MQ's Main Room's Center",
+    "item_reference": "toggle:Backflip%2FSidehop%20Over%20Gap%20to%20Reach%20BotW%20MQ%27s%20Main%20Room%27s%20Center",
     "values": {
       "true": 0,
       "false": 1

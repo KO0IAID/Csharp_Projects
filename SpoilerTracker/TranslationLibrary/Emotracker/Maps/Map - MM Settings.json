@@ -12,10 +12,10 @@
     "spoiler_label": "tingleShuffle",
     "item_reference": "progressive:Tingle%20Maps%20Shuffle",
     "values": {
-      "anywhere": 0,
-      "starting": 1,
-      "removed": 2,
-      "vanilla": 3
+      "vanilla": 0,
+      "anywhere": 1,
+      "starting": 2,
+      "removed": 3
     }
   },
   {
@@ -79,20 +79,20 @@
     "spoiler_label": "shufflePotsMm",
     "item_reference": "progressive:Pots%20Shuffle%20%28MM%29",
     "values": {
-      "none": 0,
-      "all": 1,
-      "overworld": 2,
-      "dungeons": 3
+      "none": 1,
+      "all": 0,
+      "overworld": 0,
+      "dungeons": 0
     }
   },
   {
     "spoiler_label": "shuffleGrassMm",
     "item_reference": "progressive:Grass%20Shuffle%20%28MM%29",
     "values": {
-      "none": 0,
-      "all": 1,
-      "overworld": 2,
-      "dungeons": 3
+      "none": 1,
+      "all": 0,
+      "overworld": 0,
+      "dungeons": 0
     }
   },
   {
@@ -112,18 +112,6 @@
     }
   },
   {
-    "spoiler_label": "blastMaskCoolDown",
-    "item_reference": "progressive:blast%20Mask%20Cooldown",
-    "values": {
-      "instant": 0,
-      "veryshort": 1,
-      "short": 2,
-      "default": 3,
-      "long": 4,
-      "verylong": 5
-    }
-  },
-  {
     "spoiler_label": "cowShuffleMm",
     "item_reference": "progressive:Cow%20Shuffle%20%28MM%29",
     "values": {
@@ -132,7 +120,7 @@
     }
   },
   {
-    "spoiler_label": "shuffleMerchantsMm?",
+    "spoiler_label": "shuffleMerchantsMm",
     "item_reference": "progressive:Merchants%20Shuffle%20%28MM%29",
     "values": {
       "true": 0,
@@ -231,7 +219,7 @@
     }
   },
   {
-    "spoiler_label": "crossWarpMM",
+    "spoiler_label": "crossWarpMm",
     "item_reference": "progressive:Cross-Games%20MM%20Song%20of%20Soaring",
     "values": {
       "none": 0,
@@ -282,7 +270,7 @@
   },
   {
     "spoiler_label": "bombchuBehaviorMm",
-    "item_reference": "progressive:Bombchu%20Bag%20%28MM%29",
+    "item_reference": "progressive:Bombchu%20Behavior%20%28MM%29",
     "values": {
       "free": 0,
       "bombBag": 1,
@@ -299,21 +287,43 @@
     }
   },
   {
-    "spoiler_label": "clocks",
-    "item_reference": "progressive:Clocks%20as%20Items",
+    "spoiler_label": "soulsEnemyMm",
+    "item_reference": "progressive:Enemy%20Souls%20%28MM%29",
     "values": {
       "true": 0,
       "false": 1
     }
   },
   {
-    "spoiler_label": "regionState",
-    "item_reference": "progressive:Region%20State",
+    "spoiler_label": "soulsBossMm",
+    "item_reference": "progressive:Boss%20Souls%20%28MM%29",
     "values": {
-      "dungeonBeaten": 0,
-      "bossBeaten": 1,
-      "reward": 0,
-      "free": 1
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "soulsNpcMm",
+    "item_reference": "progressive:NPC%20Souls%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "soulsMiscMm",
+    "item_reference": "progressive:Misc.%20Souls%20%28MM%29",
+    "values": {
+      "true": 0,
+      "false": 1
+    }
+  },
+  {
+    "spoiler_label": "clocks",
+    "item_reference": "progressive:Clocks%20as%20Items",
+    "values": {
+      "true": 0,
+      "false": 1
     }
   }
 ]

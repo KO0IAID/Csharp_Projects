@@ -2,7 +2,7 @@
   "package_uid": "ootmmrando_overworldmap_jupiterfire",
   "package_variant_uid": "standard",
   "package_version": "29.0.1",
-  "creation_time": "9/26/2025 2:14:39 PM",
+  "creation_time": "10/2/2025 9:17:12 AM",
   "ignore_all_logic": false,
   "display_all_locations": false,
   "always_allow_chest_manipulation": false,
@@ -19,7 +19,7 @@
     },
     {
       "item_reference": "2:toggle:Gerudo%20Fortress",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "3:toggle:Zoras%20Domain",
@@ -223,219 +223,219 @@
     },
     {
       "item_reference": "53:toggle:Fewer%20Lens%20Requirements%20%28OoT%29",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "54:toggle:Fewer%20Tunic%20Requirements",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "55:toggle:Hidden%20Grottos%20%28OoT%29%20without%20Stone%20of%20Agony",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "56:toggle:Backflip%20Over%20Mido",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "57:toggle:Man%20on%20Roof%20with%20Nothing",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "58:toggle:Blind%20Wasteland%20Crossing",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "59:toggle:Deku%20Tree%20B1%20Skip",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "60:toggle:Dodongo%27s%20Cavern%20Upper%20Adult%20Jump",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "61:toggle:Forest%20Temple%20Garden%20Vines%20with%20Hookshot",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "62:toggle:Hammer%20Through%20Walls",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "63:toggle:Volcano%20Item%20with%20Hover%20Boots",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "64:toggle:Nighttime%20Gold%20Skulltulas%20without%20Sun%27s%20Song",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "65:toggle:Enter%20Child%20Zora%27s%20Domain%20with%20Cucco",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "66:toggle:Enter%20Zora%27s%20Domain%20using%20Hover%20Boots",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "67:toggle:Drain%20Water%20Temple%20using%20Longshot",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "68:toggle:Cross%20the%20River%20of%20Sand%20with%20Nothing",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "69:toggle:Break%20mud%20walls%20with%20blue%20fire%20arrows",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "70:toggle:Access%20Jabu-Jabu%20Pre-Boss%20using%20Hover%20Boots",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "71:toggle:Enter%20Shadow%20Temple%20using%20Fire%20Arrows",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "72:toggle:Skip%20King%20Zora%20as%20Adult",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "73:toggle:Lost%20Woods%20Adult%20GS%20without%20Bean",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "74:toggle:Windmill%20HP%20as%20Adult%20with%20Nothing",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "75:toggle:Laboratory%20Dive%20without%20Gold%20Scale",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "76:toggle:Laboratory%20Wall%20GS%20with%20Jump%20Slash",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "77:toggle:Pass%20through%20Visible%20One-Way%20Collisions",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "78:toggle:DMT%20Red%20Rock%20Skulls%20without%20Hammer",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "79:toggle:Child%20Dead%20Hand%20without%20Kokiri%20Sword",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "80:toggle:Access%20Adult%20Spirit%20as%20Child%20using%20Hover%20Boots",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "81:toggle:Reach%20Gerudo%20Fortress%20as%20Child%20using%20Hover%20Boots",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "82:toggle:MQ%20Ice%20Cavern%20GS%20without%20Scarecrow%20or%20Hover%20Boots",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "83:toggle:MQ%20Ice%20Cavern%20GS%20using%20only%20Hover%20Boots",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "84:toggle:MQ%20Gerudo%20Training%20Grounds%20Lava%20Room%20Walk%20along%20Flame%20Circles",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "85:toggle:Jump%20up%20to%20higher%20ledges%20outside%20Gerudo%20Fortress",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "86:toggle:Desert%20Colossus%20Plateau%20GS%20without%20Bean%20Plant",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "87:toggle:Enter%20Jabu-Jabu%20with%20Head%20Collision",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "88:toggle:Jabu%20Boss%20Switch%20without%20Boomerang%20or%20Climb%20Anywhere",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "89:toggle:Water%20Temple%20Reverse%20River%20with%20Hookshot%20Anywhere",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "90:toggle:Water%20Temple%20Large%20Pit%20GS%20with%20Bombchu",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "91:toggle:Reach%20Shadow%20Temple%20Boat%20with%20Climb%20Anywhere",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "92:toggle:Reach%20Twinrova%20using%20Climb%20Anywhere%20and%20Hover%20Boots",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "93:toggle:Use%20Hookshot%20Anywhere%20to%20get%20past%20the%20Zora%27s%20River%20Waterfall",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "94:toggle:Skip%20Dodongo%20Cavern%27s%20Boulder%20using%20Ageless%20Hookshot%20Anywhere",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "95:toggle:Move%20Between%20Lake%20Hylia%20and%20Zora%27s%20Domain%20with%20Ageless%20Hookshot%20Anywhere",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "96:toggle:Access%20Jabu-Jabu%20pre-boss%20without%20the%20box",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "97:toggle:Enter%20the%20Gerudo%20Valley%20Tent%20as%20Child",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "98:toggle:Enter%20Bottom%20of%20the%20Well%20as%20Adult%20with%20Time%20Travel",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "99:toggle:Enter%20Adult%20Shooting%20Gallery%20as%20Child%20with%20Time%20Travel",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "100:toggle:Enter%20Gerudo%20Training%20Grounds%20as%20Child%20with%20Time%20Travel",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "101:toggle:Navigate%20Dampe%27s%20Grave%20in%20Reverse",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "102:toggle:Ganon%27s%20Great%20Fairy%20with%20Age%20Swap%20and%20without%20Gold%20Gauntlets",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "103:toggle:Enter%20Ganon%27s%20Castle%20with%20Longshot%20Anywhere",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "104:toggle:Enter%20Shadow%20Temple%20with%20Sticks%20%26%20Fire%20Arrows",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "105:toggle:Enter%20Water%20Temple%20with%20Gold%20Scale%20and%20Longshot",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "106:toggle:Enter%20Zelda%27s%20Courtyard%20using%20Age%20Swap%20in%20Ganon%27s%20Castle",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "107:toggle:Fewer%20Lens%20Requirements%20%28MM%29",
@@ -715,190 +715,190 @@
     },
     {
       "item_reference": "176:progressive:Small%20Key%20Shuffle%20%28OoT%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "177:progressive:Small%20Key%20Shuffle%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "178:progressive:Boss%20Key%20Shuffle%20%28OoT%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "179:progressive:Boss%20Key%20Shuffle%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "180:progressive:Gold%20Skulltula%20Tokens%20Shuffle",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "181:progressive:Houses%20Skulltula%20Tokens%20Shuffle",
-      "stage_index": 0
+      "stage_index": 2
     },
     {
       "item_reference": "182:progressive:Tingle%20Maps%20Shuffle",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "183:progressive:Town%20Stray%20Fairy%20Shuffle",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "184:progressive:Dungeon%20Chest%20Fairy%20Shuffle",
-      "stage_index": 1
+      "stage_index": 2
     },
     {
       "item_reference": "185:progressive:Dungeon%20Freestanding%20Fairy%20Shuffle",
-      "stage_index": 1
+      "stage_index": 3
     },
     {
       "item_reference": "186:progressive:Shop%20Shuffle%20%28OoT%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "187:progressive:Shop%20Shuffle%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "188:progressive:Owl%20Statue%20Shuffle",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "189:progressive:Pots%20Shuffle%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "190:progressive:Pots%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "191:progressive:Grass%20Shuffle%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "192:progressive:Grass%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "193:progressive:Scrub%20Shuffle%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "194:progressive:Scrub%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "195:progressive:Cow%20Shuffle%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "196:progressive:Cow%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "197:progressive:Mask%20Trade%20Shuffle",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "198:progressive:Merchants%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "199:progressive:Diving%20Game%20Rupee%20Shuffle",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "200:progressive:Fairy%20Fountain%20Fairy%20Shuffle%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "201:progressive:Fairy%20Fountain%20Fairy%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "202:progressive:OoT%20Shops%20Prices",
-      "stage_index": 1
+      "stage_index": 2
     },
     {
       "item_reference": "203:progressive:OoT%20Scrubs%20Prices",
-      "stage_index": 1
+      "stage_index": 2
     },
     {
       "item_reference": "204:progressive:MM%20Shops%20Prices",
-      "stage_index": 1
+      "stage_index": 2
     },
     {
       "item_reference": "205:progressive:MM%20Tingle%20Prices",
-      "stage_index": 1
+      "stage_index": 2
     },
     {
       "item_reference": "206:progressive:Moon%20Crash%20Behavior",
-      "stage_index": 0
-    },
-    {
-      "item_reference": "207:progressive:Starting%20Age",
-      "stage_index": 0
-    },
-    {
-      "item_reference": "208:progressive:Door%20of%20Time",
-      "stage_index": 0
-    },
-    {
-      "item_reference": "209:progressive:Age%20Change%20upon%20Song%20of%20Time",
-      "stage_index": 0
-    },
-    {
-      "item_reference": "210:progressive:Deku%20Tree",
-      "stage_index": 2
-    },
-    {
-      "item_reference": "211:progressive:Beneath%20the%20Well%20behavior%20%28MM%29",
-      "stage_index": 0
-    },
-    {
-      "item_reference": "212:progressive:Kakariko%20Gate",
       "stage_index": 1
     },
     {
-      "item_reference": "213:progressive:Zora%20King",
-      "stage_index": 0
+      "item_reference": "207:progressive:Starting%20Age",
+      "stage_index": 1
     },
     {
-      "item_reference": "214:progressive:Gerudo%20Fortress",
-      "stage_index": 0
+      "item_reference": "208:progressive:Door%20of%20Time",
+      "stage_index": 1
     },
     {
-      "item_reference": "215:progressive:Light%20Arrow%20Cutscene",
-      "stage_index": 0
-    },
-    {
-      "item_reference": "216:progressive:Rainbow%20Bridge",
+      "item_reference": "209:progressive:Age%20Change%20upon%20Song%20of%20Time",
       "stage_index": 2
     },
     {
-      "item_reference": "217:progressive:Majora%20Child%20Requirements",
+      "item_reference": "210:progressive:Deku%20Tree",
       "stage_index": 0
+    },
+    {
+      "item_reference": "211:progressive:Beneath%20the%20Well%20behavior%20%28MM%29",
+      "stage_index": 1
+    },
+    {
+      "item_reference": "212:progressive:Kakariko%20Gate",
+      "stage_index": 0
+    },
+    {
+      "item_reference": "213:progressive:Zora%20King",
+      "stage_index": 1
+    },
+    {
+      "item_reference": "214:progressive:Gerudo%20Fortress",
+      "stage_index": 1
+    },
+    {
+      "item_reference": "215:progressive:Light%20Arrow%20Cutscene",
+      "stage_index": 1
+    },
+    {
+      "item_reference": "216:progressive:Rainbow%20Bridge",
+      "stage_index": 1
+    },
+    {
+      "item_reference": "217:progressive:Majora%20Child%20Requirements",
+      "stage_index": 1
     },
     {
       "item_reference": "218:progressive:Boss%20Warp%20Pads",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "219:consumable:Stray%20Fairy%20Reward%20Count",
-      "acquired_count": 15,
+      "acquired_count": 8,
       "consumed_count": 0,
       "max_count": 15,
       "min_count": 0
     },
     {
       "item_reference": "220:progressive:Allow%20adult%20link%20to%20be%20swordless",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "221:progressive:Time%20Travel%20requires%20Master%20Sword",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "222:progressive:Deku%20Tree%20as%20Adult",
@@ -914,59 +914,59 @@
     },
     {
       "item_reference": "225:progressive:Open%20Zora%27s%20Domain%20Shortcut",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "226:progressive:Skip%20Child%20Zelda",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "227:progressive:Skip%20Oath%20to%20Order",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "228:progressive:Free%20Scarecrow%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "229:progressive:Cross-Games%20MM%20Song%20of%20Soaring",
-      "stage_index": 0
+      "stage_index": 2
     },
     {
       "item_reference": "230:progressive:Pre-Planted%20beans%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "231:progressive:Cross-Games%20Age",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "232:progressive:Cross-Games%20OoT%20Warp%20Songs",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "233:progressive:Hookshot%20Anywhere%20%28OoT%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "234:progressive:Hookshot%20Anywhere%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "235:progressive:Climb%20Most%20Surfaces%20%28OoT%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "236:progressive:Restore%20Broken%20Actors",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "237:progressive:MM%20Goron%20Lullaby",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "238:progressive:Clocks%20as%20Items",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "239:progressive:Shared%20Nuts%20%26%20Sticks",
@@ -1118,115 +1118,115 @@
     },
     {
       "item_reference": "276:progressive:Fairy%20Ocarina%20in%20MM",
-      "stage_index": 1
-    },
-    {
-      "item_reference": "277:progressive:Blue%20Fire%20Arrows",
-      "stage_index": 1
-    },
-    {
-      "item_reference": "278:progressive:Sunlight%20Arrows",
-      "stage_index": 1
-    },
-    {
-      "item_reference": "279:progressive:Short%20Hookshot%20in%20MM",
-      "stage_index": 1
-    },
-    {
-      "item_reference": "280:progressive:Bombchu%20Behavior%20%28OoT%29",
       "stage_index": 0
     },
     {
+      "item_reference": "277:progressive:Blue%20Fire%20Arrows",
+      "stage_index": 0
+    },
+    {
+      "item_reference": "278:progressive:Sunlight%20Arrows",
+      "stage_index": 0
+    },
+    {
+      "item_reference": "279:progressive:Short%20Hookshot%20in%20MM",
+      "stage_index": 0
+    },
+    {
+      "item_reference": "280:progressive:Bombchu%20Behavior%20%28OoT%29",
+      "stage_index": 3
+    },
+    {
       "item_reference": "281:progressive:Bombchu%20Behavior%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 3
     },
     {
       "item_reference": "282:progressive:Ocarina%20Buttons%20Shuffle%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "283:progressive:Ocarina%20Buttons%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "284:progressive:Enemy%20Souls%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "285:progressive:Enemy%20Souls%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "286:progressive:Boss%20Souls%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "287:progressive:Boss%20Souls%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "288:progressive:NPC%20Souls%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "289:progressive:NPC%20Souls%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "290:progressive:Misc.%20Souls%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "291:progressive:Misc.%20Souls%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "292:progressive:Ageless%20Swords",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "293:progressive:Ageless%20Shields",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "294:progressive:Ageless%20Tunics",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "295:progressive:Ageless%20Boots",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "296:progressive:Ageless%20Sticks",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "297:progressive:Ageless%20Boomerang",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "298:progressive:Ageless%20Hammer",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "299:progressive:Ageless%20Hookshot",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "300:progressive:Ageless%20Bow",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "301:progressive:Ageless%20Slingshot",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "302:progressive:Ageless%20Child%20Trade",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "303:progressive:Ageless%20Strength",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "304:progressive:Rainbow%20Bridge%20Spiritual%20Stones",
@@ -3319,7 +3319,7 @@
       "item_reference": "815:consumable:Fire%20Temple%20Small%20Keys",
       "acquired_count": 0,
       "consumed_count": 0,
-      "max_count": 7,
+      "max_count": 8,
       "min_count": 0
     },
     {

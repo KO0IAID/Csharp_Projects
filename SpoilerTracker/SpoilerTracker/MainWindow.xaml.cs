@@ -42,6 +42,7 @@ namespace SpoilerTracker
         ObservableCollection<Conditions>? specialConditions;
         ObservableCollection<Trick>? tricks;
         ObservableCollection<Glitch>? glitches;
+        ObservableCollection<StartingItem>? startingItems;
         ObservableCollection<string>? junkLocations;
         ObservableCollection<WorldFlag>? worldFlags;
         ObservableCollection<Entrance>? entrances;
@@ -213,6 +214,7 @@ namespace SpoilerTracker
             specialConditions   = new ObservableCollection<Conditions>          (spoiler.SpecialConditions ?? []);
             tricks              = new ObservableCollection<Trick>               (spoiler.Tricks ?? []);
             glitches            = new ObservableCollection<Glitch>              (spoiler.Glitches ?? []);
+            startingItems       = new ObservableCollection<StartingItem>        (spoiler.StartingItems ?? []);
             junkLocations       = new ObservableCollection<string>              (spoiler.JunkLocations ?? []);
             worldFlags          = new ObservableCollection<WorldFlag>           (spoiler.WorldFlags ?? []);
             entrances           = new ObservableCollection<Entrance>            (spoiler.Entrances ?? []);
@@ -232,6 +234,7 @@ namespace SpoilerTracker
             SpecialConditionsListbox.ItemsSource = specialConditions;
             TricksDataGrid.ItemsSource = tricks;
             GlitchesDataGrid.ItemsSource = glitches;
+            StartingItemsDataGrid.ItemsSource = startingItems;
             JunkLocationsListbox.ItemsSource = junkLocations;
             WorldFlagsDataGrid.ItemsSource = worldFlags;
             EntrancesDataGrid.ItemsSource = entrances;
@@ -262,7 +265,11 @@ namespace SpoilerTracker
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - OOT Settings.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - OOT Tricks.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Shared Items.json",
-                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Misc.json",
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Bridge.json",
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Moon.json",
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special LACS.json",
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Majora.json",
+                    //"J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Misc.json",
                 };
                 string trackerFile = "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker.json";
                 DateTime dateTime = DateTime.Today;
@@ -272,14 +279,14 @@ namespace SpoilerTracker
                     Title = "Save Emotracker",
                     Filter = "JSON files (*.json)|*.json",
                     DefaultExt = "json",
-                    FileName = $"Emotracker - Export - {DateTime.Now:d}",
+                    FileName = $"Emotracker - Translated - {DateTime.Now:MM-d-yy}",
                     AddExtension = true
                 };
 
                 if (sfd.ShowDialog() == true)
                 {
                    await emoTracker.ConvertSpoilerToEmotracker(spoiler, trackerFile, mapFiles, sfd.FileName, true);
-                    string changes = emoTracker.ChangeLog;
+                    string? changes = emoTracker.ChangeLog;
                     TrackerPrompt.Text = "🗹";
                 }
                 else 
@@ -324,6 +331,18 @@ namespace SpoilerTracker
         private void Tricks_LogOrder_Click(object sender, RoutedEventArgs e)
         {
             spoiler.SortCollections(SortBy.TricksLogOrder);
+            BindCollections();
+        }
+        #endregion
+        #region StartingItems
+        private void StartingItems_Name_Click(object sender, RoutedEventArgs e)
+        {
+            spoiler.SortCollections(SortBy.StartingItemsName);
+            BindCollections();
+        }
+        private void StartingItems_Count_Click(object sender, RoutedEventArgs e)
+        {
+            spoiler.SortCollections(SortBy.StartingItemsCount);
             BindCollections();
         }
         #endregion
