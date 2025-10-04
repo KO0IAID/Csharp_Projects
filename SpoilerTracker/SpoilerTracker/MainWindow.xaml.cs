@@ -261,14 +261,17 @@ namespace SpoilerTracker
                 string[] mapFiles =
                 {
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Settings.json",
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Souls.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - MM Tricks.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - OOT Settings.json",
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - OOT Souls.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - OOT Tricks.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Shared Items.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Bridge.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Moon.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special LACS.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Majora.json",
+
                     //"J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Misc.json",
                 };
                 string trackerFile = "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker.json";

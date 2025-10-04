@@ -1,0 +1,9 @@
+﻿[
+  {
+    "item_reference": "progressive:Shared%20Bows",
+    "share": false,
+    "spoilerlabels_list": [ "Fairy Bow (OoT)", "Hero's Bow" ],
+    "ID_list": [ 399, 645 ],
+    "onValue" :  0
+  }
+]

@@ -208,6 +208,7 @@ namespace TranslationLibrary.Emotracker.Controller
                 MapItems(Spoiler.GameSettings, "GameSettings", debugStats);
                 MapItems(Spoiler.Tricks, "Tricks", debugStats);
                 MapSpecialItems(Spoiler.SpecialConditions, "SpecialConditions", debugStats);
+                MapItems(Spoiler.StartingItems, "StartingItems", debugStats);
             });
         }
         private void MapItems<T>(IEnumerable<T>? source, string sourceType, bool debugStats) where T : INameValue
@@ -231,10 +232,6 @@ namespace TranslationLibrary.Emotracker.Controller
                     // Compare spoilerlog item to map
                     if (string.Equals(entryName, mapSpoilerLabel, StringComparison.OrdinalIgnoreCase))
                     {
-                        if (entryName == "stones") 
-                        {
-                            string test = "a";
-                        }
                         foreach (Item item in Tracker.ItemDatabase)
                         {
                             string? itemName = item.ParsedItemReference;
@@ -325,10 +322,6 @@ namespace TranslationLibrary.Emotracker.Controller
                     // Compare spoilerlog item to map
                     if (string.Equals(conditionName, mapSpoilerLabel, StringComparison.OrdinalIgnoreCase))
                     {
-                        if (conditionName == "stones")
-                        {
-                            string test = "a";
-                        }
                         foreach (Item item in Tracker.ItemDatabase)
                         {
                             string? itemName = item.ParsedItemReference;
@@ -339,10 +332,6 @@ namespace TranslationLibrary.Emotracker.Controller
                             // Compare map to item
                             if (mapSpecialType == itemSpecialType && mapType == itemType && itemName == mapName)
                             {
-                                if (conditionName == "stones")
-                                {
-                                    string test1 = "b";
-                                }
                                 if (conditionValue != null && itemMap.Values != null)
                                 {
                                     itemMap.Values.TryGetValue(conditionValue, out int mappedValue);

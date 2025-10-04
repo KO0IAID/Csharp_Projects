@@ -31,3 +31,5 @@ J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotr
 J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - OOT Settings.json
 J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - MM Settings.json
 J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - Misc.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - MM Souls.json
+J:\Personal Projects\C#\SpoilerTracker\TranslationLibrary\bin\Debug\net8.0\Emotracker\Maps\Map - OOT Souls.json
