@@ -7,7 +7,7 @@ using TranslationLibrary.SpoilerLog.Interfaces;
 
 namespace TranslationLibrary.SpoilerLog.Models
 {
-    public class StartingItem : ICreateFromLine<StartingItem>, INameValue
+    public class StartingItem : ICreateFromLine<StartingItem>, INameValueCount
     {
         public string? Name { get; set; }
         public string? Value { get; set; }

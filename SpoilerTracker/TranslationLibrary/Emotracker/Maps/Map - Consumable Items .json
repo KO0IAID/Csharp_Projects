@@ -1,0 +1,34 @@
+﻿[
+  {
+    "spoiler_label": "Coin (Blue)",
+    "item_reference": "consumable:Blue%20Coin",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Coin (Green)",
+    "item_reference": "consumable:Green%20Coin",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Coin (Red)",
+    "item_reference": "consumable:Red%20Coin",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Coin (Yellow)",
+    "item_reference": "consumable:Yellow%20Coin",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  }
+]

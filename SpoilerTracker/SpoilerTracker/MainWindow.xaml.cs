@@ -272,7 +272,13 @@ namespace SpoilerTracker
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special LACS.json",
                     "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Special Majora.json",
 
-                    //"J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Misc.json",
+
+                    //"J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Toggle Items.json",
+                    //"J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Progressive Items.json",
+                    //"J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Consumable Items.json",
+                    //"J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Lua Items.json",
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Unique Items.json",
+                    "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Maps\\Map - Shareable Items.json",
                 };
                 string trackerFile = "J:\\Personal Projects\\C#\\SpoilerTracker\\TranslationLibrary\\Emotracker\\Resources\\TemplateTracker.json";
                 DateTime dateTime = DateTime.Today;
@@ -291,10 +297,12 @@ namespace SpoilerTracker
                    await emoTracker.ConvertSpoilerToEmotracker(spoiler, trackerFile, mapFiles, sfd.FileName, true);
                     string? changes = emoTracker.ChangeLog;
                     TrackerPrompt.Text = "🗹";
+
                 }
                 else 
                 {
                     TrackerPrompt.Text = "";
+                    
                 }
             }
             catch (Exception ex)

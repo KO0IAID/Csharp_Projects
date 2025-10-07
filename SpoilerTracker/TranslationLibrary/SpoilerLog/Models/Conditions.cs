@@ -8,19 +8,19 @@ using TranslationLibrary.SpoilerLog.Interfaces;
 namespace TranslationLibrary.SpoilerLog.Models
 {
     // Named to Conditions Instead of Condition to avoid ambiguity of System.Windows.Condition
-    public class Conditions : INameValue
+    public class Conditions : INameValueCount
     {
         public string? Type {  get; set; }
         public string? Name { get; set; }
         public string? Value { get; set; }
-        public int? Amount { get; set; }
+        public int? Count { get; set; }
 
-        public Conditions(string? type, string? name, string? value, int? amount = null)
+        public Conditions(string? type, string? name, string? value, int? count = null)
         {
             Type = type;
             Name = name;
             Value = value;
-            Amount = amount;
+            Count = count;
         }
     }
 }

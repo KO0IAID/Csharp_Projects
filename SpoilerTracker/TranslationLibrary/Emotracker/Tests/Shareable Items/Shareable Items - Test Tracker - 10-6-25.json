@@ -2,7 +2,7 @@
   "package_uid": "ootmmrando_overworldmap_jupiterfire",
   "package_variant_uid": "standard",
   "package_version": "29.0.1",
-  "creation_time": "10/3/2025 10:09:50 PM",
+  "creation_time": "10/2/2025 9:17:12 AM",
   "ignore_all_logic": false,
   "display_all_locations": false,
   "always_allow_chest_manipulation": false,
@@ -191,7 +191,7 @@
     },
     {
       "item_reference": "45:toggle:Adult%20Trade%20Mushroom",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "46:toggle:Adult%20Trade%20Odd%20Potion",
@@ -223,11 +223,11 @@
     },
     {
       "item_reference": "53:toggle:Fewer%20Lens%20Requirements%20%28OoT%29",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "54:toggle:Fewer%20Tunic%20Requirements",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "55:toggle:Hidden%20Grottos%20%28OoT%29%20without%20Stone%20of%20Agony",
@@ -439,11 +439,11 @@
     },
     {
       "item_reference": "107:toggle:Fewer%20Lens%20Requirements%20%28MM%29",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "108:toggle:Fewer%20Tunic%20Requirements%20%28MM%29",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "109:toggle:Skip%20Planting%20Beans%20in%20Deku%20Palace",
@@ -719,7 +719,7 @@
     },
     {
       "item_reference": "177:progressive:Small%20Key%20Shuffle%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "178:progressive:Boss%20Key%20Shuffle%20%28OoT%29",
@@ -727,7 +727,7 @@
     },
     {
       "item_reference": "179:progressive:Boss%20Key%20Shuffle%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "180:progressive:Gold%20Skulltula%20Tokens%20Shuffle",
@@ -735,23 +735,23 @@
     },
     {
       "item_reference": "181:progressive:Houses%20Skulltula%20Tokens%20Shuffle",
-      "stage_index": 0
+      "stage_index": 2
     },
     {
       "item_reference": "182:progressive:Tingle%20Maps%20Shuffle",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "183:progressive:Town%20Stray%20Fairy%20Shuffle",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "184:progressive:Dungeon%20Chest%20Fairy%20Shuffle",
-      "stage_index": 1
+      "stage_index": 2
     },
     {
       "item_reference": "185:progressive:Dungeon%20Freestanding%20Fairy%20Shuffle",
-      "stage_index": 1
+      "stage_index": 3
     },
     {
       "item_reference": "186:progressive:Shop%20Shuffle%20%28OoT%29",
@@ -759,11 +759,11 @@
     },
     {
       "item_reference": "187:progressive:Shop%20Shuffle%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "188:progressive:Owl%20Statue%20Shuffle",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "189:progressive:Pots%20Shuffle%20%28OoT%29",
@@ -771,7 +771,7 @@
     },
     {
       "item_reference": "190:progressive:Pots%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "191:progressive:Grass%20Shuffle%20%28OoT%29",
@@ -779,7 +779,7 @@
     },
     {
       "item_reference": "192:progressive:Grass%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "193:progressive:Scrub%20Shuffle%20%28OoT%29",
@@ -787,7 +787,7 @@
     },
     {
       "item_reference": "194:progressive:Scrub%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "195:progressive:Cow%20Shuffle%20%28OoT%29",
@@ -795,7 +795,7 @@
     },
     {
       "item_reference": "196:progressive:Cow%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "197:progressive:Mask%20Trade%20Shuffle",
@@ -803,7 +803,7 @@
     },
     {
       "item_reference": "198:progressive:Merchants%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "199:progressive:Diving%20Game%20Rupee%20Shuffle",
@@ -815,7 +815,7 @@
     },
     {
       "item_reference": "201:progressive:Fairy%20Fountain%20Fairy%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "202:progressive:OoT%20Shops%20Prices",
@@ -827,15 +827,15 @@
     },
     {
       "item_reference": "204:progressive:MM%20Shops%20Prices",
-      "stage_index": 1
+      "stage_index": 2
     },
     {
       "item_reference": "205:progressive:MM%20Tingle%20Prices",
-      "stage_index": 1
+      "stage_index": 2
     },
     {
       "item_reference": "206:progressive:Moon%20Crash%20Behavior",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "207:progressive:Starting%20Age",
@@ -855,7 +855,7 @@
     },
     {
       "item_reference": "211:progressive:Beneath%20the%20Well%20behavior%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "212:progressive:Kakariko%20Gate",
@@ -871,30 +871,30 @@
     },
     {
       "item_reference": "215:progressive:Light%20Arrow%20Cutscene",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "216:progressive:Rainbow%20Bridge",
-      "stage_index": 2
+      "stage_index": 3
     },
     {
       "item_reference": "217:progressive:Majora%20Child%20Requirements",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "218:progressive:Boss%20Warp%20Pads",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "219:consumable:Stray%20Fairy%20Reward%20Count",
-      "acquired_count": 15,
+      "acquired_count": 11,
       "consumed_count": 0,
       "max_count": 15,
       "min_count": 0
     },
     {
       "item_reference": "220:progressive:Allow%20adult%20link%20to%20be%20swordless",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "221:progressive:Time%20Travel%20requires%20Master%20Sword",
@@ -922,7 +922,7 @@
     },
     {
       "item_reference": "227:progressive:Skip%20Oath%20to%20Order",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "228:progressive:Free%20Scarecrow%20%28OoT%29",
@@ -930,7 +930,7 @@
     },
     {
       "item_reference": "229:progressive:Cross-Games%20MM%20Song%20of%20Soaring",
-      "stage_index": 0
+      "stage_index": 2
     },
     {
       "item_reference": "230:progressive:Pre-Planted%20beans%20%28OoT%29",
@@ -938,11 +938,11 @@
     },
     {
       "item_reference": "231:progressive:Cross-Games%20Age",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "232:progressive:Cross-Games%20OoT%20Warp%20Songs",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "233:progressive:Hookshot%20Anywhere%20%28OoT%29",
@@ -950,7 +950,7 @@
     },
     {
       "item_reference": "234:progressive:Hookshot%20Anywhere%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "235:progressive:Climb%20Most%20Surfaces%20%28OoT%29",
@@ -962,159 +962,159 @@
     },
     {
       "item_reference": "237:progressive:MM%20Goron%20Lullaby",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "238:progressive:Clocks%20as%20Items",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "239:progressive:Shared%20Nuts%20%26%20Sticks",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "240:progressive:Shared%20Bows",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "241:progressive:Shared%20Bomb%20Bags",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "242:progressive:Shared%20Skeleton%20Key",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "243:progressive:Shared%20Bombchu%20Bags",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "244:progressive:Shared%20Din%27s%20Fire",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "245:progressive:Shared%20Farore%27s%20Wind",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "246:progressive:Shared%20Nayru%27s%20Love",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "247:progressive:Shared%20Iron%20Boots",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "248:progressive:Shared%20Hover%20Boots",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "249:progressive:Shared%20Goron%20Tunic",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "250:progressive:Shared%20Zora%20Tunic",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "251:progressive:Shared%20Scales",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "252:progressive:Shared%20Strength",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "253:progressive:Shared%20Megaton%20Hammer",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "254:progressive:Shared%20Magic",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "255:progressive:Shared%20Fire%20Arrow",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "256:progressive:Shared%20Ice%20Arrow",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "257:progressive:Shared%20Light%20Arrow",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "258:progressive:Shared%20Epona%27s%20Song",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "259:progressive:Shared%20Song%20of%20Storms",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "260:progressive:Shared%20Song%20of%20Time",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "261:progressive:Shared%20Hookshots",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "262:progressive:Shared%20Lens%20of%20Truth",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "263:progressive:Shared%20Ocarina%20of%20Time",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "264:progressive:Shared%20Goron%20Mask",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "265:progressive:Shared%20Zora%20Mask",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "266:progressive:Shared%20Bunny%20Hood",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "267:progressive:Shared%20Keaton%20Mask",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "268:progressive:Shared%20Mask%20of%20Truth",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "269:progressive:Shared%20Elegy%20of%20Emptiness",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "270:progressive:Shared%20Wallets",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "271:progressive:Shared%20Swords",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "272:progressive:Shared%20Shields",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "273:progressive:Shared%20Ocarina%20Buttons",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "274:progressive:Shared%20Blast%20Mask",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "275:progressive:Shared%20Stone%20Mask",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "276:progressive:Fairy%20Ocarina%20in%20MM",
@@ -1130,7 +1130,7 @@
     },
     {
       "item_reference": "279:progressive:Short%20Hookshot%20in%20MM",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "280:progressive:Bombchu%20Behavior%20%28OoT%29",
@@ -1138,47 +1138,47 @@
     },
     {
       "item_reference": "281:progressive:Bombchu%20Behavior%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "282:progressive:Ocarina%20Buttons%20Shuffle%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "283:progressive:Ocarina%20Buttons%20Shuffle%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "284:progressive:Enemy%20Souls%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "285:progressive:Enemy%20Souls%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "286:progressive:Boss%20Souls%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "287:progressive:Boss%20Souls%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "288:progressive:NPC%20Souls%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "289:progressive:NPC%20Souls%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "290:progressive:Misc.%20Souls%20%28OoT%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "291:progressive:Misc.%20Souls%20%28MM%29",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "292:progressive:Ageless%20Swords",
@@ -1230,7 +1230,7 @@
     },
     {
       "item_reference": "304:progressive:Rainbow%20Bridge%20Spiritual%20Stones",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "305:progressive:Rainbow%20Bridge%20Medallions",
@@ -1238,82 +1238,82 @@
     },
     {
       "item_reference": "306:progressive:Rainbow%20Bridge%20Boss%20Remains",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "307:progressive:Rainbow%20Bridge%20Gold%20Skulltula%20Tokens",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "308:progressive:Rainbow%20Bridge%20Swamp%20Skulltula%20Tokens",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "309:progressive:Rainbow%20Bridge%20Ocean%20Skulltula%20Tokens",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "310:progressive:Rainbow%20Bridge%20Stray%20Fairy%20Clock%20Town",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "311:progressive:Rainbow%20Bridge%20Stray%20Fairies%20Woodfall",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "312:progressive:Rainbow%20Bridge%20Stray%20Fairies%20Snowhead",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "313:progressive:Rainbow%20Bridge%20Stray%20Fairies%20Great%20Bay",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "314:progressive:Rainbow%20Bridge%20Stray%20Fairies%20Stone%20Tower",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "315:progressive:Rainbow%20Bridge%20Regular%20Masks%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "316:progressive:Rainbow%20Bridge%20Transformation%20Masks%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "317:progressive:Rainbow%20Bridge%20Masks%20%28OOT%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "318:progressive:Rainbow%20Bridge%20Red%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "319:progressive:Rainbow%20Bridge%20Green%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "320:progressive:Rainbow%20Bridge%20Blue%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "321:progressive:Rainbow%20Bridge%20Yellow%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "322:consumable:Rainbow%20Bridge%20Amount",
-      "acquired_count": 6,
+      "acquired_count": 305,
       "consumed_count": 0,
       "max_count": 266,
       "min_count": 0
     },
     {
       "item_reference": "323:progressive:Moon%20Spiritual%20Stones",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "324:progressive:Moon%20Medallions",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "325:progressive:Moon%20Boss%20Remains",
@@ -1321,232 +1321,232 @@
     },
     {
       "item_reference": "326:progressive:Moon%20Gold%20Skulltula%20Tokens",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "327:progressive:Moon%20Swamp%20Skulltula%20Tokens",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "328:progressive:Moon%20Ocean%20Skulltula%20Tokens",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "329:progressive:Moon%20Stray%20Fairy%20Clock%20Town",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "330:progressive:Moon%20Stray%20Fairies%20Woodfall",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "331:progressive:Moon%20Stray%20Fairies%20Snowhead",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "332:progressive:Moon%20Stray%20Fairies%20Great%20Bay",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "333:progressive:Moon%20Stray%20Fairies%20Stone%20Tower",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "334:progressive:Moon%20Regular%20Masks%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "335:progressive:Moon%20Transformation%20Masks%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "336:progressive:Moon%20Masks%20%28OOT%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "337:progressive:Moon%20Red%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "338:progressive:Moon%20Green%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "339:progressive:Moon%20Blue%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "340:progressive:Moon%20Yellow%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "341:consumable:Moon%20Amount",
-      "acquired_count": 4,
+      "acquired_count": 305,
       "consumed_count": 0,
       "max_count": 266,
       "min_count": 0
     },
     {
       "item_reference": "342:progressive:LACS%20Spiritual%20Stones",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "343:progressive:LACS%20Medallions",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "344:progressive:LACS%20Boss%20Remains",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "345:progressive:LACS%20Gold%20Skulltula%20Tokens",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "346:progressive:LACS%20Swamp%20Skulltula%20Tokens",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "347:progressive:LACS%20Ocean%20Skulltula%20Tokens",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "348:progressive:LACS%20Stray%20Fairy%20Clock%20Town",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "349:progressive:LACS%20Stray%20Fairies%20Woodfall",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "350:progressive:LACS%20Stray%20Fairies%20Snowhead",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "351:progressive:LACS%20Stray%20Fairies%20Great%20Bay",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "352:progressive:LACS%20Stray%20Fairies%20Stone%20Tower",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "353:progressive:LACS%20Regular%20Masks%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "354:progressive:LACS%20Transformation%20Masks%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "355:progressive:LACS%20Masks%20%28OOT%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "356:progressive:LACS%20Red%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "357:progressive:LACS%20Green%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "358:progressive:LACS%20Blue%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "359:progressive:LACS%20Yellow%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "360:consumable:LACS%20Amount",
-      "acquired_count": 0,
+      "acquired_count": 305,
       "consumed_count": 0,
       "max_count": 266,
       "min_count": 0
     },
     {
       "item_reference": "361:progressive:Majora%20Child%20Spiritual%20Stones",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "362:progressive:Majora%20Child%20Medallions",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "363:progressive:Majora%20Child%20Boss%20Remains",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "364:progressive:Majora%20Child%20Gold%20Skulltula%20Tokens",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "365:progressive:Majora%20Child%20Swamp%20Skulltula%20Tokens",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "366:progressive:Majora%20Child%20Ocean%20Skulltula%20Tokens",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "367:progressive:Majora%20Child%20Stray%20Fairy%20Clock%20Town",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "368:progressive:Majora%20Child%20Stray%20Fairies%20Woodfall",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "369:progressive:Majora%20Child%20Stray%20Fairies%20Snowhead",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "370:progressive:Majora%20Child%20Stray%20Fairies%20Great%20Bay",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "371:progressive:Majora%20Child%20Stray%20Fairies%20Stone%20Tower",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "372:progressive:Majora%20Child%20Regular%20Masks%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "373:progressive:Majora%20Child%20Transformation%20Masks%20%28MM%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "374:progressive:Majora%20Child%20Masks%20%28OOT%29",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "375:progressive:Majora%20Child%20Red%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "376:progressive:Majora%20Child%20Green%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "377:progressive:Majora%20Child%20Blue%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "378:progressive:Majora%20Child%20Yellow%20Coins",
-      "stage_index": 0
+      "stage_index": 1
     },
     {
       "item_reference": "379:consumable:Majora%20Child%20Amount",
-      "acquired_count": 0,
+      "acquired_count": 305,
       "consumed_count": 0,
       "max_count": 999,
       "min_count": 0
     },
     {
       "item_reference": "380:toggle:Stone%20of%20Agony",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "381:consumable:Gold%20Skulltula%20Tokens",
@@ -1557,7 +1557,7 @@
     },
     {
       "item_reference": "382:progressive:Wallet%20Upgrades",
-      "stage_index": 4
+      "stage_index": 2
     },
     {
       "item_reference": "383:progressive:Magic%20Meter",
@@ -1576,28 +1576,28 @@
     },
     {
       "item_reference": "386:consumable:Red%20Coin",
-      "acquired_count": 999,
+      "acquired_count": 0,
       "consumed_count": 0,
       "max_count": 999,
       "min_count": 0
     },
     {
       "item_reference": "387:consumable:Green%20Coin",
-      "acquired_count": 999,
+      "acquired_count": 0,
       "consumed_count": 0,
       "max_count": 999,
       "min_count": 0
     },
     {
       "item_reference": "388:consumable:Blue%20Coin",
-      "acquired_count": 999,
+      "acquired_count": 0,
       "consumed_count": 0,
       "max_count": 999,
       "min_count": 0
     },
     {
       "item_reference": "389:consumable:Yellow%20Coin",
-      "acquired_count": 999,
+      "acquired_count": 0,
       "consumed_count": 0,
       "max_count": 999,
       "min_count": 0
@@ -1656,15 +1656,15 @@
     },
     {
       "item_reference": "403:toggle:Magic%20Beans",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "404:progressive:Deku%20Sticks",
-      "stage_index": 3
+      "stage_index": 1
     },
     {
       "item_reference": "405:progressive:Deku%20Nuts",
-      "stage_index": 3
+      "stage_index": 1
     },
     {
       "item_reference": "406:progressive:Bombs",
@@ -1672,7 +1672,7 @@
     },
     {
       "item_reference": "407:progressive:Hookshot",
-      "stage_index": 2
+      "stage_index": 1
     },
     {
       "item_reference": "408:progressive:Bombchu",
@@ -1680,7 +1680,7 @@
     },
     {
       "item_reference": "409:toggle:Powder%20Keg",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "410:progressive:Lens%20of%20Truth",
@@ -1692,7 +1692,7 @@
     },
     {
       "item_reference": "412:toggle:Song%20of%20Healing",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "413:progressive:Epona%27s%20Song",
@@ -1704,19 +1704,19 @@
     },
     {
       "item_reference": "415:toggle:Song%20of%20Soaring",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "416:toggle:Sonata%20of%20Awakening",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "417:progressive:Goron%20Lullaby",
-      "stage_index": 2
+      "stage_index": 0
     },
     {
       "item_reference": "418:toggle:New%20Wave%20Bossa%20Nova",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "419:progressive:Elegy%20of%20Emptiness",
@@ -1724,23 +1724,23 @@
     },
     {
       "item_reference": "420:toggle:Oath%20to%20Order",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "421:toggle:Great%20Fairy%20Sword",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "422:toggle:Pictograph%20Box",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "423:progressive:Sword",
-      "stage_index": 2
+      "stage_index": 1
     },
     {
       "item_reference": "424:toggle_badged:Sword%20with%20Spin%20Attack",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "425:progressive:Shield",
@@ -1756,23 +1756,23 @@
     },
     {
       "item_reference": "428:toggle:Bottle%20with%20Gold%20Dust",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "429:progressive:Bottle1",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "430:progressive:Bottle2",
-      "stage_index": 2
+      "stage_index": 0
     },
     {
       "item_reference": "431:progressive:Bottle3",
-      "stage_index": 5
+      "stage_index": 0
     },
     {
       "item_reference": "432:progressive:Bottle4",
-      "stage_index": 6
+      "stage_index": 0
     },
     {
       "item_reference": "433:progressive:Bottle5",
@@ -1794,47 +1794,47 @@
     },
     {
       "item_reference": "436:progressive:Wallet",
-      "stage_index": 4
+      "stage_index": 2
     },
     {
       "item_reference": "437:progressive:Clock%20Town%20Owl%20Statue",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "438:progressive:Southern%20Swamp%20Owl%20Statue",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "439:progressive:Woodfall%20Owl%20Statue",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "440:progressive:Milk%20Road%20Owl%20Statue",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "441:progressive:Mountain%20Village%20Owl%20Statue",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "442:progressive:Snowhead%20Owl%20Statue",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "443:progressive:Great%20Bay%20Owl%20Statue",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "444:progressive:Zora%20Cape%20Owl%20Statue",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "445:progressive:Ikana%20Canyon%20Owl%20Statue",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "446:progressive:Stone%20Tower%20Owl%20Statue",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "447:progressive:Magic",
@@ -1842,7 +1842,7 @@
     },
     {
       "item_reference": "448:toggle:Deku%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "449:progressive:Goron%20Mask",
@@ -1854,11 +1854,11 @@
     },
     {
       "item_reference": "451:toggle:Fierce%20Deity%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "452:toggle:Giant%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "453:progressive:Blast%20Mask",
@@ -1866,11 +1866,11 @@
     },
     {
       "item_reference": "454:toggle:All%20Night%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "455:toggle:Bremen%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "456:progressive:Bunny%20Hood",
@@ -1878,27 +1878,27 @@
     },
     {
       "item_reference": "457:toggle:Captain%20Hat",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "458:toggle:Couple%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "459:toggle:Don%20Gero%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "460:toggle:Garo%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "461:toggle:Gibdo%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "462:toggle:Great%20Fairy%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "463:progressive:Keaton%20Mask",
@@ -1906,11 +1906,11 @@
     },
     {
       "item_reference": "464:toggle:Kafei%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "465:toggle:Kamaro%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "466:progressive:Mask%20of%20Truth",
@@ -1918,15 +1918,15 @@
     },
     {
       "item_reference": "467:toggle:Postman%20Hat",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "468:toggle:Romani%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "469:toggle:Mask%20of%20Scents",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "470:progressive:Stone%20Mask",
@@ -1934,7 +1934,7 @@
     },
     {
       "item_reference": "471:toggle:Troupe%20Leader%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "472:toggle:Odolwa%20Remains",
@@ -2034,39 +2034,39 @@
     },
     {
       "item_reference": "494:toggle:Moon%20Tear",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "495:toggle:Town%20Title%20Deed",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "496:toggle:Swamp%20Title%20Deed",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "497:toggle:Mountain%20Title%20Deed",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "498:toggle:Ocean%20Title%20Deed",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "499:toggle:Room%20Key%20Static",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "500:toggle:Special%20Delivery",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "501:toggle:Letter%20to%20Kafei",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "502:toggle:Pendant%20of%20Memories",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "503:progressive:Skeleton%20Key",
@@ -2098,11 +2098,11 @@
     },
     {
       "item_reference": "510:progressive:Zora%20Scales",
-      "stage_index": 2
+      "stage_index": 1
     },
     {
       "item_reference": "511:progressive:Strength%20Upgrades",
-      "stage_index": 3
+      "stage_index": 1
     },
     {
       "item_reference": "512:progressive:Hammer",
@@ -2134,7 +2134,7 @@
     },
     {
       "item_reference": "519:toggle:Clock%20%28Day%201%29",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "520:toggle:Clock%20%28Night%201%29",
@@ -2590,15 +2590,15 @@
     },
     {
       "item_reference": "633:toggle:Master%20Sword",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "634:toggle:Biggoron%20Sword",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "635:toggle:Kokiri%20Shield",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "636:progressive:Hylian%20Shield",
@@ -2618,7 +2618,7 @@
     },
     {
       "item_reference": "640:toggle:Gerudo%20Membership%20Card",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "641:progressive:Iron%20Boots",
@@ -2630,23 +2630,23 @@
     },
     {
       "item_reference": "643:progressive:Zora%20Scales",
-      "stage_index": 2
+      "stage_index": 1
     },
     {
       "item_reference": "644:progressive:Strength%20Upgrades",
-      "stage_index": 3
+      "stage_index": 1
     },
     {
       "item_reference": "645:progressive:Bow",
-      "stage_index": 2
+      "stage_index": 1
     },
     {
       "item_reference": "646:progressive:Slingshot",
-      "stage_index": 3
+      "stage_index": 0
     },
     {
       "item_reference": "647:progressive:Deku%20Nuts",
-      "stage_index": 3
+      "stage_index": 1
     },
     {
       "item_reference": "648:progressive:Fire%20Arrows",
@@ -2662,19 +2662,19 @@
     },
     {
       "item_reference": "651:toggle:Magic%20Beans",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "652:progressive:Deku%20Sticks",
-      "stage_index": 3
+      "stage_index": 1
     },
     {
       "item_reference": "653:progressive:Bombs",
-      "stage_index": 2
+      "stage_index": 1
     },
     {
       "item_reference": "654:toggle:Boomerang",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "655:progressive:Hookshot",
@@ -2702,11 +2702,11 @@
     },
     {
       "item_reference": "661:toggle:Child%20Cucco",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "662:toggle:Zelda%27s%20Letter",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "663:progressive:Keaton%20Mask",
@@ -2714,11 +2714,11 @@
     },
     {
       "item_reference": "664:toggle:Skull%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "665:toggle:Spooky%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "666:progressive:Bunny%20Hood",
@@ -2738,48 +2738,47 @@
     },
     {
       "item_reference": "670:toggle:Gerudo%20Mask",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "671:toggle:Pocket%20Cucco",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "672:toggle:Cojiro",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "673:toggle:Mushroom",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "674:toggle:Medicine",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "675:toggle:Saw",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "676:toggle:Broken%20Sword",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "677:toggle:Prescription",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "678:toggle:Frog",
-      "active": true
-
+      "active": false
     },
     {
       "item_reference": "679:toggle:Eyedrops",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "680:toggle:Claim%20Check",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "681:progressive:Hammer",
@@ -2787,7 +2786,7 @@
     },
     {
       "item_reference": "682:progressive:Ocarina",
-      "stage_index": 2
+      "stage_index": 1
     },
     {
       "item_reference": "683:toggle_badged:Ocarina%20w%2F%20Scarecrow",
@@ -2795,11 +2794,11 @@
     },
     {
       "item_reference": "684:toggle:%20Ruto%27s%20Letter",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "685:progressive:Bottle%202",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "686:progressive:Bottle%203",
@@ -2807,11 +2806,11 @@
     },
     {
       "item_reference": "687:progressive:Bottle%201",
-      "stage_index": 1
+      "stage_index": 0
     },
     {
       "item_reference": "688:toggle:Zelda%27s%20Lullaby",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "689:progressive:Epona%27s%20Song",
@@ -2819,11 +2818,11 @@
     },
     {
       "item_reference": "690:toggle:Saria%27s%20Song",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "691:toggle:Sun%27s%20Song",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "692:progressive:Song%20of%20Time",
@@ -2835,27 +2834,27 @@
     },
     {
       "item_reference": "694:toggle:Minuet%20of%20Forest",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "695:toggle:Bolero%20of%20Fire",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "696:toggle:Serenade%20of%20Water",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "697:toggle:Requiem%20of%20Spirit",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "698:toggle:Nocturne%20of%20Shadow",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "699:toggle:Prelude%20of%20Light",
-      "active": true
+      "active": false
     },
     {
       "item_reference": "700:progressive:A%20Button",
@@ -3283,7 +3282,7 @@
     },
     {
       "item_reference": "806:toggle:Dummy",
-      "active": false
+      "active": true
     },
     {
       "item_reference": "808:progressive:Deku%20Tree%20Label",
@@ -3442,73 +3441,73 @@
     },
     {
       "item_reference": "841:lua:Free%20Reward",
-      "active": true,
-      "stage": 6.0
+      "active": false,
+      "stage": 1
     },
     {
       "item_reference": "842:lua:Deku%20Tree%20Reward",
-      "active": true,
-      "stage": 2.0
+      "active": false,
+      "stage": 1
     },
     {
       "item_reference": "843:lua:Dodongos%20Cavern%20Reward",
-      "active": true,
-      "stage": 2.0
+      "active": false,
+      "stage": 1
     },
     {
       "item_reference": "844:lua:Jabu%20Jabu%20Reward",
-      "active": true,
-      "stage": 2.0
+      "active": false,
+      "stage": 1
     },
     {
       "item_reference": "845:lua:Forest%20Temple%20Reward",
-      "active": true,
-      "stage": 3.0
+      "active": false,
+      "stage": 1
     },
     {
       "item_reference": "846:lua:Fire%20Temple%20Reward",
-      "active": true,
-      "stage": 4.0
+      "active": false,
+      "stage": 1
     },
     {
       "item_reference": "847:lua:Water%20Temple%20Reward",
-      "active": true,
-      "stage": 4.0
+      "active": false,
+      "stage": 1
     },
     {
       "item_reference": "848:lua:Spirit%20Temple%20Reward",
-      "active": true,
-      "stage": 5.0
+      "active": false,
+      "stage": 1
     },
     {
       "item_reference": "849:lua:Shadow%20Temple%20Reward",
-      "active": true,
-      "stage": 5.0
+      "active": false,
+      "stage": 1
     },
     {
       "item_reference": "850:lua:MM%20Woodfall%20Temple%20Reward",
-      "active": true,
-      "stage": 7.0
+      "active": false,
+      "stage": 1
     },
     {
       "item_reference": "851:lua:MM%20Snowhead%20Temple%20Reward",
-      "active": true,
-      "stage": 8.0
+      "active": false,
+      "stage": 1
     },
     {
       "item_reference": "852:lua:MM%20Great%20Bay%20Temple%20Reward",
-      "active": true,
-      "stage": 9.0
+      "active": false,
+      "stage": 1
     },
     {
       "item_reference": "853:lua:MM%20Stone%20Tower%20Temple%20Reward",
-      "active": true,
-      "stage": 10.0
+      "active": false,
+      "stage": 1
     },
     {
       "item_reference": "854:lua:Presets",
       "active": true,
-      "presetNum": 0.0
+      "presetNum": 0
     }
   ],
   "location_database": {
@@ -11927,6 +11926,6 @@
       }
     ]
   },
-  "main_window_width": 1280.0,
-  "main_window_height": 960.0
+  "main_window_width": 1280,
+  "main_window_height": 960
 }

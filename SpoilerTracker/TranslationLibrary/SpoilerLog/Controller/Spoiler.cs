@@ -142,6 +142,7 @@ namespace TranslationLibrary.SpoilerLog.Controller
             $"\nSpecial Conditions:\t{(SpecialConditions != null ? SpecialConditions.Count : 0)}" +
             $"\nTricks:\t\t\t\t{(Tricks != null ? Tricks.Count : 0)}" +
             $"\nGlitches:\t\t\t{(Glitches != null ? Glitches.Count : 0)}" +
+            $"\nStarting ITems:\t\t{(StartingItems != null ? StartingItems.Count : 0)}" +
             $"\nJunk Locations:\t\t{(JunkLocations != null ? JunkLocations.Count : 0)}" +
             $"\nWorld Flags:\t\t{(WorldFlags != null ? WorldFlags.Count : 0)}" +
             $"\nEntrances:\t\t\t{(Entrances != null ? Entrances.Count : 0)}" +
@@ -1511,96 +1512,71 @@ namespace TranslationLibrary.SpoilerLog.Controller
             });
             
         }
-        private async Task<BlockInfo?> FindBlock_Hint(string subHeader, string[] file, int worldNum = 1, int? startingPosition = 0, string header = "Hints")
+        private async Task<BlockInfo?> FindBlock_Hint(string sectionName, string[] fileContents, int worldNum = 1, int? startLine = null)
         {
-            return await Task.Run(() =>
+
+            if (fileContents == null || fileContents.Length == 0)
+                return null;
+
+            BlockInfo block = new BlockInfo();
+            bool inHintsSection = false;
+            bool foundHeader = false;
+            int headerPos = -1;
+
+            // Go through file lines starting from startLine (or 0 if null)
+            for (int i = startLine ?? 0; i < fileContents.Length; i++)
             {
-                int position = Convert.ToInt16(startingPosition);
+                string line = fileContents[i].Trim();
 
-                // Finds the header
-                while (position < file.Length && !file[position].Trim().Equals(header, StringComparison.OrdinalIgnoreCase))
-                    position++;
-
-                // If we're at the end of file we didn't find the header
-                if (position >= file.Length)
-                    return null;
-
-                int headerPosition = position;
-
-                // Get world info if it is a multiplayer log
-                string? world = null;
-                bool multiWorld = false;
-                position++;
-
-                if (file[position].StartsWith("  ") && file[position].Trim().Contains("World 1:", StringComparison.OrdinalIgnoreCase))
+                // --- Detect top-level sections
+                if (Regex.IsMatch(line, @"^(Seed Info|Game Settings|Special Conditions|Tricks|Starting Items|Glitches|Junk Locations|World Flags|Entrances|Hints|Paths|Spheres|Locations?)\b", RegexOptions.IgnoreCase))
                 {
-                    multiWorld = true;
-                }
-
-                // Find the appropriate world if multiplayer log
-                while (multiWorld && position < file.Length)
-                {
-                    string line = file[position];
-
-                    if (line.StartsWith("  ") && line.Trim().Contains($"World {worldNum}:", StringComparison.OrdinalIgnoreCase))
-                        break;
-
-                    position++;
-                }
-
-                // If we couldn't find world header 
-                if (position >= file.Length)
-                    return null;
-
-                // Found appropriate world header
-                if (multiWorld)
-                    world = file[position].Trim().Replace(":", "");
-
-                // Gets the subheader (Ex. Way of the hero:)
-                string? sub = null;
-                while (position < file.Length)
-                {
-                    if (file[position].Trim().Contains(subHeader, StringComparison.OrdinalIgnoreCase))
+                    // Entering Hints section
+                    if (Regex.IsMatch(line, @"^Hints\b", RegexOptions.IgnoreCase))
                     {
-                        sub = file[position].Trim().Replace(":", "");
-                        position++;
+                        inHintsSection = true;
+                        continue;
+                    }
+                    // Leaving Hints section (hit another top-level section)
+                    else if (inHintsSection)
+                    {
+                        // We've exited the Hints section; stop searching
                         break;
                     }
-                    position++;
                 }
 
-                if (position >= file.Length)
-                    return null;
-
-                // Gets the data range
-                int startLine = position + 1;
-                int endLine = startLine;
-
-                while (endLine < file.Length)
+                // --- Look for the target header inside Hints only
+                if (inHintsSection && Regex.IsMatch(line, @$"^{Regex.Escape(sectionName)}", RegexOptions.IgnoreCase))
                 {
-                    string line = file[endLine];
-
-                    // Exit block if we hit a new top-level section
-                    if (string.IsNullOrWhiteSpace(line))
-                    {
-                        break;
-                    }
-
-                    endLine++;
+                    foundHeader = true;
+                    headerPos = i;
+                    block.HeaderPosition = i;
+                    block.StartLine = i + 1;
+                    block.World = $"World {worldNum}";
+                    continue;
                 }
 
-                return new BlockInfo
+                // --- Detect end of block
+                if (foundHeader && (string.IsNullOrWhiteSpace(line) ||
+                    Regex.IsMatch(line, @"^(Seed Info|Game Settings|Special Conditions|Tricks|Starting Items|Glitches|Junk Locations|World Flags|Entrances|Hints|Paths|Spheres|Locations?)\b", RegexOptions.IgnoreCase)))
                 {
-                    HeaderPosition = headerPosition,
-                    Header = header,
-                    SubHeader = subHeader,
-                    StartLine = startLine,
-                    EndLine = endLine,
-                    World = world,
-                    MultiWorld = multiWorld,
-                };
-            });
+                    block.EndLine = i - 1;
+                    break;
+                }
+            }
+
+            // No valid header found
+            if (!foundHeader)
+                return null;
+
+            // --- Detect multiworld section (optional)
+            block.MultiWorld = fileContents
+                .Skip(block.StartLine)
+                .Any(l => l.TrimStart().StartsWith("World ", StringComparison.OrdinalIgnoreCase));
+
+            return block;
         }
+
         private async Task<BlockInfo?> FindBlock_LocationsList(string[] file, string? header = null, int startingPosition = 0, bool multiWorld = false, string? world = null, int? headerPosition = null)
         {
             return await Task.Run(() =>

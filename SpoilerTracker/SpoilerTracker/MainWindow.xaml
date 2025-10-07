@@ -486,7 +486,7 @@ Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=F
                                 <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"/>
                                 <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
                                 <GridViewColumn Header="Value" DisplayMemberBinding="{Binding Value}"/>
-                                <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Amount}"/>
+                                <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Count}"/>
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -1267,7 +1267,7 @@ Value="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=F
                     </ListView>
                 </Grid>
             </TabItem>
-            <TabItem Header="WayOfTheHero">
+            <TabItem Header="WayOfTheHero Hints">
                 <Grid Background="#FF212121" Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

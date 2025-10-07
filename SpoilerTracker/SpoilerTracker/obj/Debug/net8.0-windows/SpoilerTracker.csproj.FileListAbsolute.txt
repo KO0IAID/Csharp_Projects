@@ -59,3 +59,9 @@ J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\E
 J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\Map - Misc.json
 J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\Map - OOT Souls.json
 J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\Map - MM Souls.json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\Map - Progressive Items.json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\Map - Shareable Items.json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\Map - Lua Items.json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\Map - Toggle Items.json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\Map - Consumable Items .json
+J:\Personal Projects\C#\SpoilerTracker\SpoilerTracker\bin\Debug\net8.0-windows\Emotracker\Maps\Map - Unique Items.json

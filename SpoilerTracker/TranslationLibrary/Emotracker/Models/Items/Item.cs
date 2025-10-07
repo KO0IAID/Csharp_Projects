@@ -71,7 +71,7 @@ namespace TranslationLibrary.Emotracker.Models.Items
         public string? CleanItemReference { get; set; }
 
         [JsonIgnore]
-        public string? ParsedItemReference { get; set; }
+        public string? NoIDItemReference { get; set; }
         #endregion
 
 
@@ -92,7 +92,7 @@ namespace TranslationLibrary.Emotracker.Models.Items
                     Id = id;
 
                 this.Type = parts[1];
-                ParsedItemReference = parts[1] + ":" + parts[2];
+                NoIDItemReference = parts[1] + ":" + parts[2];
 
                 CleanItemReference = Uri.UnescapeDataString(parts[2]).Replace(" ", "");
             }
@@ -125,7 +125,6 @@ namespace TranslationLibrary.Emotracker.Models.Items
                     _ => SpecialType // keep old value if no match
                 };
             }
-
         }
     }
 }

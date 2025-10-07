@@ -26,6 +26,7 @@ namespace TranslationLibrary.Emotracker.Controller
         public Tracker? Tracker { get; private set; }
         public Spoiler? Spoiler { get; private set; }
         public List<ItemMap>? Maps { get; private set; }
+        public List<string>? SharedItems { get; private set; } = new();
         public int? ChangeCount { get; private set; }
         public string? ChangeLog { get; private set; }
 
@@ -129,9 +130,7 @@ namespace TranslationLibrary.Emotracker.Controller
                 {
                     Debug.WriteLine($"Error processing file '{filePath}': {ex.Message}");
                 }
-            }
-
-                
+            }     
         }
         private async Task ImportTracker(string filePath)
         {
@@ -205,13 +204,126 @@ namespace TranslationLibrary.Emotracker.Controller
                     return;
                 }
 
-                MapItems(Spoiler.GameSettings, "GameSettings", debugStats);
+                MapGameSettings(Spoiler.GameSettings, "GameSettings", debugStats);
+                MapSpecialConditions(Spoiler.SpecialConditions, "SpecialConditions", debugStats);
                 MapItems(Spoiler.Tricks, "Tricks", debugStats);
-                MapSpecialItems(Spoiler.SpecialConditions, "SpecialConditions", debugStats);
+                MapSharedItems();
                 MapItems(Spoiler.StartingItems, "StartingItems", debugStats);
+                
             });
         }
-        private void MapItems<T>(IEnumerable<T>? source, string sourceType, bool debugStats) where T : INameValue
+        private void MapGameSettings(List<Setting>? source, string sourceType, bool debugStats)
+        {
+            if (source == null || Maps == null || Tracker?.ItemDatabase == null)
+                return;
+
+            // get Spoiler log item
+            foreach (Setting entry in source)
+            {
+                string? entryName = entry.Name;
+                string? entryValue = entry.Value;
+                int? entryCount = entry.Count;
+
+                // get Map
+                foreach (ItemMap itemMap in Maps)
+                {
+                    string? mapName = itemMap.NoIDItemReference;
+                    string? mapSpoilerLabel = itemMap.SpoilerLabel;
+                    string? mapType = itemMap.Type;
+
+                    // Compare spoilerlog item to map
+                    if (string.Equals(entryName, mapSpoilerLabel, StringComparison.OrdinalIgnoreCase))
+                    {
+                        foreach (Item item in Tracker.ItemDatabase)
+                        {
+                            string? itemName = item.NoIDItemReference;
+                            string? itemType = item.Type;
+
+                            // Compare map to item
+                            if (mapName == itemName && mapType == itemType)
+                            {
+
+                                if (entryValue != null && itemMap.Values != null)
+                                {
+                                    itemMap.Values.TryGetValue(entryValue, out int mappedValue);
+
+                                    switch (itemType)
+                                    {
+                                        case "progressive":
+                                            if (mappedValue != item.StageIndex)
+                                            {
+                                                if (mapSpoilerLabel.StartsWith("shared")) 
+                                                { 
+                                                    SharedItems.Add(mapSpoilerLabel);
+                                                }
+                                                item.StageIndex = mappedValue;
+                                                item.NewValue = mappedValue.ToString();
+                                                ChangeCount++;
+                                                ChangeLog += $"Original: {item.OldValue}\tChange: {item.NewValue}\tEmo: {itemName}\n";
+                                            }
+                                            break;
+
+                                        case "toggle":
+                                            bool newToggleValue = mappedValue <= 0;
+                                            if (newToggleValue != item.Active)
+                                            {
+                                                item.Active = newToggleValue;
+                                                item.NewValue = mappedValue.ToString();
+                                                ChangeCount++;
+                                                ChangeLog += $"Original: {item.OldValue}\tChange: {item.NewValue}\tEmo: {itemName}\n";
+                                            }
+                                            break;
+
+                                        case "toggle_badged":
+                                            bool newBadgedValue = mappedValue <= 0;
+                                            if (newBadgedValue != item.Active)
+                                            {
+                                                item.Active = newBadgedValue;
+                                                item.NewValue = mappedValue.ToString();
+                                                ChangeCount++;
+                                                ChangeLog += $"Original: {item.OldValue}\tChange: {item.NewValue}\tEmo: {itemName}\n";
+                                            }
+                                            break;
+                                        case "lua":
+                                            bool newLuaValue = mappedValue > 0;
+                                            if (item.Active != newLuaValue)
+                                            {
+                                                item.Active = newLuaValue;
+                                                item.Stage = (double)mappedValue;
+                                                item.NewValue = newLuaValue.ToString() + "," + mappedValue.ToString();
+                                                ChangeCount++;
+                                                ChangeLog += $"Original: {item.OldValue}\tChange: {item.NewValue}\tEmo: {itemName}\n";
+                                            }
+                                            break;
+
+                                        case "consumable":
+                                            if (entryCount != item.AcquiredCount)
+                                            {
+                                                item.AcquiredCount = entryCount;
+                                                item.NewValue = mappedValue.ToString();
+                                                ChangeCount++;
+                                                ChangeLog += $"Original: {item.OldValue}\tChange: {item.NewValue}\tEmo: {itemName}\n";
+                                            }
+                                            break;
+                                    }
+                                }
+                                else
+                                {
+                                    Debug.WriteLineIf(debugStats,
+                                        $"*** BAD/DUPLICATE MAP VALUES ***\n" +
+                                        $"Source:\t{sourceType}\n" +
+                                        $"Item:\t{itemName}\n" +
+                                        $"Map:\t{mapName}\n" +
+                                        $"Entry:\t{entryName} Value:{entryValue}\n" +
+                                        $"********************************\n");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        private void MapItems<T>(IEnumerable<T>? source, string sourceType, bool debugStats) where T : INameValueCount
         {
             if (source == null || Maps == null || Tracker?.ItemDatabase == null)
                 return;
@@ -221,11 +333,12 @@ namespace TranslationLibrary.Emotracker.Controller
             {
                 string? entryName = entry.Name;
                 string? entryValue = entry.Value;
+                int? entryCount = entry.Count;
 
                 // get Map
                 foreach (ItemMap itemMap in Maps)
                 {
-                    string? mapName = itemMap.FullItemReference;
+                    string? mapName = itemMap.NoIDItemReference;
                     string? mapSpoilerLabel = itemMap.SpoilerLabel;
                     string? mapType = itemMap.Type;
 
@@ -234,7 +347,7 @@ namespace TranslationLibrary.Emotracker.Controller
                     {
                         foreach (Item item in Tracker.ItemDatabase)
                         {
-                            string? itemName = item.ParsedItemReference;
+                            string? itemName = item.NoIDItemReference;
                             string? itemType = item.Type;
 
                             // Compare map to item
@@ -258,9 +371,8 @@ namespace TranslationLibrary.Emotracker.Controller
                                             break;
 
                                         case "toggle":
-                                        case "lua":
                                             bool newToggleValue = mappedValue <= 0;
-                                            if (item.Active != newToggleValue)
+                                            if (newToggleValue != item.Active)
                                             {
                                                 item.Active = newToggleValue;
                                                 item.NewValue = mappedValue.ToString();
@@ -269,17 +381,38 @@ namespace TranslationLibrary.Emotracker.Controller
                                             }
                                             break;
 
-                                        case "consumable":
-                                            if (mappedValue != item.AcquiredCount)
+                                        case "toggle_badged":
+                                            bool newBadgedValue = mappedValue <= 0;
+                                            if (newBadgedValue != item.Active)
                                             {
-                                                item.AcquiredCount = mappedValue;
+                                                item.Active = newBadgedValue;
+                                                item.NewValue = mappedValue.ToString();
+                                                ChangeCount++;
+                                                ChangeLog += $"Original: {item.OldValue}\tChange: {item.NewValue}\tEmo: {itemName}\n";
+                                            }
+                                            break;
+                                        case "lua":
+                                            bool newLuaValue = mappedValue > 0;
+                                            if (item.Active != newLuaValue)
+                                            {
+                                                item.Active = newLuaValue;
+                                                item.Stage = (double)mappedValue;
+                                                item.NewValue = newLuaValue.ToString() + "," + mappedValue.ToString();
+                                                ChangeCount++;
+                                                ChangeLog += $"Original: {item.OldValue}\tChange: {item.NewValue}\tEmo: {itemName}\n";
+                                            }
+                                            break;
+
+                                        case "consumable":
+                                            if (entryCount != item.AcquiredCount)
+                                            {
+                                                item.AcquiredCount = entryCount;
                                                 item.NewValue = mappedValue.ToString();
                                                 ChangeCount++;
                                                 ChangeLog += $"Original: {item.OldValue}\tChange: {item.NewValue}\tEmo: {itemName}\n";
                                             }
                                             break;
                                     }
-                                    // -------------------------
                                 }
                                 else
                                 {
@@ -297,7 +430,7 @@ namespace TranslationLibrary.Emotracker.Controller
                 }
             }
         }
-        private void MapSpecialItems(List<Conditions>? source, string sourceType, bool debugStats)
+        private void MapSpecialConditions(List<Conditions>? source, string sourceType, bool debugStats)
         {
             if (source == null || Maps == null || Tracker?.ItemDatabase == null)
                 return;
@@ -312,23 +445,20 @@ namespace TranslationLibrary.Emotracker.Controller
                 // get Map
                 foreach (ItemMap itemMap in Maps)
                 {
-                    string? mapName = itemMap.FullItemReference;
+                    string? mapName = itemMap.NoIDItemReference;
                     string? mapSpoilerLabel = itemMap.SpoilerLabel;
                     string? mapType = itemMap.Type;
                     string? mapSpecialType = itemMap.SpecialType;
-
-
 
                     // Compare spoilerlog item to map
                     if (string.Equals(conditionName, mapSpoilerLabel, StringComparison.OrdinalIgnoreCase))
                     {
                         foreach (Item item in Tracker.ItemDatabase)
                         {
-                            string? itemName = item.ParsedItemReference;
+                            string? itemName = item.NoIDItemReference;
                             string? itemType = item.Type;
                             string? itemSpecialType = item.SpecialType;
                             
-
                             // Compare map to item
                             if (mapSpecialType == itemSpecialType && mapType == itemType && itemName == mapName)
                             {
@@ -349,11 +479,21 @@ namespace TranslationLibrary.Emotracker.Controller
                                             break;
 
                                         case "toggle":
-                                        case "lua":
                                             bool newToggleValue = mappedValue <= 0;
-                                            if (item.Active != newToggleValue)
+                                            if (newToggleValue != item.Active)
                                             {
                                                 item.Active = newToggleValue;
+                                                item.NewValue = mappedValue.ToString();
+                                                ChangeCount++;
+                                                ChangeLog += $"Original: {item.OldValue}\tChange: {item.NewValue}\tEmo: {itemName}\n";
+                                            }
+                                            break;
+                                        case "lua":
+                                            bool newLuaValue = mappedValue <= 0;
+                                            if (item.Active != newLuaValue)
+                                            {
+                                                item.Active = newLuaValue;
+                                                item.Stage = (double)mappedValue;
                                                 item.NewValue = mappedValue.ToString();
                                                 ChangeCount++;
                                                 ChangeLog += $"Original: {item.OldValue}\tChange: {item.NewValue}\tEmo: {itemName}\n";
@@ -372,7 +512,6 @@ namespace TranslationLibrary.Emotracker.Controller
                                             }
                                             break;
                                     }
-                                    // -------------------------
                                 }
                                 else
                                 {
@@ -383,6 +522,73 @@ namespace TranslationLibrary.Emotracker.Controller
                                         $"Map:\t{mapName}\n" +
                                         $"Entry:\t{conditionName} Value:{conditionValue}\n" +
                                         $"********************************\n");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        private void MapSharedItems() 
+        {
+            if (SharedItems == null || Maps == null || Tracker.ItemDatabase == null)
+                return;
+
+            // Get the sharedItem
+            foreach (string sharedItem in SharedItems) 
+            { 
+                // Get the Map
+                foreach (ItemMap itemMap in Maps) 
+                { 
+                    string? mapShared = itemMap.Shared;
+                    string? mapItemRef1 = itemMap.RawItemReference;
+                    string? mapItemRef2 = itemMap.RawItemReference2;
+
+                    int? onValue1 = itemMap.OnValue;
+                    int? onValue2 = itemMap.OnValue2;
+
+                    if (itemMap.Shared == sharedItem) 
+                    { 
+                        // Get the item from database
+                        foreach (Item item in Tracker.ItemDatabase) 
+                        {
+                            string? itemName = item.ItemReference;
+                            string? itemType = item.Type;
+
+                            if (itemName == mapItemRef1 || itemName == mapItemRef2) 
+                            {
+                                if (itemName == "636:progressive:Hylian%20Shield" && item.StageIndex == 1)
+                                {
+                                    string test = "A";
+                                }
+
+                                switch (itemType)
+                                {
+                                    case "progressive":
+                                        if (itemName == mapItemRef1) 
+                                        {
+                                            int? newValue1 = onValue1;
+                                            if (newValue1 !=item.StageIndex) 
+                                            {
+                                                item.StageIndex = onValue1;
+                                                item.NewValue = onValue1.ToString();
+                                                ChangeCount++;
+                                                ChangeLog += $"Original: {item.OldValue}\tChange: {item.NewValue}\tEmo: {itemName}\n";
+                                            }
+                                        }
+                                        else if (itemName == mapItemRef2) 
+                                        {
+                                            int? newValue2 = onValue2 != null ? onValue2 : onValue1;
+
+                                            if (newValue2 != item.StageIndex) 
+                                            {
+                                                item.StageIndex = newValue2;
+                                                item.NewValue = item.StageIndex.ToString();
+                                                ChangeCount++;
+                                                ChangeLog += $"Original: {item.OldValue}\tChange: {item.NewValue}\tEmo: {itemName}\n";
+                                            }
+                                        }
+                                        break;
                                 }
                             }
                         }

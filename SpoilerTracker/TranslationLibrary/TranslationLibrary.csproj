@@ -11,7 +11,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Emotracker\Maps\Map - Items .json">
+    <Content Include="Emotracker\Maps\Map - Consumable Items .json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Emotracker\Maps\Map - Unique Items - Copy.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Emotracker\Maps\Map - Unique Items.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Emotracker\Maps\Map - Lua Items.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Emotracker\Maps\Map - Progressive Items.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Emotracker\Maps\Map - Toggle Items.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Emotracker\Maps\Map - Shareable Items.json">

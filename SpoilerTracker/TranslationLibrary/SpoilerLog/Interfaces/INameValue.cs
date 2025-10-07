@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace TranslationLibrary.SpoilerLog.Interfaces
 {
-    public interface INameValue
+    public interface INameValueCount
     {
         string? Name { get; }
         string? Value { get; }
+        int? Count { get; }
     }
 }

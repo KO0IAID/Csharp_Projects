@@ -1,0 +1,205 @@
+﻿[
+  {
+    "spoiler_label": "Empty Bottle (OoT)",
+    "item_reference": "progressive:Bottle%201",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Bottle of Milk (OoT)",
+    "item_reference": "progressive:Bottle%202",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Empty Bottle (MM)",
+    "item_reference": "progressive:Bottle1",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Bottle of Red Potion (MM)",
+    "item_reference": "progressive:Bottle2",
+    "values": {
+      "true": 2,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Bottle of Milk (MM)",
+    "item_reference": "progressive:Bottle3",
+    "values": {
+      "true": 5,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Bottle of Chateau Romani",
+    "item_reference": "progressive:Bottle4",
+    "values": {
+      "true": 6,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Owl Statue (Clock Town)",
+    "item_reference": "progressive:Clock%20Town%20Owl%20Statue",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Goron Lullaby",
+    "item_reference": "progressive:Goron%20Lullaby",
+    "values": {
+      "true": 2,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Owl Statue (Great Bay)",
+    "item_reference": "progressive:Great%20Bay%20Owl%20Statue",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Owl Statue (Ikana Canyon)",
+    "item_reference": "progressive:Ikana%20Canyon%20Owl%20Statue",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Owl Statue (Milk Road)",
+    "item_reference": "progressive:Milk%20Road%20Owl%20Statue",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Owl Statue (Mountain Village)",
+    "item_reference": "progressive:Mountain%20Village%20Owl%20Statue",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Fair Slingshot",
+    "item_reference": "progressive:Slingshot",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Owl Statue (Snowhead)",
+    "item_reference": "progressive:Snowhead%20Owl%20Statue",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Owl Statue (Southern Swamp)",
+    "item_reference": "progressive:Southern%20Swamp%20Owl%20Statue",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Owl Statue (Stone Tower)",
+    "item_reference": "progressive:Stone%20Tower%20Owl%20Statue",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Owl Statue (Woodfall)",
+    "item_reference": "progressive:Woodfall%20Owl%20Statue",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Owl Statue (Zora Cape)",
+    "item_reference": "progressive:Zora%20Cape%20Owl%20Statue",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Hero's Shield",
+    "item_reference": "progressive:Shield",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Hylian Shield",
+    "item_reference": "progressive:Hylian%20Shield",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "1 Bombchu (MM)",
+    "item_reference": "408:progressive:Bombchus",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "5 Bombchu (MM)",
+    "item_reference": "408:progressive:Bombchus",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "10 Bombchu (MM)",
+    "item_reference": "408:progressive:Bombchus",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "5 Bombchu (OoT)",
+    "item_reference": "656:progressive:Bombchus",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "20 Bombchu (OoT)",
+    "item_reference": "656:progressive:Bombchus",
+    "values": {
+      "true": 1,
+      "false": 0
+    }
+  }
+]
+
+
+

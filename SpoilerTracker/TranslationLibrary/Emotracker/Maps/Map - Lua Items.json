@@ -1,0 +1,106 @@
+﻿[
+  {
+    "spoiler_label": "Kokiri's Emerald",
+    "item_reference": "lua:Deku%20Tree%20Reward",
+    "values": {
+      "true": 2,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Goron's Ruby",
+    "item_reference": "lua:Dodongos%20Cavern%20Reward",
+    "values": {
+      "true": 2,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Fire Medallion",
+    "item_reference": "lua:Fire%20Temple%20Reward",
+    "values": {
+      "true": 4,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Forest Medallion",
+    "item_reference": "lua:Forest%20Temple%20Reward",
+    "values": {
+      "true": 3,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Light Medallion",
+    "item_reference": "lua:Free%20Reward",
+    "values": {
+      "true": 6,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Zora's Sapphire",
+    "item_reference": "lua:Jabu%20Jabu%20Reward",
+    "values": {
+      "true": 2,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Gyorg's Remains",
+    "item_reference": "lua:MM%20Great%20Bay%20Temple%20Reward",
+    "values": {
+      "true": 9,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Goht's Remains",
+    "item_reference": "lua:MM%20Snowhead%20Temple%20Reward",
+    "values": {
+      "true": 8,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Twinmold's Remains",
+    "item_reference": "lua:MM%20Stone%20Tower%20Temple%20Reward",
+    "values": {
+      "true": 10,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Odolwa's Remains",
+    "item_reference": "lua:MM%20Woodfall%20Temple%20Reward",
+    "values": {
+      "true": 7,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Shadow Medallion",
+    "item_reference": "lua:Shadow%20Temple%20Reward",
+    "values": {
+      "true": 5,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Spirit Medallion",
+    "item_reference": "lua:Spirit%20Temple%20Reward",
+    "values": {
+      "true": 5,
+      "false": 0
+    }
+  },
+  {
+    "spoiler_label": "Water Medallion",
+    "item_reference": "lua:Water%20Temple%20Reward",
+    "values": {
+      "true": 4,
+      "false": 0
+    }
+  }
+]

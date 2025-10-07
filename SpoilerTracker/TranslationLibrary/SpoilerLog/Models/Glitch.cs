@@ -7,10 +7,11 @@ using TranslationLibrary.SpoilerLog.Interfaces;
 
 namespace TranslationLibrary.SpoilerLog.Models
 {
-    public class Glitch : ICreateFromLine<Glitch> , INameValue
+    public class Glitch : ICreateFromLine<Glitch> , INameValueCount
     {
         public string? Name { get; set; }
         public string? Value { get; set; }
+        public int? Count { get; set; }
         public string? Description { get; set; }
         public string? Difficulty { get; set; }
         public int? LogOrder { get; set; } = 0;

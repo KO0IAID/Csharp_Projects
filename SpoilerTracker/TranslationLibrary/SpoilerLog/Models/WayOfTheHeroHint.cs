@@ -49,8 +49,9 @@ namespace TranslationLibrary.SpoilerLog.Models
                     Item = parts[2].Trim()
                 };
             }
+            
 
-            throw new FormatException($"WayOfHero Couldn't CreateFromLine due to line format in: '{line}'");
+            throw new FormatException($"WayOfHeroHint Couldn't CreateFromLine due to line format in: '{line}'");
 
 
         }

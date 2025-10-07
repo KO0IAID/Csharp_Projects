@@ -104,7 +104,7 @@ Settings
   regionState: dungeonBeaten
   freeScarecrowOot: true
   freeScarecrowMm: true
-  strayFairyRewardCount: 15
+  strayFairyRewardCount: 8
   preCompletedDungeons: false
   ootPreplantedBeans: true
   crossAge: false
