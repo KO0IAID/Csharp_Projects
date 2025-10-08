@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace TranslationLibrary.Emotracker.Models
+namespace TranslationLibrary.Emotracker.Models.Items
 {
     public class ItemMap
     {

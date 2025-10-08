@@ -205,12 +205,48 @@ namespace TranslationLibrary.Emotracker.Controller
                 }
 
                 MapGameSettings(Spoiler.GameSettings, "GameSettings", debugStats);
+                MapSharedSettings();
                 MapSpecialConditions(Spoiler.SpecialConditions, "SpecialConditions", debugStats);
                 MapItems(Spoiler.Tricks, "Tricks", debugStats);
                 MapSharedItems();
                 MapItems(Spoiler.StartingItems, "StartingItems", debugStats);
                 
             });
+        }
+        private void MapSharedSettings()
+        {
+            if (Spoiler.GameSettings == null || Maps == null || Tracker?.ItemDatabase == null)
+                return;
+
+            // get setting
+            foreach (Setting entry in Spoiler.GameSettings)
+            {
+                string? entryName = entry.Name;
+                string? entryValue = entry.Value;
+                int? entryCount = entry.Count;
+
+                // get Map
+                foreach (ItemMap itemMap in Maps)
+                {
+                    string? mapName = itemMap.NoIDItemReference;
+                    string? mapSpoilerLabel = itemMap.SpoilerLabel;
+                    string? mapType = itemMap.Type;
+                    string? mapShared = itemMap.Shared;
+                    
+                    if (mapShared == "sharedSoulsEnemy" && entryName == "sharedSoulsEnemy") 
+                    {
+                        string test = "a";
+                    }
+
+                    if (entryName == mapShared) 
+                    {
+                        if (entryValue == "true" && entryName != null && !SharedItems.Contains(entryName))
+                        {
+                            SharedItems.Add(entryName);
+                        }
+                    }
+                }
+            }
         }
         private void MapGameSettings(List<Setting>? source, string sourceType, bool debugStats)
         {
@@ -252,10 +288,6 @@ namespace TranslationLibrary.Emotracker.Controller
                                         case "progressive":
                                             if (mappedValue != item.StageIndex)
                                             {
-                                                if (mapSpoilerLabel.StartsWith("shared")) 
-                                                { 
-                                                    SharedItems.Add(mapSpoilerLabel);
-                                                }
                                                 item.StageIndex = mappedValue;
                                                 item.NewValue = mappedValue.ToString();
                                                 ChangeCount++;
@@ -557,11 +589,6 @@ namespace TranslationLibrary.Emotracker.Controller
 
                             if (itemName == mapItemRef1 || itemName == mapItemRef2) 
                             {
-                                if (itemName == "636:progressive:Hylian%20Shield" && item.StageIndex == 1)
-                                {
-                                    string test = "A";
-                                }
-
                                 switch (itemType)
                                 {
                                     case "progressive":
@@ -596,6 +623,7 @@ namespace TranslationLibrary.Emotracker.Controller
                 }
             }
         }
+
         #endregion
 
     }
